@@ -1,4 +1,3 @@
-const express = require("express");
 const movieDatabase = require("../db/db");
 
 module.exports.getMovies = (req, res) => {
@@ -7,9 +6,13 @@ module.exports.getMovies = (req, res) => {
 };
 
 module.exports.getMovie = (req, res) => {
-  res.render("index");
+  res.render("details");
 };
 
 module.exports.getMovieList = (req, res) => {
-  res.render("index");
+  res.render("list");
+};
+
+module.exports.searchMovie = (req, res) => {
+  res.render("search");
 };

@@ -19,8 +19,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);
 
-app.get("/", (req, res) => {
-  res.render("index", { name: "Hello World" });
-});
+// app.get("/", (req, res) => {
+//   res.render("index", { name: "Hello World" });
+// });
 
 app.listen(PORT, console.log("server started at", PORT));

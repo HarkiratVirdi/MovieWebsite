@@ -1,8 +1,8 @@
 const express = require("express");
-const { loginUser } = require("../controllers/userController");
-const { route } = require("./movieRoutes");
+const { loginUser, registerUser } = require("../controllers/userController");
 const router = express.Router();
 
-router.route("/").get(loginUser);
+router.route("/login").get(loginUser);
+router.route("/register").get(registerUser);
 
 module.exports = router;

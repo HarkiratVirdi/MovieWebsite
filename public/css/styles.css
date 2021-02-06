@@ -27,6 +27,10 @@ a {
   text-decoration: none;
   color: #fff; }
 
+img {
+  width: 25%;
+  object-fit: cover; }
+
 ul,
 li {
   list-style-type: none; }

@@ -42,6 +42,12 @@ a {
   color: $white;
 }
 
+img {
+  width: 25%;
+
+  object-fit: cover;
+}
+
 ul,
 li {
   list-style-type: none;
