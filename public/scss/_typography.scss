@@ -1,7 +1,10 @@
 %heading {
   font-weight: 400;
   font-family: $font-primary;
+  color:$white;
 }
+
+
 
 @mixin color-text {
   &--white {
@@ -19,6 +22,7 @@
 
 p {
   font-size: 1.8rem;
+    color: $white;
 }
 
 a,

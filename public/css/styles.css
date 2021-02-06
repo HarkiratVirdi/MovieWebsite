@@ -13,7 +13,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  font-family: "Lora", serif; }
 
 body {
   background: #262626; }
@@ -37,10 +37,12 @@ button {
 
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6 {
   font-weight: 400;
-  font-family: "Lora", serif; }
+  font-family: "Lora", serif;
+  color: #fff; }
 
 p {
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  color: #fff; }
 
 a,
 li {

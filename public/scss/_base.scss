@@ -24,7 +24,8 @@ $mobile-breakpoint: 500px;
 
 html {
   font-size: 62.5%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-family: $font-primary;
+
 }
 
 body {
