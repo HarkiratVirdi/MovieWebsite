@@ -1,0 +1,24 @@
+.header {
+  height: 8.5rem;
+
+  &_nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  &_logo {
+    font-size: 2rem;
+  }
+
+  &_list {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    &_links {
+      color: $white;
+    }
+  }
+}

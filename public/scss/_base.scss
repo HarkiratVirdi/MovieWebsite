@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
+
+$white: #fff;
+$black: rgb(0, 0, 0);
+$Lightblack: #262626;
+$cta: #ec5033;
+$font-primary: "Lora", serif;
+$tablet-breakpoint: 870px;
+$mobile-breakpoint: 500px;
+
+::selection {
+  background-color: $white;
+  color: $black;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background: $Lightblack;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

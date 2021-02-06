@@ -1,0 +1,15 @@
+{{>hero}}
+
+<section>
+
+    <h1>
+        Featured Movies
+    </h1>
+    <ul class="people_list">
+        {{#each movies}}
+        <li>{{this.name}}</li>
+        <li>{{this.featured}}</li>
+        <li>{{this.rent}}</li>
+        {{/each}}
+    </ul>
+</section>

@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
+::selection {
+  background-color: #fff;
+  color: black; }
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; }
+
+html {
+  font-size: 62.5%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+body {
+  background: #262626; }
+
+.container {
+  max-width: 1400px;
+  margin: auto; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+ul,
+li {
+  list-style-type: none; }
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer; }
+
+.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6 {
+  font-weight: 400;
+  font-family: "Lora", serif; }
+
+p {
+  font-size: 1.8rem; }
+
+a,
+li {
+  font-size: 1.4rem;
+  color: #fff; }
+
+.heading-1 {
+  font-size: 6rem;
+  line-height: 1; }
+  .heading-1--white {
+    color: #fff; }
+  .heading-1--black {
+    color: black; }
+  .heading-1--cta {
+    color: #ec5033; }
+  @media only screen and (max-width: 500px) {
+    .heading-1 {
+      font-size: 3rem; } }
+
+.heading-2 {
+  font-size: 5rem;
+  text-transform: capitalize; }
+  .heading-2--white {
+    color: #fff; }
+  .heading-2--black {
+    color: black; }
+  .heading-2--cta {
+    color: #ec5033; }
+
+.heading-3 {
+  font-size: 4rem;
+  line-height: 1; }
+  @media only screen and (max-width: 500px) {
+    .heading-3 {
+      font-size: 3rem; } }
+  .heading-3--white {
+    color: #fff; }
+  .heading-3--black {
+    color: black; }
+  .heading-3--cta {
+    color: #ec5033; }
+
+.heading-4 {
+  font-size: 2rem; }
+  .heading-4--white {
+    color: #fff; }
+  .heading-4--black {
+    color: black; }
+  .heading-4--cta {
+    color: #ec5033; }
+  @media only screen and (max-width: 500px) {
+    .heading-4 {
+      font-size: 4vw; } }
+
+.heading-5 {
+  line-height: 1.3;
+  font-size: 1.4rem; }
+  .heading-5--white {
+    color: #fff; }
+  .heading-5--black {
+    color: black; }
+  .heading-5--cta {
+    color: #ec5033; }
+
+.heading-6 {
+  font-size: 1.2rem; }
+  .heading-6--white {
+    color: #fff; }
+  .heading-6--black {
+    color: black; }
+  .heading-6--cta {
+    color: #ec5033; }
+
+.header {
+  height: 8.5rem; }
+  .header_nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; }
+  .header_logo {
+    font-size: 2rem; }
+  .header_list {
+    display: flex;
+    justify-content: space-between;
+    width: 35%; }
+    .header_list_links {
+      color: #fff; }
