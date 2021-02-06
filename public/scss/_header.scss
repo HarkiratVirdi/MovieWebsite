@@ -1,5 +1,5 @@
 .header {
-  height: 8.5rem;
+  height: 20vh;
 
   &_nav {
     height: 100%;
@@ -19,6 +19,22 @@
     width: 35%;
     &_links {
       color: $white;
+      @media only screen and (max-width: $tablet-breakpoint) {
+        display: none;
+      }
+    }
+    @media only screen and (max-width: $tablet-breakpoint) {
+      width: 12%;
+    }
+
+    &_menu {
+      @media only screen and (min-width: $tablet-breakpoint) {
+        display: none;
+      }
+
+      @media only screen and (max-width: $tablet-breakpoint) {
+        display: inline-block;
+      }
     }
   }
 }

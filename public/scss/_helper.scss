@@ -1,0 +1,33 @@
+.mt-m {
+  margin-top: 2vw;
+}
+.mt-l {
+  margin-top: 3.5vw;
+}
+.mb-s {
+  margin-bottom: 1.3vw;
+}
+.mb-m {
+  margin-bottom: 2vw;
+}
+.mb-l {
+  margin-bottom: 3.5vw;
+}
+.ml-s {
+  margin-left: 1vw;
+}
+.ml-m {
+  margin-left: 2vw;
+}
+.ml-l {
+  margin-left: 3.5vw;
+}
+.m-hide {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    display: none !important;
+  }
+}
+
+.mt-s {
+  margin-top: 1vw;
+}

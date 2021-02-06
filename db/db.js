@@ -6,6 +6,7 @@ module.exports.movies = [
     rating: "60",
     rent: "3",
     buy: "15",
+    img: "",
   },
   {
     id: 2,
@@ -22,5 +23,17 @@ module.exports.movies = [
     rating: "45",
     rent: "10",
     buy: "29.9",
+  },
+  {
+    id: 4,
+    name: "Tenet",
+    featured: true,
+    rating: "80",
+    rent: "15",
+    buy: "40",
+    category: "movie",
+    synopsis: "excellent movie amazing mind blowing",
+    img_s: "https://images2.vudu.com/assets/content/poster/1493460-144",
+    img_l: "https://images2.vudu.com/background/1493460-1280a.jpg",
   },
 ];

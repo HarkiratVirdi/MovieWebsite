@@ -16,7 +16,8 @@ html {
   font-family: "Lora", serif; }
 
 body {
-  background: #262626; }
+  background: black;
+  overflow-x: hidden; }
 
 .container {
   max-width: 1400px;
@@ -117,7 +118,7 @@ li {
     color: #ec5033; }
 
 .header {
-  height: 8.5rem; }
+  height: 20vh; }
   .header_nav {
     height: 100%;
     display: flex;
@@ -132,3 +133,87 @@ li {
     width: 35%; }
     .header_list_links {
       color: #fff; }
+      @media only screen and (max-width: 870px) {
+        .header_list_links {
+          display: none; } }
+    @media only screen and (max-width: 870px) {
+      .header_list {
+        width: 12%; } }
+    @media only screen and (min-width: 870px) {
+      .header_list_menu {
+        display: none; } }
+    @media only screen and (max-width: 870px) {
+      .header_list_menu {
+        display: inline-block; } }
+
+.hero {
+  height: 80vh;
+  width: 100%; }
+  .hero_carousel {
+    background-color: #fff;
+    height: 60vh; }
+  .hero_arrows_left {
+    font-size: 4rem;
+    color: black;
+    position: absolute;
+    z-index: 10;
+    padding: 2rem;
+    cursor: pointer;
+    top: 40%;
+    height: 100%;
+    left: 0; }
+  .hero_arrows_right {
+    cursor: pointer;
+    height: 100%;
+    padding: 2rem;
+    font-size: 4rem;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    color: black; }
+  .hero_pagination {
+    height: 20vh;
+    display: flex;
+    width: 10rem;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10%;
+    justify-content: space-between; }
+    .hero_pagination_button {
+      border-radius: 50%;
+      width: 1rem;
+      cursor: pointer;
+      height: 1rem;
+      background-color: #262626; }
+
+.mt-m {
+  margin-top: 2vw; }
+
+.mt-l {
+  margin-top: 3.5vw; }
+
+.mb-s {
+  margin-bottom: 1.3vw; }
+
+.mb-m {
+  margin-bottom: 2vw; }
+
+.mb-l {
+  margin-bottom: 3.5vw; }
+
+.ml-s {
+  margin-left: 1vw; }
+
+.ml-m {
+  margin-left: 2vw; }
+
+.ml-l {
+  margin-left: 3.5vw; }
+
+@media only screen and (max-width: 500px) {
+  .m-hide {
+    display: none !important; } }
+
+.mt-s {
+  margin-top: 1vw; }

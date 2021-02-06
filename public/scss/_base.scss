@@ -24,12 +24,12 @@ $mobile-breakpoint: 500px;
 
 html {
   font-size: 62.5%;
-   font-family: $font-primary;
-
+  font-family: $font-primary;
 }
 
 body {
-  background: $Lightblack;
+  background: $black;
+  overflow-x: hidden;
 }
 
 .container {
