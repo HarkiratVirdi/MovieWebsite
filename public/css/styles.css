@@ -196,7 +196,14 @@ li {
   width: 100%; }
   .hero_carousel {
     background-color: #fff;
-    height: 60vh; }
+    height: 60vh;
+    width: 500%;
+    display: flex;
+    overflow: hidden; }
+    .hero_carousel_slides {
+      width: 100%; }
+      .hero_carousel_slides img {
+        width: 100%; }
   .hero_arrows_left {
     font-size: 4rem;
     color: black;
@@ -329,7 +336,6 @@ li {
     padding: 0.4rem 0;
     font-size: 1.1rem;
     text-decoration: none;
-    font-weight: 800;
     position: relative;
     white-space: nowrap;
     text-transform: uppercase;
@@ -350,8 +356,7 @@ li {
       width: 100%;
       left: 0; }
   .footer__logo {
-    text-align: center;
-    padding-bottom: 3rem; }
+    text-align: center; }
   .footer__left {
     display: flex;
     width: 80%;

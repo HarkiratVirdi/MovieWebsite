@@ -1,6 +1,12 @@
 <section class="hero">
     <div class="hero_carousel">
-    
+        {{#each images}}
+   <div class="hero_carousel_slides">
+  
+        <img src={{this}} alt="">
+   
+</div>
+        {{/each}}
     </div>
     <div class="hero_pagination">
         <a class="hero_pagination_button" href=""></a>

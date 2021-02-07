@@ -5,8 +5,19 @@
   &_carousel {
     background-color: $white;
     height: 60vh;
+    width: 500%;
+    display: flex;
     // position: relative;
     // top: 0;
+    overflow: hidden;
+
+    &_slides {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
   &_arrows {
