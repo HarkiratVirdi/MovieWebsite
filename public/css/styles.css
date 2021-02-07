@@ -350,10 +350,8 @@ li {
       width: 100%;
       left: 0; }
   .footer__logo {
-    padding-bottom: 3rem;
-    overflow: hidden;
-    margin: auto;
-    width: 20rem; }
+    text-align: center;
+    padding-bottom: 3rem; }
   .footer__left {
     display: flex;
     width: 80%;
