@@ -1,23 +1,24 @@
 {{>hero}}
 
+<div class="container">
 <section>
 
-    <div class="heading-1">
+    <div class="h-3 mb-s">
         Featured Movies
     </div>
-    <ul class="people_list">
-        {{#each movies}}
-        <li>{{this.name}}</li>
-        <li>{{this.featured}}</li>
-        <li>{{this.rent}}</li>
-        <li>{{this.img_s}}</li>
-        <img src={{this.img_s}} alt="">
-        <img src={{this.img_l}} alt="">
-        <li>{{this.img_l}}</li>
-        <li>{{this.category}}</li>
-        <li>{{this.synopsis}}</li>
-        <li>{{this.rating}}</li>
 
+    {{>movieCarousel}}
+    <div class="movie_list">
+        <div class="movie_list_featured">
+        {{#each movies}}
+            {{>movieIcon this}}
         {{/each}}
-    </ul>
+        </div>
+    </div>
+
+    <div class="movie_carousel">
+
+    </div>
+
 </section>
+</div>

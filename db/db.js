@@ -15,7 +15,7 @@ module.exports.movies = [
   {
     id: 2,
     name: "The Conjuring",
-    featured: false,
+    featured: true,
     rating: "70",
     rent: "2",
     buy: "12",
@@ -92,7 +92,7 @@ module.exports.movies = [
   {
     id: 8,
     name: "Kong: Skull Island",
-    featured: true,
+    featured: false,
     rating: "80",
     rent: "15",
     buy: "40",

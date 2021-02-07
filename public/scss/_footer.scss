@@ -1,0 +1,145 @@
+.footer {
+  background-color: $black;
+  width: 100%;
+  padding: 4rem;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    //   flex-direction: column;
+    padding: 2rem;
+  }
+
+  h4 {
+    white-space: nowrap;
+  }
+
+  a {
+    color: $white;
+    transition: all 0.4s;
+    padding: 0.4rem 0;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 800;
+    position: relative;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-family: $font-primary;
+
+    &::after {
+      text-align: center;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: $white;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+
+    &:hover:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__logo {
+    text-align: center;
+    padding-bottom: 3rem;
+  }
+
+  &__left {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      //   flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      text-align: center;
+    }
+
+    &--1 {
+      &-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media only screen and (max-width: $tablet-breakpoint) {
+        width: 50%;
+        display: flex;
+
+        justify-content: center;
+      }
+      @media only screen and (max-width: $mobile-breakpoint) {
+        width: 100%;
+
+        display: flex;
+        margin-top: 2rem;
+      }
+    }
+
+    &--2 {
+      &-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+      @media only screen and (max-width: $tablet-breakpoint) {
+        width: 50%;
+        justify-content: center;
+        display: flex;
+      }
+      @media only screen and (max-width: $mobile-breakpoint) {
+        width: 100%;
+
+        display: flex;
+        margin-top: 2rem;
+      }
+    }
+
+    &--3 {
+      &-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+      @media only screen and (max-width: $tablet-breakpoint) {
+        width: 50%;
+        justify-content: center;
+        display: flex;
+        margin-top: 2rem;
+      }
+      @media only screen and (max-width: $mobile-breakpoint) {
+        width: 100%;
+
+        display: flex;
+        margin-top: 2rem;
+      }
+    }
+
+    &--4 {
+      &-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+      @media only screen and (max-width: $tablet-breakpoint) {
+        width: 50%;
+        justify-content: center;
+        display: flex;
+        margin-top: 2rem;
+      }
+      @media only screen and (max-width: $mobile-breakpoint) {
+        width: 100%;
+
+        display: flex;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

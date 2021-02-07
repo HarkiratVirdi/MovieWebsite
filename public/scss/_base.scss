@@ -2,8 +2,9 @@
 
 $white: #fff;
 $black: rgb(0, 0, 0);
-$Lightblack: #262626;
-$cta: #ec5033;
+$Lightblack: #0e0e0e;
+$grey: #333;
+$cta: orange;
 $font-primary: "Lora", serif;
 $tablet-breakpoint: 870px;
 $mobile-breakpoint: 500px;
@@ -28,22 +29,24 @@ html {
 }
 
 body {
-  background: $black;
+  background: $Lightblack;
   overflow-x: hidden;
 }
 
 .container {
   max-width: 1400px;
   margin: auto;
+  padding: 0 2rem;
 }
 
 a {
   text-decoration: none;
   color: $white;
+  cursor: pointer;
 }
 
 img {
-  width: 25%;
+  width: 100%;
 
   object-fit: cover;
 }
