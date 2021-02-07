@@ -124,7 +124,7 @@ li {
     color: orange; }
 
 .h-3-vw {
-  font-size: 4vw; }
+  font-size: 3.5vw; }
 
 .movie_list {
   overflow-x: scroll;
@@ -185,6 +185,11 @@ li {
     @media only screen and (max-width: 870px) {
       .header_list_menu {
         display: inline-block; } }
+
+.marquee {
+  animation: transformRight 8s linear infinite forwards;
+  display: flex;
+  white-space: nowrap; }
 
 .hero {
   height: 80vh;
@@ -285,7 +290,8 @@ li {
       grid-template-columns: 1fr; } }
   .contentsection_banner {
     display: grid;
-    align-items: center; }
+    align-items: center;
+    padding-left: 1rem; }
     @media only screen and (max-width: 500px) {
       .contentsection_banner {
         position: absolute;
@@ -299,7 +305,7 @@ li {
     overflow: hidden; }
     .contentsection_images_container {
       display: flex;
-      animation: transformRight 25s infinite;
+      animation: transformRight 30s infinite;
       animation-timing-function: linear; }
 
 @keyframes transformRight {
@@ -344,8 +350,10 @@ li {
       width: 100%;
       left: 0; }
   .footer__logo {
-    text-align: center;
-    padding-bottom: 3rem; }
+    padding-bottom: 3rem;
+    overflow: hidden;
+    margin: auto;
+    width: 20rem; }
   .footer__left {
     display: flex;
     width: 80%;

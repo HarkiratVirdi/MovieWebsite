@@ -45,8 +45,10 @@
   }
 
   &__logo {
-    text-align: center;
     padding-bottom: 3rem;
+    overflow: hidden;
+    margin: auto;
+    width: 20rem;
   }
 
   &__left {

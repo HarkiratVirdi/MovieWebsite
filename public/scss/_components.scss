@@ -1,0 +1,5 @@
+.marquee {
+  animation: transformRight 8s linear infinite forwards;
+  display: flex;
+  white-space: nowrap;
+}

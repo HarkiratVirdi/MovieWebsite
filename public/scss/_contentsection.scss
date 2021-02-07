@@ -12,6 +12,7 @@
   &_banner {
     display: grid;
     align-items: center;
+    padding-left: 1rem;
     @media only screen and (max-width: $mobile-breakpoint) {
       position: absolute;
       top: 50%;
@@ -27,9 +28,8 @@
 
     &_container {
       display: flex;
-      animation: transformRight 25s infinite;
+      animation: transformRight 30s infinite;
       animation-timing-function: linear;
-      //   grid-template-columns: repeat(5, 1fr);
     }
   }
 }
