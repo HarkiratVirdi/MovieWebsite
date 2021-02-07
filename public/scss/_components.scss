@@ -3,3 +3,23 @@
   display: flex;
   white-space: nowrap;
 }
+
+.cursor_js {
+  position: fixed;
+  top: -30px;
+  border: 1.5px solid $white;
+  background: transparent;
+  width: 4rem;
+  height: 4rem;
+  z-index: 999;
+  pointer-events: none;
+  border-radius: 50%;
+  // backdrop-filter: contrast(40%);
+  // transition: 0.1s transform;
+  animation-timing-function: ease-in-out;
+  transform: translate(-50%, -50%);
+  transform-origin: 150% 150%;
+  @media only screen and (max-width: $tablet-breakpoint) {
+    display: none;
+  }
+}

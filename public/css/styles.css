@@ -191,6 +191,23 @@ li {
   display: flex;
   white-space: nowrap; }
 
+.cursor_js {
+  position: fixed;
+  top: -30px;
+  border: 1.5px solid #fff;
+  background: transparent;
+  width: 4rem;
+  height: 4rem;
+  z-index: 999;
+  pointer-events: none;
+  border-radius: 50%;
+  animation-timing-function: ease-in-out;
+  transform: translate(-50%, -50%);
+  transform-origin: 150% 150%; }
+  @media only screen and (max-width: 870px) {
+    .cursor_js {
+      display: none; } }
+
 .hero {
   height: 80vh;
   width: 100%; }
@@ -199,9 +216,12 @@ li {
     height: 60vh;
     width: 500%;
     display: flex;
+    transition: 0.5s all;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     overflow: hidden; }
     .hero_carousel_slides {
-      width: 100%; }
+      width: 100%;
+      display: flex; }
       .hero_carousel_slides img {
         width: 100%; }
   .hero_arrows_left {
@@ -238,6 +258,12 @@ li {
       cursor: pointer;
       height: 1rem;
       background-color: #333; }
+
+.slides_banner {
+  width: 40%; }
+
+.slides_images {
+  width: 60%; }
 
 .mt-m {
   margin-top: 2rem; }

@@ -7,13 +7,15 @@
     height: 60vh;
     width: 500%;
     display: flex;
+    transition: 0.5s all;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     // position: relative;
     // top: 0;
     overflow: hidden;
 
     &_slides {
       width: 100%;
-
+      display: flex;
       img {
         width: 100%;
       }
@@ -61,5 +63,15 @@
       height: 1rem;
       background-color: $grey;
     }
+  }
+}
+
+.slides {
+  &_banner {
+    width: 40%;
+  }
+
+  &_images {
+    width: 60%;
   }
 }
