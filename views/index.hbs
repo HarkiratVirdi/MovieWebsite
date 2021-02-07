@@ -1,16 +1,21 @@
 {{>hero}}
 
 <div class="container">
-<section>
+<section class="mb-xl">
 
     <div class="h-3 mb-s">
         Featured Movies
     </div>
 
     {{>movieCarousel movies=movies isMovies=true}}
-    {{>movieCarousel isMovies=false movies=movies}}
 
+    <div class="h-3 mb-s mt-l">
+        Featured TV 
+    </div>
+    {{>movieCarousel isMovies=false movies=movies}}
     </div>
 
 </section>
 </div>
+
+{{>contentSection images=images}}

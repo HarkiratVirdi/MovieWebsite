@@ -123,6 +123,9 @@ li {
   .h-6--cta {
     color: orange; }
 
+.h-3-vw {
+  font-size: 4vw; }
+
 .movie_list {
   overflow-x: scroll;
   display: flex;
@@ -239,11 +242,17 @@ li {
 .mt-l {
   margin-top: 3.5vw; }
 
+.mt-xl {
+  margin-top: 6vw; }
+
 .mb-s {
   margin-bottom: 1.3vw; }
 
 .mb-m {
   margin-bottom: 2vw; }
+
+.mb-xl {
+  margin-bottom: 6vw; }
 
 .mb-l {
   margin-bottom: 3.5vw; }
@@ -263,6 +272,41 @@ li {
 
 .mt-s {
   margin-top: 1vw; }
+
+.contentsection {
+  width: 100%;
+  display: grid;
+  background-color: #111111;
+  grid-template-columns: 1fr 3fr; }
+  @media only screen and (max-width: 500px) {
+    .contentsection {
+      position: relative;
+      top: 0;
+      grid-template-columns: 1fr; } }
+  .contentsection_banner {
+    display: grid;
+    align-items: center; }
+    @media only screen and (max-width: 500px) {
+      .contentsection_banner {
+        position: absolute;
+        top: 50%;
+        display: none;
+        left: 50%;
+        white-space: nowrap;
+        transform: translate(-50%, -50%);
+        z-index: 15; } }
+  .contentsection_images {
+    overflow: hidden; }
+    .contentsection_images_container {
+      display: flex;
+      animation: transformRight 25s infinite;
+      animation-timing-function: linear; }
+
+@keyframes transformRight {
+  from {
+    transform: translateX(0%); }
+  to {
+    transform: translateX(-100%); } }
 
 .footer {
   background-color: black;

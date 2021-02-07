@@ -1,0 +1,44 @@
+.contentsection {
+  width: 100%;
+  display: grid;
+  background-color: $lighterblack;
+
+  grid-template-columns: 1fr 3fr;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    position: relative;
+    top: 0;
+    grid-template-columns: 1fr;
+  }
+  &_banner {
+    display: grid;
+    align-items: center;
+    @media only screen and (max-width: $mobile-breakpoint) {
+      position: absolute;
+      top: 50%;
+      display: none;
+      left: 50%;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      z-index: 15;
+    }
+  }
+  &_images {
+    overflow: hidden;
+
+    &_container {
+      display: flex;
+      animation: transformRight 25s infinite;
+      animation-timing-function: linear;
+      //   grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
+
+@keyframes transformRight {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
