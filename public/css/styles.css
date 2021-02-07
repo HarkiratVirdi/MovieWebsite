@@ -229,7 +229,7 @@ li {
     height: 100%;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 3; }
 
 .movie_name {
@@ -248,7 +248,8 @@ li {
   user-select: none; }
 
 .movie_char {
-  font-weight: 800; }
+  font-weight: 800;
+  opacity: 0; }
 
 .hero {
   height: 80vh;
