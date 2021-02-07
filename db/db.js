@@ -8,7 +8,7 @@ module.exports.movies = [
     buy: "15",
     img_s: "https://images2.vudu.com/poster2/7652-168",
     img_l: "https://images2.vudu.com/background/7652-1280a.jpg",
-    category: "movie",
+    isMovie: true,
     synopsis:
       "Facing Christmas 3,000 miles from his estranged wife and two children, New York policeman John McClane flies to L.A. bearing presents and hoping to patch up his marriage. Hans Gruber is in L.A. as well, but he's not there to give out presents. He's there to take: more than $600 million in bearer bonds from the Nakatomi Corporation, where McClane's wife Holly is an executive. When the takeover becomes hostile, it's up to John McClane to take on the terrorists--but not without a sense of humor.",
   },
@@ -21,7 +21,7 @@ module.exports.movies = [
     buy: "12",
     img_s: "https://images2.vudu.com/poster2/456779-168",
     img_l: "https://images2.vudu.com/background/456779-1280a.jpg",
-    category: "movie",
+    isMovie: true,
     synopsis:
       "Buy any quality, get every quality: All qualities up to 4K UHD included with purchase. Before there was Amityville, there was Harrisville. The Conjuring tells the horrifying true story of Ed and Lorraine Warren, world renowned paranormal investigators, who were called to help a family terrorized by a dark presence in a secluded farmhouse. Forced to confront a powerful demonic entity, the Warrens find themselves caught in the most terrifying case of their lives.",
   },
@@ -33,7 +33,7 @@ module.exports.movies = [
     rent: "10",
     img_s: "https://images2.vudu.com/poster2/845903-168",
     img_l: "https://images2.vudu.com/background/845903-1280a.jpg",
-    category: "movie",
+    isMovie: true,
     synopsis:
       "Buy any quality, get every quality: All qualities up to 4K UHD included with purchase. Before she was Wonder Woman, she was Diana, princess of the Amazons. Fighting alongside man in a war to end all wars, Diana will discover her full powers...and her true destiny. Watch it in Extras+ mode, available on the Vudu mobile app, and experience bonuses synced to the movie, movie trivia, a digital comic, and so much more. See it before you try it in the Free Clips tab.",
     buy: "29.9",
@@ -45,7 +45,7 @@ module.exports.movies = [
     rating: "80",
     rent: "15",
     buy: "40",
-    category: "movie",
+    isMovie: true,
     synopsis: "excellent movie amazing mind blowing",
     img_s: "https://images2.vudu.com/assets/content/poster/1493460-144",
     img_l: "https://images2.vudu.com/background/1493460-1280a.jpg",
@@ -57,7 +57,7 @@ module.exports.movies = [
     rating: "30",
     rent: "25",
     buy: "80",
-    category: "TV",
+    isMovie: false,
     synopsis:
       "The long winter is here. Throughout seven thrilling episodes, the penultimate Season 8 of this blockbuster hit series focuses on a convergence of armies and attitudes that have been brewing for years.",
     img_s: "https://images2.vudu.com/poster2/1101209-168",
@@ -70,7 +70,7 @@ module.exports.movies = [
     rating: "88",
     rent: "5",
     buy: "20",
-    category: "TV",
+    isMovie: false,
     synopsis:
       "AMC's THE WALKING DEAD returns for a terrifying and exhilarating new season. In this post-apocalyptic world, Rick Grimes and his band of survivors continue their ongoing struggle to survive the threat of walkers as well as the dangers that lurk among the living. In the new season, we find Rick and the group fostering a thriving community in the safe haven of the prison. In this brutal world, the group's home and new way of life will be thoroughly tested, and their struggle to survive has never been so perilous.",
     img_s: "https://images2.vudu.com/poster2/482719-168",
@@ -83,7 +83,7 @@ module.exports.movies = [
     rating: "75",
     rent: "8",
     buy: "17",
-    category: "movie",
+    isMovie: true,
     synopsis:
       "The supernatural thriller brings to the screen another real case from the files of renowned demonologists Ed and Lorraine Warren. Reprising their roles, Vera Farmiga and Patrick Wilson star as Lorraine and Ed",
     img_s: "https://images2.vudu.com/poster2/776990-168",
@@ -96,7 +96,7 @@ module.exports.movies = [
     rating: "80",
     rent: "15",
     buy: "40",
-    category: "movie",
+    isMovie: true,
     synopsis:
       "When a scientific expedition to an uncharted island awakens titanic forces of nature, a mission of discovery becomes an explosive war between monster and man. Tom Hiddleston, Samuel L. Jackson, Brie Larson, John Goodman and John C. Reilly star in a thrilling and original adventure that reveals the untold story of how Kong became King. FOR 3D ENABLED TVs ONLY.",
     img_s: "https://images2.vudu.com/poster2/876801-168",
@@ -109,7 +109,7 @@ module.exports.movies = [
     rating: "95",
     rent: "6",
     buy: "19",
-    category: "movie",
+    isMovie: true,
     synopsis:
       "From director Steve McQueen, and based on Solomon Northup's astonishing true story, comes this powerful picture. In 1841, Northup (Chiwetel Ejiofor), a free citizen, is kidnapped, stripped of his identity and sold into slavery. Now, he must find the strength to survive in this unflinching story of hope.",
     img_s: "https://images2.vudu.com/poster2/481186-168",
@@ -122,7 +122,7 @@ module.exports.movies = [
     rating: "97",
     rent: "15",
     buy: "30",
-    category: "TV",
+    isMovie: false,
     synopsis: "excellent movie amazing mind blowing",
     img_s: "https://images2.vudu.com/poster2/207622-168",
     img_l:
@@ -135,7 +135,7 @@ module.exports.movies = [
     rating: "95",
     rent: "15",
     buy: "30",
-    category: "TV",
+    isMovie: false,
     synopsis:
       "A plethora of compelling storylines play out to their inevitable, often bloody conclusions in Season 5 of GAME OF THRONES. In the wake of the numerous shocking deaths of Season 4, the season opens with a power vacuum that the various players all across Westeros and Essos scramble to fill.",
     img_s: "https://images2.vudu.com/poster2/673563-168",

@@ -1,0 +1,18 @@
+<div class="movie_list">
+        <div class="movie_list_featured">
+       {{#if isMovies}}
+    {{#each movies}}
+    {{#if isMovie}}
+            {{>movieIcon this}}
+            {{/if}}
+    {{/each}}
+        {{else}}
+    
+        {{#each movies}}
+        {{#unless isMovie}}
+        {{>movieIcon this}}
+        {{/unless}}
+    {{/each}}
+            {{/if}}
+        </div>
+    </div>

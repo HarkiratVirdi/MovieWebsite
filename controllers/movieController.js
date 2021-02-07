@@ -10,7 +10,7 @@ module.exports.getMovie = (req, res) => {
 };
 
 module.exports.getMovieList = (req, res) => {
-  res.render("list");
+  res.render("list", { movies: movieDatabase.movies });
 };
 
 module.exports.searchMovie = (req, res) => {

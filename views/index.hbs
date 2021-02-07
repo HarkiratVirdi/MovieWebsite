@@ -7,16 +7,8 @@
         Featured Movies
     </div>
 
-    {{>movieCarousel}}
-    <div class="movie_list">
-        <div class="movie_list_featured">
-        {{#each movies}}
-            {{>movieIcon this}}
-        {{/each}}
-        </div>
-    </div>
-
-    <div class="movie_carousel">
+    {{>movieCarousel movies=movies isMovies=true}}
+    {{>movieCarousel isMovies=false movies=movies}}
 
     </div>
 
