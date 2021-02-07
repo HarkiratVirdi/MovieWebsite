@@ -126,7 +126,7 @@ module.exports.movies = [
     synopsis: "excellent movie amazing mind blowing",
     img_s: "https://images2.vudu.com/poster2/207622-168",
     img_l:
-      "https://m.media-amazon.com/images/M/MV5BMTU3NDkxODQyN15BMl5BanBnXkFtZTgwMjc2MDU5NTM@._V1_FMjpg_UX1280_.jpg 1280w",
+      "https://images.amcnetworks.com/amc.com/wp-content/uploads/2012/06/BB-S5-Key-Art-2560-v2.jpg",
   },
   {
     id: 11,

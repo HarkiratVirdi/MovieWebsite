@@ -11,7 +11,24 @@ dotenv.config({ path: "./config.env" });
 console.log(process.env.PORT);
 const PORT = process.env.PORT;
 
-app.engine("hbs", exphbs({ extname: ".hbs", defaultLayout: "main" }));
+app.engine(
+  "hbs",
+  exphbs({
+    extname: ".hbs",
+    defaultLayout: "main",
+    helpers: {
+      splittingBySpace: function (str) {
+        const arr = str.split(" ");
+        console.log(arr);
+        return arr;
+      },
+      splitting: function (str) {
+        const arr = str.split("");
+        return arr;
+      },
+    },
+  })
+);
 app.set("view engine", "hbs");
 
 app.use(express.static(path.join(__dirname, "public")));

@@ -8,7 +8,6 @@ const imagesForContent = [
 ];
 
 module.exports.getMovies = (req, res) => {
-  console.log(movieDatabase);
   res.render("index", {
     movies: movieDatabase.movies,
     images: imagesForContent,
@@ -16,7 +15,14 @@ module.exports.getMovies = (req, res) => {
 };
 
 module.exports.getMovie = (req, res) => {
-  res.render("details");
+  console.log(req.params.id);
+
+  const movie = movieDatabase.movies.filter((movie) => {
+    return movie.id === parseInt(req.params.id);
+  });
+
+  console.log(movie);
+  res.render("details", movie[0]);
 };
 
 module.exports.getMovieList = (req, res) => {

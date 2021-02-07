@@ -20,6 +20,12 @@
   transform: translateY(30px);
 }
 
+.list_movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-row-gap: 6rem;
+}
+
 .featured_tag {
   position: absolute;
   top: -1.8rem;
