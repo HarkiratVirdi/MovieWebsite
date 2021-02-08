@@ -16,7 +16,7 @@ html {
   font-family: "Lora", serif; }
 
 body {
-  background: black;
+  background: #0e0e0e;
   overflow-x: hidden; }
 
 .container {
@@ -202,16 +202,20 @@ li {
   opacity: 0; }
 
 .purchasemovie {
-  width: 20rem;
-  height: 30rem;
-  display: inline-flex;
+  width: 22rem;
+  margin-right: 3rem;
+  display: flex;
   flex-direction: column;
   position: relative;
   margin-top: 2rem;
   top: 0; }
   .purchasemovie img {
-    width: 100%;
-    height: 100%; }
+    width: 22rem;
+    height: 30rem; }
+
+.movie_details {
+  display: flex;
+  justify-content: space-between; }
 
 .header {
   height: 20vh; }

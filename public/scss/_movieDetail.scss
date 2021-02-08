@@ -43,16 +43,21 @@
 }
 
 .purchasemovie {
-  width: 20rem;
-  height: 30rem;
-  display: inline-flex;
+  width: 22rem;
+  margin-right: 3rem;
+  display: flex;
   flex-direction: column;
 
   position: relative;
   margin-top: 2rem;
   top: 0;
   img {
-    width: 100%;
-    height: 100%;
+    width: 22rem;
+    height: 30rem;
   }
+}
+
+.movie_details {
+  display: flex;
+  justify-content: space-between;
 }
