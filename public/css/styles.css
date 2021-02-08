@@ -354,6 +354,20 @@ li {
 .mt-s {
   margin-top: 1vw; }
 
+.is-transitioning {
+  pointer-events: none;
+  cursor: progress; }
+
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 200vh;
+  pointer-events: none;
+  background-color: #000000;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0; }
+
 .contentsection {
   width: 100%;
   display: grid;

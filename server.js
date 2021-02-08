@@ -19,7 +19,6 @@ app.engine(
     helpers: {
       splittingBySpace: function (str) {
         const arr = str.split(" ");
-        console.log(arr);
         return arr;
       },
       splitting: function (str) {

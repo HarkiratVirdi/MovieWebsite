@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@barba/core": "^2.9.7",
+    "@barba/css": "^2.1.15",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "gsap": "^3.6.0",
+    "luxy.js": "^0.1.0",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "smooth-scrollbar": "^8.6.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"

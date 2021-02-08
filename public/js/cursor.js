@@ -2,8 +2,6 @@ const cursor = document.querySelector(".cursor_js");
 
 const imgs = document.querySelectorAll("img");
 
-console.log(imgs);
-
 imgs.forEach((img) => {
   img.addEventListener("mouseenter", () => {
     cursor.style.backdropFilter = "invert(.7)";
