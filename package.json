@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
+    "compile": "babel public/js --out-dir dist",
     "scss": "node-sass public/scss/main.scss public/css/styles.css -w"
   },
   "keywords": [],
@@ -22,6 +23,9 @@
     "smooth-scrollbar": "^8.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
     "dotenv": "^8.2.0"
   }
 }

@@ -1,0 +1,58 @@
+.movie_hero {
+  height: 80vh;
+
+  &_image {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 60vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &_image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    z-index: 3;
+  }
+}
+
+.movie_name {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.movie_word {
+  margin-right: 2rem;
+  letter-spacing: -5px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.movie_char {
+  font-weight: 800;
+  opacity: 0;
+}
+
+.purchasemovie {
+  width: 20rem;
+  height: 30rem;
+  display: inline-flex;
+  flex-direction: column;
+
+  position: relative;
+  margin-top: 2rem;
+  top: 0;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

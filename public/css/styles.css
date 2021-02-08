@@ -16,7 +16,7 @@ html {
   font-family: "Lora", serif; }
 
 body {
-  background: #0e0e0e;
+  background: black;
   overflow-x: hidden; }
 
 .container {
@@ -163,6 +163,56 @@ li {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem; }
 
+.movie_hero {
+  height: 80vh; }
+  .movie_hero_image {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 60vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .movie_hero_image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3; }
+
+.movie_name {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; }
+
+.movie_word {
+  margin-right: 2rem;
+  letter-spacing: -5px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  user-select: none; }
+
+.movie_char {
+  font-weight: 800;
+  opacity: 0; }
+
+.purchasemovie {
+  width: 20rem;
+  height: 30rem;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 2rem;
+  top: 0; }
+  .purchasemovie img {
+    width: 100%;
+    height: 100%; }
+
 .header {
   height: 20vh; }
   .header_nav {
@@ -196,6 +246,27 @@ li {
   display: flex;
   white-space: nowrap; }
 
+.btn {
+  outline: none;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s all; }
+  .btn-white {
+    background-color: #fff;
+    color: black; }
+    .btn-white:hover {
+      color: #fff;
+      background-color: black; }
+  .btn-black {
+    background-color: black;
+    color: #fff; }
+    .btn-black:hover {
+      color: black;
+      background-color: #fff; }
+
 .cursor_js {
   position: fixed;
   top: -30px;
@@ -212,44 +283,6 @@ li {
   @media only screen and (max-width: 870px) {
     .cursor_js {
       display: none; } }
-
-.movie_hero {
-  height: 60vh;
-  position: relative;
-  top: 0; }
-  .movie_hero_image {
-    width: 100%;
-    height: 100%;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover; }
-  .movie_hero_image::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 3; }
-
-.movie_name {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10; }
-
-.movie_word {
-  margin-right: 2rem;
-  letter-spacing: -5px;
-  white-space: nowrap;
-  text-transform: uppercase;
-  user-select: none; }
-
-.movie_char {
-  font-weight: 800;
-  opacity: 0; }
 
 .hero {
   height: 80vh;

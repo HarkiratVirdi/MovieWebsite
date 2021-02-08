@@ -1,18 +1,25 @@
+<div class="movie_hero">
 
-
-
-{{>movieHero this}}
-<div class="container">
-{{!-- <h1 class="h-2">{{id}}</h1> --}}
-{{!-- <h1 class="h-2">{{name}}</h1> --}}
-
-{{>movieIcon this}}
-{{!-- <h1 class="h-2">{{synopsis}}</h1> --}}
-{{!-- <h1 class="h-2">{{rent}}</h1> --}}
-{{!-- <h1 class="h-2">{{buy}}</h1> --}}
-{{!-- <h1 class="h-2">{{rating}}</h1> --}}
-{{!-- <h1 class="h-2">{{category}}</h1> --}}
-{{!-- <h1 class="h-2">{{featured}}</h1> --}}
+    <div class="movie_hero_image" style="background-image: url({{img_l}});">
+        <div class="h-3 movie_name">
+            {{#each (splittingBySpace name)}}
+            <div class="h-3 movie_word">{{#each (splitting this)}}
+                <span class="movie_char">{{this}}</span>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
 </div>
 
-<script src="/js/effects.js"></script>
+<div class="container">
+
+    {{>purchaseMovie this}}
+    {{!-- {{>movieIcon this}} --}}
+    {{!-- <h1 class="h-2">{{synopsis}}</h1> --}}
+    {{!-- <h1 class="h-2">{{rent}}</h1> --}}
+    {{!-- <h1 class="h-2">{{buy}}</h1> --}}
+    {{!-- <h1 class="h-2">{{rating}}</h1> --}}
+    {{!-- <h1 class="h-2">{{category}}</h1> --}}
+    {{!-- <h1 class="h-2">{{featured}}</h1> --}}
+</div>
