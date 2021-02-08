@@ -290,22 +290,21 @@ li {
 
 .double_carousel {
   width: 100%;
-  height: 60vh;
   display: flex;
   justify-content: space-between;
   align-items: center; }
 
 .first_carousel {
-  height: 40vh;
-  overflow: hidden;
-  width: 35%; }
+  overflow: hidden; }
 
 .single_carousel {
   height: 100%;
   width: 500%;
   display: flex;
+  transition: transform 0.5s;
+  align-items: center;
   background-color: #fff; }
-  .single_carousel .h-2 {
+  .single_carousel .h-3 {
     width: 100%; }
   .single_carousel img {
     object-fit: cover;
@@ -313,12 +312,11 @@ li {
     width: 20%; }
 
 .second_carousel {
-  height: 60vh;
-  width: 50%;
   overflow: hidden; }
 
 .pagination {
   display: flex;
+  margin-left: auto;
   justify-content: space-between;
   width: 15rem; }
   .pagination_button {
