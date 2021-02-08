@@ -64,16 +64,43 @@
 
 .first_carousel {
   height: 40vh;
+  overflow: hidden;
   width: 35%;
 }
 
 .single_carousel {
   height: 100%;
-  width: 100%;
+  width: 500%;
+  display: flex;
+
   background-color: #fff;
+
+  .h-2 {
+    width: 100%;
+  }
+
+  img {
+    object-fit: cover;
+    height: 60vh;
+    width: 20%;
+  }
 }
 
 .second_carousel {
   height: 60vh;
   width: 50%;
+  overflow: hidden;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 15rem;
+  &_button {
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #333;
+  }
 }

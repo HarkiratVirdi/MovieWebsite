@@ -2,14 +2,29 @@
 <div class="double_carousel">
     <div class="first_carousel">
         <div class="single_carousel">
-
+            <h1 class="h-2 h-2--black">this is awesome 1</h1>
+            <h1 class="h-2 h-2--black">this is awesome 2</h1>
+            <h1 class="h-2 h-2--black">this is awesome 3</h1>
+            <h1 class="h-2 h-2--black">this is awesome 4</h1>
+            <h1 class="h-2 h-2--black">this is awesome 5</h1>
         </div>
     </div>
 
     <div class="second_carousel">
         <div class="single_carousel">
-
+            {{#each imagesForCarousel}}
+                <img src={{this}} alt="">
+            {{/each}}
         </div>
     </div>
+
+   
 </div>
+  <div class="pagination">
+        <a index="0" class="pagination_button" href=""></a>
+        <a index="1" class="pagination_button" href=""></a>
+        <a index="2" class="pagination_button" href=""></a>
+        <a index="3" class="pagination_button" href=""></a>
+        <a index="4" class="pagination_button" href=""></a>
+    </div>
 </div>
