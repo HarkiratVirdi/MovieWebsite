@@ -10,7 +10,7 @@ setInterval(() => {
   if (index === 5) {
     index = 0;
   }
-}, 1000);
+}, 3000);
 
 const findIndex = (e) => {
   return e.getAttribute("index");
