@@ -5,6 +5,10 @@
   align-items: center;
   user-select: none;
   margin-bottom: 20vh;
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+  }
 }
 
 .first_carousel {
@@ -46,5 +50,16 @@
     height: 1rem;
     border-radius: 50%;
     background-color: #333;
+  }
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    order: 2;
+  }
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    transform: rotate(0);
+    position: absolute;
+    bottom: 10%;
+    width: 60%;
   }
 }

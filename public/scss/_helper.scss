@@ -24,7 +24,7 @@
   margin-bottom: 2vw;
 }
 .mb-xl {
-  margin-bottom: 6vw;
+  margin-bottom: 6rem;
 }
 .mb-l {
   margin-bottom: 3.5vw;
@@ -43,22 +43,43 @@
     display: none !important;
   }
 }
+.t-hide {
+  @media only screen and (max-width: $tablet-breakpoint) {
+    display: none !important;
+  }
+}
+
+.t-show {
+  @media only screen and (min-width: $tablet-breakpoint) {
+    display: none;
+  }
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    display: inline-block;
+  }
+}
+
+.t-w100 {
+  @media only screen and (max-width: $tablet-breakpoint) {
+    width: 100% !important;
+  }
+}
 
 .mt-s {
   margin-top: 1vw;
 }
 
-.is-transitioning {
-  pointer-events: none;
-  cursor: progress;
-}
+// .is-transitioning {
+//   pointer-events: none;
+//   cursor: progress;
+// }
 
-.loader {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  background-color: #000000;
-  z-index: 100;
-  opacity: 0;
-}
+// .loader {
+//   position: fixed;
+//   width: 100vw;
+//   height: 100vh;
+//   pointer-events: none;
+//   background-color: #000000;
+//   z-index: 100;
+//   opacity: 0;
+// }

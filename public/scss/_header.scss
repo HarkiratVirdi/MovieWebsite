@@ -54,17 +54,7 @@
       }
     }
     @media only screen and (max-width: $tablet-breakpoint) {
-      width: 12%;
-    }
-
-    &_menu {
-      @media only screen and (min-width: $tablet-breakpoint) {
-        display: none;
-      }
-
-      @media only screen and (max-width: $tablet-breakpoint) {
-        display: inline-block;
-      }
+      width: 3%;
     }
   }
 }
