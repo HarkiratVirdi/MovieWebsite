@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
 ::selection {
   background-color: #fff;
-  color: black; }
+  color: #202020; }
 
 *,
 *::after,
@@ -14,9 +14,15 @@
 html {
   font-size: 62.5%;
   font-family: "Lora", serif; }
+  @media only screen and (max-width: 870px) {
+    html {
+      font-size: 55%; } }
+  @media only screen and (max-width: 500px) {
+    html {
+      font-size: 50%; } }
 
 body {
-  background: #0e0e0e;
+  background: #121212;
   overflow-x: hidden; }
 
 .container {
@@ -62,9 +68,9 @@ li {
   .h-1--white {
     color: #fff; }
   .h-1--black {
-    color: black; }
+    color: #121212; }
   .h-1--cta {
-    color: orange; }
+    color: #f4772a; }
   @media only screen and (max-width: 500px) {
     .h-1 {
       font-size: 3rem; } }
@@ -75,9 +81,9 @@ li {
   .h-2--white {
     color: #fff; }
   .h-2--black {
-    color: black; }
+    color: #121212; }
   .h-2--cta {
-    color: orange; }
+    color: #f4772a; }
 
 .h-3 {
   font-size: 4rem;
@@ -88,18 +94,18 @@ li {
   .h-3--white {
     color: #fff; }
   .h-3--black {
-    color: black; }
+    color: #121212; }
   .h-3--cta {
-    color: orange; }
+    color: #f4772a; }
 
 .h-4 {
   font-size: 2rem; }
   .h-4--white {
     color: #fff; }
   .h-4--black {
-    color: black; }
+    color: #121212; }
   .h-4--cta {
-    color: orange; }
+    color: #f4772a; }
   @media only screen and (max-width: 500px) {
     .h-4 {
       font-size: 4vw; } }
@@ -110,18 +116,18 @@ li {
   .h-5--white {
     color: #fff; }
   .h-5--black {
-    color: black; }
+    color: #121212; }
   .h-5--cta {
-    color: orange; }
+    color: #f4772a; }
 
 .h-6 {
   font-size: 1.2rem; }
   .h-6--white {
     color: #fff; }
   .h-6--black {
-    color: black; }
+    color: #121212; }
   .h-6--cta {
-    color: orange; }
+    color: #f4772a; }
 
 .h-3-vw {
   font-size: 3.5vw; }
@@ -155,7 +161,7 @@ li {
   .featured_tag::before {
     content: "Featured";
     width: 100%;
-    background-color: orange;
+    background-color: #f4772a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -221,6 +227,9 @@ li {
   font-size: 2.7rem;
   font-weight: 400;
   color: #fff; }
+
+.movie_info > * {
+  line-height: 1.5; }
 
 .header {
   height: 20vh; }
@@ -290,15 +299,15 @@ li {
   transition: 0.5s all; }
   .btn-white {
     background-color: #fff;
-    color: black; }
+    color: #202020; }
     .btn-white:hover {
-      color: black;
+      color: #202020;
       background-color: #ccc; }
   .btn-black {
-    background-color: black;
+    background-color: #202020;
     color: #fff; }
     .btn-black:hover {
-      color: black;
+      color: #202020;
       background-color: #fff; }
 
 .cursor_js {
@@ -336,7 +345,7 @@ li {
         width: 100%; }
   .hero_arrows_left {
     font-size: 4rem;
-    color: black;
+    color: #202020;
     position: absolute;
     z-index: 10;
     padding: 2rem;
@@ -353,7 +362,7 @@ li {
     position: absolute;
     right: 0;
     top: 40%;
-    color: black; }
+    color: #202020; }
   .hero_pagination {
     height: 20vh;
     display: flex;
@@ -437,7 +446,7 @@ li {
 .contentsection {
   width: 100%;
   display: grid;
-  background-color: #111111;
+  background-color: #202020;
   grid-template-columns: 1fr 3fr; }
   @media only screen and (max-width: 500px) {
     .contentsection {
@@ -471,7 +480,7 @@ li {
     transform: translateX(-100%); } }
 
 .footer {
-  background-color: black;
+  background-color: #202020;
   width: 100%;
   padding: 4rem; }
   @media only screen and (max-width: 870px) {
@@ -634,5 +643,27 @@ li {
     width: 40%;
     display: flex;
     position: absolute;
+    flex-direction: column;
+    padding: 0 3rem;
     right: 0;
-    justify-content: center; }
+    text-align: center; }
+  .login_form {
+    display: flex;
+    flex-direction: column; }
+    .login_form button {
+      width: 15rem; }
+    .login_form_field {
+      display: flex;
+      margin-top: 4rem; }
+      .login_form_field label {
+        flex: 1;
+        display: flex;
+        margin-right: 3rem; }
+      .login_form_field input {
+        flex: 3;
+        outline: none;
+        border: none;
+        font-size: 1.6rem;
+        color: #fff;
+        border-bottom: 1px solid #fff;
+        background: transparent; }

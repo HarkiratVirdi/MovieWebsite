@@ -46,7 +46,8 @@ module.exports.movies = [
     rent: "15",
     buy: "40",
     isMovie: true,
-    synopsis: "excellent movie amazing mind blowing",
+    synopsis:
+      "Armed with only one word--Tenet-- and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
     img_s: "https://images2.vudu.com/assets/content/poster/1493460-144",
     img_l: "https://images2.vudu.com/background/1493460-1280a.jpg",
   },
