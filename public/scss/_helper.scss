@@ -59,8 +59,8 @@
   height: 200vh;
   pointer-events: none;
   background-color: #000000;
-  z-index: 1;
-  visibility: hidden;
+  z-index: 100;
+  // visibility: hidden;
   opacity: 0;
 }
 

@@ -21,6 +21,37 @@
       @media only screen and (max-width: $tablet-breakpoint) {
         display: none;
       }
+
+      a {
+        color: $white;
+        transition: all 0.4s;
+        padding: 0.4rem 0;
+        font-size: 1.1rem;
+        text-decoration: none;
+        position: relative;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-family: $font-primary;
+
+        &::after {
+          text-align: center;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: $white;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+
+        &:hover:after {
+          width: 100%;
+          left: 0;
+        }
+      }
     }
     @media only screen and (max-width: $tablet-breakpoint) {
       width: 12%;

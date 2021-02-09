@@ -235,6 +235,31 @@ li {
       @media only screen and (max-width: 870px) {
         .header_list_links {
           display: none; } }
+      .header_list_links a {
+        color: #fff;
+        transition: all 0.4s;
+        padding: 0.4rem 0;
+        font-size: 1.1rem;
+        text-decoration: none;
+        position: relative;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-family: "Lora", serif; }
+        .header_list_links a::after {
+          text-align: center;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: #fff;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0; }
+        .header_list_links a:hover:after {
+          width: 100%;
+          left: 0; }
     @media only screen and (max-width: 870px) {
       .header_list {
         width: 12%; } }
@@ -287,44 +312,6 @@ li {
   @media only screen and (max-width: 870px) {
     .cursor_js {
       display: none; } }
-
-.double_carousel {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-
-.first_carousel {
-  overflow: hidden; }
-
-.single_carousel {
-  height: 100%;
-  width: 500%;
-  display: flex;
-  transition: transform 0.5s;
-  align-items: center;
-  background-color: #fff; }
-  .single_carousel .h-3 {
-    width: 100%; }
-  .single_carousel img {
-    object-fit: cover;
-    height: 60vh;
-    width: 20%; }
-
-.second_carousel {
-  overflow: hidden; }
-
-.pagination {
-  display: flex;
-  margin-left: auto;
-  justify-content: space-between;
-  width: 15rem; }
-  .pagination_button {
-    cursor: pointer;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: #333; }
 
 .hero {
   height: 80vh;
@@ -439,8 +426,7 @@ li {
   height: 200vh;
   pointer-events: none;
   background-color: #000000;
-  z-index: 1;
-  visibility: hidden;
+  z-index: 100;
   opacity: 0; }
 
 .contentsection {
@@ -583,3 +569,44 @@ li {
         width: 100%;
         display: flex;
         margin-top: 2rem; } }
+
+.double_carousel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  margin-bottom: 20vh; }
+
+.first_carousel {
+  overflow: hidden; }
+
+.single_carousel {
+  height: 100%;
+  width: 500%;
+  display: flex;
+  transition: transform 0.5s;
+  align-items: center;
+  background-color: #fff; }
+  .single_carousel .h-3 {
+    width: 100%; }
+  .single_carousel img {
+    object-fit: cover;
+    height: 60vh;
+    width: 20%; }
+
+.second_carousel {
+  overflow: hidden; }
+
+.pagination {
+  display: flex;
+  margin-left: auto;
+  transform: rotate(-270deg);
+  justify-content: space-between;
+  width: 15rem; }
+  .pagination_button {
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #333; }
