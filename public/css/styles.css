@@ -130,7 +130,11 @@ li {
     color: #f4772a; }
 
 .h-3-vw {
-  font-size: 3.5vw; }
+  font-size: 3.5vw;
+  text-transform: capitalize; }
+  @media only screen and (max-width: 500px) {
+    .h-3-vw {
+      font-size: 6.5vw; } }
 
 .movie_list {
   overflow-x: scroll;
@@ -449,6 +453,13 @@ li {
 .mt-s {
   margin-top: 1vw; }
 
+@media only screen and (max-width: 500px) {
+  .m-abs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); } }
+
 .contentsection {
   width: 100%;
   display: grid;
@@ -467,13 +478,20 @@ li {
       .contentsection_banner {
         position: absolute;
         top: 50%;
-        display: none;
         left: 50%;
         white-space: nowrap;
         transform: translate(-50%, -50%);
         z-index: 15; } }
   .contentsection_images {
     overflow: hidden; }
+    @media only screen and (max-width: 500px) {
+      .contentsection_images::before {
+        content: "";
+        background-color: rgba(0, 0, 0, 0.65);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10; } }
     .contentsection_images_container {
       display: flex;
       animation: transformRight 30s infinite;
@@ -633,6 +651,12 @@ li {
     height: 1rem;
     border-radius: 50%;
     background-color: #333; }
+    @media only screen and (max-width: 870px) {
+      .pagination_button {
+        padding: 0.5rem; } }
+    @media only screen and (max-width: 500px) {
+      .pagination_button {
+        padding: 0.8rem; } }
   @media only screen and (max-width: 870px) {
     .pagination {
       order: 2; } }
