@@ -1,17 +1,17 @@
 const cursor = document.querySelector(".cursor_js");
 
-// const imgs = document.querySelectorAll("img");
+const imgs = document.querySelectorAll("img");
 
-// imgs.forEach((img) => {
-//   img.addEventListener("mouseenter", () => {
-//     cursor.style.backdropFilter = "invert(.7)";
-//     cursor.style.border = "none";
-//   });
-//   img.addEventListener("mouseleave", () => {
-//     cursor.style.backdropFilter = "none";
-//     cursor.style.border = "1.5px solid white";
-//   });
-// });
+imgs.forEach((img) => {
+  img.addEventListener("mouseenter", () => {
+    cursor.style.backdropFilter = "invert(.7)";
+    cursor.style.border = "none";
+  });
+  img.addEventListener("mouseleave", () => {
+    cursor.style.backdropFilter = "none";
+    cursor.style.border = "1.5px solid white";
+  });
+});
 
 const animateCursor = (e) => {
   cursor.style.transform = `matrix(1, 0, 0, 1, ${e.pageX}, ${

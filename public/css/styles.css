@@ -202,8 +202,8 @@ li {
   opacity: 0; }
 
 .purchasemovie {
-  width: 22rem !important;
-  margin-right: 3rem;
+  width: 22rem;
+  margin-right: 10rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -211,11 +211,16 @@ li {
   top: 0; }
   .purchasemovie img {
     width: 100%;
-    height: 30rem !important; }
+    height: 30rem; }
 
 .movie_details {
   display: flex;
   justify-content: space-between; }
+
+.movie_text {
+  font-size: 2.7rem;
+  font-weight: 400;
+  color: #fff; }
 
 .header {
   height: 20vh; }
@@ -287,8 +292,8 @@ li {
     background-color: #fff;
     color: black; }
     .btn-white:hover {
-      color: #fff;
-      background-color: black; }
+      color: black;
+      background-color: #ccc; }
   .btn-black {
     background-color: black;
     color: #fff; }
@@ -423,7 +428,7 @@ li {
 .loader {
   position: fixed;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
   pointer-events: none;
   background-color: #000000;
   z-index: 100;
@@ -610,3 +615,24 @@ li {
     height: 1rem;
     border-radius: 50%;
     background-color: #333; }
+
+.login {
+  display: flex;
+  height: 80vh;
+  width: 100%; }
+  .login_image {
+    width: 60%;
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    top: 0; }
+    .login_image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .login_container {
+    width: 40%;
+    display: flex;
+    position: absolute;
+    right: 0;
+    justify-content: center; }

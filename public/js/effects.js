@@ -24,13 +24,35 @@ gsap.to(".movie_hero_image", {
 //   },
 // });
 
-let controller = new ScrollMagic.Controller();
+const elementHeight = document.querySelector(".purchasemovie").scrollHeight;
+console.log(elementHeight);
 
-const scene = new ScrollMagic.Scene({
-  triggerElement: ".purchasemovie",
-  triggerHook: "onLeave",
-  duration: movieDetailsWidth,
-  offset: -150,
-})
-  .setPin(".purchasemovie")
-  .addTo(controller);
+var style = window.getComputedStyle(
+  document.querySelector(".purchasemovie"),
+  null
+);
+console.log(style.getPropertyValue("height"));
+console.log(style);
+
+if (window.innerWidth > 870) {
+  let controller = new ScrollMagic.Controller();
+
+  const scene = new ScrollMagic.Scene({
+    triggerElement: ".purchasemovie",
+    triggerHook: "onLeave",
+    duration: movieDetailsWidth - 446,
+    offset: -150,
+  })
+    .setPin(".purchasemovie")
+    .addIndicators()
+    .addTo(controller);
+}
+
+// gsap.to(".purchasemovie", {
+//   scrollTrigger: {
+//     trigger: ".purchasemovie",
+//     pin: true,
+//     markers: true,
+//     end: movieDetailsWidth,
+//   },
+// });

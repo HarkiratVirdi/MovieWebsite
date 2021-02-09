@@ -56,22 +56,9 @@
 .loader {
   position: fixed;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
   pointer-events: none;
   background-color: #000000;
   z-index: 100;
-  // visibility: hidden;
   opacity: 0;
 }
-
-// .barba-once {
-//   opacity: 0;
-// }
-
-// .barba-once-active {
-//   transition: opacity 0.5s linear;
-// }
-
-// .barba-once-to {
-//   opacity: 1;
-// }
