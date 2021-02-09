@@ -24,16 +24,6 @@ gsap.to(".movie_hero_image", {
 //   },
 // });
 
-const elementHeight = document.querySelector(".purchasemovie").scrollHeight;
-console.log(elementHeight);
-
-var style = window.getComputedStyle(
-  document.querySelector(".purchasemovie"),
-  null
-);
-console.log(style.getPropertyValue("height"));
-console.log(style);
-
 if (window.innerWidth > 870) {
   let controller = new ScrollMagic.Controller();
 
