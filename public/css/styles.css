@@ -165,7 +165,8 @@ li {
 .featured_tag {
   position: absolute;
   top: -1.8rem;
-  width: 100%; }
+  width: 100%;
+  color: #121212; }
   .featured_tag::before {
     content: "Featured";
     width: 100%;
@@ -220,11 +221,13 @@ li {
   margin-right: 10rem;
   display: flex;
   flex-direction: column;
-  position: relative;
   margin-top: 2rem;
-  top: 0; }
+  position: sticky;
+  position: -webkit-sticky;
+  top: 100px;
+  height: 45rem; }
   .purchasemovie img {
-    width: 100%;
+    width: 22rem;
     height: 30rem; }
 
 .movie_details {

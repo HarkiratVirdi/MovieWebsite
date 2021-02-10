@@ -124,7 +124,8 @@ module.exports.movies = [
     rent: "15",
     buy: "30",
     isMovie: false,
-    synopsis: "excellent movie amazing mind blowing",
+    synopsis:
+      "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
     img_s: "https://images2.vudu.com/poster2/207622-168",
     img_l:
       "https://images.amcnetworks.com/amc.com/wp-content/uploads/2012/06/BB-S5-Key-Art-2560-v2.jpg",

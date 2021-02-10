@@ -47,11 +47,14 @@
   margin-right: 10rem;
   display: flex;
   flex-direction: column;
-  position: relative;
+  // position: relative;
   margin-top: 2rem;
-  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 100px;
+  height: 45rem;
   img {
-    width: 100%;
+    width: 22rem;
     height: 30rem;
   }
 }

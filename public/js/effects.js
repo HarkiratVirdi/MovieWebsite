@@ -1,8 +1,7 @@
 let tl = gsap.timeline();
 tl.staggerTo(".movie_char", 0.25, { opacity: 1 }, 0.03);
 
-const movieDetailsWidth = document.querySelector(".movie_details").clientHeight;
-console.log(movieDetailsWidth);
+const movieDetailsHeight = document.querySelector(".movie_info").clientHeight;
 gsap.to(".movie_hero_image", {
   scrollTrigger: {
     trigger: ".movie_hero_image",
@@ -13,36 +12,20 @@ gsap.to(".movie_hero_image", {
   transform: "matrix(1.1,0,0,1.1,0,0)",
 });
 
-// gsap.to(".purchasemovie", {
-//   scrollTrigger: {
-//     trigger: ".purchasemovie",
-//     pin: true,
-//     start: "top top",
-//     toggleActions: "restart pause reverse pause",
-//     markers: true,
-//     end:
-//   },
-// });
+// if (window.innerWidth > 870) {
+//   let controller = new ScrollMagic.Controller();
 
-if (window.innerWidth > 870) {
-  let controller = new ScrollMagic.Controller();
+//   const scene = new ScrollMagic.Scene({
+//     triggerElement: ".purchasemovie",
+//     triggerHook: "onLeave",
+//     duration: movieDetailsWidth - 446,
+//     offset: -150,
+//   })
+//     .setPin(".purchasemovie")
+//     .addIndicators()
+//     .addTo(controller);
+// }
 
-  const scene = new ScrollMagic.Scene({
-    triggerElement: ".purchasemovie",
-    triggerHook: "onLeave",
-    duration: movieDetailsWidth - 446,
-    offset: -150,
-  })
-    .setPin(".purchasemovie")
-    .addIndicators()
-    .addTo(controller);
-}
-
-// gsap.to(".purchasemovie", {
-//   scrollTrigger: {
-//     trigger: ".purchasemovie",
-//     pin: true,
-//     markers: true,
-//     end: movieDetailsWidth,
-//   },
-// });
+// const purchaseMovie = document.querySelector(".purchasemovie");
+// console.log(purchaseMovie);
+// purchaseMovie.style.height = movieDetailsHeight + "px";
