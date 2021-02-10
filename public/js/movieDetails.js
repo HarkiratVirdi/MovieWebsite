@@ -12,21 +12,3 @@ gsap.to(".movie_hero_image", {
   },
   transform: "matrix(1.1,0,0,1.1,0,0)",
 });
-
-// if (window.innerWidth > 870) {
-//   let controller = new ScrollMagic.Controller();
-
-//   const scene = new ScrollMagic.Scene({
-//     triggerElement: ".purchasemovie",
-//     triggerHook: "onLeave",
-//     duration: movieDetailsWidth - 446,
-//     offset: -150,
-//   })
-//     .setPin(".purchasemovie")
-//     .addIndicators()
-//     .addTo(controller);
-// }
-
-// const purchaseMovie = document.querySelector(".purchasemovie");
-// console.log(purchaseMovie);
-// purchaseMovie.style.height = movieDetailsHeight + "px";
