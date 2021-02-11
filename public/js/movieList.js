@@ -28,7 +28,7 @@ const setActive = async (e) => {
   const url = makeURL(target);
   console.log(url);
 
-  const makeRequest = await fetch(`/list/${url}`);
+  //   const makeRequest = await fetch(`/list/${url}`);
 };
 
 filterButtons.forEach((filterButton) => {

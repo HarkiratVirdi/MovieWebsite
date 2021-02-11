@@ -9,27 +9,64 @@ module.exports.movies = [
     img_s: "https://images2.vudu.com/poster2/7652-168",
     img_l: "https://images2.vudu.com/background/7652-1280a.jpg",
     isMovie: true,
+    genre: "Action, Adventure",
+    studio: "Warner Bros",
+    runtime: "2:30",
+    rated: "PG-13",
+    year: "1998",
     synopsis:
       "Facing Christmas 3,000 miles from his estranged wife and two children, New York policeman John McClane flies to L.A. bearing presents and hoping to patch up his marriage. Hans Gruber is in L.A. as well, but he's not there to give out presents. He's there to take: more than $600 million in bearer bonds from the Nakatomi Corporation, where McClane's wife Holly is an executive. When the takeover becomes hostile, it's up to John McClane to take on the terrorists--but not without a sense of humor.",
+    cast: [
+      {
+        name: "Bruce Willis",
+      },
+      {
+        name: "Alan Rickman",
+      },
+      {
+        name: "Bonnie Bedelia",
+      },
+    ],
   },
   {
     id: 2,
     name: "The Conjuring",
     featured: true,
     rating: "70",
+    genre: "Horror",
+    runtime: "2:00",
+    studio: "Warner Bros",
+    year: "2013",
     rent: "2",
+    rated: "PG-17",
     buy: "12",
     img_s: "https://images2.vudu.com/poster2/456779-168",
     img_l: "https://images2.vudu.com/background/456779-1280a.jpg",
     isMovie: true,
     synopsis:
       "Buy any quality, get every quality: All qualities up to 4K UHD included with purchase. Before there was Amityville, there was Harrisville. The Conjuring tells the horrifying true story of Ed and Lorraine Warren, world renowned paranormal investigators, who were called to help a family terrorized by a dark presence in a secluded farmhouse. Forced to confront a powerful demonic entity, the Warrens find themselves caught in the most terrifying case of their lives.",
+    cast: [
+      {
+        name: "Vera Farmiga",
+      },
+      {
+        name: "Patrick Wilson",
+      },
+      {
+        name: "Sterling Jerins",
+      },
+    ],
   },
   {
     id: 3,
     name: "Wonder Woman",
     featured: true,
     rating: "94",
+    genre: "Action, Fantasy",
+    rated: "PG-13",
+    studio: "Warner Bros",
+    runtime: "1:57",
+    year: "2017",
     rent: "10",
     img_s: "https://images2.vudu.com/poster2/845903-168",
     img_l: "https://images2.vudu.com/background/845903-1280a.jpg",
@@ -37,6 +74,17 @@ module.exports.movies = [
     synopsis:
       "Buy any quality, get every quality: All qualities up to 4K UHD included with purchase. Before she was Wonder Woman, she was Diana, princess of the Amazons. Fighting alongside man in a war to end all wars, Diana will discover her full powers...and her true destiny. Watch it in Extras+ mode, available on the Vudu mobile app, and experience bonuses synced to the movie, movie trivia, a digital comic, and so much more. See it before you try it in the Free Clips tab.",
     buy: "29.9",
+    cast: [
+      {
+        name: "Gal Gadot",
+      },
+      {
+        name: "Chris Pine",
+      },
+      {
+        name: "Patty Jenkins",
+      },
+    ],
   },
   {
     id: 4,
@@ -44,25 +92,57 @@ module.exports.movies = [
     featured: true,
     rating: "80",
     rent: "15",
+    genre: "Action, Fantasy",
+    studio: "Warner Bros",
+    runtime: "1:45",
+    year: "2020",
     buy: "40",
+    rated: "PG-13",
     isMovie: true,
     synopsis:
       "Armed with only one word--Tenet-- and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
     img_s: "https://images2.vudu.com/assets/content/poster/1493460-144",
     img_l: "https://images2.vudu.com/background/1493460-1280a.jpg",
+    cast: [
+      {
+        name: "John David",
+      },
+      {
+        name: "Robert Pattison",
+      },
+      {
+        name: "Elizabeth Debicki",
+      },
+    ],
   },
   {
     id: 5,
     name: "Game of Thrones Season 8",
     featured: true,
     rating: "30",
+    runtime: "50",
+    rated: "18+",
     rent: "25",
+    genre: "Action, Fantasy",
+    studio: "HBO",
+    year: "2020",
     buy: "80",
     isMovie: false,
     synopsis:
       "The long winter is here. Throughout seven thrilling episodes, the penultimate Season 8 of this blockbuster hit series focuses on a convergence of armies and attitudes that have been brewing for years.",
     img_s: "https://images2.vudu.com/poster2/1101209-168",
     img_l: "https://images2.vudu.com/background/1101209-1280a.jpg",
+    cast: [
+      {
+        name: "Emilia Clarke",
+      },
+      {
+        name: "Peter Dinkins",
+      },
+      {
+        name: "Lena Headey",
+      },
+    ],
   },
   {
     id: 6,
@@ -70,51 +150,116 @@ module.exports.movies = [
     featured: true,
     rating: "88",
     rent: "5",
+    runtime: "45",
+    rated: "PG-13",
     buy: "20",
     isMovie: false,
+    genre: "Action, Fantasy",
+    studio: "AMC",
+    year: "2010",
     synopsis:
       "AMC's THE WALKING DEAD returns for a terrifying and exhilarating new season. In this post-apocalyptic world, Rick Grimes and his band of survivors continue their ongoing struggle to survive the threat of walkers as well as the dangers that lurk among the living. In the new season, we find Rick and the group fostering a thriving community in the safe haven of the prison. In this brutal world, the group's home and new way of life will be thoroughly tested, and their struggle to survive has never been so perilous.",
     img_s: "https://images2.vudu.com/poster2/482719-168",
     img_l: "https://images2.vudu.com/background/482719-1280a.jpg",
+    cast: [
+      {
+        name: "Andrew Lincoln",
+      },
+      {
+        name: "Norman Reedus",
+      },
+      {
+        name: "Danai Gurira",
+      },
+    ],
   },
   {
     id: 7,
     name: "The Conjuring 2",
     featured: true,
+    runtime: "1:57",
     rating: "75",
+    genre: "Action, Fantasy",
+    studio: "Warner Bros",
+    year: "2018",
     rent: "8",
+    rated: "18+",
+
     buy: "17",
     isMovie: true,
     synopsis:
       "The supernatural thriller brings to the screen another real case from the files of renowned demonologists Ed and Lorraine Warren. Reprising their roles, Vera Farmiga and Patrick Wilson star as Lorraine and Ed",
     img_s: "https://images2.vudu.com/poster2/776990-168",
     img_l: "https://images2.vudu.com/background/776990-1280a.jpg",
+    cast: [
+      {
+        name: "Vera Farmiga",
+      },
+      {
+        name: "Patrick Wilson",
+      },
+      {
+        name: "Sterling Jerins",
+      },
+    ],
   },
   {
     id: 8,
     name: "Kong: Skull Island",
     featured: false,
+    runtime: "2:40",
     rating: "80",
     rent: "15",
     buy: "40",
+    genre: "Action, Fantasy",
+    studio: "Warner Bros",
+    year: "2017",
+    rated: "PG-13",
     isMovie: true,
     synopsis:
       "When a scientific expedition to an uncharted island awakens titanic forces of nature, a mission of discovery becomes an explosive war between monster and man. Tom Hiddleston, Samuel L. Jackson, Brie Larson, John Goodman and John C. Reilly star in a thrilling and original adventure that reveals the untold story of how Kong became King. FOR 3D ENABLED TVs ONLY.",
     img_s: "https://images2.vudu.com/poster2/876801-168",
     img_l: "https://images2.vudu.com/background/876801-1280a.jpg",
+    cast: [
+      {
+        name: "Brie Larsson",
+      },
+      {
+        name: "Tom Hiddleston",
+      },
+      {
+        name: "Samuel L. Jackson",
+      },
+    ],
   },
   {
     id: 9,
     name: "12 Years of Slave",
     featured: true,
     rating: "95",
+    runtime: "2:50",
     rent: "6",
     buy: "19",
     isMovie: true,
+    genre: "Drama, History",
+    rated: "18+",
+    studio: "Steve McQueen",
+    year: "2013",
     synopsis:
       "From director Steve McQueen, and based on Solomon Northup's astonishing true story, comes this powerful picture. In 1841, Northup (Chiwetel Ejiofor), a free citizen, is kidnapped, stripped of his identity and sold into slavery. Now, he must find the strength to survive in this unflinching story of hope.",
     img_s: "https://images2.vudu.com/poster2/481186-168",
     img_l: "https://images2.vudu.com/background/481186-1280a.jpg",
+    cast: [
+      {
+        name: "Chiwetel Ejiofor",
+      },
+      {
+        name: "Michael Fassbender",
+      },
+      {
+        name: "Brad Pitt",
+      },
+    ],
   },
   {
     id: 10,
@@ -122,6 +267,10 @@ module.exports.movies = [
     featured: true,
     rating: "97",
     rent: "15",
+    genre: "Sci-Fi, Drama",
+    runtime: "40",
+    studio: "AMC",
+    year: "2005",
     buy: "30",
     isMovie: false,
     synopsis:
@@ -129,18 +278,45 @@ module.exports.movies = [
     img_s: "https://images2.vudu.com/poster2/207622-168",
     img_l:
       "https://images.amcnetworks.com/amc.com/wp-content/uploads/2012/06/BB-S5-Key-Art-2560-v2.jpg",
+    cast: [
+      {
+        name: "Bryan Cranston",
+      },
+      {
+        name: "Aaron Paul",
+      },
+      {
+        name: "Anna Gunn",
+      },
+    ],
   },
   {
     id: 11,
     name: "The Game of Thrones: Season 5",
     featured: true,
+    rated: "18+",
+    runtime: "50",
     rating: "95",
     rent: "15",
     buy: "30",
+    genre: "Action, Fantasy",
+    studio: "HBO",
+    year: "2015",
     isMovie: false,
     synopsis:
       "A plethora of compelling storylines play out to their inevitable, often bloody conclusions in Season 5 of GAME OF THRONES. In the wake of the numerous shocking deaths of Season 4, the season opens with a power vacuum that the various players all across Westeros and Essos scramble to fill.",
     img_s: "https://images2.vudu.com/poster2/673563-168",
     img_l: "https://images2.vudu.com/background/673563-1280a.jpg",
+    cast: [
+      {
+        name: "Emilia Clarke",
+      },
+      {
+        name: "Peter Dinkins",
+      },
+      {
+        name: "Lena Headey",
+      },
+    ],
   },
 ];
