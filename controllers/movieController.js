@@ -34,8 +34,6 @@ module.exports.getMovie = (req, res) => {
 };
 
 module.exports.getMovieList = (req, res) => {
-  // if (req.query) {
-  // }
   let movies = movieDatabase.movies;
 
   if (req.query.filter === "featuredmovies") {
@@ -44,7 +42,6 @@ module.exports.getMovieList = (req, res) => {
     });
   }
 
-  //change to rating
   if (req.query.filter === "byrating") {
     movies = movies.sort((a, b) => {
       return b.rating - a.rating;
@@ -74,8 +71,6 @@ module.exports.getMovieList = (req, res) => {
       return runtime2 - runtime1;
     });
   }
-
-  // console.log(movies);
 
   res.render("list", { movies: movies });
 };
