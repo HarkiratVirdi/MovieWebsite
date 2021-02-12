@@ -45,6 +45,9 @@ li {
   font-size: 5rem;
   text-transform: capitalize;
   @include color-text;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 3rem;
+  }
 }
 .h-3 {
   @extend %h;
@@ -52,7 +55,7 @@ li {
   line-height: 1;
 
   @media only screen and (max-width: $mobile-breakpoint) {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   @include color-text;

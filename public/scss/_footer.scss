@@ -16,7 +16,7 @@
     color: $white;
     transition: all 0.4s;
     padding: 0.4rem 0;
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     text-decoration: none;
     position: relative;
     white-space: nowrap;
@@ -45,6 +45,11 @@
 
   &__logo {
     text-align: center;
+    margin-bottom: 2rem;
+    @media only screen and (max-width: $tablet-breakpoint) {
+      text-align: left;
+      margin-bottom: 0;
+    }
   }
 
   &__left {
@@ -57,7 +62,7 @@
       //   flex-direction: column;
       flex-wrap: wrap;
       width: 100%;
-      text-align: center;
+      // text-align: center;
     }
 
     &--1 {
@@ -71,7 +76,7 @@
         width: 50%;
         display: flex;
 
-        justify-content: center;
+        // justify-content: center;
       }
       @media only screen and (max-width: $mobile-breakpoint) {
         width: 100%;
@@ -89,7 +94,7 @@
       }
       @media only screen and (max-width: $tablet-breakpoint) {
         width: 50%;
-        justify-content: center;
+        // justify-content: center;
         display: flex;
       }
       @media only screen and (max-width: $mobile-breakpoint) {
@@ -108,7 +113,7 @@
       }
       @media only screen and (max-width: $tablet-breakpoint) {
         width: 50%;
-        justify-content: center;
+        // justify-content: center;
         display: flex;
         margin-top: 2rem;
       }
@@ -128,7 +133,7 @@
       }
       @media only screen and (max-width: $tablet-breakpoint) {
         width: 50%;
-        justify-content: center;
+        // justify-content: center;
         display: flex;
         margin-top: 2rem;
       }

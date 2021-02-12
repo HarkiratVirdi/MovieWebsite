@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
 ::selection {
   background-color: #fff;
-  color: #202020; }
+  color: #282828; }
 
 *,
 *::after,
@@ -29,6 +29,9 @@ body {
   max-width: 1400px;
   margin: auto;
   padding: 0 2rem; }
+  @media only screen and (max-width: 500px) {
+    .container {
+      padding: 0 1rem; } }
 
 a {
   text-decoration: none;
@@ -84,13 +87,16 @@ li {
     color: #121212; }
   .h-2--cta {
     color: orange; }
+  @media only screen and (max-width: 500px) {
+    .h-2 {
+      font-size: 3rem; } }
 
 .h-3 {
   font-size: 4rem;
   line-height: 1; }
   @media only screen and (max-width: 500px) {
     .h-3 {
-      font-size: 3rem; } }
+      font-size: 2rem; } }
   .h-3--white {
     color: #fff; }
   .h-3--black {
@@ -179,7 +185,8 @@ li {
     border-top-right-radius: 0.5rem; }
 
 .movie_hero {
-  height: 80vh; }
+  height: 80vh;
+  overflow-x: hidden; }
   .movie_hero_image {
     position: relative;
     top: 0;
@@ -211,6 +218,9 @@ li {
   white-space: nowrap;
   text-transform: uppercase;
   user-select: none; }
+  @media only screen and (max-width: 500px) {
+    .movie_word {
+      letter-spacing: -2px; } }
 
 .movie_char {
   font-weight: 800;
@@ -226,21 +236,65 @@ li {
   position: -webkit-sticky;
   top: 100px;
   height: 45rem; }
-  .purchasemovie img {
-    width: 22rem;
-    height: 30rem; }
+  .purchasemovie__buttons {
+    width: 40%; }
+  @media only screen and (max-width: 870px) {
+    .purchasemovie {
+      align-items: center;
+      flex-direction: row;
+      margin-right: 0;
+      background-color: #282828;
+      width: 100%;
+      height: auto;
+      top: -1px;
+      justify-content: space-around;
+      padding: 5rem; } }
+  .purchasemovie__image {
+    position: relative;
+    top: 0px;
+    width: 16.5rem;
+    height: 24rem;
+    object-fit: cover; }
+    @media only screen and (max-width: 870px) {
+      .purchasemovie__image {
+        width: 18.5rem;
+        flex-direction: row;
+        margin-right: 0; } }
 
 .movie_details {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 0 2rem; }
+  @media only screen and (max-width: 870px) {
+    .movie_details {
+      flex-direction: column;
+      padding: 0; } }
 
 .movie_text {
   font-size: 2.7rem;
   font-weight: 400;
   color: #fff; }
 
-.movie_info > * {
-  line-height: 1.5; }
+.movie_info {
+  padding: 0 1rem; }
+  .movie_info > * {
+    line-height: 1.5; }
+
+@media only screen and (max-width: 870px) {
+  .shrink {
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-around;
+    height: auto;
+    width: 100%;
+    margin-right: 0; }
+    .shrink .purchasemovie__image {
+      width: 8rem;
+      height: 10rem; }
+    .shrink .featured_tag {
+      top: -1rem; }
+      .shrink .featured_tag::before {
+        font-size: 0.8rem; } }
 
 .header {
   height: 20vh; }
@@ -301,18 +355,19 @@ li {
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
+  border-radius: 3px;
   transition: 0.5s all; }
   .btn-white {
     background-color: #fff;
-    color: #202020; }
+    color: #282828; }
     .btn-white:hover {
-      color: #202020;
+      color: #282828;
       background-color: #ccc; }
   .btn-black {
-    background-color: #202020;
+    background-color: #121212;
     color: #fff; }
     .btn-black:hover {
-      color: #202020;
+      color: #282828;
       background-color: #fff; }
 
 .cursor_js {
@@ -335,7 +390,7 @@ li {
 .filtermovies {
   display: flex;
   justify-content: space-around;
-  background-color: #202020;
+  background-color: #282828;
   padding: 5rem;
   align-items: baseline; }
   @media only screen and (max-width: 870px) {
@@ -350,7 +405,7 @@ li {
     .filtermovies select option {
       border: none; }
   .filtermovies_filter {
-    background-color: #202020;
+    background-color: #282828;
     padding: 2rem;
     border-radius: 4px;
     cursor: pointer; }
@@ -466,7 +521,7 @@ li {
 .contentsection {
   width: 100%;
   display: grid;
-  background-color: #202020;
+  background-color: #282828;
   grid-template-columns: 1fr 3fr; }
   @media only screen and (max-width: 500px) {
     .contentsection {
@@ -507,7 +562,7 @@ li {
     transform: translateX(-100%); } }
 
 .footer {
-  background-color: #202020;
+  background-color: #282828;
   width: 100%;
   padding: 4rem; }
   @media only screen and (max-width: 870px) {
@@ -519,7 +574,7 @@ li {
     color: #fff;
     transition: all 0.4s;
     padding: 0.4rem 0;
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     text-decoration: none;
     position: relative;
     white-space: nowrap;
@@ -541,7 +596,12 @@ li {
       width: 100%;
       left: 0; }
   .footer__logo {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 2rem; }
+    @media only screen and (max-width: 870px) {
+      .footer__logo {
+        text-align: left;
+        margin-bottom: 0; } }
   .footer__left {
     display: flex;
     width: 80%;
@@ -550,8 +610,7 @@ li {
     @media only screen and (max-width: 870px) {
       .footer__left {
         flex-wrap: wrap;
-        width: 100%;
-        text-align: center; } }
+        width: 100%; } }
     .footer__left--1-list {
       list-style: none;
       display: flex;
@@ -559,8 +618,7 @@ li {
     @media only screen and (max-width: 870px) {
       .footer__left--1 {
         width: 50%;
-        display: flex;
-        justify-content: center; } }
+        display: flex; } }
     @media only screen and (max-width: 500px) {
       .footer__left--1 {
         width: 100%;
@@ -573,7 +631,6 @@ li {
     @media only screen and (max-width: 870px) {
       .footer__left--2 {
         width: 50%;
-        justify-content: center;
         display: flex; } }
     @media only screen and (max-width: 500px) {
       .footer__left--2 {
@@ -587,7 +644,6 @@ li {
     @media only screen and (max-width: 870px) {
       .footer__left--3 {
         width: 50%;
-        justify-content: center;
         display: flex;
         margin-top: 2rem; } }
     @media only screen and (max-width: 500px) {
@@ -602,7 +658,6 @@ li {
     @media only screen and (max-width: 870px) {
       .footer__left--4 {
         width: 50%;
-        justify-content: center;
         display: flex;
         margin-top: 2rem; } }
     @media only screen and (max-width: 500px) {

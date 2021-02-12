@@ -1,6 +1,6 @@
 .movie_hero {
   height: 80vh;
-
+  overflow-x: hidden;
   &_image {
     position: relative;
     top: 0;
@@ -35,6 +35,9 @@
   white-space: nowrap;
   text-transform: uppercase;
   user-select: none;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    letter-spacing: -2px;
+  }
 }
 
 .movie_char {
@@ -47,21 +50,53 @@
   margin-right: 10rem;
   display: flex;
   flex-direction: column;
-  // position: relative;
   margin-top: 2rem;
   position: sticky;
   position: -webkit-sticky;
   top: 100px;
   height: 45rem;
-  img {
-    width: 22rem;
-    height: 30rem;
+
+  &__buttons {
+    width: 40%;
+  }
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    margin-right: 0;
+    background-color: $black;
+    width: 100%;
+    height: auto;
+    top: -1px;
+    justify-content: space-around;
+    padding: 5rem;
+  }
+
+  &__image {
+    position: relative;
+    top: 0px;
+
+    width: 16.5rem;
+    height: 24rem;
+    object-fit: cover;
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      width: 18.5rem;
+      flex-direction: row;
+      margin-right: 0;
+    }
   }
 }
 
 .movie_details {
   display: flex;
   justify-content: space-between;
+  padding: 0 2rem;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
 .movie_text {
@@ -70,6 +105,38 @@
   color: $white;
 }
 
-.movie_info > * {
-  line-height: 1.5;
+.movie_info {
+  padding: 0 1rem;
+  & > * {
+    line-height: 1.5;
+  }
+}
+
+.shrink {
+  @media only screen and (max-width: $tablet-breakpoint) {
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-around;
+    height: auto;
+    width: 100%;
+    margin-right: 0;
+
+    .purchasemovie__image {
+      width: 8rem;
+      height: 10rem;
+    }
+    .featured_tag {
+      top: -1rem;
+
+      &::before {
+        font-size: 0.8rem;
+      }
+    }
+
+    .purchasemovie__buttons {
+      .btn {
+        // margin-top: 1rem;
+      }
+    }
+  }
 }
