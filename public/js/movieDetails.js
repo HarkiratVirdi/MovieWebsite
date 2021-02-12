@@ -14,6 +14,20 @@ gsap.to(".movie_hero_image", {
   transform: "matrix(1.1,0,0,1.1,0,0)",
 });
 
+gsap.to(".overlay_text", {
+  scrollTrigger: {
+    trigger: ".cast",
+    scrub: true,
+    start: "top center",
+    toggleActions: "restart pause reverse pause",
+  },
+  x: "100px",
+});
+
+window.onresize = () => {
+  purchaseMovie = document.querySelector(".purchasemovie");
+};
+
 const addShrinkClass = () => {
   let scrollingTop = document.documentElement.scrollTop;
 
@@ -25,7 +39,10 @@ const addShrinkClass = () => {
     purchaseMovie.classList.remove("shrink");
   }
 
-  if (scrollingTop > movieDetailsHeight + height - purchaseMovie.clientHeight) {
+  if (
+    scrollingTop >
+    movieDetailsHeight + height - purchaseMovie.clientHeight - 50
+  ) {
     purchaseMovie.style.position = "static";
   } else {
     purchaseMovie.style.position = "sticky";

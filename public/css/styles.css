@@ -23,8 +23,7 @@ html {
 
 body {
   background: #121212;
-  overflow-x: hidden;
-  transition: background 0.5s; }
+  overflow-x: hidden; }
 
 .container {
   max-width: 1200px;
@@ -94,7 +93,7 @@ li {
       font-size: 3rem; } }
 
 .h-3 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 1; }
   @media only screen and (max-width: 500px) {
     .h-3 {
@@ -240,7 +239,8 @@ li {
   user-select: none; }
   @media only screen and (max-width: 500px) {
     .movie_word {
-      letter-spacing: -2px; } }
+      letter-spacing: -2px;
+      margin-right: 1rem; } }
 
 .movie_char {
   font-weight: 800;
@@ -253,6 +253,7 @@ li {
   flex-direction: column;
   margin-top: 2rem;
   z-index: 1000;
+  padding-left: 2rem;
   position: sticky;
   position: -webkit-sticky;
   top: 100px;
@@ -276,6 +277,7 @@ li {
       padding: 5rem; } }
   .purchasemovie__image {
     position: relative;
+    align-self: center;
     top: 0px;
     transition: all 0.1s;
     width: 16.5rem;
@@ -288,12 +290,13 @@ li {
         margin-right: 0; } }
 
 .movie_details {
-  display: flex;
+  display: unset;
   justify-content: space-between;
-  padding: 0 2rem; }
+  padding: 0 2rem;
+  position: relative;
+  top: 0; }
   @media only screen and (max-width: 870px) {
     .movie_details {
-      flex-direction: column;
       padding: 0; } }
 
 .movie_text {
@@ -301,14 +304,21 @@ li {
   font-weight: 400;
   color: #fff; }
 
-@media only screen and (max-width: 870px) {
+.movie_info {
+  margin-top: -40rem; }
+  @media only screen and (max-width: 870px) {
+    .movie_info {
+      margin-top: 0rem; } }
   .movie_info_section1 {
-    margin-top: 10rem;
-    background-color: #1b1b1b;
-    padding: 3rem 3rem 3rem 4rem; } }
-
-.movie_info * {
-  line-height: 1.5; }
+    padding: 2rem;
+    background: #1b1b1b; }
+    @media only screen and (max-width: 870px) {
+      .movie_info_section1 {
+        margin-top: 10rem;
+        background-color: #1b1b1b;
+        padding: 3rem 3rem 3rem 4rem; } }
+  .movie_info * {
+    line-height: 1.5; }
 
 .cast {
   position: relative;
@@ -339,32 +349,6 @@ li {
       top: -1rem; }
       .shrink .featured_tag::before {
         font-size: 0.8rem; } }
-
-.purchasemovie {
-  position: sticky;
-  top: 100px;
-  padding-left: 2rem; }
-  @media only screen and (max-width: 870px) {
-    .purchasemovie {
-      top: 0;
-      position: sticky; } }
-  .purchasemovie__image {
-    align-self: center; }
-
-.movie_details {
-  position: relative;
-  top: 0;
-  display: unset; }
-
-.movie_info {
-  margin-top: -40rem; }
-  @media only screen and (max-width: 870px) {
-    .movie_info {
-      margin-top: 0rem; } }
-
-.movie_info_section1 {
-  padding: 2rem;
-  background: #1b1b1b; }
 
 .header {
   height: 20vh; }
@@ -434,7 +418,7 @@ li {
       color: #1b1b1b;
       background-color: #ccc; }
   .btn-black {
-    background-color: #121212;
+    background-color: #000;
     color: #fff; }
     .btn-black:hover {
       color: #1b1b1b;
@@ -613,7 +597,8 @@ li {
   @media only screen and (max-width: 870px) {
     .container_right {
       margin: 0 auto;
-      padding: 0rem; } }
+      padding: 0rem;
+      width: 100%; } }
 
 .contentsection {
   width: 100%;

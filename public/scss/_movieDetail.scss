@@ -37,6 +37,7 @@
   user-select: none;
   @media only screen and (max-width: $mobile-breakpoint) {
     letter-spacing: -2px;
+    margin-right: 1rem;
   }
 }
 
@@ -52,6 +53,7 @@
   flex-direction: column;
   margin-top: 2rem;
   z-index: 1000;
+  padding-left: 2rem;
   position: sticky;
   position: -webkit-sticky;
   top: 100px;
@@ -80,6 +82,7 @@
 
   &__image {
     position: relative;
+    align-self: center;
     top: 0px;
     transition: all 0.1s;
     width: 16.5rem;
@@ -95,12 +98,12 @@
 }
 
 .movie_details {
-  display: flex;
+  display: unset;
   justify-content: space-between;
   padding: 0 2rem;
-
+  position: relative;
+  top: 0;
   @media only screen and (max-width: $tablet-breakpoint) {
-    flex-direction: column;
     padding: 0;
   }
 }
@@ -112,11 +115,14 @@
 }
 
 .movie_info {
-  // padding: 0 1rem;
-
+  margin-top: -40rem;
+  @media only screen and (max-width: $tablet-breakpoint) {
+    margin-top: 0rem;
+  }
   &_section1 {
     // display: flex;
-
+    padding: 2rem;
+    background: $black;
     @media only screen and (max-width: $tablet-breakpoint) {
       margin-top: 10rem;
       background-color: $black;
@@ -173,37 +179,4 @@
       }
     }
   }
-}
-
-// ================trying
-.purchasemovie {
-  position: sticky;
-  top: 100px;
-  padding-left: 2rem;
-  @media only screen and (max-width: $tablet-breakpoint) {
-    top: 0;
-    position: sticky;
-  }
-
-  &__image {
-    align-self: center;
-  }
-}
-
-.movie_details {
-  position: relative;
-  top: 0;
-  display: unset;
-}
-
-.movie_info {
-  margin-top: -40rem;
-  @media only screen and (max-width: $tablet-breakpoint) {
-    margin-top: 0rem;
-  }
-}
-
-.movie_info_section1 {
-  padding: 2rem;
-  background: $black;
 }
