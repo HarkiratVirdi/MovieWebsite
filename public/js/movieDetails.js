@@ -25,11 +25,11 @@ const addShrinkClass = () => {
     purchaseMovie.classList.remove("shrink");
   }
 
-  if (scrollingTop > 50) {
-    document.body.style.background = "#222";
-  } else {
-    document.body.style.background = "#111";
-  }
+  // if (scrollingTop > 50) {
+  //   document.body.style.background = "#222";
+  // } else {
+  //   document.body.style.background = "#111";
+  // }
 };
 
 window.addEventListener("scroll", addShrinkClass);

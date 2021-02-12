@@ -78,6 +78,20 @@
   }
 }
 
+.heading {
+  font-weight: 800;
+}
+
+.container_sub {
+  padding: 0 2rem;
+  margin: auto;
+  max-width: 1200px;
+  @media only screen and (max-width: $tablet-breakpoint) {
+    margin: 0 auto;
+    padding: 0rem;
+  }
+}
+
 // .is-transitioning {
 //   pointer-events: none;
 //   cursor: progress;

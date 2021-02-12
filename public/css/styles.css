@@ -541,6 +541,18 @@ li {
     left: 50%;
     transform: translate(-50%, -50%); } }
 
+.heading {
+  font-weight: 800; }
+
+.container_sub {
+  padding: 0 2rem;
+  margin: auto;
+  max-width: 1200px; }
+  @media only screen and (max-width: 870px) {
+    .container_sub {
+      margin: 0 auto;
+      padding: 0rem; } }
+
 .contentsection {
   width: 100%;
   display: grid;
