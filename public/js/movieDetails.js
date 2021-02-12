@@ -24,6 +24,17 @@ gsap.to(".overlay_text", {
   x: "100px",
 });
 
+gsap.to(".cast_image", {
+  scrollTrigger: {
+    trigger: ".cast_image",
+    start: "top bottom",
+  },
+  width: "40%",
+  duration: 1,
+  scale: 0.9,
+  ease: "expo",
+});
+
 window.onresize = () => {
   purchaseMovie = document.querySelector(".purchasemovie");
 };

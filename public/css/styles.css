@@ -330,9 +330,10 @@ li {
     position: absolute;
     top: -100px;
     right: 3rem;
-    width: 40%;
-    height: 25rem;
-    object-fit: cover; }
+    width: 0%;
+    height: 30rem;
+    object-fit: cover;
+    transform-origin: left; }
 
 @media only screen and (max-width: 870px) {
   .shrink {
