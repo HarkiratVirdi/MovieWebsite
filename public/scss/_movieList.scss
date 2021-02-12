@@ -18,6 +18,31 @@
   flex-direction: column;
   align-self: flex-end;
   transform: translateY(30px);
+
+  &__overflow {
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+  }
+
+  &__name_container {
+    position: absolute;
+    padding: 2rem;
+    // color: black;
+    width: 100%;
+    background-color: rgba($white, 0.3);
+    backdrop-filter: blur(7px);
+    white-space: nowrap;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  &_name {
+    color: $white;
+    white-space: nowrap;
+    text-shadow: 0 2px 2px $black;
+  }
 }
 
 .list_movies {

@@ -57,7 +57,11 @@
   height: 45rem;
 
   &__buttons {
-    width: 40%;
+    width: 100%;
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      width: 40%;
+    }
   }
 
   @media only screen and (max-width: $tablet-breakpoint) {
@@ -108,7 +112,12 @@
 
 .movie_info {
   padding: 0 1rem;
-  & > * {
+
+  &_section1 {
+    // display: flex;
+  }
+
+  * {
     line-height: 1.5;
   }
 }

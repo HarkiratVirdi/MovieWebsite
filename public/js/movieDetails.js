@@ -16,13 +16,19 @@ gsap.to(".movie_hero_image", {
 
 const addShrinkClass = () => {
   let scrollingTop = document.documentElement.scrollTop;
-  console.log(scrollingTop);
+
   let height = window.innerHeight;
-  console.log("height", height);
-  if (scrollingTop > window.innerHeight - 25) {
+
+  if (scrollingTop > height - 25) {
     purchaseMovie.classList.add("shrink");
   } else {
     purchaseMovie.classList.remove("shrink");
+  }
+
+  if (scrollingTop > 50) {
+    document.body.style.background = "#222";
+  } else {
+    document.body.style.background = "#111";
   }
 };
 

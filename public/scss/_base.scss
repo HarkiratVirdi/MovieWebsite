@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
 
 $white: #fff;
-$black: #282828;
+$black: #1b1b1b;
 $Lightblack: #121212;
 $grey: #333;
 $cta: orange;
@@ -39,10 +39,11 @@ html {
 body {
   background: $Lightblack;
   overflow-x: hidden;
+  transition: background 0.5s;
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
   padding: 0 2rem;
 

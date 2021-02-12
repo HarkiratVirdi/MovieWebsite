@@ -11,11 +11,12 @@
         </div>
     </div>
 </div>
+<div class="container">
 
     <div class="movie_details">
 
        
-<div class="purchasemovie" data-pin>
+<div class="purchasemovie">
         <div class="purchasemovie__image" style="background: url({{movie.img_s}});  background-repeat: no-repeat; background-size: cover">
              {{#if movie.featured}}
         <div class="featured_tag">
@@ -30,16 +31,16 @@
 </div>
    
 
-        <div class="movie_info">
 
-            {{!-- <div class="h-3">Genre: {{}}</div> --}}
-            {{!-- <div class="h-3">Rating: {{rating}}</div> --}}
+        <div class="movie_info">
+            <div class="movie_info_section1">
             <h3 class="h-3">Rating: {{movie.rating}}%</h3>
             <h3 class="h-3">Genre: {{movie.genre}}</h3>
             <div class="h-3">Year: {{movie.year}}</div>
             <div class="h-3">Runtime: {{movie.runtime}}</div>
             <div class="h-3">Studio: {{movie.studio}}</div>
             <div class="h-3">Rated: {{movie.rated}}</div>
+            </div>
             <br>
             <div class="h-3 mt-xl">Synopsis:</div>
             <h3 class="h-3">{{movie.synopsis}}</h3>
@@ -62,9 +63,9 @@
             </div>
         </div>
     </div>
+</div>
     </div>
     </div>
-
 
 {{>footer}}
 
