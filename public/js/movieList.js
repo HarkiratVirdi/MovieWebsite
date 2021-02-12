@@ -13,7 +13,7 @@ const removeActive = () => {
   });
 };
 
-const setActive = async (e) => {
+const setActive = (e) => {
   let target = e.target;
 
   if (target === selectOptions) {
@@ -27,8 +27,7 @@ const setActive = async (e) => {
 
   const url = makeURL(target);
   console.log(url);
-
-  //   const makeRequest = await fetch(`/list/${url}`);
+  window.location.href = `/list/?filter=${url}`;
 };
 
 filterButtons.forEach((filterButton) => {
@@ -36,3 +35,26 @@ filterButtons.forEach((filterButton) => {
 });
 
 selectOptions.addEventListener("change", setActive);
+
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get("filter");
+console.log(myParam);
+
+if (myParam) {
+  removeActive();
+  const element = document.getElementById(myParam);
+  if (element) {
+    element.classList.add("active");
+    console.log("triggering");
+    console.log("select options", console.dir(selectOptions[1]));
+    console.log("select options", console.dir(selectOptions));
+    selectOptions.selectedIndex =
+      myParam === "featuredmovies"
+        ? 3
+        : myParam === "recentlyadded"
+        ? 2
+        : myParam === "releasedate"
+        ? 1
+        : 0;
+  }
+}

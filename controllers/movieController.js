@@ -34,7 +34,18 @@ module.exports.getMovie = (req, res) => {
 };
 
 module.exports.getMovieList = (req, res) => {
-  res.render("list", { movies: movieDatabase.movies });
+  // if (req.query) {
+  // }
+  let movies = movieDatabase.movies;
+
+  if (req.query.filter === "featuredmovies") {
+    movies = movies.filter((movie) => {
+      return movie.featured;
+    });
+  }
+  console.log(movies);
+
+  res.render("list", { movies: movies });
 };
 
 module.exports.searchMovie = (req, res) => {

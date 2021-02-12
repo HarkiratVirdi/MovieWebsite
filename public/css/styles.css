@@ -840,10 +840,9 @@ li {
       margin-top: 4rem; }
       .login_form_field label {
         flex: 1;
-        display: flex;
-        margin-right: 3rem; }
+        display: flex; }
       .login_form_field input {
-        flex: 3;
+        flex: 2;
         outline: none;
         border: none;
         font-size: 1.6rem;
