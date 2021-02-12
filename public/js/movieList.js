@@ -51,7 +51,7 @@ if (myParam) {
     selectOptions.selectedIndex =
       myParam === "featuredmovies"
         ? 3
-        : myParam === "recentlyadded"
+        : myParam === "runtime"
         ? 2
         : myParam === "releasedate"
         ? 1
