@@ -33,7 +33,11 @@
 
 
         <div class="movie_info">
+
+
+         
             <div class="movie_info_section1">
+            <div class="container_right">
             <h3 class="movie_text heading">Genre</h3>
             <div class="movie_text mb-xl">{{movie.genre}}</div>
             
@@ -46,7 +50,7 @@
             
             <h3 class="movie_text heading">Overview</h3>
             <div class="movie_text mb-xl"> {{movie.synopsis}}</div>
-            
+               </div>
             {{!-- <div class="h-3">Studio: {{movie.studio}}</div> --}}
             {{!-- <div class="h-3">Rated: {{movie.rated}}</div> --}}
             </div>
@@ -56,6 +60,8 @@
             {{!-- <h1 class="h-2">{{category}}</h1> --}}
 
             <div class="cast">
+                <div class="container_right">
+
                 <div class="movie_text heading mt-xl">Film Cast</div>
                 <img class="cast_image" src={{movie.img_l}} alt="">
                 {{#each movie.cast}}
@@ -74,6 +80,7 @@
             </div>
         </div>
     </div>
+                </div>
 </div>
     </div>
     </div>

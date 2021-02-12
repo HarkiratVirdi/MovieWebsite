@@ -84,7 +84,7 @@
 }
 
 .container_sub {
-  padding: 0 2rem;
+  // padding: 0 2rem;
   margin: auto;
 
   max-width: 1200px;
@@ -98,6 +98,18 @@
   font-size: 20vw;
   color: rgb(20, 20, 20);
   font-weight: 800;
+}
+
+.container_right {
+  overflow: hidden;
+  margin-left: auto;
+  max-width: 1200px;
+  width: 70%;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    margin: 0 auto;
+    padding: 0rem;
+  }
 }
 
 // .is-transitioning {

@@ -340,6 +340,25 @@ li {
       .shrink .featured_tag::before {
         font-size: 0.8rem; } }
 
+.purchasemovie {
+  position: absolute;
+  top: 100px;
+  padding-left: 2rem; }
+  @media only screen and (max-width: 870px) {
+    .purchasemovie {
+      top: 0; } }
+  .purchasemovie__image {
+    align-self: center; }
+
+.movie_details {
+  position: relative;
+  top: 0;
+  display: unset; }
+
+.movie_info_section1 {
+  padding: 2rem;
+  background: #1b1b1b; }
+
 .header {
   height: 20vh; }
   .header_nav {
@@ -567,7 +586,6 @@ li {
   text-transform: uppercase; }
 
 .container_sub {
-  padding: 0 2rem;
   margin: auto;
   max-width: 1200px; }
   @media only screen and (max-width: 870px) {
@@ -579,6 +597,16 @@ li {
   font-size: 20vw;
   color: #141414;
   font-weight: 800; }
+
+.container_right {
+  overflow: hidden;
+  margin-left: auto;
+  max-width: 1200px;
+  width: 70%; }
+  @media only screen and (max-width: 870px) {
+    .container_right {
+      margin: 0 auto;
+      padding: 0rem; } }
 
 .contentsection {
   width: 100%;
