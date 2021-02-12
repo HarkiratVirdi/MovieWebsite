@@ -247,6 +247,7 @@ li {
       width: 100%;
       height: auto;
       top: -1px;
+      margin-bottom: 5rem;
       justify-content: space-around;
       padding: 5rem; } }
   .purchasemovie__image {

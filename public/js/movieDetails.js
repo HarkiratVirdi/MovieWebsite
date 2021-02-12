@@ -14,16 +14,16 @@ gsap.to(".movie_hero_image", {
   transform: "matrix(1.1,0,0,1.1,0,0)",
 });
 
-const bodyScroll = () => {
+const addShrinkClass = () => {
   let scrollingTop = document.documentElement.scrollTop;
   console.log(scrollingTop);
   let height = window.innerHeight;
   console.log("height", height);
-  if (document.documentElement.scrollTop > window.innerHeight - 25) {
+  if (scrollingTop > window.innerHeight - 25) {
     purchaseMovie.classList.add("shrink");
   } else {
     purchaseMovie.classList.remove("shrink");
   }
 };
 
-window.addEventListener("scroll", bodyScroll);
+window.addEventListener("scroll", addShrinkClass);

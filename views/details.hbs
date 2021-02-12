@@ -1,8 +1,8 @@
 <div class="movie_hero">
 
-    <div class="movie_hero_image" style="background-image: url({{img_l}});">
+    <div class="movie_hero_image" style="background-image: url({{movie.img_l}});">
         <div class="h-3 movie_name">
-            {{#each (splittingBySpace name)}}
+            {{#each (splittingBySpace movie.name)}}
             <div class="h-3 movie_word">{{#each (splitting this)}}
                 <span class="movie_char">{{this}}</span>
                 {{/each}}
@@ -16,16 +16,16 @@
 
        
 <div class="purchasemovie" data-pin>
-        <div class="purchasemovie__image" style="background: url({{img_s}});  background-repeat: no-repeat; background-size: cover">
-             {{#if featured}}
+        <div class="purchasemovie__image" style="background: url({{movie.img_s}});  background-repeat: no-repeat; background-size: cover">
+             {{#if movie.featured}}
         <div class="featured_tag">
         </div>
        {{/if}} 
             </div>
 
 <div class="purchasemovie__buttons">
-    <a class="btn btn-black mt-s" href="#">Buy ${{buy}}</a>
-    <a class="btn btn-black mt-s" href="#">Rent ${{rent}}</a>
+    <a class="btn btn-black mt-s" href="#">Buy ${{movie.buy}}</a>
+    <a class="btn btn-black mt-s" href="#">Rent ${{movie.rent}}</a>
 </div> 
 </div>
    
@@ -34,29 +34,37 @@
 
             {{!-- <div class="h-3">Genre: {{}}</div> --}}
             {{!-- <div class="h-3">Rating: {{rating}}</div> --}}
-            <h3 class="h-3">Rating: {{rating}}%</h3>
-            <h3 class="h-3">Genre: {{genre}}</h3>
-            <div class="h-3">Year: {{year}}</div>
-            <div class="h-3">Runtime: {{runtime}}</div>
-            <div class="h-3">Studio: {{studio}}</div>
-            <div class="h-3">Rated: {{rated}}</div>
+            <h3 class="h-3">Rating: {{movie.rating}}%</h3>
+            <h3 class="h-3">Genre: {{movie.genre}}</h3>
+            <div class="h-3">Year: {{movie.year}}</div>
+            <div class="h-3">Runtime: {{movie.runtime}}</div>
+            <div class="h-3">Studio: {{movie.studio}}</div>
+            <div class="h-3">Rated: {{movie.rated}}</div>
             <br>
             <div class="h-3 mt-xl">Synopsis:</div>
-            <h3 class="h-3">{{synopsis}}</h3>
+            <h3 class="h-3">{{movie.synopsis}}</h3>
             {{!-- <h1 class="h-2">{{category}}</h1> --}}
 
             <div class="cast mt-xl">
                 <div class="h-2">Cast:</div>
-                {{#each cast}}
+                {{#each movie.cast}}
                     <div class="h-3">{{name}}</div>
                 {{/each}}
             </div>
 
             <div class="recommended mt-xl">
-                <div class="h-2">Also Recommend: ............</div>
+                <div class="h-2">Also Recommended: <div>
+                    <div class="recommended_movies">
+                        {{#each recommended}}
+                            
+                        {{/each}}
+                    </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
+
 
 {{>footer}}
 

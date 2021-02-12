@@ -30,7 +30,7 @@ module.exports.getMovie = (req, res) => {
   });
 
   console.log(movie);
-  res.render("details", movie[0]);
+  res.render("details", { movie: movie[0] });
 };
 
 module.exports.getMovieList = (req, res) => {
