@@ -275,6 +275,7 @@ li {
   .purchasemovie__image {
     position: relative;
     top: 0px;
+    transition: all 0.1s;
     width: 16.5rem;
     height: 24rem;
     object-fit: cover; }

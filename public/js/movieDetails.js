@@ -19,7 +19,7 @@ const addShrinkClass = () => {
 
   let height = window.innerHeight;
 
-  if (scrollingTop > height - 25) {
+  if (scrollingTop > height - 35) {
     purchaseMovie.classList.add("shrink");
   } else {
     purchaseMovie.classList.remove("shrink");
