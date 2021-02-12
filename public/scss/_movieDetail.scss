@@ -177,11 +177,12 @@
 
 // ================trying
 .purchasemovie {
-  position: absolute;
+  position: sticky;
   top: 100px;
   padding-left: 2rem;
   @media only screen and (max-width: $tablet-breakpoint) {
     top: 0;
+    position: sticky;
   }
 
   &__image {
@@ -193,6 +194,13 @@
   position: relative;
   top: 0;
   display: unset;
+}
+
+.movie_info {
+  margin-top: -40rem;
+  @media only screen and (max-width: $tablet-breakpoint) {
+    margin-top: 0rem;
+  }
 }
 
 .movie_info_section1 {

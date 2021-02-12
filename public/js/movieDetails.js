@@ -25,7 +25,7 @@ const addShrinkClass = () => {
     purchaseMovie.classList.remove("shrink");
   }
 
-  if (scrollingTop > movieDetailsHeight + height) {
+  if (scrollingTop > movieDetailsHeight + height - purchaseMovie.clientHeight) {
     purchaseMovie.style.position = "static";
   } else {
     purchaseMovie.style.position = "sticky";

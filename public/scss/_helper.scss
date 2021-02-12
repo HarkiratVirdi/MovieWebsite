@@ -87,7 +87,7 @@
   // padding: 0 2rem;
   margin: auto;
 
-  max-width: 1200px;
+  max-width: 1700px;
   @media only screen and (max-width: $tablet-breakpoint) {
     margin: 0 auto;
     padding: 0rem;
@@ -111,6 +111,16 @@
     padding: 0rem;
   }
 }
+
+// .l-posSticky {
+//   position: sticky;
+//   // top: 200px;
+
+//   // @media only screen and (max-width: $tablet-breakpoint) {
+//   //   position: sticky;
+//   //   top: 0;
+//   // }
+// }
 
 // .is-transitioning {
 //   pointer-events: none;
