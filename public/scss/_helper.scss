@@ -95,9 +95,13 @@
 }
 
 .overlay_text {
-  font-size: 20vw;
+  font-size: 10vw;
   color: rgb(20, 20, 20);
   font-weight: 800;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    font-size: 20vw;
+  }
 }
 
 .container_right {

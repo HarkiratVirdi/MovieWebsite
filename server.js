@@ -25,7 +25,7 @@ app.engine(
         const arr = str.split("");
         return arr;
       },
-      convertToDate: function (str) {
+      convertToMin: function (str) {
         console.log(str);
         let runtime = str;
         if (str.includes(":")) {

@@ -152,6 +152,13 @@
   }
 }
 
+.overview {
+  // display: flex;
+
+  &_col {
+  }
+}
+
 .shrink {
   @media only screen and (max-width: $tablet-breakpoint) {
     align-items: center;

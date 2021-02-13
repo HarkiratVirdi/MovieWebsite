@@ -38,18 +38,25 @@
          
             <div class="movie_info_section1">
             <div class="container_right">
+              
+
             <h3 class="movie_text heading">Genre</h3>
             <div class="movie_text mb-xl">{{movie.genre}}</div>
+
+
+        
             
             <h3 class="movie_text heading">Runtime</h3>
-            <div class="movie_text mb-xl"> {{convertToDate movie.runtime}} min</div>
+            <div class="movie_text mb-xl"> {{convertToMin movie.runtime}} min</div>
             <h3 class="movie_text heading">Rating</h3>
             <div class="movie_text mb-xl"> {{movie.rating}}/100</div>
             <h3 class="movie_text heading">year</h3>
             <div class="movie_text mb-xl"> {{movie.year}}</div>
-            
-            <h3 class="movie_text heading">Overview</h3>
+                <h3 class="movie_text heading">Overview</h3>
             <div class="movie_text mb-xl"> {{movie.synopsis}}</div>
+              
+               
+          
                </div>
             {{!-- <div class="h-3">Studio: {{movie.studio}}</div> --}}
             {{!-- <div class="h-3">Rated: {{movie.rated}}</div> --}}
@@ -67,7 +74,7 @@
                 {{#each movie.cast}}
                     <div class="movie_text">{{name}}</div>
                 {{/each}}
-                <div class="overlay_text mt-xl">CAST</div>
+                <div class="overlay_text">CAST</div>
             </div>
 
       
