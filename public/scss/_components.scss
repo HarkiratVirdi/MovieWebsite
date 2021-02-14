@@ -92,8 +92,28 @@
 }
 
 .search {
+  display: flex;
+  justify-content: center;
   input::-webkit-calendar-picker-indicator {
     display: none;
+  }
+  input {
+    width: 20%;
+    height: 4rem;
+    border: none;
+    padding: 2rem;
+    outline: none;
+    color: $white;
+    // font-size: 3rem;
+    // border-color: $white;
+    background: $grey;
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      width: 30%;
+    }
+  }
+  input::placeholder {
+    color: white;
   }
   &_list {
   }

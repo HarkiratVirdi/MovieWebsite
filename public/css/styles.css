@@ -144,12 +144,15 @@ li {
       font-size: 6.5vw; } }
 
 .movie_list {
-  overflow-x: scroll;
+  overflow-x: hidden;
   display: flex;
   margin-bottom: 3rem; }
   .movie_list_featured {
     display: flex;
     margin-bottom: 6rem; }
+  @media only screen and (max-width: 870px) {
+    .movie_list {
+      overflow-x: scroll; } }
 
 .movieIcon {
   position: relative;
@@ -471,8 +474,24 @@ li {
   .filtermovies .active {
     background-color: #121212 !important; }
 
-.search input::-webkit-calendar-picker-indicator {
-  display: none; }
+.search {
+  display: flex;
+  justify-content: center; }
+  .search input::-webkit-calendar-picker-indicator {
+    display: none; }
+  .search input {
+    width: 20%;
+    height: 4rem;
+    border: none;
+    padding: 2rem;
+    outline: none;
+    color: #fff;
+    background: #333; }
+    @media only screen and (max-width: 870px) {
+      .search input {
+        width: 30%; } }
+  .search input::placeholder {
+    color: white; }
 
 .hero {
   height: 80vh;
@@ -610,6 +629,14 @@ li {
       margin: 0 auto;
       padding: 0rem;
       width: 100%; } }
+
+.modern_input {
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background-color: transparent; }
+  .modern_input ::placeholder {
+    color: #fff; }
 
 .contentsection {
   width: 100%;

@@ -1,12 +1,14 @@
 .movie_list {
-  overflow-x: scroll;
+  overflow-x: hidden;
   display: flex;
   margin-bottom: 3rem;
   &_featured {
     display: flex;
     margin-bottom: 6rem;
-    // width: 400%;
-    // transform: translateY(-30px);
+  }
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    overflow-x: scroll;
   }
 }
 

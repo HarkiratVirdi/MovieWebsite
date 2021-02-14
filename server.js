@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
+const bodyParser = require("body-parser");
+
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
@@ -27,7 +29,8 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);

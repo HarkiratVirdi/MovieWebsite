@@ -117,6 +117,19 @@
   }
 }
 
+.modern {
+  &_input {
+    border: none;
+    border-bottom: 1px solid $white;
+    outline: none;
+    background-color: transparent;
+
+    ::placeholder {
+      color: $white;
+    }
+  }
+}
+
 // .l-posSticky {
 //   position: sticky;
 //   // top: 200px;

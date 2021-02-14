@@ -4,6 +4,7 @@ const {
   getMovies,
   getMovie,
   getMovieList,
+  getInput,
   searchMovie,
 } = require("../controllers/movieController");
 
