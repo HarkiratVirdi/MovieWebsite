@@ -1,2 +1,9 @@
-
+<div class="search">
+    <datalist class="search_list" id="suggestions">
+        {{#each movie}}
+          <option>{{name}}</option>
+        {{/each}}
+    </datalist>
+    <input type="text" autoComplete="on" list="suggestions"/> 
+</div>
   {{>footer}}

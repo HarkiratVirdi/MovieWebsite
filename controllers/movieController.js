@@ -74,5 +74,5 @@ module.exports.getMovieList = (req, res) => {
 };
 
 module.exports.searchMovie = (req, res) => {
-  res.render("search");
+  res.render("search", { movie: movieDatabase.movies });
 };

@@ -471,6 +471,9 @@ li {
   .filtermovies .active {
     background-color: #121212 !important; }
 
+.search input::-webkit-calendar-picker-indicator {
+  display: none; }
+
 .hero {
   height: 80vh;
   width: 100%; }
