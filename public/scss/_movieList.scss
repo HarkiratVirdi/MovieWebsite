@@ -1,14 +1,16 @@
 .movie_list {
-  overflow-x: hidden;
+  overflow-x: scroll;
   display: flex;
   margin-bottom: 3rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &_featured {
     display: flex;
     margin-bottom: 6rem;
-  }
-
-  @media only screen and (max-width: $tablet-breakpoint) {
-    overflow-x: scroll;
+    transition: all 0.5s;
   }
 }
 
@@ -19,13 +21,22 @@
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  transform: translateY(30px);
+  transition: transform 0.5s;
+  margin-top: 30px;
+
+  img {
+    transition: transform 0.5s;
+    overflow: hidden;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
 
   &__overflow {
     overflow: hidden;
     width: 100%;
     position: absolute;
-    bottom: 20px;
+    bottom: 3px;
   }
 
   &__name_container {
@@ -44,6 +55,11 @@
     color: $white;
     white-space: nowrap;
     text-shadow: 0 2px 2px $black;
+  }
+
+  &_runtime {
+    text-shadow: 0 2px 2px $black;
+    color: $white;
   }
 }
 

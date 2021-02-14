@@ -144,15 +144,15 @@ li {
       font-size: 6.5vw; } }
 
 .movie_list {
-  overflow-x: hidden;
+  overflow-x: scroll;
   display: flex;
   margin-bottom: 3rem; }
+  .movie_list::-webkit-scrollbar {
+    display: none; }
   .movie_list_featured {
     display: flex;
-    margin-bottom: 6rem; }
-  @media only screen and (max-width: 870px) {
-    .movie_list {
-      overflow-x: scroll; } }
+    margin-bottom: 6rem;
+    transition: all 0.5s; }
 
 .movieIcon {
   position: relative;
@@ -161,12 +161,18 @@ li {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  transform: translateY(30px); }
+  transition: transform 0.5s;
+  margin-top: 30px; }
+  .movieIcon img {
+    transition: transform 0.5s;
+    overflow: hidden; }
+  .movieIcon:hover {
+    transform: scale(1.05); }
   .movieIcon__overflow {
     overflow: hidden;
     width: 100%;
     position: absolute;
-    bottom: 20px; }
+    bottom: 3px; }
   .movieIcon__name_container {
     position: absolute;
     padding: 2rem;
@@ -180,6 +186,9 @@ li {
     color: #fff;
     white-space: nowrap;
     text-shadow: 0 2px 2px #1b1b1b; }
+  .movieIcon_runtime {
+    text-shadow: 0 2px 2px #1b1b1b;
+    color: #fff; }
 
 .list_movies {
   display: grid;
