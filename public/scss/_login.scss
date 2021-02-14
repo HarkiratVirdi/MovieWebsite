@@ -14,6 +14,10 @@
       height: 100%;
       object-fit: cover;
     }
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      display: none;
+    }
   }
 
   &_container {
@@ -26,6 +30,13 @@
     right: 0;
     text-align: center;
     // align-items: center;
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      width: 80%;
+      position: static;
+      margin: 0 auto;
+      display: block;
+    }
   }
 
   &_form {
@@ -41,6 +52,9 @@
       // justify-content: center;
       margin-top: 4rem;
 
+      @media only screen and (max-width: $tablet-breakpoint) {
+        flex-direction: column;
+      }
       label {
         flex: 1;
         display: flex;
@@ -52,6 +66,7 @@
         outline: none;
         border: none;
         font-size: 1.6rem;
+        margin-top: 1rem;
         color: $white;
         border-bottom: 1px solid $white;
         background: transparent;

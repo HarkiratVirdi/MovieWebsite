@@ -40,21 +40,15 @@ module.exports.getMovieList = (req, res) => {
     movies = movies.filter((movie) => {
       return movie.featured;
     });
-  }
-
-  if (req.query.filter === "byrating") {
+  } else if (req.query.filter === "byrating") {
     movies = movies.sort((a, b) => {
       return b.rating - a.rating;
     });
-  }
-
-  if (req.query.filter === "releasedate") {
+  } else if (req.query.filter === "releasedate") {
     movies = movies.sort((a, b) => {
       return b.year - a.year;
     });
-  }
-
-  if (req.query.filter === "runtime") {
+  } else if (req.query.filter === "runtime") {
     movies = movies.sort((a, b) => {
       if (a.runtime.includes(":")) {
         runtime1 = a.runtime.split(":");
@@ -69,6 +63,10 @@ module.exports.getMovieList = (req, res) => {
         runtime2 = b.runtime;
       }
       return runtime2 - runtime1;
+    });
+  } else {
+    movies.sort((a, b) => {
+      return b.rating - a.rating;
     });
   }
 

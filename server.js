@@ -19,7 +19,6 @@ app.engine(
   exphbs({
     extname: ".hbs",
     defaultLayout: "main",
-    // helpersPath: "",
     helpers: {
       splittingBySpace: splittingBySpace,
       splitting: splitting,

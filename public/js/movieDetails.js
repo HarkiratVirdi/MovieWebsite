@@ -31,11 +31,11 @@ gsap.to(".cast_image", {
   },
   width: "40%",
   duration: 1,
-  scale: 0.9,
   ease: "expo",
 });
 
 window.onresize = () => {
+  console.log("resized");
   purchaseMovie = document.querySelector(".purchasemovie");
 };
 
@@ -52,7 +52,7 @@ const addShrinkClass = () => {
 
   if (
     scrollingTop >
-    movieDetailsHeight + height - purchaseMovie.clientHeight - 50
+    movieDetailsHeight + height - purchaseMovie.clientHeight / 1.3
   ) {
     purchaseMovie.style.position = "static";
   } else {

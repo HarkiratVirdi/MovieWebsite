@@ -57,4 +57,7 @@ if (myParam) {
         ? 1
         : 0;
   }
+} else {
+  selectOptions.selectedIndex = 0;
+  filterButtons[0].classList.add("active");
 }

@@ -521,7 +521,7 @@ li {
   margin-right: 1rem; }
 
 .mt-l {
-  margin-top: 3.5vw; }
+  margin-top: 3.5rem; }
 
 .mt-xl {
   margin-top: 6vw; }
@@ -829,6 +829,9 @@ li {
       width: 100%;
       height: 100%;
       object-fit: cover; }
+    @media only screen and (max-width: 870px) {
+      .login_image {
+        display: none; } }
   .login_container {
     width: 40%;
     display: flex;
@@ -837,6 +840,12 @@ li {
     padding: 0 3rem;
     right: 0;
     text-align: center; }
+    @media only screen and (max-width: 870px) {
+      .login_container {
+        width: 80%;
+        position: static;
+        margin: 0 auto;
+        display: block; } }
   .login_form {
     display: flex;
     flex-direction: column; }
@@ -845,6 +854,9 @@ li {
     .login_form_field {
       display: flex;
       margin-top: 4rem; }
+      @media only screen and (max-width: 870px) {
+        .login_form_field {
+          flex-direction: column; } }
       .login_form_field label {
         flex: 1;
         display: flex; }
@@ -853,6 +865,7 @@ li {
         outline: none;
         border: none;
         font-size: 1.6rem;
+        margin-top: 1rem;
         color: #fff;
         border-bottom: 1px solid #fff;
         background: transparent; }
