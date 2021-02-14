@@ -5,6 +5,9 @@ const path = require("path");
 const app = express();
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
+const splittingBySpace = require("./views/helpers/splittingBySpace");
+const splitting = require("./views/helpers/splitting");
+const convertToMin = require("./views/helpers/convertToMin");
 
 dotenv.config({ path: "./config.env" });
 
@@ -16,25 +19,11 @@ app.engine(
   exphbs({
     extname: ".hbs",
     defaultLayout: "main",
+    // helpersPath: "",
     helpers: {
-      splittingBySpace: function (str) {
-        const arr = str.split(" ");
-        return arr;
-      },
-      splitting: function (str) {
-        const arr = str.split("");
-        return arr;
-      },
-      convertToMin: function (str) {
-        console.log(str);
-        let runtime = str;
-        if (str.includes(":")) {
-          runtime = str.split(":");
-          runtime = parseInt(runtime[0]) * 60 + parseInt(runtime[1]);
-          console.log(runtime);
-          return runtime;
-        }
-      },
+      splittingBySpace: splittingBySpace,
+      splitting: splitting,
+      convertToMin: convertToMin,
     },
   })
 );

@@ -150,6 +150,12 @@
     object-fit: cover;
     transform-origin: left;
   }
+
+  .produced_by {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+  }
 }
 
 .overview {
