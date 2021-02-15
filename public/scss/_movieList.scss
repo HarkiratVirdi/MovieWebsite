@@ -1,44 +1,58 @@
+.movie_list_buttons {
+  position: relative;
+  top: 0;
+
+  button.left {
+    position: absolute;
+    top: 15%;
+    z-index: 500;
+    background: rgba(#fff, 0.5);
+    padding: 4rem 2rem;
+    height: 30%;
+    backdrop-filter: blur(4px);
+    left: 0px;
+    transform: translateY(40%);
+    @media only screen and (max-width: $tablet-breakpoint) {
+      display: none;
+    }
+  }
+
+  button.right {
+    right: 0px;
+    position: absolute;
+    background: rgba(#fff, 0.5);
+    top: 15%;
+    backdrop-filter: blur(4px);
+    z-index: 500;
+    // background: black;
+    padding: 4rem 2rem;
+    height: 30%;
+    // left: 0px;
+    transform: translateY(40%);
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+      display: none;
+    }
+  }
+}
+
 .movie_list {
   overflow-x: scroll;
   display: flex;
-  position: relative;
   top: 0;
   scroll-behavior: smooth;
   overflow-y: hidden;
   margin-bottom: 3rem;
 
-  & button.left {
-    position: absolute;
-    top: 15%;
-    z-index: 500;
-    background: rgba(#fff, 0.5);
-    padding: 5rem 2rem;
-    height: 30%;
-    backdrop-filter: blur(4px);
-    left: 0px;
-    transform: translateY(40%);
-  }
-
-  & button.right {
-    right: 0px;
-    position: absolute;
-    top: 0%;
-    z-index: 500;
-    background: black;
-    padding: 5rem 2rem;
-    height: 50%;
-    // left: 0px;
-    transform: translateY(40%);
-  }
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
 
   &_featured {
     display: flex;
     margin-bottom: 6rem;
     transition: all 0.5s;
+    position: relative;
   }
 }
 

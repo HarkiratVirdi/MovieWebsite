@@ -320,4 +320,33 @@ module.exports.movies = [
       },
     ],
   },
+  {
+    id: 12,
+    name: "Arrival",
+    featured: true,
+    rated: "PG-13",
+    runtime: "1:58",
+    rating: "92",
+    rent: "5",
+    buy: "30",
+    genre: "Sci-Fi, Thriller",
+    studio: "Paramount Pictures",
+    year: "2016",
+    isMovie: true,
+    synopsis:
+      "Arrival is a 2016 American science fiction film directed by Denis Villeneuve and written by Eric Heisserer.It stars Amy Adams, Jeremy Renner, and Forest Whitaker. The film follows a linguist enlisted by the United States Army to discover how to communicate with extraterrestrial aliens who have arrived on Earth, before tensions lead to war.",
+    img_s: "https://images2.vudu.com/poster2/826376-168",
+    img_l: "https://images2.vudu.com/background/826376-1280a.jpg",
+    cast: [
+      {
+        name: "Amy Adams",
+      },
+      {
+        name: "Jeremy Runner",
+      },
+      {
+        name: "Forest Whitaker",
+      },
+    ],
+  },
 ];

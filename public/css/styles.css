@@ -143,39 +143,48 @@ li {
     .h-3-vw {
       font-size: 6.5vw; } }
 
-.movie_list {
-  overflow-x: scroll;
-  display: flex;
+.movie_list_buttons {
   position: relative;
-  top: 0;
-  scroll-behavior: smooth;
-  overflow-y: hidden;
-  margin-bottom: 3rem; }
-  .movie_list button.left {
+  top: 0; }
+  .movie_list_buttons button.left {
     position: absolute;
     top: 15%;
     z-index: 500;
     background: rgba(255, 255, 255, 0.5);
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     height: 30%;
     backdrop-filter: blur(4px);
     left: 0px;
     transform: translateY(40%); }
-  .movie_list button.right {
+    @media only screen and (max-width: 870px) {
+      .movie_list_buttons button.left {
+        display: none; } }
+  .movie_list_buttons button.right {
     right: 0px;
     position: absolute;
-    top: 0%;
+    background: rgba(255, 255, 255, 0.5);
+    top: 15%;
+    backdrop-filter: blur(4px);
     z-index: 500;
-    background: black;
-    padding: 5rem 2rem;
-    height: 50%;
+    padding: 4rem 2rem;
+    height: 30%;
     transform: translateY(40%); }
-  .movie_list::-webkit-scrollbar {
-    display: none; }
+    @media only screen and (max-width: 870px) {
+      .movie_list_buttons button.right {
+        display: none; } }
+
+.movie_list {
+  overflow-x: scroll;
+  display: flex;
+  top: 0;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+  margin-bottom: 3rem; }
   .movie_list_featured {
     display: flex;
     margin-bottom: 6rem;
-    transition: all 0.5s; }
+    transition: all 0.5s;
+    position: relative; }
 
 .movieIcon {
   position: relative;
@@ -388,7 +397,8 @@ li {
     justify-content: space-around;
     height: auto;
     width: 100%;
-    margin-right: 0; }
+    margin-right: 0;
+    box-shadow: 0px 1px 5px #121212; }
     .shrink .purchasemovie__image {
       width: 8rem;
       height: 10rem; }
