@@ -25,14 +25,28 @@ console.log(movieList);
 
 const scroll = (e) => {
   console.log("scroll works", e.target);
-
-  currentScroll += window.innerWidth / 2;
+  const target = e.target.nextElementSibling;
   console.log("curent scroll", currentScroll);
-  if (currentScroll < movieListFeatured.clientWidth) {
-    buttonLeft.style.left = currentScroll / 2 + "px";
-    target.scrollTo(currentScroll, 0);
+  if (currentScroll <= movieListFeatured.clientWidth) {
+    if (e.target.classList.contains("right")) {
+      currentScroll += window.innerWidth / 2;
+
+      if (currentScroll >= movieListFeatured.clientWidth) {
+        currentScroll = movieListFeatured.clientWidth - window.innerWidth / 2;
+      }
+      console.log("contains right", currentScroll);
+      target.scrollTo(currentScroll, 0);
+    } else {
+      currentScroll -= window.innerWidth / 2;
+
+      if (currentScroll < 0) {
+        currentScroll = 0;
+      }
+
+      console.log("contains left", currentScroll);
+      target.nextElementSibling.scrollTo(currentScroll, 0);
+    }
   }
-  //   buttonRight.style.right = currentScroll + "px";
 };
 
 // movieList.forEach((list) => {
