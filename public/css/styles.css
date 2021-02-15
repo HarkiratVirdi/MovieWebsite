@@ -156,7 +156,7 @@ li {
     backdrop-filter: blur(4px);
     left: 0px;
     transform: translateY(40%); }
-    @media only screen and (max-width: 870px) {
+    @media only screen and (max-width: 500px) {
       .movie_list_buttons button.left {
         display: none; } }
   .movie_list_buttons button.right {
@@ -169,7 +169,7 @@ li {
     padding: 4rem 2rem;
     height: 30%;
     transform: translateY(40%); }
-    @media only screen and (max-width: 870px) {
+    @media only screen and (max-width: 500px) {
       .movie_list_buttons button.right {
         display: none; } }
 
