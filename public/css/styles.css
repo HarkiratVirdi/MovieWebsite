@@ -316,6 +316,10 @@ li {
   font-weight: 400;
   color: #fff; }
 
+.reviews {
+  background-color: #1b1b1b;
+  padding: 4rem 0; }
+
 .movie_info {
   margin-top: -40rem; }
   @media only screen and (max-width: 870px) {
@@ -550,6 +554,12 @@ li {
 
 .mr-s {
   margin-right: 1rem; }
+
+.underline {
+  text-decoration: underline; }
+
+.capitalize {
+  text-transform: capitalize; }
 
 .mt-l {
   margin-top: 3.5rem; }

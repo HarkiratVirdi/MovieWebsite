@@ -270,6 +270,7 @@ module.exports.movies = [
     genre: "Sci-Fi, Drama",
     runtime: "40",
     studio: "AMC",
+    rated: "+18",
     year: "2005",
     buy: "30",
     isMovie: false,

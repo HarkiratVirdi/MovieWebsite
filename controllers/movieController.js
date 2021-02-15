@@ -1,4 +1,5 @@
 const movieDatabase = require("../db/db");
+const axios = require("axios");
 const imagesForContent = [
   "https://images2.vudu.com/poster2/1576343-168",
   "https://images2.vudu.com/assets/content/poster/1493460-144",
@@ -22,15 +23,25 @@ module.exports.getMovies = (req, res) => {
   });
 };
 
-module.exports.getMovie = (req, res) => {
-  console.log(req.params.id);
-
+module.exports.getMovie = async (req, res) => {
   const movie = movieDatabase.movies.filter((movie) => {
     return movie.id === parseInt(req.params.id);
   });
 
-  console.log(movie);
-  res.render("details", { movie: movie[0] });
+  const getReviews = await axios.get(
+    `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie[0].name}&api-key=${process.env.NYTIMESAPI}`
+  );
+
+  let reviews = "";
+  if (getReviews.data.status === "OK") {
+    reviews = getReviews.data.results;
+  } else {
+    reviews = [];
+  }
+  console.log("reviews", reviews);
+
+  // console.log(movie);
+  res.render("details", { movie: movie[0], reviews: reviews });
 };
 
 module.exports.getMovieList = (req, res) => {

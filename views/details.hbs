@@ -90,9 +90,28 @@
 
                </div>
             </div>
-            </div>
+            
       
         </div>
+        </div>
+
+    <div class="reviews mt-l">
+                <div class="container_right">
+        <div class="heading movie_text">Reviews</div>
+        {{#if reviews}}
+        {{#each reviews}}
+            <p class="mt-l">{{this.summary_short}}</p>
+            <p class="capitalize">Critic: {{this.byline}}</p>
+         
+            <p class="mt-s">{{this.link.suggested_link_text}}</p>
+            <a href={{this.link.url}} class="underline">Read More</a>
+            <hr class="mt-s">
+        {{/each}}
+    {{else}}
+        <p>No Reviews yet</p>
+    {{/if}}
+    </div>
+    </div>
     </div>
 
       <div class="recommended mt-xl">

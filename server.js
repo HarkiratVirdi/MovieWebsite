@@ -4,7 +4,6 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
-
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
@@ -13,7 +12,6 @@ const convertToMin = require("./views/helpers/convertToMin");
 
 dotenv.config({ path: "./config.env" });
 
-console.log(process.env.PORT);
 const PORT = process.env.PORT;
 
 app.engine(
