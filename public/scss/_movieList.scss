@@ -44,9 +44,9 @@
   overflow-y: hidden;
   margin-bottom: 3rem;
 
-  // &::-webkit-scrollbar {
-  //   display: none;
-  // }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &_featured {
     display: flex;

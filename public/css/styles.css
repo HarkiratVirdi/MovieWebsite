@@ -180,6 +180,8 @@ li {
   scroll-behavior: smooth;
   overflow-y: hidden;
   margin-bottom: 3rem; }
+  .movie_list::-webkit-scrollbar {
+    display: none; }
   .movie_list_featured {
     display: flex;
     margin-bottom: 6rem;

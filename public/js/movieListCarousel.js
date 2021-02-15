@@ -1,19 +1,6 @@
-// const movieListCarousel = document.querySelectorAll(".movie_list_featured");
-
-// const transformIt = (e) => {
-//   console.log(isOverflown(e.target));
-//   if (isOverflown(e.target)) {
-//     e.target.style.transform = "translateX(-60%)";
-//   }
-// };
-
-// movieListCarousel.forEach((movieList) => {
-//   movieList.addEventListener("click", transformIt);
-// });
-
-// function isOverflown(element) {
-//   return element.scrollWidth > element.clientWidth;
-// }
+function isOverflown(element) {
+  return element.scrollWidth > element.clientWidth;
+}
 
 let currentScroll = 0;
 
@@ -21,7 +8,19 @@ const movieList = document.querySelectorAll(".movie_list");
 const movieListFeatured = document.querySelector(".movie_list_featured");
 const buttonLeft = document.querySelector(".movie_list_buttons .left");
 const buttonRight = document.querySelector(".movie_list_buttons .right");
-console.log(movieList);
+
+if (!isOverflown(movieList[0])) {
+  movieList[0].parentElement.children[0].style.display = "none";
+  movieList[0].parentElement.children[1].style.display = "none";
+  //   buttonLeft.style.display = "none";
+  //   buttonRight.style.display = "none";
+}
+
+if (!isOverflown(movieList[1])) {
+  movieList[1].parentElement.children[0].style.display = "none";
+  movieList[1].parentElement.children[1].style.display = "none";
+  //   buttonRight.style.display = "none";
+}
 
 const scroll = (e) => {
   console.log("scroll works", e.target);
@@ -48,11 +47,6 @@ const scroll = (e) => {
     }
   }
 };
-
-// movieList.forEach((list) => {
-//   list.addEventListener("click", scroll);
-//   list.firstElementChild.addEventListener("click", scroll);
-// });
 
 buttonLeft.addEventListener("click", scroll);
 buttonRight.addEventListener("click", scroll);
