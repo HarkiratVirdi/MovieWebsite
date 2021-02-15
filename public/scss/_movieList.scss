@@ -4,24 +4,31 @@
   position: relative;
   top: 0;
   scroll-behavior: smooth;
+  overflow-y: hidden;
   margin-bottom: 3rem;
 
   & button.left {
     position: absolute;
-    top: 50%;
+    top: 15%;
     z-index: 500;
-    background: black;
-    padding: 5rem;
+    background: rgba(#fff, 0.5);
+    padding: 5rem 2rem;
+    height: 30%;
+    backdrop-filter: blur(4px);
     left: 0px;
+    transform: translateY(40%);
   }
 
   & button.right {
     right: 0px;
     position: absolute;
-    top: 50%;
+    top: 0%;
     z-index: 500;
     background: black;
-    padding: 5rem;
+    padding: 5rem 2rem;
+    height: 50%;
+    // left: 0px;
+    transform: translateY(40%);
   }
 
   &::-webkit-scrollbar {

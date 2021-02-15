@@ -149,21 +149,27 @@ li {
   position: relative;
   top: 0;
   scroll-behavior: smooth;
+  overflow-y: hidden;
   margin-bottom: 3rem; }
   .movie_list button.left {
     position: absolute;
-    top: 50%;
+    top: 15%;
     z-index: 500;
-    background: black;
-    padding: 5rem;
-    left: 0px; }
+    background: rgba(255, 255, 255, 0.5);
+    padding: 5rem 2rem;
+    height: 30%;
+    backdrop-filter: blur(4px);
+    left: 0px;
+    transform: translateY(40%); }
   .movie_list button.right {
     right: 0px;
     position: absolute;
-    top: 50%;
+    top: 0%;
     z-index: 500;
     background: black;
-    padding: 5rem; }
+    padding: 5rem 2rem;
+    height: 50%;
+    transform: translateY(40%); }
   .movie_list::-webkit-scrollbar {
     display: none; }
   .movie_list_featured {
