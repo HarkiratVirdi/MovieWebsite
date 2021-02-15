@@ -14,3 +14,22 @@
 // function isOverflown(element) {
 //   return element.scrollWidth > element.clientWidth;
 // }
+
+let currentScroll = 0;
+
+const movieList = document.querySelectorAll(".movie_list");
+
+console.log(movieList);
+
+const scroll = (e) => {
+  console.log("scroll works", e.target);
+  const target = e.target;
+  currentScroll += window.innerWidth;
+  console.log("curent scroll", currentScroll);
+  target.scrollTo(currentScroll, 0);
+};
+
+movieList.forEach((list) => {
+  list.addEventListener("click", scroll);
+  list.firstElementChild.addEventListener("click", scroll);
+});

@@ -117,6 +117,10 @@
 .reviews {
   background-color: $black;
   padding: 4rem 0;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    padding: 4rem 2rem;
+  }
 }
 
 .movie_info {

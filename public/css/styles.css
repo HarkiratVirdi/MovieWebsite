@@ -146,7 +146,24 @@ li {
 .movie_list {
   overflow-x: scroll;
   display: flex;
+  position: relative;
+  top: 0;
+  scroll-behavior: smooth;
   margin-bottom: 3rem; }
+  .movie_list button.left {
+    position: absolute;
+    top: 50%;
+    z-index: 500;
+    background: black;
+    padding: 5rem;
+    left: 0px; }
+  .movie_list button.right {
+    right: 0px;
+    position: absolute;
+    top: 50%;
+    z-index: 500;
+    background: black;
+    padding: 5rem; }
   .movie_list::-webkit-scrollbar {
     display: none; }
   .movie_list_featured {
@@ -319,6 +336,9 @@ li {
 .reviews {
   background-color: #1b1b1b;
   padding: 4rem 0; }
+  @media only screen and (max-width: 870px) {
+    .reviews {
+      padding: 4rem 2rem; } }
 
 .movie_info {
   margin-top: -40rem; }
