@@ -864,8 +864,22 @@ li {
   transition: transform 0.5s;
   align-items: center;
   background-color: #fff; }
-  .single_carousel .h-3 {
-    width: 100%; }
+  .single_carousel .banner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .single_carousel .banner_1 {
+      background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
+    .single_carousel .banner_2 {
+      background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%); }
+    .single_carousel .banner_3 {
+      background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); }
+    .single_carousel .banner_4 {
+      background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%); }
+    .single_carousel .banner_5 {
+      background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%); }
   .single_carousel img {
     object-fit: cover;
     height: 60vh;
