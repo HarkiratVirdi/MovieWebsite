@@ -38,9 +38,7 @@ module.exports.getMovie = async (req, res) => {
   } else {
     reviews = [];
   }
-  console.log("reviews", reviews);
 
-  // console.log(movie);
   res.render("details", { movie: movie[0], reviews: reviews });
 };
 

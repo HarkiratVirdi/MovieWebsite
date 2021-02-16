@@ -3,16 +3,18 @@
         <nav class="header_nav">
               <div class="t-show">
 
-            <i class="fas fa-bars fa-2x" style="color: white;"></i>
+            <i class="fas fa-bars fa-2x" style="color: white; cursor: pointer"></i>
               </div>
             <li><a href="/" class="header_logo">MovieNation</a></li>
             <ul class="header_list">
                 <li class="header_list_links"><a href="/list">Movies & TV</a></li>
                 <li class="header_list_links"><a href="/user/login">Login</a></li>
                 <li class="header_list_links"><a href="/user/register">Register</a></li>
-                <li class="header_list_links"><a href="/search">Search <i class="fas fa-1x fa-search"></i> </a></li>
+                {{!-- <li class="header_list_links"><a href="/search">Search <i class="fas fa-1x fa-search"></i> </a></li> --}}
                 <div class="t-show">
-                    <i class="fas fa-search fa-2x" style="color: white;"></i>
+                    <a href="/user/login">
+                   <i class="fas fa-user-circle fa-2x" style="color:white; cursor: pointer"></i>
+                    </a>
                 </div>
             </ul>
         </nav>

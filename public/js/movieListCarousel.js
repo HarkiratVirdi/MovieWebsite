@@ -5,6 +5,8 @@ const movieListFeatured = document.querySelector(".movie_list_featured");
 const buttonLeft = document.querySelector(".movie_list_buttons .left");
 const buttonRight = document.querySelector(".movie_list_buttons .right");
 
+buttonLeft.style.display = "none";
+
 const isOverflown = (element) => {
   return element.scrollWidth > element.clientWidth;
 };
@@ -24,6 +26,7 @@ const scroll = (e) => {
 
   if (currentScroll <= movieListFeatured.clientWidth) {
     if (e.target.classList.contains("right")) {
+      buttonLeft.style.display = "inline-block";
       currentScroll += window.innerWidth / 2;
 
       if (currentScroll >= movieListFeatured.clientWidth) {
@@ -35,6 +38,7 @@ const scroll = (e) => {
 
       if (currentScroll < 0) {
         currentScroll = 0;
+        buttonLeft.style.display = "none";
       }
 
       target.nextElementSibling.scrollTo(currentScroll, 0);

@@ -54,7 +54,8 @@
       }
     }
     @media only screen and (max-width: $tablet-breakpoint) {
-      width: 3%;
+      width: auto;
+      justify-content: flex-end;
     }
   }
 }

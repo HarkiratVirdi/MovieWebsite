@@ -57,3 +57,5 @@ const removeColorManully = (idx) => {
 
   paginationButtons[idx].style.background = "orange";
 };
+
+///////////////////////////////////////////////baaner
