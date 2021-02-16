@@ -470,7 +470,7 @@ li {
   display: flex;
   justify-content: center;
   border-radius: 3px;
-  transition: 0.5s all; }
+  transition: 0.5s opacity; }
   .btn-white {
     background-color: #fff;
     color: #1b1b1b; }

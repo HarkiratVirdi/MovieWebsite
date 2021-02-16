@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   border-radius: 3px;
-  transition: 0.5s all;
+  transition: 0.5s opacity;
 
   &-white {
     background-color: $white;
