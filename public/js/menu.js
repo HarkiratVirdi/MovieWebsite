@@ -2,7 +2,7 @@ const hamburger = document.querySelector(".fa-bars");
 const overlayMenu = document.querySelector(".overlay__menu");
 const cross = document.querySelector(".overlay__menu_cross");
 // const links = document.querySelectorAll(".overlay__menu_link_a");
-
+let scrollingTop = 0;
 const runAnimation = () => {
   if (overlayMenu.classList.contains("openMenu")) {
     // cross.classList.remove("cross_show");
@@ -28,3 +28,13 @@ cross.addEventListener("click", openMenu);
 // links.forEach((link) => {
 //   link.addEventListener("click", openMenu);
 // });
+
+window.onscroll = () => {
+  scrollingTop = document.documentElement.scrollTop;
+
+  if (scrollingTop > 100) {
+    hamburger.classList.add("fixed_top");
+  } else {
+    hamburger.classList.remove("fixed_top");
+  }
+};

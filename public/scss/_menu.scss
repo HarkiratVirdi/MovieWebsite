@@ -63,3 +63,10 @@
   opacity: 0;
   transition: opacity 0.2s;
 }
+
+.fixed_top {
+  position: fixed;
+  top: 3rem;
+
+  z-index: 998;
+}

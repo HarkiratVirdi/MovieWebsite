@@ -35,7 +35,6 @@ gsap.to(".cast_image", {
 });
 
 window.onresize = () => {
-  console.log("resized");
   purchaseMovie = document.querySelector(".purchasemovie");
 };
 

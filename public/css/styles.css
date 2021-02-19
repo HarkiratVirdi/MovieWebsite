@@ -303,7 +303,8 @@ li {
   position: sticky;
   position: -webkit-sticky;
   top: 100px;
-  height: 45rem; }
+  height: 45rem;
+  z-index: 500; }
   .purchasemovie__buttons {
     width: 100%; }
     @media only screen and (max-width: 870px) {
@@ -634,6 +635,11 @@ li {
 .cross_hide {
   opacity: 0;
   transition: opacity 0.2s; }
+
+.fixed_top {
+  position: fixed;
+  top: 3rem;
+  z-index: 998; }
 
 .mt-m {
   margin-top: 2rem; }
