@@ -582,6 +582,59 @@ li {
 .slides_images {
   width: 60%; }
 
+.overlay__menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1b1b;
+  transform-origin: center;
+  z-index: 1000;
+  -webkit-clip-path: inset(50% 0 50% 0);
+  clip-path: inset(50% 0 50% 0); }
+  .overlay__menu_cross {
+    position: fixed;
+    top: 4rem;
+    right: 2rem;
+    color: #fff;
+    font-size: 2rem; }
+  .overlay__menu_link_a {
+    color: #fff;
+    font-size: 4rem; }
+  .overlay__menu_link {
+    margin: 2rem 0; }
+
+.overlay__menu .overlay_text {
+  position: absolute;
+  top: 40%;
+  color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transform: rotate(90deg); }
+
+.openMenu {
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+  transition: all 0.6s; }
+
+.closeMenu {
+  -webkit-clip-path: inset(50% 0 50% 0);
+  clip-path: inset(50% 0 50% 0);
+  transition: all 0.6s; }
+
+.cross_show {
+  opacity: 1;
+  transition-delay: 0.5s;
+  transition: opacity 0.2s; }
+
+.cross_hide {
+  opacity: 0;
+  transition: opacity 0.2s; }
+
 .mt-m {
   margin-top: 2rem; }
 
