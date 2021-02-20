@@ -28,16 +28,16 @@ module.exports.getMovie = async (req, res) => {
     return movie.id === parseInt(req.params.id);
   });
 
-  const getReviews = await axios.get(
-    `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie[0].name}&api-key=${process.env.NYTIMESAPI}`
-  );
+  // const getReviews = await axios.get(
+  // `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie[0].name}&api-key=${process.env.NYTIMESAPI}`
+  // );
 
   let reviews = "";
-  if (getReviews.data.status === "OK") {
-    reviews = getReviews.data.results;
-  } else {
-    reviews = [];
-  }
+  // if (getReviews.data.status === "OK") {
+  // reviews = getReviews.data.results;
+  // } else {
+  // reviews = [];
+  // }
 
   res.render("details", { movie: movie[0], reviews: reviews });
 };

@@ -10,34 +10,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 
-    <title>MovieNation</title>
+    <title>MovieNation|Buy Movies</title>
 </head>
 
 <body>
     <div class="cursor_js"></div>
-    <div class="overlay__menu">
-        <div class="overlay__menu_cross">
-            X
-        </div>
-        <div class="overlay_text">MovieNation</div>
-        <div class="overlay__menu_links">
-            <div class="overlay__menu_link">
-                <a class="overlay__menu_link_a"  href="/">Home</a>
-            </div>
-            <div class="overlay__menu_link">
-                <a  class="overlay__menu_link_a" href="/list">Movies & TV</a>
-            </div>
-            <div class="overlay__menu_link">
-                <a class="overlay__menu_link_a"  href="/user/login">Login</a>
-            </div>
-            <div class="overlay__menu_link">
-                <a class="overlay__menu_link_a"  href="/user/register">Register</a>
-            </div>
-        </div>
-    </div>
-
+    {{>menu}}
+    
     {{>header}}
-
 
     <main>
         {{{body}}}

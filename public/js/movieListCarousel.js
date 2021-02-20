@@ -22,7 +22,6 @@ if (!isOverflown(movieList[1])) {
 const scroll = (e) => {
   const target = e.target.nextElementSibling;
 
-  console.log("targetadflkj", e.target);
   if (currentScroll <= movieListFeatured.clientWidth) {
     if (e.target.classList.contains("right")) {
       e.target.previousElementSibling.style.display = "inline-block";
