@@ -1,4 +1,4 @@
-module.exports.movies = [
+exports.movies = [
   {
     id: 1,
     name: "Die Hard",
@@ -349,3 +349,9 @@ module.exports.movies = [
     ],
   },
 ];
+
+exports.filterMovie = (id) => {
+  return this.movies.filter((singleMovie) => {
+    return singleMovie.id === parseInt(id);
+  });
+};
