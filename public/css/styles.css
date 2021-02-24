@@ -228,7 +228,7 @@ li {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  grid-row-gap: 6rem; }
+  grid-row-gap: 3rem; }
   @media only screen and (max-width: 500px) {
     .list_movies {
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); } }
