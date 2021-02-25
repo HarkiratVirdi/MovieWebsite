@@ -74,4 +74,9 @@ const movieSchema = mongoose.Schema({
     required: false,
     trim: true,
   },
+  movie_link: {
+    type: String,
+    required: false,
+    trim: true,
+  },
 });
