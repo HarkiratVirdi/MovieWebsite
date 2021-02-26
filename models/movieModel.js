@@ -80,3 +80,7 @@ const movieSchema = mongoose.Schema({
     trim: true,
   },
 });
+
+const Movie = mongoose.model("Movie", movieSchema);
+
+module.exports = Movie;

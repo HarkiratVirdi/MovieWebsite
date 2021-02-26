@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userModel = mongoose.Schema({
+const userSchema = mongoose.Schema({
   name: {
     type: String,
     trim: true,
@@ -20,3 +20,7 @@ const userModel = mongoose.Schema({
     required: true,
   },
 });
+
+const user = mongoose.model("User", userSchema);
+
+module.exporst = user;
