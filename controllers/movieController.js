@@ -34,9 +34,9 @@ module.exports.getMovie = async (req, res) => {
     return movie[0].genre[0] === item.genre[0] && movie[0].name !== item.name;
   });
 
-  // if (recommended.length > 4) {
-  //   recommended.splice(0, 4);
-  // }
+  if (recommended.length > 6) {
+    recommended.splice(0, 1);
+  }
 
   let reviews = "";
   // if (getReviews.data.status === "OK") {
