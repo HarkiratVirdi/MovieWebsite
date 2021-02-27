@@ -30,6 +30,13 @@ module.exports.getMovie = async (req, res) => {
   // const getReviews = await axios.get(
   //   `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie[0].name}&api-key=${process.env.NYTIMESAPI}`
   // );
+  let recommended = movieDatabase.movies.filter((item) => {
+    return movie[0].genre[0] === item.genre[0] && movie[0].name !== item.name;
+  });
+
+  // if (recommended.length > 4) {
+  //   recommended.splice(0, 4);
+  // }
 
   let reviews = "";
   // if (getReviews.data.status === "OK") {
@@ -38,7 +45,11 @@ module.exports.getMovie = async (req, res) => {
   // reviews = [];
   // }
 
-  res.render("details", { movie: movie[0], reviews: reviews });
+  res.render("details", {
+    movie: movie[0],
+    reviews: reviews,
+    recommended: recommended,
+  });
 };
 
 module.exports.getMovieList = (req, res) => {

@@ -111,11 +111,12 @@
     </div>
     </div>
 
-      <div class="recommended mt-xl">
-                <div class="h-2">Also Recommended: </div>
-                    <div class="recommended_movies">
+
+      <div class="recommended mt-xl container">
+                <div class="h-3 mb-l">Recommendations: </div>
+                    <div class="recommended_movies mt-l">
                         {{#each recommended}}
-                            
+                            {{>movieIcon}}
                         {{/each}}
                     </div>
             </div>

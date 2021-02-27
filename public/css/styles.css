@@ -28,7 +28,6 @@ body {
 .container {
   max-width: 1200px;
   margin: auto;
-  overflow: hidden;
   padding: 0 2rem; }
   @media only screen and (max-width: 500px) {
     .container {
@@ -409,6 +408,9 @@ li {
       top: -1rem; }
       .shrink .featured_tag::before {
         font-size: 0.8rem; } }
+
+.recommended_movies {
+  display: flex; }
 
 .header {
   height: 20vh; }

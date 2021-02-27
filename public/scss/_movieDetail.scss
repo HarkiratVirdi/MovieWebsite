@@ -204,3 +204,9 @@
     }
   }
 }
+
+.recommended {
+  &_movies {
+    display: flex;
+  }
+}
