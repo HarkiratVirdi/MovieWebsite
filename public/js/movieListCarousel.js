@@ -14,9 +14,11 @@ if (!isOverflown(movieList[0])) {
   movieList[0].parentElement.children[1].style.display = "none";
 }
 
-if (!isOverflown(movieList[1])) {
-  movieList[1].parentElement.children[0].style.display = "none";
-  movieList[1].parentElement.children[1].style.display = "none";
+if (movieList[1]) {
+  if (!isOverflown(movieList[1])) {
+    movieList[1].parentElement.children[0].style.display = "none";
+    movieList[1].parentElement.children[1].style.display = "none";
+  }
 }
 
 const scroll = (e) => {

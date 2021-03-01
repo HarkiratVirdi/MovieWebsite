@@ -117,33 +117,35 @@
             <div class="h-3 mb-l">Recommendations: </div>
             <div class="recommended_movies mt-l" >
                 
+                   {{#if recommended}}
 <div class="movie_list_buttons" style="overflow: hidden;">
     <button class="left">
         <
         </button>
             <button class="right">></button>
             <div class="movie_list">
-                <div class="movie_list_featured" id="my-scrollbar">
+                <div class="movie_list_featured">
                    
-                   {{#if recommended}}
                        
                     {{#each recommended}}
             
                     {{>movieIcon this}}
                     {{/each}}
 
-                    {{else}}
-                    <p>No Recommendations</p>
-                   {{/if}}
-
-               
+                 
             </div>
             </div>
             </div>
         </div>
+           {{else}}
+                    <p>No Recommendations</p>
+                   {{/if}}
+
+               
     </div>
 </div>
 
 {{>footer}}
 
 <script type="module" defer src="/js/movieDetails.js"></script>
+<script src="/js/movieListCarousel.js"></script>
