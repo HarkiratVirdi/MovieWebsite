@@ -15,120 +15,134 @@
 
     <div class="movie_details">
 
-       
-<div class="purchasemovie">
-        <div class="purchasemovie__image" style="background: url({{movie.img_s}});  background-repeat: no-repeat; background-size: cover">
-             {{#if movie.featured}}
-        <div class="featured_tag">
-        </div>
-       {{/if}} 
+
+        <div class="purchasemovie">
+            <div class="purchasemovie__image"
+                style="background: url({{movie.img_s}});  background-repeat: no-repeat; background-size: cover">
+                {{#if movie.featured}}
+                <div class="featured_tag">
+                </div>
+                {{/if}}
             </div>
 
-<div class="purchasemovie__buttons">
-    <a class="btn btn-black mt-s" href="#">Buy ${{movie.buy}}</a>
-    <a class="btn btn-black mt-s" href="#">Rent ${{movie.rent}}</a>
-</div> 
-</div>
-   
+            <div class="purchasemovie__buttons">
+                <a class="btn btn-black mt-s" href="#">Buy ${{movie.buy}}</a>
+                <a class="btn btn-black mt-s" href="#">Rent ${{movie.rent}}</a>
+            </div>
+        </div>
+
 
 
         <div class="movie_info">
 
 
-         
+
             <div class="movie_info_section1">
-            <div class="container_right">
-              
-
-            <h3 class="movie_text heading">Genre</h3>
-            <div class="movie_text mb-xl">{{movie.genre}}</div>
+                <div class="container_right">
 
 
-        
-            
-            <h3 class="movie_text heading">Runtime</h3>
-            <div class="movie_text mb-xl"> {{convertToMin movie.runtime}} min</div>
-            <h3 class="movie_text heading">Rating</h3>
-            <div class="movie_text mb-xl"> {{movie.rating}}/100</div>
-            <h3 class="movie_text heading">year</h3>
-            <div class="movie_text mb-xl"> {{movie.year}}</div>
-                <h3 class="movie_text heading">Overview</h3>
-            <div class="movie_text mb-xl"> {{movie.synopsis}}</div>
-              
-               
-          
-               </div>
-           
+                    <h3 class="movie_text heading">Genre</h3>
+                    <div class="movie_text mb-xl">{{movie.genre}}</div>
+
+
+
+
+                    <h3 class="movie_text heading">Runtime</h3>
+                    <div class="movie_text mb-xl"> {{convertToMin movie.runtime}} min</div>
+                    <h3 class="movie_text heading">Rating</h3>
+                    <div class="movie_text mb-xl"> {{movie.rating}}/100</div>
+                    <h3 class="movie_text heading">year</h3>
+                    <div class="movie_text mb-xl"> {{movie.year}}</div>
+                    <h3 class="movie_text heading">Overview</h3>
+                    <div class="movie_text mb-xl"> {{movie.synopsis}}</div>
+
+
+
+                </div>
+
             </div>
             <br>
-       
+
 
             <div class="cast">
                 <div class="container_right">
 
-                <div class="movie_text heading mt-xl">Film Cast</div>
-                <img class="cast_image" src={{movie.img_l}} alt="">
-                {{#each movie.cast}}
+                    <div class="movie_text heading mt-xl">Film Cast</div>
+                    <img class="cast_image" src={{movie.img_l}} alt="">
+                    {{#each movie.cast}}
                     <div class="movie_text">{{name}}</div>
-                {{/each}}
-                <div class="overlay_text">CAST</div>
+                    {{/each}}
+                    <div class="overlay_text">CAST</div>
 
 
-            <div class="produced_by">
-                <div class="produced_by_col">
-                <div class="heading movie_text">Produced By</div>
-                <div class=" movie_text">{{movie.studio}}</div>
+                    <div class="produced_by">
+                        <div class="produced_by_col">
+                            <div class="heading movie_text">Produced By</div>
+                            <div class=" movie_text">{{movie.studio}}</div>
 
-                </div>
-               
-               <div class="produced_by_col">
-                <div class="heading movie_text">Rated</div>
-                <div class=" movie_text">{{movie.rated}}</div>
+                        </div>
 
-               </div>
-            </div>
-            
-      
-        </div>
-        </div>
+                        <div class="produced_by_col">
+                            <div class="heading movie_text">Rated</div>
+                            <div class=" movie_text">{{movie.rated}}</div>
 
-    <div class="reviews mt-xl">
-                <div class="container_right">
-        <div class="heading movie_text">Reviews</div>
-        {{#if reviews}}
-        {{#each reviews}}
-            <p class="mt-l">{{this.summary_short}}</p>
-            <p class="capitalize">Critic: {{this.byline}}</p>
-         
-            <p class="mt-s">{{this.link.suggested_link_text}}</p>
-            <a href={{this.link.url}} class="underline">Read More</a>
-            <hr class="mt-s">
-        {{/each}}
-    {{else}}
-        <p>No Reviews yet</p>
-    {{/if}}
-    </div>
-    </div>
-    </div>
-
-
-      <div class="recommended mt-xl container">
-                <div class="h-3 mb-l">Recommendations: </div>
-                    <div class="recommended_movies mt-l">
-                        {{#if recommended}}
-                        {{#each recommended}}
-                            {{>movieIcon}}
-                        {{/each}}
-                        {{else}}
-                            <p class="h-4">No Recommendations</p>
-                        {{/if}}
-                      
+                        </div>
                     </div>
-            </div>
+
 
                 </div>
+            </div>
+
+            <div class="reviews mt-xl">
+                <div class="container_right">
+                    <div class="heading movie_text">Reviews</div>
+                    {{#if reviews}}
+                    {{#each reviews}}
+                    <p class="mt-l">{{this.summary_short}}</p>
+                    <p class="capitalize">Critic: {{this.byline}}</p>
+
+                    <p class="mt-s">{{this.link.suggested_link_text}}</p>
+                    <a href={{this.link.url}} class="underline">Read More</a>
+                    <hr class="mt-s">
+                    {{/each}}
+                    {{else}}
+                    <p>No Reviews yet</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="recommended mt-xl container">
+            <div class="h-3 mb-l">Recommendations: </div>
+            <div class="recommended_movies mt-l" >
+                
+<div class="movie_list_buttons" style="overflow: hidden;">
+    <button class="left">
+        <
+        </button>
+            <button class="right">></button>
+            <div class="movie_list">
+                <div class="movie_list_featured" id="my-scrollbar">
+                   
+                   {{#if recommended}}
+                       
+                    {{#each recommended}}
+            
+                    {{>movieIcon this}}
+                    {{/each}}
+
+                    {{else}}
+                    <p>No Recommendations</p>
+                   {{/if}}
+
+               
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
-   
 
 {{>footer}}
 
