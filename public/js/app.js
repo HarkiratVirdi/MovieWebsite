@@ -1,5 +1,5 @@
 import "./cursor.js";
 import "./menu.js";
 // import "./barba.js";
-AOS.init();
+// AOS.init();
 // Scrollbar.init(document.querySelector("#my-scrollbar"));

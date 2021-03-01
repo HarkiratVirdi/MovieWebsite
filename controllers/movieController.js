@@ -57,11 +57,11 @@ module.exports.getMovie = async (req, res) => {
 module.exports.getMovieList = (req, res) => {
   let movies = movieDatabase.movies;
 
-  if (req.query.filter === "featuredmovies") {
-    movies = movies.filter((movie) => {
-      return movie.featured;
-    });
-  } else if (req.query.filter === "byrating") {
+  // if (req.query.filter === "featuredmovies") {
+  //   movies = movies.filter((movie) => {
+  //     return movie.featured;
+  //   });
+  if (req.query.filter === "byrating") {
     movies = movies.sort((a, b) => {
       return b.rating - a.rating;
     });

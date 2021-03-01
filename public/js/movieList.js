@@ -49,9 +49,7 @@ if (myParam) {
     console.log("select options", console.dir(selectOptions[1]));
     console.log("select options", console.dir(selectOptions));
     selectOptions.selectedIndex =
-      myParam === "featuredmovies"
-        ? 3
-        : myParam === "runtime"
+         myParam === "runtime"
         ? 2
         : myParam === "releasedate"
         ? 1

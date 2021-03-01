@@ -13,7 +13,7 @@ exports.movies = [
   {
     id: 1,
     name: "Die Hard",
-    featured: false,
+    // featured: false,
     rating: 60,
     rent: 7,
     buy: 15,
@@ -44,7 +44,7 @@ exports.movies = [
   {
     id: 2,
     name: "The Conjuring",
-    featured: true,
+    // featured: true,
     rating: 70,
     genre: "Horror",
     runtime: "2:00",
@@ -75,7 +75,7 @@ exports.movies = [
   {
     id: 3,
     name: "Wonder Woman",
-    featured: true,
+    // featured: true,
     rating: 89,
     genre: "Action, Fantasy",
     rated: "PG-13",
@@ -107,7 +107,7 @@ exports.movies = [
   {
     id: 4,
     name: "Tenet",
-    featured: true,
+    // featured: true,
     rating: 80,
     rent: 10,
     genre: "Action, Fantasy",
@@ -139,7 +139,7 @@ exports.movies = [
   {
     id: 5,
     name: "Game of Thrones Season 8",
-    featured: true,
+    // featured: true,
     rating: 30,
     runtime: "50",
     rated: "18+",
@@ -170,7 +170,7 @@ exports.movies = [
   {
     id: 6,
     name: "The Walking Dead",
-    featured: true,
+    // featured: true,
     rating: 88,
     rent: 50,
     runtime: "45",
@@ -201,7 +201,7 @@ exports.movies = [
   {
     id: 7,
     name: "The Conjuring 2",
-    featured: true,
+    // featured: true,
     runtime: "1:57",
     rating: 75,
     genre: "Action, Fantasy",
@@ -232,7 +232,7 @@ exports.movies = [
   {
     id: 8,
     name: "Kong: Skull Island",
-    featured: false,
+    // featured: false,
     runtime: "2:40",
     rating: 80,
     rent: 10,
@@ -264,7 +264,7 @@ exports.movies = [
   {
     id: 9,
     name: "12 Years of Slave",
-    featured: true,
+    // featured: true,
     rating: 95,
     runtime: "2:50",
     rent: 6,
@@ -295,7 +295,7 @@ exports.movies = [
   {
     id: 10,
     name: "The Breaking Bad",
-    featured: true,
+    // featured: true,
     rating: 97,
     rent: 10,
     genre: "Sci-Fi, Drama",
@@ -326,7 +326,7 @@ exports.movies = [
   {
     id: 11,
     name: "The Game of Thrones: Season 5",
-    featured: true,
+    // featured: true,
     trailer_link: "",
     movie_link: "",
     rated: "18+",
@@ -357,7 +357,7 @@ exports.movies = [
   {
     id: 12,
     name: "Arrival",
-    featured: true,
+    // featured: true,
     rated: "PG-13",
     runtime: "1:58",
     rating: 92,
