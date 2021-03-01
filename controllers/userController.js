@@ -20,6 +20,10 @@ module.exports.loginUser = (req, res) => {
 module.exports.signIn = (req, res) => {
   const { Email, Password } = req.body;
   let isEmail = validateEmail(Email);
+  let isPassword = validatePassword(Password);
+
+  if (isEmail && isPassword) {
+  }
 };
 
 module.exports.signUp = (req, res) => {

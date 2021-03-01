@@ -10,11 +10,11 @@
     <form class="login_form" method="POST" action="/user/login">
          <div class="login_form_field">
         <label class="h-4" for="Email">Email</label>
-        <input name="Email">        
+        <input name="Email" required>        
         </div>
         <div class="login_form_field">
         <label class="h-4" for="Password">Password</label>
-        <input type="password" name="Password">        
+        <input type="password" required name="Password">        
         </div>
         <button type="submit" class="mt-l t-w100 btn btn--white">Login</button>
     </form>
