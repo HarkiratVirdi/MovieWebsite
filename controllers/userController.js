@@ -5,6 +5,11 @@ const imagesForLogin = [
   "https://m.media-amazon.com/images/M/MV5BMTFhOGJjZjUtOWM4Ny00ZWE0LWFlMDUtMDAyMTc2MTcxMmM3XkEyXkFqcGdeQWFybm8@._V1_QL40_UX1000_CR0,0,1000,563_.jpg",
   "https://m.media-amazon.com/images/M/MV5BMDI0NmYxZmMtN2EyNi00YzMwLTgzNWEtYjY4NmIxMjlmMzJhXkEyXkFqcGdeQXVyNzE3ODQxNjU@._CR212,55,777,437.jpg",
 ];
+const {
+  validateEmail,
+  validatePassword,
+  validateName,
+} = require("../utils/Validation");
 
 module.exports.loginUser = (req, res) => {
   const imageNum = Math.floor(Math.random() * 5);
@@ -14,17 +19,17 @@ module.exports.loginUser = (req, res) => {
 
 module.exports.signIn = (req, res) => {
   const { Email, Password } = req.body;
-
-  console.log("email is ", Email);
-  console.log("Password is ", Password);
+  let isEmail = validateEmail(Email);
 };
 
 module.exports.signUp = (req, res) => {
   const { Email, Password, Name } = req.body;
-
-  console.log("email is ", Email);
-  console.log("Name is ", Name);
-  console.log("Password is ", Password);
+  let isEmail = validateEmail(Email);
+  let isPassword = validatePassword(Password);
+  let isName = validateName(Name);
+  console.log("password", isPassword);
+  console.log("isemail", isEmail);
+  console.log("isName", isName);
 };
 
 module.exports.registerUser = (req, res) => {
