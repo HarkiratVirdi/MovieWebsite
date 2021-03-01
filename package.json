@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
+    "import": "node db/seeder.js",
     "compile": "babel public/js --out-dir dist",
     "scss": "node-sass public/scss/main.scss public/css/styles.css -w"
   },
@@ -15,6 +16,7 @@
     "@barba/core": "^2.9.7",
     "@barba/css": "^2.1.15",
     "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
