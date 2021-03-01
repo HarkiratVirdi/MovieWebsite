@@ -9,14 +9,27 @@ const imagesForLogin = [
 module.exports.loginUser = (req, res) => {
   const imageNum = Math.floor(Math.random() * 5);
   const image = imagesForLogin[imageNum];
-
-  console.log(image);
-
-  res.render("login", { image: image });
+  res.render("login", { image: image, title: "MovieNation | Login" });
 };
+
+module.exports.signIn = (req, res) => {
+  const { Email, Password } = req.body;
+
+  console.log("email is ", Email);
+  console.log("Password is ", Password);
+};
+
+module.exports.signUp = (req, res) => {
+  const { Email, Password, Name } = req.body;
+
+  console.log("email is ", Email);
+  console.log("Name is ", Name);
+  console.log("Password is ", Password);
+};
+
 module.exports.registerUser = (req, res) => {
   const imageNum = Math.floor(Math.random() * 5);
   const image = imagesForLogin[imageNum];
 
-  res.render("register", { image: image });
+  res.render("register", { image: image, title: "MovieNation | Register" });
 };

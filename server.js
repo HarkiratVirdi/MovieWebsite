@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
+const connectDB = require("./db/connectDB");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
 const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
@@ -13,6 +14,8 @@ const convertToMin = require("./views/helpers/convertToMin");
 dotenv.config({ path: "./config.env" });
 
 const PORT = process.env.PORT;
+
+connectDB();
 
 app.engine(
   "hbs",
@@ -27,10 +30,17 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-// app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);
+
+app.use((req, res) => {
+  res.render("error404.hbs", {
+    title: "MovieNation | 404",
+  });
+});
 
 app.listen(PORT, console.log("server started at", PORT));

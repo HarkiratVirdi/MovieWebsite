@@ -759,6 +759,13 @@ li {
   .modern_input ::placeholder {
     color: #fff; }
 
+.pabs-center {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 .contentsection {
   width: 100%;
   display: grid;

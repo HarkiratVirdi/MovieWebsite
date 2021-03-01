@@ -8,18 +8,18 @@
 
 
 
-    <form class="login_form ">
+    <form class="login_form" method="POST" action="/user/register">
           <div class="login_form_field">
         <label class="h-4" for="Email">Name</label>
-        <input type="email" required>        
+        <input type="text" name="Name">        
         </div>
         <div class="login_form_field">
         <label class="h-4" for="Email">Email</label>
-        <input type="email" required>        
+        <input type="email" name="Email">        
         </div>
         <div class="login_form_field">
         <label class="h-4" for="Password">Password</label>
-        <input type="password" required>        
+        <input type="password" name="Password">        
         </div>
         <button type="submit" class="mt-l t-w100 btn btn--white">Register</button>
     </form>

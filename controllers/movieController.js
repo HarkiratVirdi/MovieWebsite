@@ -21,6 +21,7 @@ module.exports.getMovies = (req, res) => {
     movies: movieDatabase.movies,
     images: imagesForContent,
     imagesForCarousel: imagesForCarousel,
+    title: "MovieNation | Buy Movies",
   });
 };
 
@@ -49,6 +50,7 @@ module.exports.getMovie = async (req, res) => {
     movie: movie[0],
     reviews: reviews,
     recommended: recommended,
+    title: "MovieNation | " + movie[0].name,
   });
 };
 
@@ -89,7 +91,10 @@ module.exports.getMovieList = (req, res) => {
     });
   }
 
-  res.render("list", { movies: movies });
+  res.render("list", {
+    movies: movies,
+    title: "MovieNation | Movie List",
+  });
 };
 
 module.exports.searchMovie = (req, res) => {
