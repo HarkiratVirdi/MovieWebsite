@@ -152,10 +152,20 @@
 
 
 .swiper-button-prev,.swiper-button-next{
-
+  padding: 10rem 0;
+  top: 20%;
+  position: absolute;
   color: $cta;
 }
 
+.swiper-button-next
+{
+  right: 0;
+}
+
+.swiper-button-prev{
+  left: 0;
+}
     .swiper-slide {
       text-align: center;
       font-size: 18px;

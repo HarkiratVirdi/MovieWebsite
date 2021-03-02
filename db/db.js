@@ -447,6 +447,37 @@ exports.movies = [
       },
     ],
   },
+  {
+    id: 15,
+    name: "The Queen's Gambit",
+    // featured: true,
+    trailer_link: "",
+    movie_link: "",
+    rated: "18+",
+    runtime: "1:30",
+    rating: 74,
+    rent: 10,
+    buy: 30,
+    genre: "Drama, Sport",
+    studio: "Netflix",
+    year: 2020,
+    isMovie: false,
+    synopsis:
+      "Anya Taylor-Joy and the cast of 'The Queen's Gambit' compare the passion they find in their careers with the drive that the show's lead character Beth has for chess. They also discuss the positive and negative life lessons they've learned from the game.",
+    img_s: "/images/movies/queen_gambit_s.jpg",
+    img_l: "/images/movies/queen_gambit_l.jpg",
+    cast: [
+      {
+        name: "Anya Taylor-Joy",
+      },
+      {
+        name: "Chloe Pirrie",
+      },
+      {
+        name: "Bill Camp",
+      },
+    ],
+  },
 ];
 
 exports.filterMovie = (id) => {

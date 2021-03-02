@@ -200,7 +200,7 @@ li {
     transition: transform 0.5s;
     overflow: hidden; }
   .movieIcon:hover {
-    transform: scale(1.05); }
+    transform: scale(1.06); }
   .movieIcon__overflow {
     overflow: hidden;
     width: 100%;
@@ -771,7 +771,16 @@ li {
   height: 100%; }
 
 .swiper-button-prev, .swiper-button-next {
+  padding: 10rem 0;
+  top: 20%;
+  position: absolute;
   color: orange; }
+
+.swiper-button-next {
+  right: 0; }
+
+.swiper-button-prev {
+  left: 0; }
 
 .swiper-slide {
   text-align: center;
