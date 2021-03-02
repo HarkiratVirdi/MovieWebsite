@@ -385,6 +385,68 @@ exports.movies = [
       },
     ],
   },
+  {
+    id: 13,
+    name: "Better Call Saul",
+    // featured: true,
+    trailer_link: "",
+    movie_link: "",
+    rated: "18+",
+    runtime: "48",
+    rating: 88,
+    rent: 10,
+    buy: 30,
+    genre: "Drama, Crime",
+    studio: "AMC",
+    year: 2018,
+    isMovie: false,
+    synopsis:
+      "In the wake of his loss, Jimmy takes steps into the criminal world that will put his future as a lawyer, and his relationship with Kim, in jeopardy. Chuck's death deeply affects former colleagues Howard and Kim as well, putting the two of them once again on opposite sides of a battle sparked by the Brothers McGill.",
+    img_s: "/images/movies/better_call_saul_s.jpg",
+    img_l: "/images/movies/better_call_saul_l.jpg",
+    cast: [
+      {
+        name: "Bob Odenkirk",
+      },
+      {
+        name: "Jonathan Banks",
+      },
+      {
+        name: "Rhea Seehorn",
+      },
+    ],
+  },
+  {
+    id: 14,
+    name: "The Witcher",
+    // featured: true,
+    trailer_link: "",
+    movie_link: "",
+    rated: "18+",
+    runtime: "58",
+    rating: 74,
+    rent: 10,
+    buy: 30,
+    genre: "Action, Fantasy",
+    studio: "Netflix",
+    year: 2019,
+    isMovie: false,
+    synopsis:
+      "The Witcher is an American fantasy drama web television series created by Lauren Schmidt Hissrich for Netflix. It is based on the book series of the same name by Polish writer Andrzej Sapkowski. The Witcher follows the story of Geralt of Rivia, a solitary monster hunter, who struggles to find his place in a world where people often prove more wicked than monsters and beasts. But when destiny hurtles him toward a powerful sorceress, and a young princess with a special gift, the three must learn to navigate independently the increasingly volatile Continent.",
+    img_s: "/images/movies/Witcher_s.jpg",
+    img_l: "/images/movies/Witcher_l.jpg",
+    cast: [
+      {
+        name: "Henry Cavill",
+      },
+      {
+        name: "Freya Allan",
+      },
+      {
+        name: "Yasen Atour",
+      },
+    ],
+  },
 ];
 
 exports.filterMovie = (id) => {

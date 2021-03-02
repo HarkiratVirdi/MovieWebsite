@@ -65,7 +65,19 @@ module.exports.getMovieList = (req, res) => {
     movies = movies.sort((a, b) => {
       return b.rating - a.rating;
     });
-  } else if (req.query.filter === "releasedate") {
+  } else if(req.query.filter === 'movies')
+  {
+    movies = movies.filter((item) => {
+      return item.isMovie === true;
+    })
+  }
+   else if(req.query.filter === 'series')
+  {
+    movies = movies.filter((item) => {
+      return item.isMovie === false;
+    })
+  }  
+  else if (req.query.filter === "releasedate") {
     movies = movies.sort((a, b) => {
       return b.year - a.year;
     });

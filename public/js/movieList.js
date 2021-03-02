@@ -48,7 +48,8 @@ if (myParam) {
     console.log("triggering");
     console.log("select options", console.dir(selectOptions[1]));
     console.log("select options", console.dir(selectOptions));
-    selectOptions.selectedIndex =
+    selectOptions.selectedIndex = myParam === 'series' ? 4 :
+    myParam === 'movies' ? 3 :
          myParam === "runtime"
         ? 2
         : myParam === "releasedate"
