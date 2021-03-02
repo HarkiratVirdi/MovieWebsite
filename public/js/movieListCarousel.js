@@ -82,18 +82,18 @@ if(window.innerWidth > 870)
        loopFillGroupWithBlank: true,
      });
   }
-// window.addEventListener('resize', () => {
-//   if(window.innerWidth < 870)
-// {
-//      let swiper = new Swiper(".swiper-container", {
-//        slidesPerView: 2,
-//        spaceBetween: 10,
+window.addEventListener('resize', () => {
+  if(window.innerWidth < 320)
+{
+     let swiper = new Swiper(".swiper-container", {
+       slidesPerView: 2,
+       spaceBetween: 10,
 
-//        nextButton: ".swiper-button-next",
-//        prevButton: ".swiper-button-prev",
-//        slidesPerGroup: 2,
-//        loop: false,
-//        loopFillGroupWithBlank: true,
-//      });
-// }  
-// })
+       nextButton: ".swiper-button-next",
+       prevButton: ".swiper-button-prev",
+       slidesPerGroup: 1,
+       loop: false,
+       loopFillGroupWithBlank: true,
+     });
+}  
+})

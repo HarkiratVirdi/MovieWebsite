@@ -971,31 +971,21 @@ li {
     align-items: center;
     position: relative;
     top: 0; }
-    .single_carousel .banner_1 {
-      background-image: url("/images/banner/awards_banner.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover; }
-    .single_carousel .banner_2 {
-      background-image: url("/images/banner/cat_banner.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover; }
-    .single_carousel .banner_3 {
-      background-image: url("/images/banner/retro_banner.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover; }
-    .single_carousel .banner_4 {
-      background-image: url("/images/banner/cinema_banner.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover; }
-    .single_carousel .banner_5 {
-      background-image: url("/images/banner/cat2_banner.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover; }
+    .single_carousel .banner::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      top: 0;
+      right: 0; }
+    .single_carousel .banner .h-3 {
+      position: absolute;
+      top: 50%;
+      white-space: nowrap;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5; }
   .single_carousel img {
     object-fit: cover;
     height: 60vh;
