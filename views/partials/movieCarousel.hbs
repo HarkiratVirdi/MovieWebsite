@@ -1,23 +1,32 @@
-<div class="movie_list_buttons">
-    <button class="left">
-    <i class="fas fa-chevron-left"></i>
-        </button>
-            <button class="right"><i class="fas fa-chevron-right"></i></button> 
-            <div class="movie_list">
-                <div class="movie_list_featured">
-                    {{#if isMovies}}
-                    {{#each movies}}
-                    {{#if isMovie}}
-                    {{>movieIcon this}}
+
+        {{#if isMovies}}
+          <div class="swiper-container">
+         <div class="swiper-wrapper">
+        {{#each movies}}
+ {{#if isMovie}}
+                    
+      <div class="swiper-slide">{{>movieIcon this}}</div>
                     {{/if}}
-                    {{/each}}
-                    {{else}}
-                    {{#each movies}}
-                    {{#unless isMovie}}
-                    {{>movieIcon this}}
-                    {{/unless}}
-                    {{/each}}
-                    {{/if}}
-                </div>
+        {{/each}}
+        </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+        </div>
+        {{else}}
+           <div class="swiper-container">
+
+                 <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+         <div class="swiper-wrapper">
+      {{#each movies}}
+        {{#unless isMovie}}
+        <div class="swiper-slide">{{>movieIcon this}}</div>
+            {{/unless}}
+            {{/each}}
             </div>
+     <!-- If we need navigation buttons -->
+
             </div>
+        {{/if}}
+

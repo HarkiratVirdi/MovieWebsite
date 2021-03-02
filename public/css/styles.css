@@ -189,13 +189,12 @@ li {
 
 .movieIcon {
   position: relative;
-  top: 0;
-  width: 15rem;
+  top: -3%;
+  width: 18rem;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  transition: transform 0.5s;
-  margin-top: 30px; }
+  transition: transform 0.5s; }
   .movieIcon img {
     transition: transform 0.5s;
     overflow: hidden; }
@@ -765,6 +764,32 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
+.swiper-container {
+  width: 100%;
+  height: 100%; }
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  width: auto !important;
+  background: #121212;
+  position: relative;
+  top: 0;
+  height: 27rem;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
 
 .contentsection {
   width: 100%;

@@ -58,13 +58,13 @@
 
 .movieIcon {
   position: relative;
-  top: 0;
-  width: 15rem;
+  top: -3%;
+  width: 18rem;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
   transition: transform 0.5s;
-  margin-top: 30px;
+  // margin-top: 30px;
 
   img {
     transition: transform 0.5s;
