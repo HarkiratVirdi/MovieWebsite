@@ -190,6 +190,7 @@ li {
 .movieIcon {
   position: relative;
   top: -3%;
+  user-select: none;
   width: 18rem;
   display: flex;
   flex-direction: column;
@@ -768,6 +769,9 @@ li {
 .swiper-container {
   width: 100%;
   height: 100%; }
+
+.swiper-button-prev, .swiper-button-next {
+  color: orange; }
 
 .swiper-slide {
   text-align: center;

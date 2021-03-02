@@ -150,6 +150,12 @@
       height: 100%;
     }
 
+
+.swiper-button-prev,.swiper-button-next{
+
+  color: $cta;
+}
+
     .swiper-slide {
       text-align: center;
       font-size: 18px;

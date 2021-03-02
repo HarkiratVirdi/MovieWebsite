@@ -59,6 +59,7 @@
 .movieIcon {
   position: relative;
   top: -3%;
+  user-select: none;
   width: 18rem;
   display: flex;
   flex-direction: column;
