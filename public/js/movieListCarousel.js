@@ -60,9 +60,9 @@
 
    let swiper = new Swiper(".swiper-container", {
      slidesPerView: 5,
-     spaceBetween: 30,
-    
-    nextButton: ".swiper-button-next",
+     spaceBetween: 10,
+
+      nextButton: ".swiper-button-next",
       prevButton: ".swiper-button-prev",
      slidesPerGroup: 5,
      loop: false,

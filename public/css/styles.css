@@ -226,11 +226,11 @@ li {
 .list_movies {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
   grid-row-gap: 3rem; }
   @media only screen and (max-width: 500px) {
     .list_movies {
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); } }
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
 
 .featured_tag {
   position: absolute;
@@ -667,28 +667,28 @@ li {
   margin-top: 3.5rem; }
 
 .mt-xl {
-  margin-top: 6vw; }
+  margin-top: 6rem; }
 
 .mb-s {
-  margin-bottom: 1.3vw; }
+  margin-bottom: 1.3rem; }
 
 .mb-m {
-  margin-bottom: 2vw; }
+  margin-bottom: 2rem; }
 
 .mb-xl {
   margin-bottom: 6rem; }
 
 .mb-l {
-  margin-bottom: 3.5vw; }
+  margin-bottom: 3.5rem; }
 
 .ml-s {
-  margin-left: 1vw; }
+  margin-left: 1rem; }
 
 .ml-m {
-  margin-left: 2vw; }
+  margin-left: 2rem; }
 
 .ml-l {
-  margin-left: 3.5vw; }
+  margin-left: 3.5rem; }
 
 @media only screen and (max-width: 500px) {
   .m-hide {

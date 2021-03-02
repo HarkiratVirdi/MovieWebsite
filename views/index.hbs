@@ -1,8 +1,8 @@
 
 {{>carouselDouble images=imagesForCarousel}}
 
-<div class="container" >
 <section class="mb-xl">
+<div class="container" >
 
     <div class="h-3 mb-s">
         Featured Movies
@@ -10,14 +10,13 @@
 
     {{>movieCarousel movies=movies isMovies=true}}
 
-    <div class="h-3 mb-s mt-l">
+    <div class="h-3 mb-s mt-xl">
         Featured TV 
     </div>
     {{>movieCarousel isMovies=false movies=movies}}
     </div>
 
 </section>
-</div>
 
 {{>contentSection images=images}}
 

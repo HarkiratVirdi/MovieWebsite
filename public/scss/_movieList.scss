@@ -109,11 +109,11 @@
 .list_movies {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
   grid-row-gap: 3rem;
 
   @media only screen and (max-width: $mobile-breakpoint) {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
 
