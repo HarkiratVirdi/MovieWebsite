@@ -118,21 +118,17 @@
             <div class="recommended_movies mt-l" >
                 
                    {{#if recommended}}
-<div class="movie_list_buttons" style="overflow: hidden;">
-    <button class="left">
-        <
-        </button>
-            <button class="right">></button>
-            <div class="movie_list">
-                <div class="movie_list_featured">
-                   
-                       
+             <div class="swiper-container">
+         <div class="swiper-wrapper">
                     {{#each recommended}}
-            
-                    {{>movieIcon this}}
+
+                     <div class="swiper-slide">{{>movieIcon this}}</div>
                     {{/each}}
 
-                 
+                      </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+        </div>
             </div>
             </div>
             </div>
