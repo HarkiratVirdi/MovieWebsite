@@ -55,6 +55,11 @@ module.exports.getMovie = async (req, res) => {
 };
 
 
+module.exports.cart = (req, res) =>{
+  res.render('cart');
+}
+
+
 module.exports.getMovieList = (req, res) => {
   let movies = movieDatabase.movies;
 
