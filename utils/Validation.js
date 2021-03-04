@@ -21,4 +21,3 @@ const resPassword = this.validatePassword(password);
 
   return resEmail && resPassword;
 }
-

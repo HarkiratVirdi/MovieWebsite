@@ -11,15 +11,24 @@
     <form class="login_form" method="POST" action="/user/register">
           <div class="login_form_field">
         <label class="h-4" for="Email">Name</label>
-        <input name="Name" required>        
+        <input name="Name" required value={{values.Name}}>        
+        {{#if errors.Name}}
+            <div style="color: red" class="h-6">{{errors.Name}}</div>
+        {{/if}}
         </div>
         <div class="login_form_field">
         <label class="h-4" for="Email">Email</label>
-        <input  name="Email" required>        
+        <input  name="Email" required value={{values.Email}}>   
+          {{#if errors.errors.Email}}
+            <div style="color: red" class="h-6">{{errors.Email}}</div>
+        {{/if}}     
         </div>
         <div class="login_form_field">
         <label class="h-4" for="Password">Password</label>
-        <input type="password" name="Password" required>        
+        <input type="password" name="Password" required value={{values.Password}}>        
+          {{#if errors.Password}}
+            <div style="color: red" class="h-6">{{errors.Password}}</div>
+        {{/if}}
         </div>
         <button type="submit" class="mt-l t-w100 btn btn--white">Register</button>
     </form>
