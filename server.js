@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
-const { connectDB } = require("./db/connectDB");
+// const { connectDB } = require("./db/connectDB");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
 const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
@@ -15,7 +15,7 @@ dotenv.config({ path: "./.env" });
 
 const PORT = process.env.PORT;
 
-connectDB();
+// connectDB();
 
 app.engine(
   "hbs",

@@ -1,24 +1,33 @@
-
 <div class="login">
-<div class="login_image">
-    <img src="{{image}}" alt="">
-</div>
-<div class="login_container">
-<div class="h-3">Login</div>
-
-
+  <div class="login_image">
+    <img src="{{image}}" alt="" />
+  </div>
+  <div class="login_container">
+    <div class="h-3">
+      Login
+    </div>
     <form class="login_form" method="POST" action="/user/login">
-         <div class="login_form_field">
-        <label class="h-4" for="Email">Email</label>
-        <input name="Email" required>        
-        </div>
-        <div class="login_form_field">
-        <label class="h-4" for="Password">Password</label>
-        <input type="password" required name="Password">        
-        </div>
-        <button type="submit" class="mt-l t-w100 btn btn--white">Login</button>
+      <div class="login_form_field">
+        <label class="h-4" for="Email">
+          Email
+        </label>
+        <input name="Email" value={{values.Email}}>
+      </div>
+      {{#if errors.Email}}
+           <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Email}}</p>
+      {{/if}}
+      <div class="login_form_field">
+        <label class="h-4" for="Password">
+          Password
+        </label>
+        <input type="password" name="Password" value={{values.Password}} >
+      </div>
+             {{#if errors.Password}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Password}}</p>
+        {{/if}}
+      <button type="submit" class="mt-l t-w100 btn btn--white">
+        Login
+      </button>
     </form>
-
-</div>
-
+  </div>
 </div>

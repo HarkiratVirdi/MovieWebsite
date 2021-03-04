@@ -16,15 +16,39 @@ const {
 module.exports.loginUser = (req, res) => {
   const imageNum = Math.floor(Math.random() * 5);
   const image = imagesForLogin[imageNum];
-  res.render("login", { image: image, title: "MovieNation | Login" });
+  console.log("req.body", req.body);
+  res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
 };
 
 module.exports.signIn = (req, res) => {
   const { Email, Password } = req.body;
+ const isEmail = validateEmail(Email);
+ const isPassword = validatePassword(Password);
+ let errors = {
+    Email: "",
+    Password: "",
+  };
+
+  if (!isEmail) {
+    errors.Email = "Email must be valid";
+  }
+
+  if (!isPassword) {
+    errors.Password =
+      "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+  }
 
   if (validateLogin(Email, Password)) {
-    console.log("logged in");
     res.redirect("/");
+  }else{
+      const imageNum = Math.floor(Math.random() * 5);
+      const image = imagesForLogin[imageNum];
+    res.render("login", {
+    image: image,
+    title: "MovieNation | Login",
+    errors: errors,
+    values: req.body,
+  });
   }
 };
 
@@ -51,7 +75,6 @@ module.exports.signUp = (req, res) => {
   }
 
   if (isEmail && isPassword && isName) {
-    console.log(process.env.SENDGRID_API_KEY);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
       to: Email,
@@ -74,14 +97,12 @@ module.exports.signUp = (req, res) => {
         res.redirect(`/user/dashboard?name=${Name}`);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
   }else{
   const imageNum = Math.floor(Math.random() * 5);
   const image = imagesForLogin[imageNum];
 
-  // console.log("errors from erro", errors);
-  // console.log('req.body', req.body);
   res.render("register", {
     image: image,
     title: "MovieNation | Register",
