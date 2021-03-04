@@ -1,5 +1,7 @@
 const express = require("express");
-const dotenv = require("dotenv");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
@@ -11,7 +13,7 @@ const splittingBySpace = require("./views/helpers/splittingBySpace");
 const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
 
-dotenv.config({ path: "./.env" });
+// dotenv.config({ path: "./.env" });
 
 const PORT = process.env.PORT;
 
