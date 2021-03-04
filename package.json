@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "import": "node db/seeder.js",
     "compile": "babel public/js --out-dir dist",
     "scss": "node-sass public/scss/main.scss public/css/styles.css -w"
