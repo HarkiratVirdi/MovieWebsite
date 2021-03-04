@@ -56,7 +56,7 @@ module.exports.getMovie = async (req, res) => {
 
 
 module.exports.cart = (req, res) =>{
-  res.render('cart');
+  res.render("cart");
 }
 
 

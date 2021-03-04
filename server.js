@@ -41,7 +41,7 @@ app.use("/", movieRoutes);
 app.use("/user", userRoutes);
 
 app.use((req, res) => {
-  res.render("error404.hbs", {
+  res.render("error404", {
     title: "MovieNation | 404",
   });
 });
