@@ -508,6 +508,28 @@ li {
     .cursor_js {
       display: none; } }
 
+.cursor_js-drag::before {
+  content: "<";
+  width: 2px;
+  height: 2px;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 25%;
+  left: -30%;
+  color: #fff;
+  font-weight: bolder; }
+
+.cursor_js-drag::after {
+  content: ">";
+  width: 2px;
+  font-size: 1.4rem;
+  position: absolute;
+  font-weight: bolder;
+  top: 25%;
+  right: -20%;
+  height: 2px;
+  color: #fff; }
+
 .filtermovies {
   display: flex;
   justify-content: space-around;
