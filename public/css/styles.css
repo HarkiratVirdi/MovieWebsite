@@ -195,9 +195,9 @@ li {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  transition: transform 0.5s; }
+  transition: transform 0.3s; }
   .movieIcon img {
-    transition: transform 0.5s;
+    transition: transform 0.3s;
     overflow: hidden; }
   .movieIcon:hover {
     transform: scale(1.06); }
@@ -779,6 +779,12 @@ li {
 .swiper-button-next {
   right: 0; }
 
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 0.2; }
+
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0.2; }
+
 .swiper-button-prev {
   left: 0; }
 
@@ -848,7 +854,7 @@ li {
     transform: translateX(-100%); } }
 
 .footer {
-  background-color: #1b1b1b;
+  background-color: #000;
   width: 100%;
   padding: 4rem; }
   @media only screen and (max-width: 870px) {

@@ -11,7 +11,7 @@ gsap.to(".movie_hero_image", {
     start: "top center",
     toggleActions: "restart pause reverse pause",
   },
-  transform: "matrix(1.1,0,0,1.1,0,0)",
+  transform: "matrix(1.15,0,0,1.15,0,0)",
 });
 
 gsap.to(".overlay_text", {

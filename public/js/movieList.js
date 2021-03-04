@@ -26,7 +26,6 @@ const setActive = (e) => {
   }
 
   const url = makeURL(target);
-  console.log(url);
   window.location.href = `/list/?filter=${url}`;
 };
 
@@ -38,7 +37,6 @@ selectOptions.addEventListener("change", setActive);
 
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get("filter");
-console.log(myParam);
 
 if (myParam) {
   removeActive();

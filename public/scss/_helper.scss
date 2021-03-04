@@ -163,6 +163,19 @@
   right: 0;
 }
 
+
+.swiper-button-prev.swiper-button-disabled
+{
+  opacity: 0.2;
+}
+
+
+.swiper-button-next.swiper-button-disabled
+{
+  opacity: 0.2;
+}
+
+
 .swiper-button-prev{
   left: 0;
 }

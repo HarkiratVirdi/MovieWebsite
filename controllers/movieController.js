@@ -54,6 +54,7 @@ module.exports.getMovie = async (req, res) => {
   });
 };
 
+
 module.exports.getMovieList = (req, res) => {
   let movies = movieDatabase.movies;
 

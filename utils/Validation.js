@@ -4,10 +4,21 @@ module.exports.validateEmail = (email) => {
   return validator.isEmail(email);
 };
 
-module.exports.validateName = (name) => {
-  return validator.isAlpha(name);
+module.exports.validatePassword = (password) => {
+  return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+    password
+  );
 };
 
-module.exports.validatePassword = (password) => {
-  return validator.isStrongPassword(password);
-};
+module.exports.validateName = (name) => {
+  return /^[a-z ,.'-]+$/i.test(name);
+}
+
+module.exports.validateLogin = (email, password) =>
+{
+ const resEmail =  this.validateEmail(email);
+const resPassword = this.validatePassword(password);
+
+  return resEmail && resPassword;
+}
+
