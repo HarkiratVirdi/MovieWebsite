@@ -37,19 +37,20 @@ module.exports.signUp = (req, res) => {
 
   let errors = [];
 
-  if(validateName(Name))
+  if(!validateEmail(Email))
   {
-    errors.push("Name should Only contain Alphabets");
+    errors.push("Email must be valid");
+  }
+  if(!validateName(Name))
+  {
+    errors.push('Name should only contain Alphabets');
+  }
+  if(!validatePassword(Password))
+  {
+    errors.push("Password must have length of 8 characters including 1 letter, 1 number, 1 special character");
   }
 
-  
-  if(!validateLogin(Email, Password))
-  {
-    errors
-  }
-
-
-  if(isEmail && isPassword)
+  if(isEmail && isPassword && isName)
   {
    console.log(process.env.SENDGRID_API_KEY);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -77,6 +78,11 @@ module.exports.signUp = (req, res) => {
         console.error(error);
       });
     }
+
+      res.render('register', {
+        errors: errors,
+      })
+
 };
 
 module.exports.dashboard = (req, res) => {
