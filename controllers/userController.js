@@ -40,10 +40,10 @@ module.exports.signUp = (req, res) => {
   };
 
   if (!isEmail) {
-    errors.Name = "Email must be valid";
+    errors.Email = "Email must be valid";
   }
   if (!isName) {
-    errors.Email = "Name should only contain Alphabets";
+    errors.Name = "Name should only contain Alphabets";
   }
   if (!isPassword) {
     errors.Password =

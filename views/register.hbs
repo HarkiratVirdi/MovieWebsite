@@ -11,25 +11,25 @@
     <form class="login_form" method="POST" action="/user/register">
           <div class="login_form_field">
         <label class="h-4" for="Email">Name</label>
-        <input name="Name" required value={{values.Name}}>        
-        {{#if errors.Name}}
-            <div style="color: red" class="h-6">{{errors.Name}}</div>
-        {{/if}}
+        <input name="Name" value={{values.Name}}>        
         </div>
+        {{#if errors.Name}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Name}}</p>
+        {{/if}}
         <div class="login_form_field">
         <label class="h-4" for="Email">Email</label>
-        <input  name="Email" required value={{values.Email}}>   
-          {{#if errors.errors.Email}}
-            <div style="color: red" class="h-6">{{errors.Email}}</div>
-        {{/if}}     
+        <input  name="Email" value={{values.Email}}>   
         </div>
+          {{#if errors.Email}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Email}}</p>
+        {{/if}}   
         <div class="login_form_field">
         <label class="h-4" for="Password">Password</label>
-        <input type="password" name="Password" required value={{values.Password}}>        
-          {{#if errors.Password}}
-            <div style="color: red" class="h-6">{{errors.Password}}</div>
-        {{/if}}
+        <input type="password" name="Password" value={{values.Password}}>        
         </div>
+          {{#if errors.Password}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Password}}</p>
+        {{/if}}
         <button type="submit" class="mt-l t-w100 btn btn--white">Register</button>
     </form>
 
