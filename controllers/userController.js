@@ -10,13 +10,12 @@ const {
   validateEmail,
   validatePassword,
   validateName,
-  validateLogin,
 } = require("../utils/Validation");
 
 module.exports.loginUser = (req, res) => {
   const imageNum = Math.floor(Math.random() * 5);
   const image = imagesForLogin[imageNum];
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
   res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
 };
 
@@ -29,16 +28,20 @@ module.exports.signIn = (req, res) => {
     Password: "",
   };
 
-  if (!isEmail) {
+  let valid = true;
+  
+  if (!isEmail || Email === "") {
     errors.Email = "Email must be valid";
+    valid = false;
   }
-
-  if (!isPassword) {
+  
+  if (!isPassword || Password === "") {
     errors.Password =
-      "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+    "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+    valid = false;
   }
 
-  if (validateLogin(Email, Password)) {
+  if (valid) {
     res.redirect("/");
   }else{
       const imageNum = Math.floor(Math.random() * 5);
@@ -53,35 +56,47 @@ module.exports.signIn = (req, res) => {
 };
 
 module.exports.signUp = (req, res) => {
-  const { Email, Password, Name } = req.body;
+  const { Email, Password, Firstname, Lastname } = req.body;
   const isEmail = validateEmail(Email);
   const isPassword = validatePassword(Password);
-  const isName = validateName(Name);
+  const isFirstName = validateName(Firstname);
+  const isLastName = validateName(Lastname);
   let errors = {
-    Name: "",
+    Firstname: "",
+    Lastname: "",
     Email: "",
     Password: "",
   };
 
-  if (!isEmail) {
+  let valid = true;
+
+  if (!isEmail || Email === "") {
     errors.Email = "Email must be valid";
+    valid = false;
   }
-  if (!isName) {
-    errors.Name = "Name should only contain Alphabets";
+  if (!isLastName || Lastname === "") {
+    errors.Lastname = "Last Name should only contain Alphabets";
+    valid = false;
   }
-  if (!isPassword) {
+  if (!isFirstName || Firstname === "") {
+    errors.Firstname = "First Name should only contain Alphabets";
+    valid = false;
+  }
+  if (!isPassword || Password === "") {
     errors.Password =
-      "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+    "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+    valid = false;
   }
 
-  if (isEmail && isPassword && isName) {
+
+  if (valid) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
       to: Email,
       from: "harkiratsinghvirdi3@gmail.com",
       subject: "Welcome To MFlix",
       text: "We hope You enjoy this app.",
-      html: `<h3>Hi ${Name}</h3>,
+      html: `<h3>Hi ${Lastname}, ${Firstname}</h3>,
             <br>
             <p>Thank You For Signing up.</p>
             <br>
@@ -94,7 +109,7 @@ module.exports.signUp = (req, res) => {
       .send(msg)
       .then(() => {
         console.log("Email sent");
-        res.redirect(`/user/dashboard?name=${Name}`);
+        res.redirect(`/user/dashboard?lastname=${Lastname}&firstname=${Firstname}`);
       })
       .catch((error) => {
         console.log(error);

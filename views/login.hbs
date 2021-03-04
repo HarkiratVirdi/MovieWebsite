@@ -14,7 +14,7 @@
         <input name="Email" value={{values.Email}}>
       </div>
       {{#if errors.Email}}
-           <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Email}}</p>
+           <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Email}}</p>
       {{/if}}
       <div class="login_form_field">
         <label class="h-4" for="Password">
@@ -23,11 +23,12 @@
         <input type="password" name="Password" value={{values.Password}} >
       </div>
              {{#if errors.Password}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Password}}</p>
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Password}}</p>
         {{/if}}
       <button type="submit" class="mt-l t-w100 btn btn--white">
         Login
       </button>
     </form>
+    <div style="text-align:left;" class="h-5--white h-5 mt-m">New User? <a class="h-5--cta h-5" href="/user/register"> Register</a> </div>
   </div>
 </div>

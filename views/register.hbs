@@ -10,29 +10,39 @@
 
     <form class="login_form" method="POST" action="/user/register">
           <div class="login_form_field">
-        <label class="h-4" for="Email">Name</label>
-        <input name="Name" value={{values.Name}}>        
+        <label class="h-4" for="Firstname">First Name</label>
+        <input name="Firstname" value={{values.Firstname}}>        
         </div>
-        {{#if errors.Name}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Name}}</p>
+        {{#if errors.Firstname}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Firstname}}</p>
+        {{/if}}
+          <div class="login_form_field">
+        <label class="h-4" for="Lastname">Last Name</label>
+        <input name="Lastname" value={{values.Lastname}}>        
+        </div>
+        {{#if errors.Lastname}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Lastname}}</p>
         {{/if}}
         <div class="login_form_field">
         <label class="h-4" for="Email">Email</label>
         <input  name="Email" value={{values.Email}}>   
         </div>
           {{#if errors.Email}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Email}}</p>
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Email}}</p>
         {{/if}}   
         <div class="login_form_field">
         <label class="h-4" for="Password">Password</label>
         <input type="password" name="Password" value={{values.Password}}>        
         </div>
           {{#if errors.Password}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s mb-s">{{errors.Password}}</p>
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Password}}</p>
         {{/if}}
         <button type="submit" class="mt-l t-w100 btn btn--white">Register</button>
     </form>
 
+
+ <div style="text-align:left;" class="h-5--white h-5 mt-m">Already Registered? <a class="h-5--cta h-5" href="/user/login"> Login</a> </div>
+  </div>
 </div>
 
 </div>

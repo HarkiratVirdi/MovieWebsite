@@ -326,7 +326,7 @@ li {
     align-self: center;
     top: 0px;
     transition: all 0.1s;
-    width: 16.5rem;
+    width: 20rem;
     height: 24rem;
     object-fit: cover; }
     @media only screen and (max-width: 870px) {
@@ -474,7 +474,10 @@ li {
   display: flex;
   justify-content: center;
   border-radius: 3px;
-  transition: 0.5s opacity; }
+  transition: 0.2s all; }
+  @media only screen and (max-width: 500px) {
+    .btn {
+      padding: 1.5rem 2rem; } }
   .btn-white {
     background-color: #fff;
     color: #1b1b1b; }

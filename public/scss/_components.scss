@@ -12,7 +12,11 @@
   display: flex;
   justify-content: center;
   border-radius: 3px;
-  transition: 0.5s opacity;
+  transition: 0.2s all;
+
+@media only screen and (max-width: $mobile-breakpoint) {
+    padding: 1.5rem 2rem;
+  }
 
   &-white {
     background-color: $white;

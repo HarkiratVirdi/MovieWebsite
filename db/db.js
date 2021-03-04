@@ -204,7 +204,7 @@ exports.movies = [
     // featured: true,
     runtime: "1:57",
     rating: 75,
-    genre: "Action, Fantasy",
+    genre: "Horror",
     studio: "Warner Bros",
     year: 2018,
     rent: 8,
