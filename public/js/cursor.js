@@ -27,10 +27,12 @@ const bodyScroll = () => {
 const dragCursor = () => {
   console.log("in Swiper container");
   cursor.classList.add('cursor_js-drag');
+  // document.body.style.cursor = 'grab';
 }
 
 const normalCursor = () => {
   cursor.classList.remove('cursor_js-drag');
+  // document.body.style.cursor = 'auto';
 }
 
 document.addEventListener("mousemove", animateCursor);

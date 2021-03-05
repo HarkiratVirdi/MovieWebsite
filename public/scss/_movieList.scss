@@ -61,19 +61,23 @@
   top: -3%;
   user-select: none;
   width: 18rem;
+  height: 26rem;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  transition: transform 0.3s;
+  overflow: hidden;
   // margin-top: 30px;
-
+  // transition: transform 0.3s;
+  
   img {
-    transition: transform 0.3s;
+    transition: transform 0.5s;
     overflow: hidden;
+
+      &:hover {
+    transform: scale(1.1);
   }
-  &:hover {
-    transform: scale(1.06);
   }
+
 
   &__overflow {
     overflow: hidden;

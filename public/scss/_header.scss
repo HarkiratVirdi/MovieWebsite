@@ -9,7 +9,9 @@
   }
 
   &_logo {
-    font-size: 2rem;
+    // font-size: 2rem;
+    display: flex;
+    width: 8rem;
   }
 
   &_list {
