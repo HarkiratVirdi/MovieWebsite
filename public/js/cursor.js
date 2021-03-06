@@ -5,6 +5,7 @@ const imgs = document.querySelectorAll("img");
 imgs.forEach((img) => {
   img.addEventListener("mouseenter", () => {
     cursor.style.backdropFilter = "invert(.7)";
+    // cursor.style.backdropFilter = "invert(.7)";
     cursor.style.border = "none";
   });
   img.addEventListener("mouseleave", () => {

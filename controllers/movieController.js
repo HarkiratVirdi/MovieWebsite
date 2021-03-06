@@ -21,7 +21,7 @@ module.exports.getMovies = (req, res) => {
     movies: movieDatabase.movies,
     images: imagesForContent,
     imagesForCarousel: imagesForCarousel,
-    title: "MovieNation | Buy Movies",
+    title: "MFlix | Buy Movies",
   });
 };
 
@@ -111,7 +111,7 @@ module.exports.getMovieList = (req, res) => {
 
   res.render("list", {
     movies: movies,
-    title: "MovieNation | Movie List",
+    title: "MFlix | Movie List",
   });
 };
 

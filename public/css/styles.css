@@ -876,6 +876,9 @@ li {
       display: flex;
       animation: transformRight 30s infinite;
       animation-timing-function: linear; }
+      .contentsection_images_container img {
+        width: 35rem;
+        height: 20rem; }
 
 @keyframes transformRight {
   from {
