@@ -30,6 +30,18 @@ const dragCursor = () => {
   // document.body.style.cursor = 'grab';
 }
 
+
+document.addEventListener("mousedown", () => {
+  cursor.style.width = '3rem';
+  cursor.style.height = '3rem';
+})
+
+
+document.addEventListener("mouseup", () => {
+  cursor.style.width = '4rem';
+  cursor.style.height = '4rem';
+})
+
 const normalCursor = () => {
   cursor.classList.remove('cursor_js-drag');
   // document.body.style.cursor = 'auto';

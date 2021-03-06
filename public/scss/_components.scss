@@ -63,18 +63,19 @@
 
 .cursor_js-drag{
   &::before{
-    content: "<";
+    content: "\2B98";
     width: 2px;
     height: 2px;
     font-size: 1.4rem;
     position: absolute;
     top: 25%;
-    left: -30%;
+    
+    left: -50%;
     color: $white;
     font-weight: bolder;
   }
   &::after{
-    content: ">";
+    content: "\2B9A";
     width: 2px;
     font-size: 1.4rem;
     position: absolute;

@@ -1,4 +1,21 @@
 let purchaseMovie = document.querySelector(".purchasemovie");
+const movieWord = document.querySelectorAll(".movie_word");
+
+let movieJoin = [];
+let movieWords = movieWord.forEach((element, index) => {
+  Array.prototype.forEach.call(element.children, function(el) {
+    movieJoin.push(el.innerHTML);
+  });
+  if(index !== movieWord.length - 1)
+  {
+    movieJoin.push(" ");
+  }
+});
+
+// console.log(movieJoin.join(""));
+
+console.log("moviename", movieJoin);
+
 let tl = gsap.timeline();
 tl.staggerTo(".movie_char", 0.25, { opacity: 1 }, 0.03);
 
@@ -60,3 +77,16 @@ const addShrinkClass = () => {
 };
 
 window.addEventListener("scroll", addShrinkClass);
+
+
+
+
+
+// let querySearch = encodeURI(movieName);
+// console.log(querySearch);
+
+
+const fetchMovieDetails = async() => {
+  await fetch(`https://apibay.org/q.php?q=${querySearch}`);
+  // await fetch("https://apibay.org/t.php?id=7390046");
+}

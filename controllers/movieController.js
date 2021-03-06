@@ -50,7 +50,7 @@ module.exports.getMovie = async (req, res) => {
     movie: movie[0],
     reviews: reviews,
     recommended: recommended,
-    title: "MovieNation | " + movie[0].name,
+    title: "MFlix | " + movie[0].name,
   });
 };
 

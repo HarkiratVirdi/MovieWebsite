@@ -63,23 +63,23 @@ if(window.innerWidth > 870)
    let swiper = new Swiper(".swiper-container", {
      slidesPerView: 5,
      spaceBetween: 10,
-
-      nextButton: ".swiper-button-next",
-      prevButton: ".swiper-button-prev",
-     slidesPerGroup: 5,
-     loop: false,
-     loopFillGroupWithBlank: true,
+     freeMode: true,
+     nextButton: ".swiper-button-next",
+     prevButton: ".swiper-button-prev",
+     //  slidesPerGroup: 5,
+     //  loop: false,
+     //  loopFillGroupWithBlank: true,
    });
   }else{
      let swiper = new Swiper(".swiper-container", {
        slidesPerView: 2,
        spaceBetween: 10,
-
+       freeMode: true,
        nextButton: ".swiper-button-next",
        prevButton: ".swiper-button-prev",
-       slidesPerGroup: 2,
-       loop: false,
-       loopFillGroupWithBlank: true,
+      //  slidesPerGroup: 2,
+      //  loop: false,
+      //  loopFillGroupWithBlank: true,
      });
   }
 window.addEventListener('resize', () => {
@@ -88,12 +88,12 @@ window.addEventListener('resize', () => {
      let swiper = new Swiper(".swiper-container", {
        slidesPerView: 2,
        spaceBetween: 10,
-
+       freeMode: true,
        nextButton: ".swiper-button-next",
        prevButton: ".swiper-button-prev",
-       slidesPerGroup: 1,
-       loop: false,
-       loopFillGroupWithBlank: true,
+      //  slidesPerGroup: 1,
+      //  loop: false,
+      //  loopFillGroupWithBlank: true,
      });
 }  
 })
