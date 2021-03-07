@@ -60,9 +60,10 @@
   position: relative;
   top: -3%;
   user-select: none;
-  width: 18rem;
-  height: 26rem;
+  width: 20rem;
+  height: 28rem;
   display: flex;
+  border-radius: 4px;
   flex-direction: column;
   align-self: flex-end;
   overflow: hidden;
@@ -113,11 +114,11 @@
 .list_movies {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
   grid-row-gap: 3rem;
 
   @media only screen and (max-width: $mobile-breakpoint) {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
   }
 }
 

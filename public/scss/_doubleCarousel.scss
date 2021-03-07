@@ -12,7 +12,7 @@
   user-select: none;
   margin-bottom: 20rem;
   height: 60vh;
-height: calc(var(--vh, 1vh) * 60);
+  height: calc(var(--vh, 1vh) * 60);
   @media only screen and (max-width: $mobile-breakpoint) {
     flex-direction: column;
   }

@@ -193,9 +193,10 @@ li {
   position: relative;
   top: -3%;
   user-select: none;
-  width: 18rem;
-  height: 26rem;
+  width: 20rem;
+  height: 28rem;
   display: flex;
+  border-radius: 4px;
   flex-direction: column;
   align-self: flex-end;
   overflow: hidden; }
@@ -229,11 +230,11 @@ li {
 .list_movies {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
   grid-row-gap: 3rem; }
   @media only screen and (max-width: 500px) {
     .list_movies {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); } }
 
 .featured_tag {
   position: absolute;
@@ -254,6 +255,9 @@ li {
 .movie_hero {
   height: 80vh;
   overflow-x: hidden; }
+  @media only screen and (max-width: 500px) {
+    .movie_hero {
+      height: 45vh; } }
   .movie_hero_image {
     position: relative;
     top: 0;
@@ -262,6 +266,9 @@ li {
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover; }
+    @media only screen and (max-width: 500px) {
+      .movie_hero_image {
+        height: 35vh; } }
   .movie_hero_image::before {
     content: "";
     width: 100%;
@@ -330,7 +337,8 @@ li {
     top: 0px;
     transition: all 0.1s;
     width: 20rem;
-    height: 24rem;
+    border-radius: 4px;
+    height: 27rem;
     object-fit: cover; }
     @media only screen and (max-width: 870px) {
       .purchasemovie__image {
@@ -387,13 +395,25 @@ li {
     top: -100px;
     right: 3rem;
     width: 0%;
-    height: 30rem;
+    height: 35rem;
     object-fit: cover;
     transform-origin: left; }
+    @media only screen and (max-width: 870px) {
+      .cast_image {
+        height: 30rem; } }
+    @media only screen and (max-width: 500px) {
+      .cast_image {
+        height: 20rem; } }
   .cast .produced_by {
     display: flex;
     justify-content: space-between;
     width: 60%; }
+    @media only screen and (max-width: 870px) {
+      .cast .produced_by {
+        width: 80%; } }
+    @media only screen and (max-width: 500px) {
+      .cast .produced_by {
+        width: 100%; } }
 
 @media only screen and (max-width: 870px) {
   .shrink {
@@ -825,7 +845,6 @@ li {
   background: #121212;
   position: relative;
   top: 0;
-  height: 27rem;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;

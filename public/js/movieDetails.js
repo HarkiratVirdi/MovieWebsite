@@ -12,8 +12,6 @@ let movieWords = movieWord.forEach((element, index) => {
   }
 });
 
-// console.log(movieJoin.join(""));
-
 console.log("moviename", movieJoin);
 
 let tl = gsap.timeline();
@@ -46,7 +44,7 @@ gsap.to(".cast_image", {
     trigger: ".cast_image",
     start: "top bottom",
   },
-  width: "40%",
+  width: "45%",
   duration: 1,
   ease: "expo",
 });
@@ -60,6 +58,9 @@ const addShrinkClass = () => {
 
   let height = window.innerHeight;
 
+
+  if(window.innerWidth > 500)
+  {
   if (scrollingTop > height - 35) {
     purchaseMovie.classList.add("shrink");
   } else {
@@ -74,19 +75,24 @@ const addShrinkClass = () => {
   } else {
     purchaseMovie.style.position = "sticky";
   }
+  }else{
+    console.log("height", height);
+     if (scrollingTop > height / 1.65) {
+       purchaseMovie.classList.add("shrink");
+     } else {
+       purchaseMovie.classList.remove("shrink");
+     }
+
+     if (
+       scrollingTop >
+       movieDetailsHeight + height - purchaseMovie.clientHeight / 0.6
+     ) {
+       purchaseMovie.style.position = "static";
+     } else {
+       purchaseMovie.style.position = "sticky";
+     }
+}
 };
 
 window.addEventListener("scroll", addShrinkClass);
 
-
-
-
-
-// let querySearch = encodeURI(movieName);
-// console.log(querySearch);
-
-
-const fetchMovieDetails = async() => {
-  await fetch(`https://apibay.org/q.php?q=${querySearch}`);
-  // await fetch("https://apibay.org/t.php?id=7390046");
-}
