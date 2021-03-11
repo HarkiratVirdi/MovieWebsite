@@ -175,6 +175,12 @@
   opacity: 0.2;
 }
 
+.progressive{
+  background-color: $black !important;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
 .swiper-button-prev{
   left: 0;

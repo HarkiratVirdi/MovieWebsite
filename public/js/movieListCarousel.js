@@ -58,6 +58,10 @@
 // });
 
 
+
+
+
+
 if(window.innerWidth > 870)
 {
    let swiper = new Swiper(".swiper-container", {

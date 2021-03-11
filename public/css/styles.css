@@ -835,6 +835,12 @@ li {
 .swiper-button-next.swiper-button-disabled {
   opacity: 0.2; }
 
+.progressive {
+  background-color: #1b1b1b !important;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
 .swiper-button-prev {
   left: 0; }
 
