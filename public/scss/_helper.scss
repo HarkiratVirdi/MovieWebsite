@@ -226,12 +226,21 @@
 //   cursor: progress;
 // }
 
-// .loader {
-//   position: fixed;
-//   width: 100vw;
-//   height: 100vh;
-//   pointer-events: none;
-//   background-color: #000000;
-//   z-index: 100;
-//   opacity: 0;
-// }
+.animateLoader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-color: #000000;
+  transition: all 0.25s;
+  z-index: 100;
+}
+
+
+.animateLoader-active {
+  opacity: 1;
+}
+
+.animateLoader-notActive{
+  opacity: 0;
+}

@@ -12,7 +12,7 @@ let movieWords = movieWord.forEach((element, index) => {
   }
 });
 
-console.log("moviename", movieJoin);
+// console.log("moviename", movieJoin);
 
 let tl = gsap.timeline();
 tl.staggerTo(".movie_char", 0.25, { opacity: 1 }, 0.03);
@@ -76,7 +76,7 @@ const addShrinkClass = () => {
     purchaseMovie.style.position = "sticky";
   }
   }else{
-    console.log("height", height);
+    // console.log("height", height);
      if (scrollingTop > height / 1.65) {
        purchaseMovie.classList.add("shrink");
      } else {

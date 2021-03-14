@@ -865,6 +865,21 @@ li {
   -webkit-align-items: center;
   align-items: center; }
 
+.animateLoader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-color: #000000;
+  transition: all 0.25s;
+  z-index: 100; }
+
+.animateLoader-active {
+  opacity: 1; }
+
+.animateLoader-notActive {
+  opacity: 0; }
+
 .contentsection {
   width: 100%;
   display: grid;
