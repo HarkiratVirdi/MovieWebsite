@@ -18,10 +18,23 @@ window.addEventListener("resize", () => {
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 });
 
+
+
+
+
 const anchorTags = document.querySelectorAll("a");
 
 console.log(anchorTags);
 const loader = document.querySelector(".animateLoader");
+
+
+const applyClassToLoader = (value) => {
+ loader.classList.add("animateLoader-active");
+ loader.classList.remove("animateLoader-notActive");
+  initialAnimation();
+}
+
+
 
 const pageAnimationOnClick = (e) => {
 e.preventDefault();
@@ -34,22 +47,38 @@ console.log(linkToNavigate);
 
 if(linkToNavigate !== location.href)
 {
- loader.classList.add("animateLoader-active");
- loader.classList.remove("animateLoader-notActive");
-
-
-   setTimeout(() => {
-     loader.classList.add("animateLoader-notActive");
-     loader.classList.remove("animateLoader-active");
-   }, 2000);
-
-
+  applyClassToLoader(500);
    setTimeout(() => {
      location.href = linkToNavigate;
-   }, 200);
+   }, 100);
 
 }}
 
 anchorTags.forEach(anchor => {
   anchor.addEventListener("click", pageAnimationOnClick);
 });
+
+
+
+
+
+
+//on page load animation
+
+// window.onloadstart = () => {
+//   console.log("load start");
+//   applyClassToLoader(2000);
+// }
+
+
+// window.onhashchange = () => {
+// };
+
+const initialAnimation = () => {
+ setTimeout(() => {
+   loader.classList.remove("animateLoader-active");
+   loader.classList.add("animateLoader-notActive");
+ }, 200);
+};
+
+initialAnimation();

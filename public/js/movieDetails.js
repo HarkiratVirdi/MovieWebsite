@@ -15,7 +15,7 @@ let movieWords = movieWord.forEach((element, index) => {
 // console.log("moviename", movieJoin);
 
 let tl = gsap.timeline();
-tl.staggerTo(".movie_char", 0.25, { opacity: 1 }, 0.03);
+tl.staggerTo(".movie_char", 0.25 , { opacity: 1, delay: ".3" }, 0.03);
 
 const movieDetailsHeight = document.querySelector(".movie_info").clientHeight;
 
