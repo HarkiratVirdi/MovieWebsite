@@ -249,24 +249,38 @@ const heroInfo = [
 // hero_arrow_right.addEventListener("click", transformRight);
 
 
-const numberOfSlides = document.querySelector(".carousel__slides").children
+const numberOfSlides = document.querySelector(".hero_carousel").children
   .length;
 console.log(numberOfSlides);
-const arrowLeft = document.querySelector(".slide__arrow--left");
-const arrowRight = document.querySelector(".slide__arrow--right");
-let index = 0;
+const arrowLeft = document.querySelector(".hero_arrows_left");
+const arrowRight = document.querySelector(".hero_arrows_right");
+let index = 1;
 let isTransforming = false;
+let incrementZIndex = 10;
+const slides = document.querySelectorAll(".hero_carousel_slides");
+slides[0].classList.add("slide__active");
+
 
 const transformNextSlide = (slide) => {
   if (slide.classList.contains("hidden")) {
     slide.classList.remove("hidden");
   }
+  console.log("transforming")
   slide.classList.add("show");
-  gsap.fromTo(
-    slide,
-    { x: 1000, duration: 0 },
-    { x: 0, duration: 1, ease: "Expo.easeInOut" }
-  );
+ gsap.fromTo(
+   slide,
+   {
+     clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+     //  x: 100,
+     duration: 0,
+   },
+   {
+     clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
+     duration: 1,
+     //  x: 0,
+     ease: "Expo.easeInOut",
+   }
+ );
 };
 
 const transformPrevSlide = (slide) => {
@@ -274,15 +288,15 @@ const transformPrevSlide = (slide) => {
     slide.classList.remove("hidden");
   }
   slide.classList.add("show");
-  gsap.fromTo(
-    slide,
-    { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)", duration: 0 },
-    {
-      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 1,
-      ease: "Expo.easeInOut",
-    }
-  );
+   gsap.fromTo(
+     slide,
+     { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)", duration: 0 },
+     {
+       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+       duration: 1,
+       ease: "Expo.easeInOut",
+     }
+   );
 };
 
 const removeEffectsAndClass = (slide, nextSlide) => {
@@ -298,9 +312,12 @@ const removeEffectsAndClass = (slide, nextSlide) => {
 const transformToLeft = () => {
   const activeSlide = document.querySelector(".slide__active");
   let prevSlide = activeSlide.previousElementSibling;
+  console.log("prev slide", prevSlide);
   if (!prevSlide) {
-    prevSlide = document.querySelectorAll(".slide")[4];
+    prevSlide = slides[4];
   }
+    prevSlide.style.zIndex = incrementZIndex++;
+
 
   if (prevSlide && !isTransforming) {
     transformPrevSlide(prevSlide);
@@ -315,18 +332,20 @@ const transformToLeft = () => {
 const transformToRight = () => {
   const activeSlide = document.querySelector(".slide__active");
   let nextSlide = activeSlide.nextElementSibling;
+  console.log("next slide", nextSlide);
   if (!nextSlide) {
-    nextSlide = document.querySelectorAll(".slide")[0];
+    nextSlide = document.querySelectorAll(".hero_carousel_slides")[0];
   }
 
-  if (nextSlide && !isTransforming) {
+  nextSlide.style.zIndex = incrementZIndex++;
+
     transformNextSlide(nextSlide);
     isTransforming = true;
     arrowRight.style.userSelect = "none";
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, nextSlide);
     }, 1000);
-  }
+ 
 };
 
 arrowLeft.addEventListener("click", transformToLeft);
