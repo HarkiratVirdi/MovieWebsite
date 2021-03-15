@@ -1,7 +1,47 @@
 .hero {
   height: 100vh;
-  width: 100%;
+  // width: 100%;
+
   height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  top: -20vh;
+  overflow: none;
+
+
+&_subcontainer{
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
+  padding: 0 2rem;
+  position: relative;
+  top: 0;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    padding: 0 1rem;
+  }
+}
+
+  &_banner{
+    position: absolute;
+    top: 35%;
+    
+    user-select: none;
+    font-weight: 800;
+    // left: 12%;
+
+    h1{
+      letter-spacing: 1rem;
+    }
+
+.hero_desc{
+  width: 40%;
+
+}
+
+  }
+
+  &_btn{
+    width: 30rem;
+  }
 
   &_carousel {
     background-color: $white;
@@ -13,8 +53,6 @@
     display: flex;
     transition: 0.5s all;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    // position: relative;
-    // top: 0;
     overflow: hidden;
 
     &_slides {
@@ -64,11 +102,12 @@
   }
 
   &_pagination {
-    height: 70vh;
+    position: relative;
+    bottom: -90%;
     display: flex;
     width: 10rem;
     align-items: flex-end;
-    margin-left: 13%;
+    // margin-left: 13%;
     margin-right: auto;
     justify-content: space-between;
 

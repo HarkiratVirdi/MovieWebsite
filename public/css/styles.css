@@ -602,8 +602,31 @@ li {
 
 .hero {
   height: 100vh;
-  width: 100%;
-  height: calc(var(--vh, 1vh) * 100); }
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  top: -20vh;
+  overflow: none; }
+  .hero_subcontainer {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+    padding: 0 2rem;
+    position: relative;
+    top: 0; }
+    @media only screen and (max-width: 500px) {
+      .hero_subcontainer {
+        padding: 0 1rem; } }
+  .hero_banner {
+    position: absolute;
+    top: 35%;
+    user-select: none;
+    font-weight: 800; }
+    .hero_banner h1 {
+      letter-spacing: 1rem; }
+    .hero_banner .hero_desc {
+      width: 40%; }
+  .hero_btn {
+    width: 30rem; }
   .hero_carousel {
     background-color: #fff;
     height: 100%;
@@ -650,11 +673,11 @@ li {
     top: 40%;
     color: #1b1b1b; }
   .hero_pagination {
-    height: 70vh;
+    position: relative;
+    bottom: -90%;
     display: flex;
     width: 10rem;
     align-items: flex-end;
-    margin-left: 13%;
     margin-right: auto;
     justify-content: space-between; }
     .hero_pagination_button {
