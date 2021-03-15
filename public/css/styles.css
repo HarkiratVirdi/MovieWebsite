@@ -628,7 +628,7 @@ li {
     user-select: none;
     font-weight: 800; }
     .hero_banner h1 {
-      letter-spacing: 1rem; }
+      letter-spacing: 0.5rem; }
     .hero_banner .hero_desc {
       width: 45%; }
       @media only screen and (max-width: 870px) {
@@ -642,19 +642,22 @@ li {
   .hero_carousel {
     background-color: #fff;
     height: 100%;
-    z-index: -3;
+    z-index: -10;
     position: absolute;
     top: 0;
-    width: 500%;
-    display: flex;
-    transition: 0.5s all;
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
     overflow: hidden; }
     .hero_carousel_slides {
       width: 100%;
       display: flex;
-      position: relative;
-      top: 0; }
+      position: absolute;
+      top: 0;
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+      height: 100%;
+      transform-origin: left;
+      transition: 0.4s all;
+      z-index: -6;
+      animation-timing-function: ease-in-out; }
       .hero_carousel_slides::before {
         content: "";
         position: absolute;
@@ -669,20 +672,20 @@ li {
     color: #1b1b1b;
     position: absolute;
     z-index: 10;
-    padding: 2rem;
+    width: 50%;
     cursor: pointer;
-    top: 40%;
+    top: 20vh;
     height: 100%;
     left: 0; }
   .hero_arrows_right {
     cursor: pointer;
     height: 100%;
-    padding: 2rem;
+    width: 50%;
     font-size: 4rem;
     z-index: 10;
     position: absolute;
     right: 0;
-    top: 40%;
+    top: 20vh;
     color: #1b1b1b; }
   .hero_pagination {
     position: relative;
@@ -710,7 +713,8 @@ li {
   .hero_banner_right {
     position: absolute;
     bottom: 10%;
-    right: 2rem; }
+    right: 2rem;
+    user-select: none; }
     @media only screen and (max-width: 870px) {
       .hero_banner_right {
         display: none; } }
@@ -783,6 +787,15 @@ li {
 
 .mt-m {
   margin-top: 2rem; }
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0; }
+
+.show {
+  opacity: 1;
+  z-index: 5; }
 
 .mr-m {
   margin-right: 2rem; }
@@ -901,6 +914,14 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
+.animateSlide-active {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 10 !important; }
+
+.animateSlide-notActive {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  z-index: -2 !important; }
 
 .swiper-container {
   width: 100%;

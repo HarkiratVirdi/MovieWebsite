@@ -11,7 +11,7 @@ const {
 } = require("../utils/Validation");
 
 module.exports.loginUser = (req, res) => {
-  const imageNum = Math.floor(Math.random() * 5);
+  const imageNum = Math.floor(Math.random() * 3);
   const image = imagesForLogin[imageNum];
   // console.log("req.body", req.body);
   res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
@@ -42,7 +42,7 @@ module.exports.signIn = (req, res) => {
   if (valid) {
     res.redirect("/");
   }else{
-      const imageNum = Math.floor(Math.random() * 5);
+      const imageNum = Math.floor(Math.random() * 3);
       const image = imagesForLogin[imageNum];
     res.render("login", {
     image: image,
@@ -113,7 +113,7 @@ module.exports.signUp = (req, res) => {
         console.log(error);
       });
   }else{
-  const imageNum = Math.floor(Math.random() * 5);
+  const imageNum = Math.floor(Math.random() * 3);
   const image = imagesForLogin[imageNum];
 
   res.render("register", {
@@ -130,7 +130,7 @@ module.exports.dashboard = (req, res) => {
 };
 
 module.exports.registerUser = (req, res) => {
-  const imageNum = Math.floor(Math.random() * 5);
+  const imageNum = Math.floor(Math.random() * 3);
   const image = imagesForLogin[imageNum];
 
   res.render("register", { image: image, title: "MovieNation | Register" });
