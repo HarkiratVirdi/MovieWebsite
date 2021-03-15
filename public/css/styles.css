@@ -493,6 +493,7 @@ li {
 .btn {
   outline: none;
   border: none;
+  font-family: "Lora", serif;
   padding: 1.5rem 3rem;
   font-size: 1.8rem;
   display: flex;
@@ -600,11 +601,15 @@ li {
     color: white; }
 
 .hero {
-  height: 80vh;
-  width: 100%; }
+  height: 100vh;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100); }
   .hero_carousel {
     background-color: #fff;
-    height: 60vh;
+    height: 100%;
+    z-index: -3;
+    position: absolute;
+    top: 0;
     width: 500%;
     display: flex;
     transition: 0.5s all;
@@ -612,16 +617,45 @@ li {
     overflow: hidden; }
     .hero_carousel_slides {
       width: 100%;
-      display: flex; }
+      display: flex;
+      position: relative;
+      top: 0; }
+      .hero_carousel_slides::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.4); }
       .hero_carousel_slides img {
         width: 100%; }
+  .hero_arrows_left {
+    font-size: 4rem;
+    color: #1b1b1b;
+    position: absolute;
+    z-index: 10;
+    padding: 2rem;
+    cursor: pointer;
+    top: 40%;
+    height: 100%;
+    left: 0; }
+  .hero_arrows_right {
+    cursor: pointer;
+    height: 100%;
+    padding: 2rem;
+    font-size: 4rem;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    color: #1b1b1b; }
   .hero_pagination {
-    height: 20vh;
+    height: 70vh;
     display: flex;
     width: 10rem;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 10%;
+    align-items: flex-end;
+    margin-left: 13%;
+    margin-right: auto;
     justify-content: space-between; }
     .hero_pagination_button {
       border-radius: 50%;
@@ -631,10 +665,11 @@ li {
       background-color: #333; }
 
 .slides_banner {
-  width: 40%; }
+  width: 40%;
+  display: none; }
 
 .slides_images {
-  width: 60%; }
+  width: 100%; }
 
 .overlay__menu {
   position: fixed;

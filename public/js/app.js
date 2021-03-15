@@ -34,8 +34,6 @@ const applyClassToLoader = (value) => {
   initialAnimation();
 }
 
-
-
 const pageAnimationOnClick = (e) => {
 e.preventDefault();
   const findAnchorTag = e.path.find(single => {
@@ -57,22 +55,6 @@ if(linkToNavigate !== location.href)
 anchorTags.forEach(anchor => {
   anchor.addEventListener("click", pageAnimationOnClick);
 });
-
-
-
-
-
-
-//on page load animation
-
-// window.onloadstart = () => {
-//   console.log("load start");
-//   applyClassToLoader(2000);
-// }
-
-
-// window.onhashchange = () => {
-// };
 
 const initialAnimation = () => {
  setTimeout(() => {
