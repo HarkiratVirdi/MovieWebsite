@@ -23,8 +23,6 @@ window.addEventListener("resize", () => {
 
 
 const anchorTags = document.querySelectorAll("a");
-
-console.log(anchorTags);
 const loader = document.querySelector(".animateLoader");
 
 

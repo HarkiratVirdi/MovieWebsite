@@ -1,5 +1,7 @@
 .header {
   height: 20vh;
+  position: relative;
+  z-index: 5;
   
   &_nav {
     height: 100%;
@@ -28,7 +30,7 @@
         color: $white;
         transition: all 0.4s;
         padding: 0.4rem 0;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         text-decoration: none;
         position: relative;
         white-space: nowrap;

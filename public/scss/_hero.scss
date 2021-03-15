@@ -1,11 +1,17 @@
 .hero {
   height: 100vh;
   // width: 100%;
-
+// z-index: -1;
   height: calc(var(--vh, 1vh) * 100);
   position: relative;
   top: -20vh;
-  overflow: none;
+  // overflow: none;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
+
+  }
 
 
 &_subcontainer{
@@ -26,15 +32,23 @@
     
     user-select: none;
     font-weight: 800;
-    // left: 12%;
-
     h1{
       letter-spacing: 1rem;
     }
 
 .hero_desc{
-  width: 40%;
+  width: 45%;
 
+
+    @media only screen and (max-width: $tablet-breakpoint) {
+  width: 65%;
+    
+  }
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+  width: 90%;
+    
+  }
 }
 
   }
@@ -67,7 +81,7 @@
         width: 100%;
         height: 100%;
         z-index: 1;
-        background-color: rgba(#000,.4);
+        background-color: rgba(#000,.3);
       }
 
       img {
@@ -117,7 +131,31 @@
       cursor: pointer;
       height: 1rem;
       background-color: $grey;
+
+      
+    @media only screen and (max-width: $tablet-breakpoint) {
+      width: 1.2rem;
+      height: 1.2rem;
+  }
     }
+
+    
+    @media only screen and (max-width: $tablet-breakpoint) {
+    width: 60%;
+    bottom: -115%;
+    margin: auto;
+
+  }
+  }
+
+&_banner_right{
+  position: absolute;
+  bottom: 10%;
+  right: 2rem;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+   display: none;
+  }
   }
 }
 

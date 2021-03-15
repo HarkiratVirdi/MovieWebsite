@@ -27,8 +27,6 @@ exports.movies = [
     year: 1998,
     synopsis:
       "Facing Christmas 3,000 miles from his estranged wife and two children, New York policeman John McClane flies to L.A. bearing presents and hoping to patch up his marriage. Hans Gruber is in L.A. as well, but he's not there to give out presents. He's there to take: more than $600 million in bearer bonds from the Nakatomi Corporation, where McClane's wife Holly is an executive. When the takeover becomes hostile, it's up to John McClane to take on the terrorists--but not without a sense of humor.",
-    trailer_link: "",
-    movie_link: "",
     cast: [
       {
         name: "Bruce Willis",
@@ -58,8 +56,6 @@ exports.movies = [
     isMovie: true,
     synopsis:
       "Buy any quality, get every quality: All qualities up to 4K UHD included with purchase. Before there was Amityville, there was Harrisville. The Conjuring tells the horrifying true story of Ed and Lorraine Warren, world renowned paranormal investigators, who were called to help a family terrorized by a dark presence in a secluded farmhouse. Forced to confront a powerful demonic entity, the Warrens find themselves caught in the most terrifying case of their lives.",
-    trailer_link: "",
-    movie_link: "",
     cast: [
       {
         name: "Vera Farmiga",
@@ -88,10 +84,7 @@ exports.movies = [
     isMovie: true,
     synopsis:
       "Buy any quality, get every quality: All qualities up to 4K UHD included with purchase. Before she was Wonder Woman, she was Diana, princess of the Amazons. Fighting alongside man in a war to end all wars, Diana will discover her full powers...and her true destiny. Watch it in Extras+ mode, available on the Vudu mobile app, and experience bonuses synced to the movie, movie trivia, a digital comic, and so much more. See it before you try it in the Free Clips tab.",
-    buy: 29.9,
-    trailer_link: "",
-    movie_link:
-      "https://storage.googleapis.com/innate-shell-302903/QQFRMG36V5XL/st23_wonder-woman.1613574655.mp4",
+    buy: 25,
     cast: [
       {
         name: "Gal Gadot",
@@ -121,9 +114,6 @@ exports.movies = [
       "Armed with only one word--Tenet-- and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
     img_s: "/images/movies/Tenet_s.jpg",
     img_l: "/images/movies/Tenet_l.jpg",
-    trailer_link: "",
-    movie_link:
-      "https://storage.googleapis.com/innate-shell-302903/CBE7XLLH59M/23m_1613769356327791.mp4",
     cast: [
       {
         name: "John David",
@@ -148,8 +138,6 @@ exports.movies = [
     studio: "HBO",
     year: 2020,
     buy: 80,
-    trailer_link: "",
-    movie_link: "",
     isMovie: false,
     synopsis:
       "The long winter is here. Throughout seven thrilling episodes, the penultimate Season 8 of this blockbuster hit series focuses on a convergence of armies and attitudes that have been brewing for years.",
@@ -180,8 +168,6 @@ exports.movies = [
     genre: "Action, Fantasy",
     studio: "AMC",
     year: 2010,
-    trailer_link: "",
-    movie_link: "",
     synopsis:
       "AMC's THE WALKING DEAD returns for a terrifying and exhilarating nw eason. In this post-apocalyptic world, Rick Grimes and his band of survivors continue their ongoing struggle to survive the threat of walkers as well as the dangers that lurk among the living. In the new season, we find Rick and the group fostering a thriving community in the safe haven of the prison. In this brutal world, the group's home and new way of life will be thoroughly tested, and their struggle to survive has never been so perilous.",
     img_s: "/images/movies/Walking_Dead_s.jpg",
@@ -209,8 +195,6 @@ exports.movies = [
     year: 2018,
     rent: 8,
     rated: "18+",
-    trailer_link: "",
-    movie_link: "",
     buy: 17,
     isMovie: true,
     synopsis:
@@ -242,9 +226,6 @@ exports.movies = [
     year: 2017,
     rated: "PG-13",
     isMovie: true,
-    trailer_link: "",
-    movie_link:
-      "https://storage.googleapis.com/intense-fiber-303118/BPBGERLCA8EY/st23_kong-skull-island.1613896870.mp4",
     synopsis:
       "When a scientific expedition to an uncharted island awakens titanic forces of nature, a mission of discovery becomes an explosive war between monster and man. Tom Hiddleston, Samuel L. Jackson, Brie Larson, John Goodman and John C. Reilly star in a thrilling and original adventure that reveals the untold story of how Kong became King. FOR 3D ENABLED TVs ONLY.",
     img_s: "/images/movies/Kong_Skull_s.jpg",
@@ -273,8 +254,6 @@ exports.movies = [
     genre: "Drama, History",
     rated: "18+",
     studio: "Steve McQueen",
-    trailer_link: "",
-    movie_link: "",
     year: 2013,
     synopsis:
       "From director Steve McQueen, and based on Solomon Northup's astonishing true story, comes this powerful picture. In 1841, Northup (Chiwetel Ejiofor), a free citizen, is kidnapped, stripped of his identity and sold into slavery. Now, he must find the strength to survive in this unflinching story of hope.",
@@ -304,8 +283,6 @@ exports.movies = [
     rated: "+18",
     year: 2005,
     buy: 30,
-    trailer_link: "",
-    movie_link: "",
     isMovie: false,
     synopsis:
       "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
@@ -327,8 +304,6 @@ exports.movies = [
     id: 11,
     name: "The Game of Thrones: Season 5",
     // featured: true,
-    trailer_link: "",
-    movie_link: "",
     rated: "18+",
     runtime: "50",
     rating: 94,
@@ -362,9 +337,7 @@ exports.movies = [
     runtime: "1:58",
     rating: 92,
     rent: 10,
-    trailer_link: "",
-    movie_link: "",
-    buy: 30,
+    buy: 15,
     genre: "Sci-Fi, Thriller",
     studio: "Paramount Pictures",
     year: 2016,
@@ -389,8 +362,6 @@ exports.movies = [
     id: 13,
     name: "Better Call Saul",
     // featured: true,
-    trailer_link: "",
-    movie_link: "",
     rated: "18+",
     runtime: "48",
     rating: 88,
@@ -420,13 +391,11 @@ exports.movies = [
     id: 14,
     name: "The Witcher",
     // featured: true,
-    trailer_link: "",
-    movie_link: "",
     rated: "18+",
     runtime: "58",
     rating: 74,
     rent: 10,
-    buy: 25,
+    buy: 30,
     genre: "Action, Fantasy",
     studio: "Netflix",
     year: 2019,
@@ -451,13 +420,11 @@ exports.movies = [
     id: 15,
     name: "The Queen's Gambit",
     // featured: true,
-    trailer_link: "",
-    movie_link: "",
     rated: "18+",
     runtime: "1:30",
     rating: 74,
     rent: 10,
-    buy: 30,
+    buy: 20,
     genre: "Drama, Sport",
     studio: "Netflix",
     year: 2020,

@@ -437,7 +437,9 @@ li {
   justify-content: space-between; }
 
 .header {
-  height: 20vh; }
+  height: 20vh;
+  position: relative;
+  z-index: 5; }
   .header_nav {
     height: 100%;
     display: flex;
@@ -459,7 +461,7 @@ li {
         color: #fff;
         transition: all 0.4s;
         padding: 0.4rem 0;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         text-decoration: none;
         position: relative;
         white-space: nowrap;
@@ -499,6 +501,7 @@ li {
   display: flex;
   justify-content: center;
   border-radius: 3px;
+  cursor: pointer;
   user-select: none;
   transition: 0.2s all; }
   @media only screen and (max-width: 500px) {
@@ -509,7 +512,7 @@ li {
     color: #1b1b1b; }
     .btn-white:hover {
       color: #1b1b1b;
-      background-color: #ddd; }
+      background-color: #eee; }
   .btn-black {
     background-color: #000;
     color: #fff; }
@@ -604,8 +607,11 @@ li {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   position: relative;
-  top: -20vh;
-  overflow: none; }
+  top: -20vh; }
+  @media only screen and (max-width: 870px) {
+    .hero {
+      height: 60vh;
+      height: calc(var(--vh, 1vh) * 60); } }
   .hero_subcontainer {
     max-width: 1200px;
     margin: auto;
@@ -624,7 +630,13 @@ li {
     .hero_banner h1 {
       letter-spacing: 1rem; }
     .hero_banner .hero_desc {
-      width: 40%; }
+      width: 45%; }
+      @media only screen and (max-width: 870px) {
+        .hero_banner .hero_desc {
+          width: 65%; } }
+      @media only screen and (max-width: 500px) {
+        .hero_banner .hero_desc {
+          width: 90%; } }
   .hero_btn {
     width: 30rem; }
   .hero_carousel {
@@ -649,7 +661,7 @@ li {
         width: 100%;
         height: 100%;
         z-index: 1;
-        background-color: rgba(0, 0, 0, 0.4); }
+        background-color: rgba(0, 0, 0, 0.3); }
       .hero_carousel_slides img {
         width: 100%; }
   .hero_arrows_left {
@@ -686,6 +698,22 @@ li {
       cursor: pointer;
       height: 1rem;
       background-color: #333; }
+      @media only screen and (max-width: 870px) {
+        .hero_pagination_button {
+          width: 1.2rem;
+          height: 1.2rem; } }
+    @media only screen and (max-width: 870px) {
+      .hero_pagination {
+        width: 60%;
+        bottom: -115%;
+        margin: auto; } }
+  .hero_banner_right {
+    position: absolute;
+    bottom: 10%;
+    right: 2rem; }
+    @media only screen and (max-width: 870px) {
+      .hero_banner_right {
+        display: none; } }
 
 .slides_banner {
   width: 40%;
