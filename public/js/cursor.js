@@ -1,6 +1,8 @@
 const cursor = document.querySelector(".cursor_js");
 const swiperContainer = document.querySelectorAll(".swiper-container");
 const imgs = document.querySelectorAll("img");
+const arrowLeft = document.querySelector(".hero_arrows_left");
+const arrowRight = document.querySelector(".hero_arrows_right");
 
 imgs.forEach((img) => {
   img.addEventListener("mouseenter", () => {
@@ -32,18 +34,38 @@ const dragCursor = () => {
 
 
 document.addEventListener("mousedown", () => {
-  cursor.style.width = '3rem';
-  cursor.style.height = '3rem';
+  gsap.to(cursor, {
+    height: "3rem",
+    width: "3rem",
+    duration: "0.2"
+  })
 })
 
 
+
+const leftCursor = () => {
+  cursor.classList.add("cursor_left");
+}
+
+const rightCursor = () => {
+  cursor.classList.add("cursor_right");
+}
+
+
 document.addEventListener("mouseup", () => {
-  cursor.style.width = '4rem';
-  cursor.style.height = '4rem';
+  // cursor.style.width = '4rem';
+  // cursor.style.height = '4rem';
+  gsap.to(cursor, {
+    height: "4rem",
+    width: "4rem",
+    duration: "0.2",
+  });
 })
 
 const normalCursor = () => {
   cursor.classList.remove('cursor_js-drag');
+  cursor.classList.remove("cursor_right");
+  cursor.classList.remove("cursor_left");
   // document.body.style.cursor = 'auto';
 }
 
@@ -55,3 +77,8 @@ swiperContainer.forEach(element => {
 });
 
 window.addEventListener("scroll", bodyScroll);
+
+arrowLeft.addEventListener("mouseenter", leftCursor);
+arrowRight.addEventListener("mouseenter", rightCursor);
+arrowLeft.addEventListener("mouseleave", normalCursor);
+arrowRight.addEventListener("mouseleave", normalCursor);

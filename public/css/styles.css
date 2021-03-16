@@ -559,6 +559,28 @@ li {
   height: 2px;
   color: #fff; }
 
+.cursor_left::before {
+  content: "\2B98";
+  width: 2px;
+  height: 2px;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 25%;
+  left: -50%;
+  color: #fff;
+  font-weight: bolder; }
+
+.cursor_right::after {
+  content: "\2B9A";
+  width: 2px;
+  font-size: 1.4rem;
+  position: absolute;
+  font-weight: bolder;
+  top: 25%;
+  right: -20%;
+  height: 2px;
+  color: #fff; }
+
 .filtermovies {
   display: flex;
   justify-content: space-around;
@@ -670,11 +692,11 @@ li {
     width: 50%;
     cursor: pointer;
     top: 20vh;
-    height: 100%;
+    height: 80%;
     left: 0; }
   .hero_arrows_right {
     cursor: pointer;
-    height: 100%;
+    height: 80%;
     width: 50%;
     font-size: 4rem;
     z-index: 10;

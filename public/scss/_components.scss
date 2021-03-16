@@ -90,6 +90,35 @@
 }
 
 
+.cursor_left{
+   &::before{
+    content: "\2B98";
+    width: 2px;
+    height: 2px;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 25%;
+    
+    left: -50%;
+    color: $white;
+    font-weight: bolder;
+  }
+}
+
+.cursor_right{
+  &::after{
+    content: "\2B9A";
+    width: 2px;
+    font-size: 1.4rem;
+    position: absolute;
+    font-weight: bolder;
+    top: 25%;
+    right: -20%;
+    height: 2px;
+    color: $white;
+  }
+}
+
 .filtermovies {
   display: flex;
   justify-content: space-around;
