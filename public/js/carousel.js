@@ -96,18 +96,17 @@ paginationButtons[0].style.background = "orange";
 
 let automaticalTransform = true;
 let index = 1;
+let isTransforming = false;
 
-const transformEvery3Sec = setInterval(() => {
-  if(automaticalTransform)
-  {   
-  transformToRight(index);
-  setPaginationColor(index);
-  index++;
-  if (index === 5) {
-    index = 0;
-  };
-}
+
+setInterval(() => {
+  if(!isTransforming)
+  {
+    isTransforming = true;
+    transformToRight();
+  }
 }, 3000);
+
 
 const setPaginationColor = (idx) => {
   // paginationButtons[idx - 1].style.background = "orange";
@@ -139,6 +138,8 @@ const removeColorManully = (idx) => {
 const changeInfo = (idx) => {
   const singleMovie = heroInfo[idx];
 
+  console.log("index in chagenInfo",idx);
+
   hero_title.innerHTML = singleMovie.title;
   hero_buy.innerHTML = "Buy Now $" + singleMovie.buy;
   hero_desc.innerHTML = singleMovie.desc;
@@ -153,7 +154,6 @@ const changeInfo = (idx) => {
 
 const numberOfSlides = document.querySelector(".hero_carousel").children
   .length;
-console.log(numberOfSlides);
 const arrowLeft = document.querySelector(".hero_arrows_left");
 const arrowRight = document.querySelector(".hero_arrows_right");
 let incrementZIndex = 10;
@@ -175,7 +175,7 @@ const transformNextSlide = (slide) => {
    },
    {
      clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
-     duration: 1,
+     duration: 0.8,
      
      ease: "Expo.easeInOut",
    }
@@ -192,7 +192,7 @@ const transformPrevSlide = (slide) => {
      { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)", duration: 0 },
      {
        clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
-       duration: 1,
+       duration: 0.8,
        ease: "Expo.easeInOut",
      }
    );
@@ -203,28 +203,27 @@ const removeEffectsAndClass = (slide, nextSlide) => {
   nextSlide.classList.add("slide__active");
   slide.classList.remove("slide__active");
   slide.classList.remove("show");
-  // isTransforming = false;
   arrowRight.style.userSelect = "all";
   arrowLeft.style.userSelect = "all";
 };
 
 
 const findIndex = (direction) => {
-  console.log("slide", slides);
   let idx = 0;
 
   if(direction === "left")
   {
-   Array.from(slides).find((el, index) => {
-     if (el.classList.contains("slide__active")) {
-      //  console.log("index matched !", index - 1);
-       idx = index - 1;
+   Array.from(slides).find((el, i) => {
+     if (el.classList.contains("show")) {
+      //  console.log("index matched left!", i);
+       idx = i - 1;
      }
    });
   }else{
-    Array.from(slides).find((el, index) => {
-      if (el.classList.contains("slide__active")) {
-        idx = index + 1;
+    Array.from(slides).find((el, i) => {
+      if (el.classList.contains("show")) {
+        // console.log("index matched in right", i);
+        idx = i + 1;
       }
     });
   }
@@ -235,8 +234,13 @@ const findIndex = (direction) => {
   {
     idx = 0;
   }
-
+console.log("index returned by find index", idx);
   return idx;
+}
+
+const arrowUserSelectDisable = () => {
+  arrowLeft.style.userSelect = "none";
+  arrowRight.style.userSelect = "none";
 }
 
 const transformToLeft = () => {
@@ -246,14 +250,15 @@ const transformToLeft = () => {
     prevSlide = slides[4];
   }
     prevSlide.style.zIndex = incrementZIndex++;
-
+setPaginationColor(index);
   index = findIndex("left")
   changeInfo(index);
   if (prevSlide) {
     transformPrevSlide(prevSlide);
-    arrowLeft.style.userSelect = "none";
+    arrowUserSelectDisable();
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, prevSlide);
+          isTransforming = false;
     }, 1000);
   }
 };
@@ -267,36 +272,47 @@ const changeAutoTransform = () => {
 }
 
 const transformToLeftManually = (e) => {
-  e.preventDefault();
-  transformToLeft();
-  changeAutoTransform();
+  if(!isTransforming)
+  {
+    e.preventDefault();
+    isTransforming = true;
+    transformToLeft();
+  }
+  // changeAutoTransform();
+  // stopAutoTransform();
 }
 
 const transformToRightManually = (e) => {
-  e.preventDefault();
-  transformToRight();
-  changeAutoTransform();
+  if(!isTransforming)
+  {
+    e.preventDefault();
+       isTransforming = true;
+
+    transformToRight();
+  }
+  // stopAutoTransform();
+  // changeAutoTransform();
 }
 
 const transformToRight = () => {
   const activeSlide = document.querySelector(".slide__active");
   let nextSlide = activeSlide.nextElementSibling;
-  console.log("next slide", nextSlide);
   if (!nextSlide) {
-    nextSlide = document.querySelectorAll(".hero_carousel_slides")[0];
+    nextSlide = slides[0];
   }
 
   nextSlide.style.zIndex = incrementZIndex++;
   index = findIndex("right");
-
+  setPaginationColor(index);
   changeInfo(index);
 
     transformNextSlide(nextSlide);
-    arrowRight.style.userSelect = "none";
+    arrowUserSelectDisable();
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, nextSlide);
+      isTransforming = false;
     }, 1000);
- 
+    
 };
 
 arrowLeft.addEventListener("click", transformToLeftManually);
