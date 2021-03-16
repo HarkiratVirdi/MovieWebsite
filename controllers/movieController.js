@@ -1,5 +1,6 @@
 const movieDatabase = require("../db/db");
 // const axios = require("axios");
+const movieModel = require("../models/movieModel");
 
 const imagesForContent = [
   "https://images2.vudu.com/poster2/1576343-168",
@@ -13,52 +14,129 @@ const imagesForCarousel = [
   "/images/banner/got8.jpg",
   "/images/banner/queenGambit.jpg",
   "/images/banner/wonderWoman.jpg",
-  "/images/banner/arrival.jpg"
+  "/images/banner/arrival.jpg",
 ];
 
-module.exports.getMovies = (req, res) => {
-  res.render("index", {
-    movies: movieDatabase.movies,
-    images: imagesForContent,
-    imagesForCarousel: imagesForCarousel,
-    title: "MFlix | Buy Movies",
-  });
+module.exports.getMovies = async (req, res) => {
+  try {
+    const getAllMovies = await movieModel.find();
+
+    const filteredMovies = getAllMovies.map((m) => {
+      const {
+        _id,
+        name,
+        rating,
+        rent,
+        buy,
+        img_s,
+        img_l,
+        genre,
+        studio,
+        runtime,
+        year,
+        rated,
+        synopsis,
+        cast,
+        isMovie,
+      } = m;
+      return {
+        id: _id,
+        name,
+        isMovie,
+        img_s,
+        genre,
+      };
+    });
+
+    res.render("index", {
+      movies: filteredMovies,
+      images: imagesForContent,
+      imagesForCarousel: imagesForCarousel,
+      title: "MFlix | Buy Movies",
+    });
+  } catch (err) {
+    console.log("error ", err);
+  }
 };
 
 module.exports.getMovie = async (req, res) => {
-  const movie = movieDatabase.filterMovie(req.params.id);
+  // const movie = movieDatabase.filterMovie(req.params.id);
 
   // const getReviews = await axios.get(
   //   `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie[0].name}&api-key=${process.env.NYTIMESAPI}`
   // );
-  const recommended = movieDatabase.movies.filter((item) => {
-    return (
-      movie[0].genre[0] === item.genre[0] &&
-      movie[0].name !== item.name &&
-      movie[0].isMovie === item.isMovie
-    );
-  });
+  try {
+    const movie = await movieModel.findById(req.params.id);
 
-  let reviews = "";
-  // if (getReviews.data.status === "OK") {
-  // reviews = getReviews.data.results;
-  // } else {
-  // reviews = [];
-  // }
+      console.log("movie is " ,movie);
+  const {
+    _id,
+    name,
+    rating,
+    rent,
+    buy,
+    img_s,
+    img_l,
+    genre,
+    studio,
+    runtime,
+    year,
+    rated,
+    synopsis,
+    cast,
+    isMovie,
+  } = movie;
 
-  res.render("details", {
-    movie: movie[0],
-    reviews: reviews,
-    recommended: recommended,
-    title: "MFlix | " + movie[0].name,
-  });
+
+    const filterMovie = {
+      id: _id,
+      name,
+      rating,
+      rent,
+      buy,
+      img_s,
+      img_l,
+      genre,
+      studio,
+      runtime,
+      year,
+      rated,
+      synopsis,
+      cast,
+      isMovie,
+    }
+
+  
+    // const recommended = movieModel.find((item) => {
+    //   return (
+    //     movie[0].genre[0] === item.genre[0] &&
+    //     movie[0].name !== item.name &&
+    //     movie[0].isMovie === item.isMovie
+    //   );
+    // });
+
+    let reviews = "";
+    // if (getReviews.data.status === "OK") {
+    // reviews = getReviews.data.results;
+    // } else {
+    // reviews = [];
+    // }
+
+    console.log("filtered movies" ,filterMovie);
+    res.render("details", {
+      movie: filterMovie,
+      reviews: reviews,
+      // recommended: recommended,
+      title: "MFlix | " + filterMovie.name,
+    });
+  } catch (error) {
+    console.log("err", error);
+  }
 };
 
-
-module.exports.cart = (req, res) =>{
+module.exports.cart = (req, res) => {
   res.render("cart");
-}
-
+};
 
 module.exports.getMovieList = (req, res) => {
   let movies = movieDatabase.movies;
@@ -71,19 +149,15 @@ module.exports.getMovieList = (req, res) => {
     movies = movies.sort((a, b) => {
       return b.rating - a.rating;
     });
-  } else if(req.query.filter === 'movies')
-  {
+  } else if (req.query.filter === "movies") {
     movies = movies.filter((item) => {
       return item.isMovie === true;
-    })
-  }
-   else if(req.query.filter === 'series')
-  {
+    });
+  } else if (req.query.filter === "series") {
     movies = movies.filter((item) => {
       return item.isMovie === false;
-    })
-  }  
-  else if (req.query.filter === "releasedate") {
+    });
+  } else if (req.query.filter === "releasedate") {
     movies = movies.sort((a, b) => {
       return b.year - a.year;
     });

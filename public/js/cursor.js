@@ -66,10 +66,9 @@ const normalCursor = () => {
   cursor.classList.remove('cursor_js-drag');
   cursor.classList.remove("cursor_right");
   cursor.classList.remove("cursor_left");
-  // document.body.style.cursor = 'auto';
+  document.body.style.cursor = "default";
 }
 
-document.addEventListener("mousemove", animateCursor);
 
 swiperContainer.forEach(element => {
   element.addEventListener("mouseenter", dragCursor)
@@ -85,3 +84,4 @@ if(arrowLeft && arrowRight)
   arrowLeft.addEventListener("mouseleave", normalCursor);
   arrowRight.addEventListener("mouseleave", normalCursor);
 }
+document.addEventListener("mousemove", animateCursor);

@@ -137,19 +137,15 @@ const removeColorManully = (idx) => {
 
 const changeInfo = (idx) => {
   const singleMovie = heroInfo[idx];
-
-  console.log("index in chagenInfo",idx);
-
-  hero_title.innerHTML = singleMovie.title;
-  hero_buy.innerHTML = "Buy Now $" + singleMovie.buy;
-  hero_desc.innerHTML = singleMovie.desc;
-
-
-  hero_cast.forEach((ca, index) => {
-    ca.innerHTML = singleMovie.cast[index].name;
-  })
-
-  removeColorManully(idx);
+  setTimeout(() => {
+     hero_title.innerHTML = singleMovie.title;
+     hero_buy.innerHTML = "Buy Now $" + singleMovie.buy;
+     hero_desc.innerHTML = singleMovie.desc;
+     hero_cast.forEach((ca, index) => {
+       ca.innerHTML = singleMovie.cast[index].name;
+     });
+    }, 500);
+    removeColorManully(idx);
 }
 
 const numberOfSlides = document.querySelector(".hero_carousel").children
@@ -214,14 +210,14 @@ const findIndex = (direction) => {
   if(direction === "left")
   {
    Array.from(slides).find((el, i) => {
-     if (el.classList.contains("show")) {
+     if (el.classList.contains("slide__active")) {
       //  console.log("index matched left!", i);
        idx = i - 1;
      }
    });
   }else{
     Array.from(slides).find((el, i) => {
-      if (el.classList.contains("show")) {
+      if (el.classList.contains("slide__active")) {
         // console.log("index matched in right", i);
         idx = i + 1;
       }
@@ -234,13 +230,19 @@ const findIndex = (direction) => {
   {
     idx = 0;
   }
-console.log("index returned by find index", idx);
+
   return idx;
 }
 
 const arrowUserSelectDisable = () => {
   arrowLeft.style.userSelect = "none";
   arrowRight.style.userSelect = "none";
+}
+
+const activeAutoTransform = () => {
+  setTimeout(() => {
+      isTransforming = false;
+  }, 2000);
 }
 
 const transformToLeft = () => {
@@ -256,20 +258,12 @@ setPaginationColor(index);
   if (prevSlide) {
     transformPrevSlide(prevSlide);
     arrowUserSelectDisable();
+    activeAutoTransform();
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, prevSlide);
-          isTransforming = false;
     }, 1000);
   }
 };
-
-const changeAutoTransform = () => {
-  automaticalTransform = false;
-
-  setTimeout(() => {
-    automaticalTransform = true;
-  }, 3000);
-}
 
 const transformToLeftManually = (e) => {
   if(!isTransforming)
@@ -278,20 +272,15 @@ const transformToLeftManually = (e) => {
     isTransforming = true;
     transformToLeft();
   }
-  // changeAutoTransform();
-  // stopAutoTransform();
 }
 
 const transformToRightManually = (e) => {
   if(!isTransforming)
   {
     e.preventDefault();
-       isTransforming = true;
-
+    isTransforming = true;
     transformToRight();
   }
-  // stopAutoTransform();
-  // changeAutoTransform();
 }
 
 const transformToRight = () => {
@@ -308,12 +297,47 @@ const transformToRight = () => {
 
     transformNextSlide(nextSlide);
     arrowUserSelectDisable();
+    activeAutoTransform();
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, nextSlide);
-      isTransforming = false;
     }, 1000);
     
 };
 
 arrowLeft.addEventListener("click", transformToLeftManually);
 arrowRight.addEventListener("click", transformToRightManually);
+
+
+const checkTransform = (e) => {
+
+  const activeSlide = document.querySelector(".slide__active");
+  if(!isTransforming)
+  {  index = e.target.getAttribute("index");
+  changeInfo(index);
+  setPaginationColor(index);
+  slides[index].style.zIndex = incrementZIndex++;
+  isTransforming = true;
+  transformNextSlide(slides[index]);
+
+
+      arrowUserSelectDisable();
+      paginationButtons.forEach((pagination) => 
+      {
+        pagination.style.userSelect = "none";
+      })
+
+      activeAutoTransform();
+      setTimeout(() => {
+        paginationButtons.forEach((pagination) => 
+        {
+          pagination.style.userSelect = "all";
+        })
+        removeEffectsAndClass(activeSlide, slides[index]);
+      }, 1000);
+}
+}
+
+
+paginationButtons.forEach((paginationButton) => {
+  paginationButton.addEventListener("click", checkTransform);
+});

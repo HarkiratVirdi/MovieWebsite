@@ -1,13 +1,13 @@
 // const bcrypt = require("bcryptjs");
 
-// exports.users = [
-//   {
-//     id: 1,
-//     name: "Admin",
-// email: "admin@admin.com",
-//     password: "Admin@1",
-//   },
-// ];
+exports.users = [
+  {
+    name: "Admin",
+    email: "admin@admin.com",
+    password: "Admin@01",
+    isAdmin: true,
+  },
+];
 
 exports.movies = [
   {

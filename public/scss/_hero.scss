@@ -61,7 +61,7 @@
   }
 
   &_carousel {
-    background-color: $white;
+    background-color: transparent;
     height: 100%;
     z-index: -10;
     position: absolute;
@@ -102,13 +102,18 @@
       position: absolute;
       z-index: 10;
       width: 50%;
-      cursor: pointer;
+      cursor: default;
       top: 20vh;
       height: 80%;
       left: 0;
+
+        @media only screen and (max-width: $tablet-breakpoint) {
+          display: none;
+    
+  }
     }
     &_arrows_right {
-      cursor: pointer;
+      cursor: default;
       height: 80%;
       width: 50%;
       font-size: 4rem;
@@ -117,6 +122,12 @@
       right: 0;
       top: 20vh;
       color: $black;
+
+
+        @media only screen and (max-width: $tablet-breakpoint) {
+          display: none;
+    
+  }
     }
 
   &_pagination {
@@ -125,6 +136,7 @@
     display: flex;
     width: 10rem;
     align-items: flex-end;
+    z-index: 25;
     // margin-left: 13%;
     margin-right: auto;
     justify-content: space-between;

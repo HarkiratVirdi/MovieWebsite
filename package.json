@@ -6,15 +6,13 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "import": "node db/seeder.js",
+    "import": "node db/seeder.js -i",
     "scss": "node-sass public/scss/main.scss public/css/styles.css -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@barba/core": "^2.9.7",
-    "@barba/css": "^2.1.15",
     "@sendgrid/mail": "^7.4.2",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
@@ -25,10 +23,9 @@
     "gsap": "^3.6.0",
     "mongoose": "^5.11.18",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.7",
-    "smooth-scrollbar": "^8.6.0",
-    "validator": "^13.5.2",
-    "webtorrent": "^0.115.1"
+    "validator": "^13.5.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

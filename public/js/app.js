@@ -3,7 +3,7 @@ import "./menu.js";
 
 
 progressively.init({
-  delay: 50,
+  delay: 30,
   throttle: 300,
   smBreakpoint: 600,
 });
@@ -26,7 +26,7 @@ const anchorTags = document.querySelectorAll("a");
 const loader = document.querySelector(".animateLoader");
 
 
-const applyClassToLoader = (value) => {
+const applyClassToLoader = () => {
  loader.classList.add("animateLoader-active");
  loader.classList.remove("animateLoader-notActive");
   initialAnimation();
@@ -39,11 +39,10 @@ e.preventDefault();
   });
 
 const linkToNavigate = findAnchorTag.href;
-console.log(linkToNavigate);
 
 if(linkToNavigate !== location.href)
 {
-  applyClassToLoader(500);
+  applyClassToLoader();
    setTimeout(() => {
      location.href = linkToNavigate;
    }, 100);
