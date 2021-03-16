@@ -660,7 +660,9 @@ li {
         .hero_banner .hero_desc {
           width: 90%; } }
   .hero_btn {
-    width: 30rem; }
+    width: 30rem;
+    position: relative;
+    z-index: 20; }
   .hero_carousel {
     background-color: #fff;
     height: 100%;

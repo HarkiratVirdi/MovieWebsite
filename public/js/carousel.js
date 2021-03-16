@@ -96,7 +96,8 @@ paginationButtons[0].style.background = "orange";
 
 let automaticalTransform = true;
 let index = 1;
-setInterval(() => {
+
+const transformEvery3Sec = setInterval(() => {
   if(automaticalTransform)
   {   
   transformToRight(index);
@@ -104,10 +105,9 @@ setInterval(() => {
   index++;
   if (index === 5) {
     index = 0;
-  }
+  };
 }
 }, 3000);
-
 
 const setPaginationColor = (idx) => {
   // paginationButtons[idx - 1].style.background = "orange";
@@ -242,16 +242,12 @@ const findIndex = (direction) => {
 const transformToLeft = () => {
   const activeSlide = document.querySelector(".slide__active");
   let prevSlide = activeSlide.previousElementSibling;
-  console.log("prev slide", prevSlide);
   if (!prevSlide) {
     prevSlide = slides[4];
   }
     prevSlide.style.zIndex = incrementZIndex++;
 
-    console.log("index", findIndex());
-
   index = findIndex("left")
-
   changeInfo(index);
   if (prevSlide) {
     transformPrevSlide(prevSlide);
@@ -262,23 +258,24 @@ const transformToLeft = () => {
   }
 };
 
+const changeAutoTransform = () => {
+  automaticalTransform = false;
+
+  setTimeout(() => {
+    automaticalTransform = true;
+  }, 3000);
+}
+
 const transformToLeftManually = (e) => {
   e.preventDefault();
-  automaticalTransform = false;
   transformToLeft();
-  setTimeout(() => {
-      automaticalTransform = true;
-  }, 3000);
+  changeAutoTransform();
 }
 
 const transformToRightManually = (e) => {
   e.preventDefault();
-  automaticalTransform = false;
   transformToRight();
-
-  setTimeout(() => {
-      automaticalTransform = true;
-  }, 3000);
+  changeAutoTransform();
 }
 
 const transformToRight = () => {

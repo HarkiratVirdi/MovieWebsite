@@ -78,7 +78,10 @@ swiperContainer.forEach(element => {
 
 window.addEventListener("scroll", bodyScroll);
 
-arrowLeft.addEventListener("mouseenter", leftCursor);
-arrowRight.addEventListener("mouseenter", rightCursor);
-arrowLeft.addEventListener("mouseleave", normalCursor);
-arrowRight.addEventListener("mouseleave", normalCursor);
+if(arrowLeft && arrowRight)
+{
+  arrowLeft.addEventListener("mouseenter", leftCursor);
+  arrowRight.addEventListener("mouseenter", rightCursor);
+  arrowLeft.addEventListener("mouseleave", normalCursor);
+  arrowRight.addEventListener("mouseleave", normalCursor);
+}

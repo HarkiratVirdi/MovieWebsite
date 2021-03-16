@@ -28,13 +28,14 @@
 
   &_banner{
     position: absolute;
-    top: 35%;
-    
+    top: 35%;    
     user-select: none;
     font-weight: 800;
     h1{
       letter-spacing: 0.5rem;
     }
+
+
 
 .hero_desc{
   width: 45%;
@@ -55,6 +56,8 @@
 
   &_btn{
     width: 30rem;
+    position: relative;
+    z-index: 20;
   }
 
   &_carousel {
