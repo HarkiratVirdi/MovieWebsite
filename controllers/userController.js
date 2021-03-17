@@ -45,11 +45,15 @@ module.exports.signIn =  async(req, res) => {
         if (!valid || !match) {
           throw "Password Incorrect";
         }
-        res.redirect("/");
+
+        req.session.userInfo = findUser;
+        res.redirect("/user/dashboard");
       }else{
         throw "Password Incorrect";
       }
   
+
+
 }catch (error) {
     errors.Password = "Your Email or/and Password is Incorrect";
   
@@ -135,6 +139,11 @@ module.exports.signUp = async (req, res) => {
         });
     }
 };
+
+module.exports.logout = (req,res) => {
+    req.session.destroy();
+    res.redirect("/user/login");
+}
 
 module.exports.dashboard = (req, res) => {
   res.render("dashboard");
