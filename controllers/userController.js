@@ -23,41 +23,44 @@ module.exports.signIn =  async(req, res) => {
     Password: "",
   };
 
-  let valid = true;
-  
-  if (!isEmail || Email === "") {
-    errors.Email = "Email must be valid";
-    valid = false;
-  }
-  
-  if (!isPassword || Password === "") {
-    errors.Password =
-    "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
-    valid = false;
-  }
-
   try {
        const findUser = await userModel.findOne({email: Email})
-       const match = await bcrypt.compare(Password, findUser.password);
-
-      if(findUser)
-      {
-        if (!valid || !match) {
-          throw "Password Incorrect";
+       
+       if(findUser)
+       {
+         const match = await bcrypt.compare(Password, findUser.password);
+         if (!match) {
+          throw 1;
         }
-
         req.session.userInfo = findUser;
         res.redirect("/user/dashboard");
       }else{
-        throw "Password Incorrect";
+        throw 2;
       }
-  
-
-
 }catch (error) {
+  if(error === 1)
+  {
     errors.Password = "Your Email or/and Password is Incorrect";
-  
-     const image = randomImage();
+  }
+
+  if(error === 2)
+  {
+    errors.Email = "Email does not exist. Please Register first";
+  }
+
+   if (!isEmail) {
+     errors.Email = "Email must be valid";
+   
+   }
+
+    if (!isPassword) {
+       errors.Password =
+         "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+  }
+
+
+
+    const image = randomImage();
     res.render("login", {
     image: image,
     title: "MovieNation | Login",
@@ -81,24 +84,25 @@ module.exports.signUp = async (req, res) => {
   };
 
   let valid = true;
-
-  if (!isEmail || Email === "") {
-    errors.Email = "Email must be valid";
-    valid = false;
-  }
-  if (!isLastName || Lastname === "") {
-    errors.Lastname = "Last Name should only contain Alphabets";
-    valid = false;
-  }
-  if (!isFirstName || Firstname === "") {
-    errors.Firstname = "First Name should only contain Alphabets";
-    valid = false;
-  }
-  if (!isPassword || Password === "") {
-    errors.Password =
-    "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
-    valid = false;
-  } 
+     if (!isEmail || Email === "") {
+       errors.Email = "Email must be valid";
+      valid = false;
+      }
+     if (!isLastName || Lastname === "") {
+       errors.Lastname = "Last Name should only contain Alphabets";
+      valid = false;
+     
+      }
+     if (!isFirstName || Firstname === "") {
+       errors.Firstname = "First Name should only contain Alphabets";
+      valid = false;
+     
+      }
+     if (!isPassword || Password === "") {
+       errors.Password =
+         "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+      valid = false;
+        } 
 
     try {
       const newUser = new userModel({
@@ -113,18 +117,14 @@ module.exports.signUp = async (req, res) => {
       }else{
           const user = await newUser.save();
           const mailSent = await sendMail(user);
-
-          console.log("user info passed", user);
           if (user && mailSent) {
             req.session.userInfo = user;
-            console.log("session made");
             res.redirect("/user/dashboard");
           } else {
-            throw "Unable to send Email";
+            throw "Unable to Register User";
           }
       }
     } catch (err) {
-      console.log("error registration", err);
       if(err.code === 11000)
       { 
         errors.Email = "Email is Already Registered. Please Login Instead";

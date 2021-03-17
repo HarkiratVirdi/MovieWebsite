@@ -1,6 +1,7 @@
 const hamburger = document.querySelector(".fa-bars");
 const overlayMenu = document.querySelector(".overlay__menu");
 const cross = document.querySelector(".overlay__menu_cross");
+const headerFloating = document.getElementById("header_floating_container");
 // const links = document.querySelectorAll(".overlay__menu_link_a");
 let scrollingTop = 0;
 const openMenu = () => {
@@ -25,7 +26,13 @@ window.onscroll = () => {
 
   if (scrollingTop > 100) {
     hamburger.classList.add("fixed_top");
+    headerFloating.classList.add("header_floating_active");
   } else {
     hamburger.classList.remove("fixed_top");
+    headerFloating.classList.remove("header_floating_active");
   }
+
 };
+
+
+

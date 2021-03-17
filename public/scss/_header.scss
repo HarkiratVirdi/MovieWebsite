@@ -2,7 +2,9 @@
   height: 20vh;
   position: relative;
   z-index: 5;
-  
+
+
+
   &_nav {
     height: 100%;
     display: flex;
@@ -30,7 +32,7 @@
         color: $white;
         transition: all 0.4s;
         padding: 0.4rem 0;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-decoration: none;
         position: relative;
         white-space: nowrap;
@@ -63,3 +65,30 @@
     }
   }
 }
+
+  #header_floating_container{
+    opacity: 0;
+    visibility: hidden;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    padding: 0 2rem;
+    z-index: 997;
+    background-color:$Lightblack;
+    width: 100%;
+    transition: all 0.2s;
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+     display: none;
+     background: transparent;
+    }
+
+    .header{
+      height: 10vh !important;
+    }
+  }
+
+  .header_floating_active{
+    opacity: 1 !important;
+    visibility: visible !important;
+  }

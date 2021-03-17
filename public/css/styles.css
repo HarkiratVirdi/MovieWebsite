@@ -311,9 +311,9 @@ li {
   padding-left: 2rem;
   position: sticky;
   position: -webkit-sticky;
-  top: 100px;
+  top: 11rem;
   height: 45rem;
-  z-index: 500; }
+  z-index: 4; }
   .purchasemovie__buttons {
     width: 100%; }
     @media only screen and (max-width: 870px) {
@@ -461,7 +461,7 @@ li {
         color: #fff;
         transition: all 0.4s;
         padding: 0.4rem 0;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-decoration: none;
         position: relative;
         white-space: nowrap;
@@ -486,6 +486,28 @@ li {
       .header_list {
         width: auto;
         justify-content: flex-end; } }
+
+#header_floating_container {
+  opacity: 0;
+  visibility: hidden;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  padding: 0 2rem;
+  z-index: 997;
+  background-color: #121212;
+  width: 100%;
+  transition: all 0.2s; }
+  @media only screen and (max-width: 870px) {
+    #header_floating_container {
+      display: none;
+      background: transparent; } }
+  #header_floating_container .header {
+    height: 10vh !important; }
+
+.header_floating_active {
+  opacity: 1 !important;
+  visibility: visible !important; }
 
 .marquee {
   animation: transformRight 8s linear infinite forwards;
@@ -947,7 +969,7 @@ li {
   transform: translate(-50%, -50%); }
 
 .animateSlide-active {
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  -path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
   z-index: 10 !important; }
 
 .animateSlide-notActive {
@@ -989,7 +1011,6 @@ li {
   background: #121212;
   position: relative;
   top: 0;
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -1010,7 +1031,7 @@ li {
   pointer-events: none;
   background-color: #000000;
   transition: all 0.25s;
-  z-index: 100; }
+  z-index: 999; }
 
 .animateLoader-active {
   opacity: 1; }
@@ -1306,7 +1327,7 @@ li {
       width: 15rem; }
     .login_form_field {
       display: flex;
-      margin-top: 4rem; }
+      margin-top: 2.5rem; }
       @media only screen and (max-width: 870px) {
         .login_form_field {
           flex-direction: column; } }

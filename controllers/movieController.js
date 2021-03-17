@@ -1,4 +1,5 @@
 const movieModel = require("../models/movieModel");
+const axios = require("axios");
 
 const imagesForCarousel = [
   "/images/banner/theWitcher.jpg",
@@ -25,9 +26,7 @@ module.exports.getMovies = async (req, res) => {
 };
 
 module.exports.getMovie = async (req, res) => {
-  // const getReviews = await axios.get(
-  //   `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie[0].name}&api-key=${process.env.NYTIMESAPI}`
-  // );
+
   try {
     let movie = await movieModel.findById(req.params.id).lean();
 
@@ -40,12 +39,17 @@ module.exports.getMovie = async (req, res) => {
         })
         .lean();
 
+
+          const getReviews = await axios.get(
+            `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie.name}&api-key=${process.env.NYTIMESAPI}`
+          );
+
       let reviews = "";
-      // if (getReviews.data.status === "OK") {
-      // reviews = getReviews.data.results;
-      // } else {
-      // reviews = [];
-      // }
+      if (getReviews.data.status === "OK") {
+      reviews = getReviews.data.results;
+      } else {
+      reviews = [];
+      }
 
       res.render("details", {
         movie: movie,
@@ -116,6 +120,6 @@ module.exports.getMovieList = async (req, res) => {
   }
 };
 
-// module.exports.searchMovie = (req, res) => {
-//   res.render("search", { movie: movieDatabase.movies });
-// };
+module.exports.searchMovie = (req, res) => {
+  res.render("search");
+};
