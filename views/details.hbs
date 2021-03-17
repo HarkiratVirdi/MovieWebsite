@@ -70,11 +70,9 @@
                     <div class="movie_text heading mt-xl">Film Cast</div>
                     <img class="cast_image" src={{movie.img_l}} alt="">
                     {{#each movie.cast}}
-                    <div class="movie_text">{{name}}</div>
+                    <div class="movie_text">{{this.name}}</div>
                     {{/each}}
                     <div class="overlay_text">CAST</div>
-
-
                     <div class="produced_by">
                         <div class="produced_by_col">
                             <div class="heading movie_text">Produced By</div>

@@ -27,9 +27,8 @@ const loader = document.querySelector(".animateLoader");
 
 
 const applyClassToLoader = () => {
+  loader.classList.remove("animateLoader-notActive");
  loader.classList.add("animateLoader-active");
- loader.classList.remove("animateLoader-notActive");
-  initialAnimation();
 }
 
 const pageAnimationOnClick = (e) => {
