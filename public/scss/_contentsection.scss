@@ -2,8 +2,9 @@
   width: 100%;
   display: grid;
   background-color: $black;
+  grid-template-columns: 1fr 4fr;
 
-  grid-template-columns: 1fr 3fr;
+
   @media only screen and (max-width: $mobile-breakpoint) {
     position: relative;
     top: 0;
@@ -12,11 +13,10 @@
   &_banner {
     display: grid;
     align-items: center;
-    padding-left: 1rem;
+    padding: 0 1rem;
     @media only screen and (max-width: $mobile-breakpoint) {
       position: absolute;
       top: 50%;
-      // display: none;
       left: 50%;
       white-space: nowrap;
       transform: translate(-50%, -50%);
@@ -43,8 +43,8 @@
 
 
   img{
-    width: 35rem;
-    height: 20rem;
+    width: 45rem;
+    height: 25rem;
   }      
     }
   }

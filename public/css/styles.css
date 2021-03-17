@@ -1022,7 +1022,7 @@ li {
   width: 100%;
   display: grid;
   background-color: #1b1b1b;
-  grid-template-columns: 1fr 3fr; }
+  grid-template-columns: 1fr 4fr; }
   @media only screen and (max-width: 500px) {
     .contentsection {
       position: relative;
@@ -1031,7 +1031,7 @@ li {
   .contentsection_banner {
     display: grid;
     align-items: center;
-    padding-left: 1rem; }
+    padding: 0 1rem; }
     @media only screen and (max-width: 500px) {
       .contentsection_banner {
         position: absolute;
@@ -1055,8 +1055,8 @@ li {
       animation: transformRight 30s infinite;
       animation-timing-function: linear; }
       .contentsection_images_container img {
-        width: 35rem;
-        height: 20rem; }
+        width: 45rem;
+        height: 25rem; }
 
 @keyframes transformRight {
   from {

@@ -1,21 +1,15 @@
-const imagesForLogin = [
-  "/images/banner/got8.jpg",
-  "/images/banner/queenGambit.jpg",
-  "/images/banner/wonderWoman.jpg",
-];
 const bcrypt = require("bcryptjs");
-const sgMail = require("@sendgrid/mail");
 const userModel = require("../models/userModel");
 const {
   validateEmail,
   validatePassword,
   validateName,
 } = require("../utils/Validation");
+const {randomImage, sendMail} = require("../utils/utils");
 
 
 module.exports.loginUser = (req, res) => {
-  const imageNum = Math.floor(Math.random() * 3);
-  const image = imagesForLogin[imageNum];
+  const image = randomImage();
 
   res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
 };
@@ -42,34 +36,24 @@ module.exports.signIn =  async(req, res) => {
     valid = false;
   }
 
-
-if (valid) {
   try {
        const findUser = await userModel.findOne({email: Email})
        const match = await bcrypt.compare(Password, findUser.password);
 
-       if(findUser && match)
-       {
-         res.redirect("/list");
-       }else if(findUser){   
-         errors.Password = "Password is Incorrect. Please enter correct Password";
-       }
-
-     const imageNum = Math.floor(Math.random() * 3);
-     const image = imagesForLogin[imageNum];
-     console.log("errors ", error);
-     res.render("login", {
-       image: image,
-       title: "MovieNation | Login",
-       errors: errors,
-       values: req.body,
-     });
-}catch (error) {
+      if(findUser)
+      {
+        if (!valid || !match) {
+          throw "Password Incorrect";
+        }
+        res.redirect("/");
+      }else{
+        throw "Password Incorrect";
+      }
   
-  errors.Email = "Email is not registered. Please Register first.";
-    const imageNum = Math.floor(Math.random() * 3);
-    const image = imagesForLogin[imageNum];
-  console.log("errors ", error);
+}catch (error) {
+    errors.Password = "Your Email or/and Password is Incorrect";
+  
+     const image = randomImage();
     res.render("login", {
     image: image,
     title: "MovieNation | Login",
@@ -77,17 +61,6 @@ if (valid) {
     values: req.body,
   });
 }
-}else{
-   const imageNum = Math.floor(Math.random() * 3);
-   const image = imagesForLogin[imageNum];
-
-   res.render("login", {
-     image: image,
-     title: "MovieNation | Login",
-     errors: errors,
-     values: req.body,
-   });
-}    
 };
 
 module.exports.signUp = async (req, res) => {
@@ -121,47 +94,30 @@ module.exports.signUp = async (req, res) => {
     errors.Password =
     "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
     valid = false;
-  }
-
-
-  if (valid) {
-    const newUser = new userModel({
-      firstname: Firstname,
-      lastname: Lastname,
-      email: Email,
-      password: Password
-    });
+  } 
 
     try {
-      const user = await newUser.save();
+      const newUser = new userModel({
+        firstname: Firstname,
+        lastname: Lastname,
+        email: Email,
+        password: Password,
+      });
 
-      if (user) {
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-        const msg = {
-          to: Email,
-          from: "harkiratsinghvirdi3@gmail.com",
-          subject: "Welcome To MFlix",
-          text: "We hope You enjoy this app.",
-          html: `<h3>Hi ${Lastname}, ${Firstname}</h3>
-            <p>Thank You For Signing up.</p>
-            <p>Once you are logged in you can now Buy and Rent Movies</p>.
-            <br>
-            <h3 style="#000">MFlix</h3>
-      `,
-        };
+      if (!valid || !newUser) { 
+        throw "Incorrect Credentials Entered";
+      }else{
+          const user = await newUser.save();
+          const mailSent = await sendMail(user);
 
-        try {
-          const msgSend = await sgMail.send(msg);
-
-          if (msgSend) {
-            console.log("Email Sent");
-            res.redirect(
-              `/user/dashboard?lastname=${user.firstname}&firstname=${user.lastname}`
-            );
+          console.log("user info passed", user);
+          if (user && mailSent) {
+            req.session.userInfo = user;
+            console.log("session made");
+            res.redirect("/user/dashboard");
+          } else {
+            throw "Unable to send Email";
           }
-        } catch (error) {
-          console.log("error sending mail", error);
-        }
       }
     } catch (err) {
       console.log("error registration", err);
@@ -170,9 +126,7 @@ module.exports.signUp = async (req, res) => {
         errors.Email = "Email is Already Registered. Please Login Instead";
       }
 
-        const imageNum = Math.floor(Math.random() * 3);
-        const image = imagesForLogin[imageNum];
-
+        const image = randomImage();
         res.render("register", {
           image: image,
           title: "MovieNation | Register",
@@ -180,17 +134,6 @@ module.exports.signUp = async (req, res) => {
           values: req.body,
         });
     }
-  }else{
-  const imageNum = Math.floor(Math.random() * 3);
-  const image = imagesForLogin[imageNum];
-
-  res.render("register", {
-    image: image,
-    title: "MovieNation | Register",
-    errors: errors,
-    values: req.body,
-  });
-  }
 };
 
 module.exports.dashboard = (req, res) => {
@@ -198,8 +141,7 @@ module.exports.dashboard = (req, res) => {
 };
 
 module.exports.registerUser = (req, res) => {
-  const imageNum = Math.floor(Math.random() * 3);
-  const image = imagesForLogin[imageNum];
+  const image = randomImage();
 
   res.render("register", { image: image, title: "MovieNation | Register" });
 };
