@@ -12,7 +12,7 @@ module.exports.loginUser = (req, res) => {
   const image = randomImage();
 
 
-  res.render("login", { image: image, title: "MovieNation | Login", values: req.body, account: account });
+  res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
 };
 
 module.exports.signIn =  async(req, res) => {
@@ -150,6 +150,93 @@ module.exports.deleteUserPage = (req, res) => {
   res.render("deleteUser");
 }
 
+module.exports.updateUserPage = (req, res) => {
+  res.render("updateUser");
+}
+
+module.exports.updateUser = async (req, res) => {
+   const { Email, Firstname, Lastname, Password } = req.body;
+  const isEmail = validateEmail(Email);
+  const isPassword = validatePassword(Password);
+  const isFirstName = validateName(Firstname);
+  const isLastName = validateName(Lastname);
+  let errors = {
+    Firstname: "",
+    Lastname: "",
+    Email: "",
+    Password: "",
+  };
+
+  console.log("update user", Email);
+  console.log("update user", Firstname);
+  console.log("update user", Lastname);
+
+  let valid = true;
+     if (!isEmail || Email === "") {
+       errors.Email = "Email must be valid";
+      valid = false;
+      }
+     if (!isLastName || Lastname === "") {
+       errors.Lastname = "Last Name should only contain Alphabets";
+      valid = false;
+     
+      }
+     if (!isFirstName || Firstname === "") {
+       errors.Firstname = "First Name should only contain Alphabets";
+      valid = false;
+      }
+        if (!isPassword || Password === "") {
+          errors.Password =
+            "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+          valid = false;
+        } 
+
+    try {
+      if (!valid) { 
+        throw "Incorrect Credentials Entered";
+      }else{
+        console.log("updating now");
+         
+
+          const user = await userModel.findById(res.locals.user._id);
+
+          if(user)
+          { 
+            user.firstname = Firstname;
+            user.lastname = Lastname;
+            user.password = Password;
+            user.email = Email;
+          }
+
+          const updateUser = await user.save();
+
+          if(updateUser)
+          {
+            console.log("user updated", updateUser);
+            req.session.userInfo = updateUser;
+            res.redirect("/user/dashboard");
+          }
+
+
+      }
+    } catch (err) {
+      if(err.code === 11000)
+      { 
+        errors.Email = "Email is Already Registered. Please use another Email";
+      }
+
+      console.log("bug ", err);
+
+        const image = randomImage();
+        res.render("updateUser", {
+          image: image,
+          title: "MovieNation | UpdateUser",
+          errors: errors,
+          values: req.body,
+        });
+    }
+}
+
 module.exports.deleteUser = async (req, res) => {
   try {
     const deleteUser = await userModel.findByIdAndDelete(res.locals.user);
@@ -172,9 +259,9 @@ module.exports.dashboard = (req, res) => {
 module.exports.registerUser = (req, res) => {
   const image = randomImage();
 
-    let account = "";
+    let account = false;
     if (req.query.account) {
-      account = "Your Account was Deleted Successfully";
+      account = true;
     }
 
   res.render("register", { image: image, title: "MovieNation | Register", account: account });

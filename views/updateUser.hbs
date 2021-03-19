@@ -4,46 +4,44 @@
     <img src="{{image}}" alt="">
 </div>
 <div class="login_container">
-<div class="h-3">Register</div>
+<div class="h-3">Update Info</div>
 
 {{#if account}}
-    <p class="mt-m h-5 heading">Your Account was Deleted Successfully</p>
+    <p class="mt-m h-5 heading">Your Account was Updated Successfully</p>
 {{/if}}
 
-    <form class="login_form" method="POST" action="/user/register">
+    <form class="login_form" method="POST" action="/user/update">
           <div class="login_form_field">
         <label class="h-4" for="Firstname">First Name</label>
-        <input name="Firstname" value={{values.Firstname}}>        
+        <input name="Firstname" value="{{user.firstname}}">        
         </div>
         {{#if errors.Firstname}}
             <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Firstname}}</p>
         {{/if}}
           <div class="login_form_field">
         <label class="h-4" for="Lastname">Last Name</label>
-        <input name="Lastname" value={{values.Lastname}}>        
+        <input name="Lastname" value="{{user.lastname}}">        
         </div>
         {{#if errors.Lastname}}
             <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Lastname}}</p>
         {{/if}}
         <div class="login_form_field">
         <label class="h-4" for="Email">Email</label>
-        <input  name="Email" value={{values.Email}}>   
+        <input  name="Email" value="{{user.email}}">   
         </div>
           {{#if errors.Email}}
             <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Email}}</p>
         {{/if}}   
         <div class="login_form_field">
         <label class="h-4" for="Password">Password</label>
-        <input type="password" name="Password" value={{values.Password}}>        
+        <input type="password" name="Password" value="{{values.Password}}">        
         </div>
           {{#if errors.Password}}
             <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.Password}}</p>
         {{/if}}
-        <button type="submit" class="mt-l t-w100 btn btn--white">Register</button>
+        <button type="submit" class="mt-l t-w100 btn btn--white">Update User</button>
     </form>
 
-
- <div style="text-align:left;" class="h-5--white h-5 mt-m">Already Registered? <a class="h-5--cta h-5" href="/user/login"> Login</a> </div>
   </div>
 </div>
 </div>
