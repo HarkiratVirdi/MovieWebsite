@@ -15,7 +15,7 @@ const session = require("express-session");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
 const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
-const authUser = require("./middleware/authUser");
+const userSession = require("./middleware/userSession");
 
 dotenv.config({ path: "./.env" });
 
@@ -41,13 +41,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(session({
-  secret: `${process.env.SECRET_KEY}`,
-  resave: false,
-  saveUninitialized: true
-}))
+app.use(
+  session({
+    secret: `${process.env.SECRET_KEY}`,
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 8 * 60 * 60 * 1000 },
+  })
+);
 
-app.use(authUser);
+app.use(userSession);
 
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);

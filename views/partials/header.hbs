@@ -9,8 +9,19 @@
             <ul class="header_list">
                 <li class="header_list_links heading"><a href="/">Home</a></li>
                 <li class="header_list_links heading"><a href="/list">Movies & TV</a></li>
-                <li class="header_list_links heading"><a href="/user/login">Login</a></li>
-                <li class="header_list_links heading"><a href="/user/register">Register</a></li>
+               {{#if user}}
+               <ul class="header_dropdown">
+                       <li class="header_list_links heading"><a href="/user/dashboard">{{user.firstname}} 
+                      <i class="fas fa-angle-down"></i>
+                       </a></li>
+                       <li class="header_list_links"><a href="/user/dashboard">Dashboard</a></li>
+                       <li class="header_list_links"><a href="/user/orders">Orders</a></li>
+                       <li class="header_list_links"><a href="/user/logout">Logout</a></li>
+               </ul>
+               {{else}}
+                       <li class="header_list_links heading"><a href="/user/login">Login</a></li>
+                    <li class="header_list_links heading"><a href="/user/register">Register</a></li>
+               {{/if}}
          
                 <li class="header_list_links"><a href="/cart" style="font-size: 1.4rem;"> <i class="fas fa-shopping-cart"></i></a></li>
          

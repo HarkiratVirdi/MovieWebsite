@@ -1,10 +1,5 @@
 const authUser = (req, res, next) => {
-    if(req.session.userInfo)
-    {
-     res.locals.user = req.session.userInfo;   
-    }
-    next();
+    req.session.userInfo ? next() : res.redirect("/user/login");
 }
-
 
 module.exports = authUser;

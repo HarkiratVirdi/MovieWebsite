@@ -18,10 +18,34 @@
     width: 8rem;
   }
 
+  &_dropdown{
+    position: relative;
+    top: 0;
+    .header_list_links:not(:first-child){
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+    .header_list_links:nth-child(2)
+    {
+      top: 2rem;
+    }
+    .header_list_links:nth-child(3)
+    {
+      top: 4rem;
+    }
+    .header_list_links:nth-child(4)
+    {
+      top: 6rem;
+    }
+  }
+
+
   &_list {
     display: flex;
     justify-content: space-between;
     width: 35%;
+    align-items: center;
     &_links {
       color: $white;
       @media only screen and (max-width: $tablet-breakpoint) {
@@ -92,3 +116,4 @@
     opacity: 1 !important;
     visibility: visible !important;
   }
+
