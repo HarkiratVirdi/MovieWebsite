@@ -120,6 +120,22 @@ module.exports.getMovieList = async (req, res) => {
   }
 };
 
-module.exports.searchMovie = (req, res) => {
-  res.render("search");
+module.exports.searchMovie = async (req, res) => {
+ console.log("req.body", req.body);
+  const {searchTerm} = req.body;
+
+ try{
+   const findMovies = await movieModel.find({name: {$regex: searchTerm, $options: 'i'}})
+
+  if(findMovies)
+  {
+    res.json({data: findMovies})
+  }
+
+ }catch(e)
+ {
+  console.log("error", e);
+ }
+
+
 };

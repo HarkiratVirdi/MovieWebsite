@@ -160,6 +160,7 @@
   overflow-x: hidden;
   overflow-y: scroll;
   height: 55vh;
+    height: calc(var(--vh, 1vh) * 55);
   width: 100%;
 }
 
@@ -168,11 +169,40 @@
 {
  position: relative;
  top:0;
+
+ &_movieImg{
+   width: 16rem;
+   height: 22rem;
+ }
+
+  &_overflow{
+    max-height: 45vh;
+    max-height: calc(var(--vh, 1vh) * 45);
+    position: fixed;
+    top: 20vh;
+    background: $Lightblack;
+    z-index: 998 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    padding: 0 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    flex-direction: column;
+  }
+
+  .each_movie{
+    display: flex;
+  }
+
 &__term{
   visibility: hidden;
   opacity: 0;
   height: 20vh;
   position: fixed;
+    height: calc(var(--vh, 1vh) * 20);
   top: 0;
   padding: 0 2rem;
   z-index: 998 !important;
@@ -186,6 +216,7 @@
 &_close{
   position: fixed;
   top: 8vh;
+    height: calc(var(--vh, 1vh) * 8);
   right: 2rem;
   z-index: 998 !important;
   opacity: 0;

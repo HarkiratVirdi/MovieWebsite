@@ -651,16 +651,39 @@ li {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 55vh;
+  height: calc(var(--vh, 1vh) * 55);
   width: 100%; }
 
 .search {
   position: relative;
   top: 0; }
+  .search_movieImg {
+    width: 16rem;
+    height: 22rem; }
+  .search_overflow {
+    max-height: 45vh;
+    max-height: calc(var(--vh, 1vh) * 45);
+    position: fixed;
+    top: 20vh;
+    background: #121212;
+    z-index: 998 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    padding: 0 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    flex-direction: column; }
+  .search .each_movie {
+    display: flex; }
   .search__term {
     visibility: hidden;
     opacity: 0;
     height: 20vh;
     position: fixed;
+    height: calc(var(--vh, 1vh) * 20);
     top: 0;
     padding: 0 2rem;
     z-index: 998 !important;
@@ -673,6 +696,7 @@ li {
   .search_close {
     position: fixed;
     top: 8vh;
+    height: calc(var(--vh, 1vh) * 8);
     right: 2rem;
     z-index: 998 !important;
     opacity: 0;

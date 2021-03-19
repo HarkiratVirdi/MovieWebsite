@@ -8,7 +8,7 @@ const searchMobile = document.querySelector(".header_search_mobile");
 const searchFloating = document.querySelector(".header_floating_search");
 const searchBox = document.getElementById("searchBox");
 const searchClose = document.querySelector(".search_close");
-
+const searchContainer = document.querySelector(".search_overflow");
 // const links = document.querySelectorAll(".overlay__menu_link_a");
 let scrollingTop = 0;
 const openMenu = () => {
@@ -106,14 +106,9 @@ headerFloatingDropdown.addEventListener("mouseout", showFloatDropdown);
 
 
 const searchTerm = () => {  
-  // if (headerFloating.classList.contains("header_floating_active")) {
-          
-  //   }else{
-
-  //   }
-
   searchBox.classList.add("show");
   searchClose.classList.add("show");
+  searchContainer.classList.add("show");
 }
 
 const searches = [search, searchFloating, searchMobile];
@@ -124,6 +119,65 @@ searches.forEach((s) => {
 const closeSearchTerm = () => {
   searchBox.classList.remove('show');
   searchClose.classList.remove('show');
+  searchContainer.classList.remove("show");
 }
 
 searchClose.addEventListener("click", closeSearchTerm);
+
+
+const makeMovieList = (details) => {
+
+ 
+}
+
+
+const removeAllDynamicElements = () => {
+  document.querySelectorAll(".new").forEach((e) => {
+    e.remove();
+  });
+}
+
+const searchMovies = async (e) => {
+  const searchTerm = e.target.value;
+
+  setTimeout(async () => {   
+  const fetchingMovies = await fetch("/search", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ searchTerm: searchTerm }),
+  });
+
+  const content = await fetchingMovies.json();
+  
+  if(content)
+  {
+    removeAllDynamicElements();
+
+      content.data.forEach((d) => {
+          let newAnchorTag = document.createElement("a");
+          newAnchorTag.href = `/list/${d._id}`;
+
+
+          document.createTextNode(d.name);
+          let newImg = document.createElement("img");
+          newImg.classList.add("search_movieImg", "new");
+          newImg.src = d.img_s;
+
+
+
+          newAnchorTag.classList.add("h-4", "new", "mb-s", "each_movie");
+           newAnchorTag.appendChild(newImg, newContent);
+          searchContainer.append(newAnchorTag);
+      });
+  }
+  }, 500);
+
+}
+
+
+
+
+searchBox.addEventListener("keyup", searchMovies);
