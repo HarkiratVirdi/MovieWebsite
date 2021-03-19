@@ -1,9 +1,15 @@
 <div class="container">
 <div class="dashboard">
-    <h3 class="dashboard__name h-3">Hi, {{user.firstname}} {{user.lastname}}</h3>
-    <p class="h-4 mt-m">Welcome To MFlix</p>
-    <p class="h-4 mt-m">A Get Started guide has been sent to your registered Email.</p>
-    <button class="mt-m"><a class="btn btn-white" href="/list">Explore Movies & TV</a></button>
+    <h3 class="dashboard__name h-4">Hi, {{user.firstname}} {{user.lastname}}</h3>
+    <h3 class="h-4 heading mt-m">Your Orders</h3>
+    <hr class="mt-m">
+        <h3 class="h-4 mt-m">No Orders Yet</h3>
+    <hr class="mt-m">
+    <div class="dashboard__btn mt-m">
+    <a href="/user/update" class="btn btn-white heading mr-m">Update Account</a>
+    <a href="/user/delete" class="btn btn-white heading">Delete Account</a>
+    </div>
+
 </div>
 </div>
 

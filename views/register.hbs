@@ -6,7 +6,9 @@
 <div class="login_container">
 <div class="h-3">Register</div>
 
-
+{{#if account}}
+    <p class="mt-m h-5 heading">{{account}}</p>
+{{/if}}
 
     <form class="login_form" method="POST" action="/user/register">
           <div class="login_form_field">

@@ -8,17 +8,18 @@
   outline: none;
   border: none;
   font-family: $font-primary;
-  padding: 1.5rem 3rem;
-  font-size: 1.8rem;
+  padding: 1.2rem 2rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: center;
   border-radius: 3px;
   cursor: pointer;
+  width: 20rem;
   user-select: none;
   transition: 0.2s all;
 
-@media only screen and (max-width: $mobile-breakpoint) {
-    padding: 1.5rem 2rem;
+@media only screen and (max-width: $tablet-breakpoint) {
+    padding: 2rem 2rem;
   }
 
   &-white {
@@ -52,8 +53,6 @@
   z-index: 999;
   pointer-events: none;
   border-radius: 50%;
-  // backdrop-filter: contrast(40%);
-  // transition: 0.1s width height;
   animation-timing-function: ease-in-out;
   transform: translate(-50%, -50%);
   transform-origin: 150% 150%;
@@ -181,4 +180,12 @@
   }
   &_list {
   }
+}
+
+
+.delete__overflow{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 55vh;
+  width: 100%;
 }

@@ -532,17 +532,18 @@ li {
   outline: none;
   border: none;
   font-family: "Lora", serif;
-  padding: 1.5rem 3rem;
-  font-size: 1.8rem;
+  padding: 1.2rem 2rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: center;
   border-radius: 3px;
   cursor: pointer;
+  width: 20rem;
   user-select: none;
   transition: 0.2s all; }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 870px) {
     .btn {
-      padding: 1.5rem 2rem; } }
+      padding: 2rem 2rem; } }
   .btn-white {
     background-color: #fff;
     color: #1b1b1b; }
@@ -660,6 +661,12 @@ li {
         width: 30%; } }
   .search input::placeholder {
     color: white; }
+
+.delete__overflow {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 55vh;
+  width: 100%; }
 
 .hero {
   height: 100vh;
@@ -787,6 +794,10 @@ li {
 
 .slides_images {
   width: 100%; }
+
+.dashboard__btn {
+  display: flex;
+  font-size: 1.2rem; }
 
 .overlay__menu {
   position: fixed;

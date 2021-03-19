@@ -11,7 +11,8 @@ const {randomImage, sendMail} = require("../utils/utils");
 module.exports.loginUser = (req, res) => {
   const image = randomImage();
 
-  res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
+
+  res.render("login", { image: image, title: "MovieNation | Login", values: req.body, account: account });
 };
 
 module.exports.signIn =  async(req, res) => {
@@ -145,6 +146,25 @@ module.exports.logout = (req,res) => {
     res.redirect("/user/login");
 }
 
+module.exports.deleteUserPage = (req, res) => {
+  res.render("deleteUser");
+}
+
+module.exports.deleteUser = async (req, res) => {
+  try {
+    const deleteUser = await userModel.findByIdAndDelete(res.locals.user);
+     if (deleteUser) {
+        req.session.destroy();
+         res.redirect("/user/register?account=true");
+     } else {
+      throw "unable to delete user";
+     }
+  } catch (error) {
+   console.log("not deleted", deleteUser);
+    res.redirect("/user/delete");
+  }
+}
+
 module.exports.dashboard = (req, res) => {
   res.render("dashboard");
 };
@@ -152,5 +172,10 @@ module.exports.dashboard = (req, res) => {
 module.exports.registerUser = (req, res) => {
   const image = randomImage();
 
-  res.render("register", { image: image, title: "MovieNation | Register" });
+    let account = "";
+    if (req.query.account) {
+      account = "Your Account was Deleted Successfully";
+    }
+
+  res.render("register", { image: image, title: "MovieNation | Register", account: account });
 };

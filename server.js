@@ -2,7 +2,6 @@ const express = require("express");
 // if (process.env.NODE_ENV !== "production") {
 //   require("dotenv").config();
 // }
-
 const dotenv = require("dotenv");
 const exphbs = require("express-handlebars");
 const path = require("path");
@@ -15,7 +14,7 @@ const session = require("express-session");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
 const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
-const userSession = require("./middleware/userSession");
+const {userSession, determineMethod} = require("./middleware/userSession");
 
 dotenv.config({ path: "./.env" });
 
@@ -51,7 +50,7 @@ app.use(
 );
 
 app.use(userSession);
-
+app.use(determineMethod);
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);
 app.use((req, res) => {

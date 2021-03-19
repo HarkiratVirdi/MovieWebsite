@@ -5,4 +5,15 @@ const userSession = (req, res, next) => {
   next();
 };
 
-module.exports = userSession;
+const determineMethod = (req, res, next) => {
+  if(req.query.method === "DELETE")
+  {
+    req.method = "DELETE";
+  }else if(req.query.method === "PUT")
+  {
+    req.method = "PUT";
+  }
+  next();
+}
+
+module.exports = {userSession, determineMethod};
