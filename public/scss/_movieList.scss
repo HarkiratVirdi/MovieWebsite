@@ -70,6 +70,12 @@
   // margin-top: 30px;
   // transition: transform 0.3s;
   
+  @media only screen and (max-width: $mobile-breakpoint) {
+      width: 17rem;
+      height: 25rem;
+    }
+
+
   img {
     transition: transform 0.5s;
     overflow: hidden;
@@ -118,7 +124,7 @@
   grid-row-gap: 3rem;
 
   @media only screen and (max-width: $mobile-breakpoint) {
-    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
 

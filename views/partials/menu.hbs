@@ -10,11 +10,19 @@
             <div class="overlay__menu_link">
                 <a  class="overlay__menu_link_a" href="/list">Movies & TV</a>
             </div>
-            <div class="overlay__menu_link">
+
+            {{#if user}}
+                 <div class="overlay__menu_link"><a  class="overlay__menu_link_a" href="/user/dashboard">My Account
+                       </a></div>
+                  <li class="overlay__menu_link"><a  class="overlay__menu_link_a" href="/cart">Cart</a></li>
+            {{else}}
+                    <div class="overlay__menu_link">
                 <a class="overlay__menu_link_a"  href="/user/login">Login</a>
             </div>
             <div class="overlay__menu_link">
                 <a class="overlay__menu_link_a"  href="/user/register">Register</a>
             </div>
+            {{/if}}
+        
         </div>
     </div>

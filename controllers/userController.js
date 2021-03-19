@@ -167,10 +167,6 @@ module.exports.updateUser = async (req, res) => {
     Password: "",
   };
 
-  console.log("update user", Email);
-  console.log("update user", Firstname);
-  console.log("update user", Lastname);
-
   let valid = true;
      if (!isEmail || Email === "") {
        errors.Email = "Email must be valid";
@@ -195,8 +191,6 @@ module.exports.updateUser = async (req, res) => {
       if (!valid) { 
         throw "Incorrect Credentials Entered";
       }else{
-        console.log("updating now");
-         
 
           const user = await userModel.findById(res.locals.user._id);
 
@@ -224,8 +218,6 @@ module.exports.updateUser = async (req, res) => {
       { 
         errors.Email = "Email is Already Registered. Please use another Email";
       }
-
-      console.log("bug ", err);
 
         const image = randomImage();
         res.render("updateUser", {

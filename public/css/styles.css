@@ -200,6 +200,10 @@ li {
   flex-direction: column;
   align-self: flex-end;
   overflow: hidden; }
+  @media only screen and (max-width: 500px) {
+    .movieIcon {
+      width: 17rem;
+      height: 25rem; } }
   .movieIcon img {
     transition: transform 0.5s;
     overflow: hidden; }
@@ -234,7 +238,7 @@ li {
   grid-row-gap: 3rem; }
   @media only screen and (max-width: 500px) {
     .list_movies {
-      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); } }
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); } }
 
 .featured_tag {
   position: absolute;
@@ -643,30 +647,38 @@ li {
   .filtermovies .active {
     background-color: #121212 !important; }
 
-.search {
-  display: flex;
-  justify-content: center; }
-  .search input::-webkit-calendar-picker-indicator {
-    display: none; }
-  .search input {
-    width: 20%;
-    height: 4rem;
-    border: none;
-    padding: 2rem;
-    outline: none;
-    color: #fff;
-    background: #333; }
-    @media only screen and (max-width: 870px) {
-      .search input {
-        width: 30%; } }
-  .search input::placeholder {
-    color: white; }
-
 .delete__overflow {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 55vh;
   width: 100%; }
+
+.search {
+  position: relative;
+  top: 0; }
+  .search__term {
+    visibility: hidden;
+    opacity: 0;
+    height: 20vh;
+    position: fixed;
+    top: 0;
+    padding: 0 2rem;
+    z-index: 998 !important;
+    width: 100%;
+    background: #121212;
+    color: #fff;
+    transition: all 0.5s;
+    outline: none;
+    border: none; }
+  .search_close {
+    position: fixed;
+    top: 8vh;
+    right: 2rem;
+    z-index: 998 !important;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    color: #fff; }
 
 .hero {
   height: 100vh;

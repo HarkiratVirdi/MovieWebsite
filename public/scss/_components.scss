@@ -154,33 +154,6 @@
   }
 }
 
-.search {
-  display: flex;
-  justify-content: center;
-  input::-webkit-calendar-picker-indicator {
-    display: none;
-  }
-  input {
-    width: 20%;
-    height: 4rem;
-    border: none;
-    padding: 2rem;
-    outline: none;
-    color: $white;
-    // font-size: 3rem;
-    // border-color: $white;
-    background: $grey;
-
-    @media only screen and (max-width: $tablet-breakpoint) {
-      width: 30%;
-    }
-  }
-  input::placeholder {
-    color: white;
-  }
-  &_list {
-  }
-}
 
 
 .delete__overflow{
@@ -188,4 +161,36 @@
   overflow-y: scroll;
   height: 55vh;
   width: 100%;
+}
+
+
+.search
+{
+ position: relative;
+ top:0;
+&__term{
+  visibility: hidden;
+  opacity: 0;
+  height: 20vh;
+  position: fixed;
+  top: 0;
+  padding: 0 2rem;
+  z-index: 998 !important;
+  width: 100%;
+  background: $Lightblack;
+  color: $white;
+  transition: all 0.5s;
+  outline: none;
+  border: none;
+}
+&_close{
+  position: fixed;
+  top: 8vh;
+  right: 2rem;
+  z-index: 998 !important;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+ color: $white;
+}
 }

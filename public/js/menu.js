@@ -2,7 +2,12 @@ const hamburger = document.querySelector(".fa-bars");
 const overlayMenu = document.querySelector(".overlay__menu");
 const cross = document.querySelector(".overlay__menu_cross");
 const headerFloating = document.getElementById("header_floating_container");
-
+const headerDropdown = document.querySelector(".header_dropdown");
+const search = document.querySelector(".header_search");
+const searchMobile = document.querySelector(".header_search_mobile");
+const searchFloating = document.querySelector(".header_floating_search");
+const searchBox = document.getElementById("searchBox");
+const searchClose = document.querySelector(".search_close");
 
 // const links = document.querySelectorAll(".overlay__menu_link_a");
 let scrollingTop = 0;
@@ -43,7 +48,7 @@ window.onscroll = () => {
 
 
 
-const headerDropdown = document.querySelector(".header_dropdown");
+
 if(headerDropdown)
 {
   const t = gsap.timeline({ paused: true }).to(headerDropdown.children, {
@@ -83,7 +88,6 @@ const t = gsap.timeline({ paused: true }).to(headerFloatingDropdown.children, {
   visibility: "visible",
   ease: "power2.out",
 });
-console.log("dont know what's happen");
 
 const showFloatDropdown = (e) => {
   if (e.type === "mouseover") {
@@ -99,3 +103,27 @@ const showFloatDropdown = (e) => {
 headerFloatingDropdown.addEventListener("mouseover", showFloatDropdown);
 headerFloatingDropdown.addEventListener("mouseout", showFloatDropdown);
 }
+
+
+const searchTerm = () => {  
+  // if (headerFloating.classList.contains("header_floating_active")) {
+          
+  //   }else{
+
+  //   }
+
+  searchBox.classList.add("show");
+  searchClose.classList.add("show");
+}
+
+const searches = [search, searchFloating, searchMobile];
+searches.forEach((s) => {
+  s.addEventListener("click", searchTerm)
+})
+
+const closeSearchTerm = () => {
+  searchBox.classList.remove('show');
+  searchClose.classList.remove('show');
+}
+
+searchClose.addEventListener("click", closeSearchTerm);
