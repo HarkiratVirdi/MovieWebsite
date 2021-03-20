@@ -161,15 +161,48 @@ const searchMovies = async (e) => {
           newAnchorTag.href = `/list/${d._id}`;
 
 
-          document.createTextNode(d.name);
-          let newImg = document.createElement("img");
-          newImg.classList.add("search_movieImg", "new");
-          newImg.src = d.img_s;
+          let movieImg = document.createElement("img");
+          movieImg.classList.add("search_movieImg", "new");
+          movieImg.src = d.img_s;
 
 
-
+          let title = document.createElement("div");
+          // title.classList.add("ml-s");
+          title.append(document.createTextNode(d.name));
           newAnchorTag.classList.add("h-4", "new", "mb-s", "each_movie");
-           newAnchorTag.appendChild(newImg, newContent);
+
+          let rating = document.createElement("div");
+          // rating.classList.add("mt-s");
+          rating.append(document.createTextNode("Rating: " + d.rating + "%"));
+
+          let genre = document.createElement("div");
+          // genre.classList.add("")
+          genre.append(document.createTextNode("Genre: " + d.genre))
+
+          let year = document.createElement("div");
+          year.append(document.createTextNode("Year: " + d.year));
+
+          // let Studio = document.createElement("div");
+          // Studio.append(document.createTextNode("Studio: " + d.studio));
+
+            // let rated = document.createElement("div");
+            // rated.append(document.createTextNode("Rated: " + d.rated));
+                  
+          let buy = document.createElement("a");
+          buy.classList.add("btn", "btn-white", "mt-m");
+          buy.href = "/user/login";
+          buy.append(document.createTextNode("Buy: $" + d.buy));
+
+
+          let movieInfo = document.createElement("div");
+          movieInfo.classList.add("ml-s", "search__movieInfo");
+          movieInfo.style.width = "unset";
+
+          let line = document.createElement("hr");
+          line.classList.add("w100", "mt-s");
+
+          movieInfo.append(title, rating, genre, year, buy, line);
+          newAnchorTag.append(movieImg, movieInfo);
           searchContainer.append(newAnchorTag);
       });
   }

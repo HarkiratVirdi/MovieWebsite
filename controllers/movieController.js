@@ -121,7 +121,6 @@ module.exports.getMovieList = async (req, res) => {
 };
 
 module.exports.searchMovie = async (req, res) => {
- console.log("req.body", req.body);
   const {searchTerm} = req.body;
 
  try{

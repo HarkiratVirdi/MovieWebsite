@@ -171,8 +171,8 @@
  top:0;
 
  &_movieImg{
-   width: 16rem;
-   height: 22rem;
+   min-width: 13rem;
+   max-height: 17rem;
  }
 
   &_overflow{
@@ -196,6 +196,13 @@
   .each_movie{
     display: flex;
   }
+
+  &__movieInfo{
+    display: flex;
+    flex-direction: column;
+  }
+
+
 
 &__term{
   visibility: hidden;

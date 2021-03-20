@@ -658,8 +658,8 @@ li {
   position: relative;
   top: 0; }
   .search_movieImg {
-    width: 16rem;
-    height: 22rem; }
+    min-width: 13rem;
+    max-height: 17rem; }
   .search_overflow {
     max-height: 45vh;
     max-height: calc(var(--vh, 1vh) * 45);
@@ -678,6 +678,9 @@ li {
     flex-direction: column; }
   .search .each_movie {
     display: flex; }
+  .search__movieInfo {
+    display: flex;
+    flex-direction: column; }
   .search__term {
     visibility: hidden;
     opacity: 0;
@@ -973,6 +976,9 @@ li {
 @media only screen and (max-width: 870px) {
   .t-w100 {
     width: 100% !important; } }
+
+.w100 {
+  width: 100vw; }
 
 .mt-s {
   margin-top: 1vw; }
