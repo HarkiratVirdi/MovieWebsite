@@ -19,10 +19,26 @@ const importMovies = async () => {
   }
 };
 
+
+
+const deleteMovies = async() => {
+  try {
+      await movieModel.deleteMany();
+      console.log("data deleted");
+  } catch (err) {
+      console.log("error", err);
+      process.exit(1);
+  }
+}
+
+
 console.log("arguments", process.argv);
 
 if (process.argv[2] === "-i") {
   importMovies();
-} else {
+} else if(process.argv[2] === "-d") {
+  deleteMovies();
+}else{
+  
   console.log("not working");
 }

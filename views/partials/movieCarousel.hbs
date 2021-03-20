@@ -4,8 +4,10 @@
          <div class="swiper-wrapper">
         {{#each movies}}
  {{#if isMovie}}
-                    
+      {{#if featured}}
+        
       <div class="swiper-slide">{{>movieIcon this}}</div>
+      {{/if}}  
                     {{/if}}
         {{/each}}
         </div>
@@ -21,7 +23,11 @@
          <div class="swiper-wrapper">
       {{#each movies}}
         {{#unless isMovie}}
+
+          {{#if featured}}
+            
         <div class="swiper-slide">{{>movieIcon this}}</div>
+          {{/if}}
             {{/unless}}
             {{/each}}
             </div>

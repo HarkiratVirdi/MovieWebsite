@@ -1,19 +1,19 @@
-// const bcrypt = require("bcryptjs");
+// // const bcrypt = require("bcryptjs");
 
-// exports.users = [
-//   {
-//     name: "Admin",
-//     email: "admin@admin.com",
-//     password: "Admin@01",
-//     isAdmin: true,
-//   },
-// ];
+// // exports.users = [
+// //   {
+// //     name: "Admin",
+// //     email: "admin@admin.com",
+// //     password: "Admin@01",
+// //     isAdmin: true,
+// //   },
+// // ];
 
 // exports.movies = [
 //   {
 //     id: 1,
 //     name: "Die Hard",
-//     // featured: false,
+//     featured: false,
 //     rating: 60,
 //     rent: 7,
 //     buy: 15,
@@ -42,7 +42,7 @@
 //   {
 //     id: 2,
 //     name: "The Conjuring",
-//     // featured: true,
+//     featured: true,
 //     rating: 70,
 //     genre: "Horror",
 //     runtime: "2:00",
@@ -71,14 +71,14 @@
 //   {
 //     id: 3,
 //     name: "Wonder Woman",
-//     // featured: true,
+//     featured: true,
 //     rating: 89,
 //     genre: "Action, Fantasy",
 //     rated: "PG-13",
 //     studio: "Warner Bros",
 //     runtime: "1:57",
 //     year: 2017,
-//     rent: 10,
+//     rent: 5,
 //     img_s: "/images/movies/Wonder_Woman_s.jpg",
 //     img_l: "/images/movies/Wonder_Woman_l.jpg",
 //     isMovie: true,
@@ -100,9 +100,9 @@
 //   {
 //     id: 4,
 //     name: "Tenet",
-//     // featured: true,
+//     featured: true,
 //     rating: 80,
-//     rent: 10,
+//     rent: 18,
 //     genre: "Action, Fantasy",
 //     studio: "Warner Bros",
 //     runtime: "1:45",
@@ -129,7 +129,7 @@
 //   {
 //     id: 5,
 //     name: "Game of Thrones Season 8",
-//     // featured: true,
+//     featured: true,
 //     rating: 30,
 //     runtime: "50",
 //     rated: "18+",
@@ -158,9 +158,9 @@
 //   {
 //     id: 6,
 //     name: "The Walking Dead",
-//     // featured: true,
+//     featured: true,
 //     rating: 88,
-//     rent: 10,
+//     rent: 4,
 //     runtime: "45",
 //     rated: "PG-13",
 //     buy: 20,
@@ -187,7 +187,7 @@
 //   {
 //     id: 7,
 //     name: "The Conjuring 2",
-//     // featured: true,
+//     featured: true,
 //     runtime: "1:57",
 //     rating: 75,
 //     genre: "Horror",
@@ -216,7 +216,7 @@
 //   {
 //     id: 8,
 //     name: "Kong: Skull Island",
-//     // featured: false,
+//     featured: false,
 //     runtime: "2:40",
 //     rating: 80,
 //     rent: 10,
@@ -245,7 +245,7 @@
 //   {
 //     id: 9,
 //     name: "12 Years of Slave",
-//     // featured: true,
+//     featured: true,
 //     rating: 95,
 //     runtime: "2:50",
 //     rent: 6,
@@ -274,9 +274,9 @@
 //   {
 //     id: 10,
 //     name: "The Breaking Bad",
-//     // featured: true,
+//     featured: true,
 //     rating: 97,
-//     rent: 10,
+//     rent: 12,
 //     genre: "Sci-Fi, Drama",
 //     runtime: "40",
 //     studio: "AMC",
@@ -303,11 +303,11 @@
 //   {
 //     id: 11,
 //     name: "The Game of Thrones: Season 5",
-//     // featured: true,
+//     featured: true,
 //     rated: "18+",
 //     runtime: "50",
 //     rating: 94,
-//     rent: 10,
+//     rent: 15,
 //     buy: 30,
 //     genre: "Action, Fantasy",
 //     studio: "HBO",
@@ -332,7 +332,7 @@
 //   {
 //     id: 12,
 //     name: "Arrival",
-//     // featured: true,
+//     featured: true,
 //     rated: "PG-13",
 //     runtime: "1:58",
 //     rating: 92,
@@ -361,7 +361,7 @@
 //   {
 //     id: 13,
 //     name: "Better Call Saul",
-//     // featured: true,
+//     featured: true,
 //     rated: "18+",
 //     runtime: "48",
 //     rating: 88,
@@ -390,7 +390,7 @@
 //   {
 //     id: 14,
 //     name: "The Witcher",
-//     // featured: true,
+//     featured: true,
 //     rated: "18+",
 //     runtime: "58",
 //     rating: 74,
@@ -419,7 +419,7 @@
 //   {
 //     id: 15,
 //     name: "The Queen's Gambit",
-//     // featured: true,
+//     featured: true,
 //     rated: "18+",
 //     runtime: "1:30",
 //     rating: 74,
@@ -447,8 +447,8 @@
 //   },
 // ];
 
-// exports.filterMovie = (id) => {
-//   return this.movies.filter((singleMovie) => {
-//     return singleMovie.id === parseInt(id);
-//   });
-// };
+// // exports.filterMovie = (id) => {
+// //   return this.movies.filter((singleMovie) => {
+// //     return singleMovie.id === parseInt(id);
+// //   });
+// // };

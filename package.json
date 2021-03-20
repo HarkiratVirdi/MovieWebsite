@@ -7,6 +7,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "import": "node db/seeder.js -i",
+    "delete": "node db/seeder.js -d",
     "scss": "node-sass public/scss/main.scss public/css/styles.css -w"
   },
   "keywords": [],

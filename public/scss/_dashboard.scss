@@ -3,4 +3,12 @@
         display: flex;
         font-size: 1.2rem;
     }
+
+    &_admin{
+        &_controls{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
 }

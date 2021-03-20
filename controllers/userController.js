@@ -34,6 +34,11 @@ module.exports.signIn =  async(req, res) => {
           throw 1;
         }
         req.session.userInfo = findUser;
+
+        if(req.session.userInfo.isAdmin)
+        {
+          res.redirect("/user/admin");
+        }
         res.redirect("/user/dashboard");
       }else{
         throw 2;
@@ -140,6 +145,10 @@ module.exports.signUp = async (req, res) => {
         });
     }
 };
+
+module.exports.adminDashboard = (req, res) => {
+  res.render("Admin");
+}
 
 module.exports.logout = (req,res) => {
     req.session.destroy();

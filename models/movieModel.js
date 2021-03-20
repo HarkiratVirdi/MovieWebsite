@@ -54,6 +54,10 @@ const movieSchema = mongoose.Schema({
     required: false,
     default: "PG-13",
   },
+  featured: {
+    type: Boolean,
+    default: false,
+  },
   year: {
     type: Number,
     required: false,
