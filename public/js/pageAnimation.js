@@ -8,7 +8,10 @@ const applyClassToLoader = () => {
 
 const pageAnimationOnClick = (e) => {
   e.preventDefault();
-  const findAnchorTag = e.path.find((single) => {
+  // console.log(e);
+  // console.log(e.composedPath());
+  // console.log(e.composedPath);
+  const findAnchorTag = e.composedPath().find((single) => {
     return single.href !== undefined;
   });
 

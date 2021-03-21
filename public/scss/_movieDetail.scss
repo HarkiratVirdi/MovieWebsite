@@ -1,7 +1,17 @@
 .movie_hero {
-  height: 80vh;
-  overflow-x: hidden;
-  // height: calc(var(--vh, 1vh) * 80);
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  top: -20vh;
+  height: calc(var(--vh, 1vh) * 100);
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    height: 80vh;
+    top: 0;
+    height: calc(var(--vh, 1vh) * 80);
+  }
+
+
 
   @media only screen and (max-width: $mobile-breakpoint) {
     height: 45vh;
@@ -9,17 +19,34 @@
   }
 
   &_image {
-    position: relative;
+    position: absolute;
     top: 0;
     width: 100%;
-    height: 60vh;
+    height: 100%;
+      // height: calc(var(--vh, 1vh) * 100);
 
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    // margin-bottom: 5rem;
 
-  @media only screen and (max-width: $mobile-breakpoint) {
+
+  @media only screen and (max-width: $tablet-breakpoint) {
+    height: 60vh;
+      height: calc(var(--vh, 1vh) * 60);
+
+    position: relative;
+    top: 0; 
+    width: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+   @media only screen and (max-width: $mobile-breakpoint) {
     height: 35vh;
+   
   }
 
   }

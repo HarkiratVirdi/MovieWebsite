@@ -26,8 +26,20 @@ gsap.to(".movie_hero_image", {
     start: "top center",
     toggleActions: "restart pause reverse pause",
   },
-  transform: "matrix(1.15,0,0,1.15,0,0)",
+  transform: "matrix(1.3,0,0,1.3,0,0)",
 });
+
+gsap.to(".movie_name", {
+  scrollTrigger: {
+    trigger: ".movie_hero_image",
+    scrub: true,
+    start: "top top",
+    // markers: true,
+    toggleActions: "restart pause reverse pause",
+  },
+  opacity: 0,
+});
+
 
 gsap.to(".overlay_text", {
   scrollTrigger: {
