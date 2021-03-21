@@ -120,6 +120,66 @@ module.exports.getMovieList = async (req, res) => {
   }
 };
 
+module.exports.updateMovie = async(req, res) => {
+  const {id} = req.params;
+  console.log("movie ID", id);
+}
+
+module.exports.addMovie = (req, res) => {
+  res.render("addMovie");
+}
+
+module.exports.addMovieForm = async(req, res) => {
+  const {name, featured, rating, rent, buy, img_s, img_l, isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
+
+  console.log("cast1", cast1);
+  console.log("cast1", cast2);
+  console.log("cast1", cast3);
+
+  try {
+      const createdMovie = await new movieModel({
+        name,
+        featured,
+        rating,
+        rent,
+        buy,
+        img_s,
+        img_l,
+        isMovie,
+        genre,
+        studio,
+        runtime,
+        rated,
+        year,
+        synopsis,
+        cast: [{ name: cast1 }, { name: cast2 }, { name: cast3 }],
+      }).save();
+      console.log("saved new movie", createdMovie);
+      res.redirect("/user/admin");
+  } catch (err) {
+    console.log("error adding Movie", err);
+
+    res.render("addMovie", {
+      values: req.body,
+      errors: errors,
+      title: "MFlix | Add Movie",
+    })
+  }
+}
+
+module.exports.deleteMovie = async(req, res) => {
+  const {id} = req.params;
+  console.log("delete movie ID", id);
+
+  try {
+      const deleteMovie = await movieModel.deleteOne({_id: id});
+      console.log("movie deleted", deleteMovie);
+      res.redirect("/user/admin");
+  } catch (err) {
+      console.log("error", err);
+  }
+}
+
 module.exports.searchMovie = async (req, res) => {
   const {searchTerm} = req.body;
 

@@ -172,7 +172,9 @@ module.exports.deleteUserPage = (req, res) => {
 }
 
 module.exports.updateUserPage = (req, res) => {
-  res.render("updateUser");
+  const image = randomImage();
+
+  res.render("updateUser", {image: image});
 }
 
 module.exports.updateUser = async (req, res) => {

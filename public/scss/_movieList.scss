@@ -128,21 +128,21 @@
   }
 }
 
-.featured_tag {
-  position: absolute;
-  top: -1.8rem;
-  width: 100%;
-  color: $Lightblack;
+// .featured_tag {
+//   position: absolute;
+//   top: -1.8rem;
+//   width: 100%;
+//   color: $Lightblack;
 
-  &::before {
-    content: "Featured";
-    width: 100%;
-    background-color: $cta;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-}
+//   &::before {
+//     content: "Featured";
+//     width: 100%;
+//     background-color: $cta;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 1.4rem;
+//     border-top-left-radius: 0.5rem;
+//     border-top-right-radius: 0.5rem;
+//   }
+// }

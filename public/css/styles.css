@@ -240,22 +240,6 @@ li {
     .list_movies {
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); } }
 
-.featured_tag {
-  position: absolute;
-  top: -1.8rem;
-  width: 100%;
-  color: #121212; }
-  .featured_tag::before {
-    content: "Featured";
-    width: 100%;
-    background-color: orange;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem; }
-
 .movie_hero {
   height: 80vh;
   overflow-x: hidden; }
@@ -533,6 +517,10 @@ li {
   animation: transformRight 8s linear infinite forwards;
   display: flex;
   white-space: nowrap; }
+
+.addMovie_container {
+  width: 100% !important;
+  position: static !important; }
 
 .btn {
   outline: none;
@@ -850,8 +838,8 @@ li {
   align-items: center;
   justify-content: space-between; }
   .admin_movie_list img {
-    width: 15rem;
-    height: 20rem; }
+    width: 16rem;
+    height: 22rem; }
   @media only screen and (max-width: 870px) {
     .admin_movie_list {
       align-items: flex-start; } }
@@ -1433,7 +1421,7 @@ li {
         .login_form_field {
           flex-direction: column; } }
       .login_form_field label {
-        flex: 1;
+        width: 15rem;
         display: flex; }
       .login_form_field input {
         flex: 2;
