@@ -41,8 +41,9 @@ module.exports.signIn =  async(req, res) => {
         if(req.session.userInfo.isAdmin)
         {
           res.redirect("/user/admin");
+        }else{
+          res.redirect("/user/dashboard");
         }
-        res.redirect("/user/dashboard");
       }else{
         throw 2;
       }

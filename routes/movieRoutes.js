@@ -20,7 +20,7 @@ router.route("/list/:id").get(getMovie);
 router.route("/cart").get(authUser,cart);
 router.route("/search").post(searchMovie);
 router.route("/updateMovie/:id").get(authUser, adminUser, updateMovie);
-router.route("/addMovie").get(authUser, adminUser, addMovie).post(authUser, adminUser, addMovieForm);
+router.route("/addMovie").get(addMovie).post(addMovieForm);
 router.route("/deleteMovie/:id").get(authUser, adminUser, deleteMovie);
 
 module.exports = router;

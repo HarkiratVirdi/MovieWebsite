@@ -133,19 +133,47 @@ module.exports.addMovieForm = async(req, res) => {
   const {name, featured, rating, rent, buy, img_s, img_l, isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
 
   console.log("cast1", cast1);
-  console.log("cast1", cast2);
-  console.log("cast1", cast3);
+  console.log("cast2", cast2);
+  console.log("cast3", cast3);
+  console.log("name", name);
+  console.log("featured", featured);
+  console.log("rating", rating);
+  console.log("rent", rent);
+  console.log("buy", buy);
+  console.log("img_s", img_s);
+  console.log("img_l", img_l);
+  console.log("isMovie", isMovie);
+  console.log("genre", genre);
+  console.log("studio", studio);
+  console.log("runtime", runtime);
+  console.log("rated", rated);
+  console.log("year", year);
+  console.log("synopsis", synopsis);
+  
+
+  let isFeatured = false;
+  if(featured === "Yes")
+  {
+    isFeatured = true;
+  }
+
+  let isMovieTrue = false;
+  if(isMovie === "true")
+  {
+    isMovieTrue = true;
+  }
+
 
   try {
       const createdMovie = await new movieModel({
         name,
-        featured,
+        featured: isFeatured,
         rating,
         rent,
         buy,
         img_s,
         img_l,
-        isMovie,
+        isMovie : isMovieTrue,
         genre,
         studio,
         runtime,
