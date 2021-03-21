@@ -1,10 +1,17 @@
 <div class="container">
 <div class="dashboard_admin">
-
             <div class="dashboard_admin_controls">
             <div class="dashboard__name h-4">Hi, Admin {{user.firstname}}</div>
              <a href="/addMovie" class="btn btn-white heading">Add Movie Or TV</a>
             </div>
             <hr class="mt-m">
+
+{{#each movies}}
+            {{>adminMovielist movies=movies}}
+        <hr class="mt-m">
+{{/each}}
+
+
 </div>
 </div>
+{{>footer}}

@@ -6,6 +6,7 @@ const {
   validateName,
 } = require("../utils/Validation");
 const {randomImage, sendMail} = require("../utils/utils");
+const movieModel = require("../models/movieModel");
 
 
 module.exports.loginUser = (req, res) => {
@@ -14,6 +15,8 @@ module.exports.loginUser = (req, res) => {
 
   res.render("login", { image: image, title: "MovieNation | Login", values: req.body });
 };
+
+
 
 module.exports.signIn =  async(req, res) => {
   const { Email, Password } = req.body;
@@ -146,8 +149,17 @@ module.exports.signUp = async (req, res) => {
     }
 };
 
-module.exports.adminDashboard = (req, res) => {
-  res.render("Admin");
+module.exports.adminDashboard = async(req, res) => {
+  try {
+    const allMovies = await movieModel.find({}).lean();
+    if(allMovies)
+    {
+      // console.log(allMovies);
+      res.render("Admin", {movies: allMovies});
+    }
+  } catch (err) {
+      console.log("error", err);
+  }
 }
 
 module.exports.logout = (req,res) => {

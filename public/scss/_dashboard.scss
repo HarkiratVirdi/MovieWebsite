@@ -12,3 +12,34 @@
         }
     }
 }
+
+.admin_movie_list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img{
+        width: 15rem;
+        height: 20rem;
+    }
+
+      @media only screen and (max-width: $tablet-breakpoint) {
+   align-items: flex-start;
+//    flex-direction: column;
+  }
+
+  .col-2{
+      flex-direction: column;
+  }
+  .col-1{
+      flex-direction: row;
+         @media only screen and (max-width: $tablet-breakpoint) {
+            flex-direction: column;
+        }
+  }
+
+  .col-3{
+      flex-direction: column;
+  }
+
+
+}

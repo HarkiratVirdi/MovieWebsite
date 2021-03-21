@@ -1,0 +1,21 @@
+
+<div class="admin_movie_list mt-m">
+
+    <div class="col col-1">
+<img src="{{this.img_s}}"></img>
+    <div class="col col-2 ml-m">
+<h1 class="h-4 heading">{{this.name}}</h1>
+<h1 class="h-4">Genre: {{this.genre}}</h1>
+<h1 class="h-4">Rating: {{this.rating}}%</h1>
+<h1 class="h-4">Rated: {{this.rated}}</h1>
+<h1 class="h-4">Studio: {{this.studio}}</h1>
+<h1 class="h-4">Rent: ${{this.rent}}</h1>
+<h1 class="h-4">Buy: ${{this.buy}}</h1>
+    </div>
+    </div>
+
+    <div class="col col-3 ml-m">
+        <a href="/updateMovie/{{this._id}}" class="btn mt-m btn-white ">Update Movie</a>
+        <a href="/deleteMovie/{{this._id}}" class="btn btn-white mt-m">Delete Movie</a>
+    </div>
+</div>

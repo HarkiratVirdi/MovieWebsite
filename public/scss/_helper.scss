@@ -91,6 +91,13 @@
   }
 }
 
+.col{
+  display: flex;
+    @media only screen and (max-width: $tablet-breakpoint) {
+      margin: 0 !important;
+  }
+}
+
 .w100{
   width: 100vw;
 }
