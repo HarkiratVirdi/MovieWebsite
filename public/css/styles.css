@@ -401,15 +401,15 @@ li {
     top: -100px;
     right: 3rem;
     width: 0%;
-    height: 35rem;
+    height: 24rem;
     object-fit: cover;
     transform-origin: left; }
     @media only screen and (max-width: 870px) {
       .cast_image {
-        height: 30rem; } }
+        height: 24rem; } }
     @media only screen and (max-width: 500px) {
       .cast_image {
-        height: 20rem; } }
+        height: 19rem; } }
   .cast .produced_by {
     display: flex;
     justify-content: space-between;
@@ -1182,9 +1182,14 @@ li {
       display: flex;
       animation: transformRight 30s infinite;
       animation-timing-function: linear; }
-      .contentsection_images_container img {
-        width: 45rem;
-        height: 25rem; }
+      .contentsection_images_container .progressive {
+        overflow: visible !important; }
+      .contentsection_images_container figure {
+        width: 45rem !important;
+        height: 25rem !important; }
+        .contentsection_images_container figure img {
+          height: 25rem;
+          width: 45rem; }
 
 @keyframes transformRight {
   from {

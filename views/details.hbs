@@ -1,7 +1,6 @@
 <div class="movie_hero">
 
 <div class="progressive__bg progressive--not-loaded movie_hero_image" data-progressive="{{movie.img_l}}" style="background-image: url({{movie.img_l_C}});">
-    {{!-- <div class="movie_hero_image" style="background-image: url({{movie.img_l}});"> --}}
         <div class="h-3 movie_name">
             {{#each (splittingBySpace movie.name)}}
             <div class="h-3 movie_word">{{#each (splitting this)}}
@@ -12,13 +11,11 @@
         </div>
     </div>
 </div>
+
+
 <div class="container_sub">
-
     <div class="movie_details">
-
-
-
-        <div class="purchasemovie">
+<div class="purchasemovie">
 <div class="progressive__bg progressive--not-loaded purchasemovie__image" data-progressive="{{movie.img_s}}" style="background-image: url({{movie.img_s_C}});background-repeat: no-repeat; background-size: cover">
                 {{#if movie.featured}}
                 <div class="featured_tag">
@@ -66,7 +63,7 @@
                 <div class="container_right">
 
                     <div class="movie_text heading mt-xl">Film Cast</div>
-                    <img class="cast_image" src={{movie.img_l}} alt="">
+                    <img class="cast_image" src={{movie.img_l_C}} alt="">
                     {{#each movie.cast}}
                     <div class="movie_text">{{this.name}}</div>
                     {{/each}}

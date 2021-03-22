@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const compressImage = require("../utils/resizeImages");
 
 const movieSchema = mongoose.Schema({
   name: {
@@ -17,6 +18,12 @@ const movieSchema = mongoose.Schema({
   buy: {
     type: Number,
     required: this,
+  },
+  img_s_C: {
+    type: String,
+  },
+  img_l_C: {
+    type: String,
   },
   img_s: {
     type: String,
@@ -80,6 +87,19 @@ const movieSchema = mongoose.Schema({
     }
   }]
 });
+
+
+movieSchema.pre("save",async function(next) {
+  console.log("image large", this.img_l);
+  console.log("image small", this.img_s);
+
+  this.img_l_C = await compressImage(this.img_l);
+  this.img_s_C = await compressImage(this.img_s);
+
+  console.log("Img large C", this.img_l_C);
+  console.log("Img small C", this.img_s_C);
+})
+
 
 const movieModel = mongoose.model("Movie", movieSchema);
 

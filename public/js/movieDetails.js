@@ -56,7 +56,7 @@ gsap.to(".cast_image", {
     trigger: ".cast_image",
     start: "top bottom",
   },
-  width: "45%",
+  width: "27%",
   duration: 1,
   ease: "expo",
 });

@@ -1,13 +1,28 @@
 const movieModel = require("../models/movieModel");
 const axios = require("axios");
-const compressImage = require("../utils/resizeImages");
+// const compressImage = require("../utils/resizeImages");
 
 const imagesForCarousel = [
-  "/images/banner/theWitcher.jpg",
-  "/images/banner/got8.jpg",
-  "/images/banner/queenGambit.jpg",
-  "/images/banner/wonderWoman.jpg",
-  "/images/banner/arrival.jpg",
+  {
+    large: "/images/banner/theWitcher.jpg",
+    comp: "/images/banner/theWitcher_edited.jpg",
+  },
+  {
+    large: "/images/banner/got8.jpg",
+    comp: "/images/banner/got8_edited.jpg",
+  },
+  {
+    large: "/images/banner/queenGambit.jpg",
+    comp: "/images/banner/queenGambit_edited.jpg",
+  },
+  {
+    large: "/images/banner/wonderWoman.jpg",
+    comp: "/images/banner/wonderWoman_edited.jpg",
+  },
+  {
+    large: "/images/banner/arrival.jpg",
+    comp: "/images/banner/arrival_edited.jpg",
+  },
 ];
 
 module.exports.getMovies = async (req, res) => {
@@ -30,14 +45,11 @@ module.exports.getMovie = async (req, res) => {
 
   try {
     let movie = await movieModel.findById(req.params.id).lean();
+    console.log("movie in getmovies", movie);
 
     if (movie) {
-        movie.img_l_C = await compressImage(movie.img_l);
-        movie.img_s_C = await compressImage(movie.img_s);
-
-        console.log("movie Small ADress", movie.img_s_C);
-        console.log("movie large ADress", movie.img_l_C);
-
+     
+      
       const recommended = await movieModel
         .find({
           genre: movie.genre,

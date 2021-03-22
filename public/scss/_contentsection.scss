@@ -40,11 +40,20 @@
       display: flex;
       animation: transformRight 30s infinite;
       animation-timing-function: linear;
+   .progressive{
+      overflow: visible !important;
+    }
 
+  figure{
+    width: 45rem !important;
+    height: 25rem !important;
+    
+    img{
+      height: 25rem;
+      width: 45rem;
+    }
 
-  img{
-    width: 45rem;
-    height: 25rem;
+ 
   }      
     }
   }

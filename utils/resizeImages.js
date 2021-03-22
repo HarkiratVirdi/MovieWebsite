@@ -10,7 +10,7 @@ const compressImage = async(Photo) => {
         {
         const addressOfPhoto = "\public" + Photo;
         const image = await Jimp.read(addressOfPhoto);
-        image.resize(Jimp.AUTO, 200);
+        image.resize(Jimp.AUTO, 400);
 
             image.write(newImageName);
             console.log("Wrote image again", newImageName);

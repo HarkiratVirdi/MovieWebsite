@@ -6,16 +6,24 @@
         <div class="contentsection_images_container">
 
         {{#each images}}
-            <img src={{this}} alt="">
+               <figure class="progressive">
+  <img class="progressive__img progressive--not-loaded" data-progressive={{this.comp}} src="{{this.comp}}">
+</figure>
         {{/each}}
         {{#each images}}
-            <img src={{this}} alt="">
+                      <figure class="progressive">
+  <img class="progressive__img progressive--not-loaded" data-progressive={{this.comp}} src="{{this.comp}}">
+</figure>
         {{/each}}
         {{#each images}}
-            <img src={{this}} alt="">
+                       <figure class="progressive">
+  <img class="progressive__img progressive--not-loaded" data-progressive={{this.comp}} src="{{this.comp}}">
+</figure>
         {{/each}}
         {{#each images}}
-            <img src={{this}} alt="">
+                       <figure class="progressive">
+  <img class="progressive__img progressive--not-loaded" data-progressive={{this.comp}} src="{{this.comp}}">
+</figure>
         {{/each}}
 
         </div>

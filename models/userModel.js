@@ -31,7 +31,6 @@ const userSchema = mongoose.Schema({
 });
 
 userSchema.pre("save", function (next) {
-  console.log("Original password", this.password);
   bcrypt
     .genSalt(10)
     .then((salt) => {

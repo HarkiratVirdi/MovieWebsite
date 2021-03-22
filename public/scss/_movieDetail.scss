@@ -192,20 +192,21 @@
   padding: 3rem 3rem 3rem 4rem;
   background-color: $black;
   margin-top: 20rem;
+
   &_image {
     position: absolute;
     top: -100px;
     right: 3rem;
     width: 0%;
-    height: 35rem;
+    height: 24rem;
     object-fit: cover;
     transform-origin: left;
   
    @media only screen and (max-width: $tablet-breakpoint) {
-      height: 30rem;
+      height: 24rem;
     }
    @media only screen and (max-width: $mobile-breakpoint) {
-      height: 20rem;
+      height: 19rem;
     }
   
   }
