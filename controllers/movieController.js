@@ -1,5 +1,6 @@
 const movieModel = require("../models/movieModel");
 const axios = require("axios");
+const compressImage = require("../utils/resizeImages");
 
 const imagesForCarousel = [
   "/images/banner/theWitcher.jpg",
@@ -31,6 +32,12 @@ module.exports.getMovie = async (req, res) => {
     let movie = await movieModel.findById(req.params.id).lean();
 
     if (movie) {
+        movie.img_l_C = await compressImage(movie.img_l);
+        movie.img_s_C = await compressImage(movie.img_s);
+
+        console.log("movie Small ADress", movie.img_s_C);
+        console.log("movie large ADress", movie.img_l_C);
+
       const recommended = await movieModel
         .find({
           genre: movie.genre,
