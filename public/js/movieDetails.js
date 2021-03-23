@@ -12,34 +12,23 @@ let movieWords = movieWord.forEach((element, index) => {
   }
 });
 
-// console.log("moviename", movieJoin);
-
 let tl = gsap.timeline();
 tl.staggerTo(".movie_char", 0.25 , { opacity: 1, delay: ".3" }, 0.045);
 
 const movieDetailsHeight = document.querySelector(".movie_info").clientHeight;
 
+const gsapAnimations = () => {
 gsap.to(".movie_hero_image", {
   scrollTrigger: {
     trigger: ".movie_hero_image",
     scrub: true,
-    start: "top center",
-    toggleActions: "restart pause reverse pause",
-  },
-  transform: "matrix(1.3,0,0,1.3,0,0)",
-});
-
-gsap.to(".movie_name", {
-  scrollTrigger: {
-    trigger: ".movie_hero_image",
-    scrub: true,
     start: "top top",
-    // markers: true,
     toggleActions: "restart pause reverse pause",
   },
+  ease: "power0",
+  transform: "matrix(1.5,0,0,1.5,0,0)",
   opacity: 0,
 });
-
 
 gsap.to(".overlay_text", {
   scrollTrigger: {
@@ -56,13 +45,18 @@ gsap.to(".cast_image", {
     trigger: ".cast_image",
     start: "top bottom",
   },
-  width: "27%",
-  duration: 1,
-  ease: "expo",
+  width: "28%",
+  duration: 0.8,
+  ease: "circ",
 });
+
+}
+
+gsapAnimations();
 
 window.onresize = () => {
   purchaseMovie = document.querySelector(".purchasemovie");
+  gsapAnimations();
 };
 
 const addShrinkClass = () => {
@@ -88,7 +82,6 @@ const addShrinkClass = () => {
     purchaseMovie.style.position = "sticky";
   }
   }else{
-    // console.log("height", height);
      if (scrollingTop > height / 1.65) {
        purchaseMovie.classList.add("shrink");
      } else {

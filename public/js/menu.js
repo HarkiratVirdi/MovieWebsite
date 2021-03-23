@@ -9,7 +9,7 @@ const searchFloating = document.querySelector(".header_floating_search");
 const searchBox = document.getElementById("searchBox");
 const searchClose = document.querySelector(".search_close");
 const searchContainer = document.querySelector(".search_overflow");
-// const links = document.querySelectorAll(".overlay__menu_link_a");
+
 let scrollingTop = 0;
 const openMenu = () => {
   if (overlayMenu.classList.contains("openMenu")) {
@@ -24,9 +24,6 @@ const openMenu = () => {
 hamburger.addEventListener("click", openMenu);
 cross.addEventListener("click", openMenu);
 
-// links.forEach((link) => {
-//   link.addEventListener("click", openMenu);
-// });
 
 window.onscroll = () => {
   scrollingTop = document.documentElement.scrollTop;
@@ -43,11 +40,7 @@ window.onscroll = () => {
   }else{
     headerFloating.classList.remove("header_floating_active");
   }
-
 };
-
-
-
 
 if(headerDropdown)
 {
@@ -57,18 +50,13 @@ if(headerDropdown)
     visibility: "visible",
     ease: "power2.out",
   });
-console.log("dont know what's happen");
 
 const showDropdown = (e) => {
   if (e.type === "mouseover") {
-    console.log("animation start");
     t.play();
   } else if(e.type === "mouseout") {
-    console.log("animation end");
     t.reverse();
-  }
-  console.log(e);
-  
+  } 
 };
 
 headerDropdown.addEventListener("mouseover", showDropdown);
@@ -104,11 +92,13 @@ headerFloatingDropdown.addEventListener("mouseover", showFloatDropdown);
 headerFloatingDropdown.addEventListener("mouseout", showFloatDropdown);
 }
 
-
 const searchTerm = () => {  
   searchBox.classList.add("show");
   searchClose.classList.add("show");
   searchContainer.classList.add("show");
+  setTimeout(() => {
+    searchBox.focus();
+  }, 100);
 }
 
 const searches = [search, searchFloating, searchMobile];
@@ -124,11 +114,6 @@ const closeSearchTerm = () => {
 
 searchClose.addEventListener("click", closeSearchTerm);
 
-
-const makeMovieList = (details) => {
-
- 
-}
 
 
 const removeAllDynamicElements = () => {

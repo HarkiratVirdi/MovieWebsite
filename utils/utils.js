@@ -1,7 +1,7 @@
 const imagesForLogin = [
-  "/images/banner/got8.jpg",
-  "/images/banner/queenGambit.jpg",
-  "/images/banner/wonderWoman.jpg",
+  "/images/banner/got8_edited.jpg",
+  "/images/banner/queenGambit_edited.jpg",
+  "/images/banner/wonderWoman_edited.jpg",
 ];
 
 const sgMail = require("@sendgrid/mail");

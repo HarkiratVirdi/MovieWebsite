@@ -9,6 +9,15 @@
   position: static !important;
 }
 
+
+.progressive--is-loaded{
+  // filter: /
+}
+
+ .progressive--not-loaded{
+  filter: none !important;
+}
+
 .btn {
   outline: none;
   border: none;
@@ -181,10 +190,11 @@
  }
 
   &_overflow{
-    max-height: 45vh;
-    max-height: calc(var(--vh, 1vh) * 45);
+    max-height: 60vh;
+    max-height: calc(var(--vh, 1vh) * 60);
     position: fixed;
     top: 20vh;
+    top: calc(var(--vh, 1vh) * 20);
     background: $Lightblack;
     z-index: 998 !important;
     overflow-x: hidden;
@@ -196,6 +206,12 @@
     visibility: hidden;
     transition: all 0.5s;
     flex-direction: column;
+
+  
+  @media only screen and (max-width: $mobile-breakpoint) {
+    max-height: 100vh;
+    max-height: calc(var(--vh, 1vh) * 100);
+  }
   }
 
   .each_movie{

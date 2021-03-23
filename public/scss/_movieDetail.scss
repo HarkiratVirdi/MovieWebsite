@@ -15,21 +15,17 @@
 
   @media only screen and (max-width: $mobile-breakpoint) {
     height: 45vh;
-    // height: calc(var(--vh, 1vh) * 50);
+    height: calc(var(--vh, 1vh) * 45);
   }
 
   &_image {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
-      // height: calc(var(--vh, 1vh) * 100);
-
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    // margin-bottom: 5rem;
-
 
   @media only screen and (max-width: $tablet-breakpoint) {
     height: 60vh;
@@ -46,7 +42,7 @@
 
    @media only screen and (max-width: $mobile-breakpoint) {
     height: 35vh;
-   
+         height: calc(var(--vh, 1vh) * 35);
   }
 
   }
@@ -56,7 +52,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    background-color: rgba($color: #000000, $alpha: 0.4);
+    background-color: rgba($color: #000000, $alpha: 0.3);
     z-index: 3;
   }
 }

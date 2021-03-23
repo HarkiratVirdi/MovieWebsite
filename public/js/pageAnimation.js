@@ -8,20 +8,15 @@ const applyClassToLoader = () => {
 
 const pageAnimationOnClick = (e) => {
   e.preventDefault();
-  // console.log(e);
-  // console.log(e.composedPath());
-  // console.log(e.composedPath);
+
   const findAnchorTag = e.composedPath().find((single) => {
     return single.href !== undefined;
   });
 
   let linkToNavigate = findAnchorTag.href;
   const urlNav = location.href;
-console.log("link to navigate", linkToNavigate);
-console.log("link actual", urlNav);
   if(linkToNavigate === urlNav + "#")
   {
-      console.log("changed address");
     linkToNavigate = urlNav;
   }
 

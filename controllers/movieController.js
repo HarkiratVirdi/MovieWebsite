@@ -1,6 +1,5 @@
 const movieModel = require("../models/movieModel");
 const axios = require("axios");
-// const compressImage = require("../utils/resizeImages");
 
 const imagesForCarousel = [
   {
@@ -45,7 +44,6 @@ module.exports.getMovie = async (req, res) => {
 
   try {
     let movie = await movieModel.findById(req.params.id).lean();
-    console.log("movie in getmovies", movie);
 
     if (movie) {
      
@@ -204,7 +202,6 @@ module.exports.addMovieForm = async(req, res) => {
       console.log("saved new movie", createdMovie);
       res.redirect("/user/admin");
   } catch (err) {
-    console.log("error adding Movie", err);
 
     res.render("addMovie", {
       values: req.body,
@@ -216,11 +213,9 @@ module.exports.addMovieForm = async(req, res) => {
 
 module.exports.deleteMovie = async(req, res) => {
   const {id} = req.params;
-  console.log("delete movie ID", id);
 
   try {
       const deleteMovie = await movieModel.deleteOne({_id: id});
-      console.log("movie deleted", deleteMovie);
       res.redirect("/user/admin");
   } catch (err) {
       console.log("error", err);
@@ -242,6 +237,4 @@ module.exports.searchMovie = async (req, res) => {
  {
   console.log("error", e);
  }
-
-
 };

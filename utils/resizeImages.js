@@ -10,14 +10,13 @@ const compressImage = async(Photo) => {
         {
         const addressOfPhoto = "\public" + Photo;
         const image = await Jimp.read(addressOfPhoto);
-        image.resize(Jimp.AUTO, 400);
+        image.resize(Jimp.AUTO, 1080);
 
             image.write(newImageName);
-            console.log("Wrote image again", newImageName);
+            console.log("did not Wrote image again", newImageName);
         }else{
-            console.log("did not write", newImageName);
+            console.log(" wrote", newImageName);
         }
-        
         return Ext[0] + "_edited." + Ext[1];
     } catch (err) {
         console.log("error", err);

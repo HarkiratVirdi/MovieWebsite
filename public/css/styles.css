@@ -16,9 +16,6 @@ html {
   font-family: "Lora", serif; }
   @media only screen and (max-width: 870px) {
     html {
-      font-size: 55%; } }
-  @media only screen and (max-width: 500px) {
-    html {
       font-size: 50%; } }
 
 body {
@@ -253,9 +250,10 @@ li {
       height: calc(var(--vh, 1vh) * 80); } }
   @media only screen and (max-width: 500px) {
     .movie_hero {
-      height: 45vh; } }
+      height: 45vh;
+      height: calc(var(--vh, 1vh) * 45); } }
   .movie_hero_image {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
@@ -274,14 +272,15 @@ li {
         background-size: cover; } }
     @media only screen and (max-width: 500px) {
       .movie_hero_image {
-        height: 35vh; } }
+        height: 35vh;
+        height: calc(var(--vh, 1vh) * 35); } }
   .movie_hero_image::before {
     content: "";
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 3; }
 
 .movie_name {
@@ -540,6 +539,9 @@ li {
   width: 100% !important;
   position: static !important; }
 
+.progressive--not-loaded {
+  filter: none !important; }
+
 .btn {
   outline: none;
   border: none;
@@ -669,10 +671,11 @@ li {
     min-width: 13rem;
     max-height: 17rem; }
   .search_overflow {
-    max-height: 45vh;
-    max-height: calc(var(--vh, 1vh) * 45);
+    max-height: 60vh;
+    max-height: calc(var(--vh, 1vh) * 60);
     position: fixed;
     top: 20vh;
+    top: calc(var(--vh, 1vh) * 20);
     background: #121212;
     z-index: 998 !important;
     overflow-x: hidden;
@@ -684,6 +687,10 @@ li {
     visibility: hidden;
     transition: all 0.5s;
     flex-direction: column; }
+    @media only screen and (max-width: 500px) {
+      .search_overflow {
+        max-height: 100vh;
+        max-height: calc(var(--vh, 1vh) * 100); } }
   .search .each_movie {
     display: flex; }
   .search__movieInfo {
@@ -785,13 +792,15 @@ li {
     cursor: default;
     top: 20vh;
     height: 80%;
-    left: 0; }
+    left: 0;
+    outline: none; }
     @media only screen and (max-width: 870px) {
       .hero_arrows_left {
         display: none; } }
   .hero_arrows_right {
     cursor: default;
     height: 80%;
+    outline: none;
     width: 50%;
     font-size: 4rem;
     z-index: 10;
