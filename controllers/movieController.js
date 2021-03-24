@@ -24,9 +24,24 @@ const imagesForCarousel = [
   },
 ];
 
+const searchForMovies = {
+  _id: 1,
+  name: 1,
+  img_s_C: 1,
+  img_s: 1,
+  img_l: 1,
+  img_l_C: 1,
+  genre: 1,
+  featured: 1,
+  isMovie: 1,
+  rating: 1,
+  year: 1,
+  runtime: 1,
+};
+
 module.exports.getMovies = async (req, res) => {
   try {
-    const getAllMovies = await movieModel.find().lean();
+    const getAllMovies = await movieModel.find({},searchForMovies).lean();
 
     if (getAllMovies) {
       res.render("index", {
@@ -53,7 +68,7 @@ module.exports.getMovie = async (req, res) => {
           genre: movie.genre,
           isMovie: movie.isMovie,
           name: { $ne: movie.name },
-        })
+        }, searchForMovies)
         .lean();
 
 
@@ -86,7 +101,12 @@ module.exports.cart = (req, res) => {
 
 module.exports.getMovieList = async (req, res) => {
   try {
-    let movies = await movieModel.find().lean();
+      const movies = await movieModel
+        .find(
+          {},
+         searchForMovies
+        )
+        .lean();
 
     if (movies) {
       if (req.query.filter === "byrating") {
@@ -149,24 +169,7 @@ module.exports.addMovie = (req, res) => {
 module.exports.addMovieForm = async(req, res) => {
   const {name, featured, rating, rent, buy, img_s, img_l, isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
 
-  console.log("cast1", cast1);
-  console.log("cast2", cast2);
-  console.log("cast3", cast3);
-  console.log("name", name);
-  console.log("featured", featured);
-  console.log("rating", rating);
-  console.log("rent", rent);
-  console.log("buy", buy);
-  console.log("img_s", img_s);
-  console.log("img_l", img_l);
-  console.log("isMovie", isMovie);
-  console.log("genre", genre);
-  console.log("studio", studio);
-  console.log("runtime", runtime);
-  console.log("rated", rated);
-  console.log("year", year);
-  console.log("synopsis", synopsis);
-  
+  console.log("req.body in add movie", req.body);
 
   let isFeatured = false;
   if(featured === "Yes")
@@ -215,7 +218,7 @@ module.exports.deleteMovie = async(req, res) => {
   const {id} = req.params;
 
   try {
-      const deleteMovie = await movieModel.deleteOne({_id: id});
+     await movieModel.deleteOne({_id: id});
       res.redirect("/user/admin");
   } catch (err) {
       console.log("error", err);
@@ -226,7 +229,7 @@ module.exports.searchMovie = async (req, res) => {
   const {searchTerm} = req.body;
 
  try{
-   const findMovies = await movieModel.find({name: {$regex: searchTerm, $options: 'i'}})
+   const findMovies = await movieModel.find({name: {$regex: searchTerm, $options: 'i'}}, searchForMovies)
 
   if(findMovies)
   {

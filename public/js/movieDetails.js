@@ -1,6 +1,6 @@
 let purchaseMovie = document.querySelector(".purchasemovie");
 const movieWord = document.querySelectorAll(".movie_word");
-
+const swiperWrapper = document.querySelector(".swiper-wrapper");
 let movieJoin = [];
 let movieWords = movieWord.forEach((element, index) => {
   Array.prototype.forEach.call(element.children, function(el) {
@@ -25,7 +25,7 @@ gsap.to(".movie_hero_image", {
     start: "top top",
     toggleActions: "restart pause reverse pause",
   },
-  ease: "power0",
+  ease: "Sine.easeIn",
   transform: "matrix(1.5,0,0,1.5,0,0)",
   opacity: 0,
 });

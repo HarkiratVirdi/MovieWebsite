@@ -63,7 +63,7 @@
                 <div class="container_right">
 
                     <div class="movie_text heading mt-xl">Film Cast</div>
-                    <img class="cast_image" src={{movie.img_l_C}} alt="">
+                    <img class="cast_image" src={{movie.img_l_C}} alt="{{movie.name}}">
                     {{#each movie.cast}}
                     <div class="movie_text">{{this.name}}</div>
                     {{/each}}
@@ -134,5 +134,5 @@
 
 {{>footer}}
 
-<script type="module" defer src="/js/movieDetails.js"></script>
+<script type="module" src="/js/movieDetails.js"></script>
 <script src="/js/movieListCarousel.js"></script>

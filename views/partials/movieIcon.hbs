@@ -1,8 +1,16 @@
 
+<div class="movieIcon_container">
+<a href="/buyMovie" id="addCart">
+<i class="fas fa-plus-circle"></i>
+</a>
+
+
 <a class="movieIcon" href="/list/{{_id}}">
 <figure class="progressive">
-  <img class="progressive__img progressive--not-loaded" data-progressive={{img_s}} src="{{img_s_C}}">
+  <img alt="{{name}}" class="progressive__img progressive--not-loaded" data-progressive={{img_s}} src="{{img_s_C}}">
 </figure>
+
+
 
         <div class="h-5 movieIcon__name_container"></div>
         <div class="movieIcon__overflow">
@@ -19,5 +27,8 @@
         <div class="featured_tag">
         </div>
        {{/if}} 
+
+
+
 </a>
-     
+     </div>

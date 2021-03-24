@@ -188,7 +188,7 @@ li {
 
 .movieIcon {
   position: relative;
-  top: -3%;
+  top: 0%;
   user-select: none;
   width: 20rem;
   height: 28rem;
@@ -197,6 +197,16 @@ li {
   flex-direction: column;
   align-self: flex-end;
   overflow: hidden; }
+  .movieIcon_container {
+    position: relative; }
+    .movieIcon_container #addCart {
+      position: absolute;
+      padding: 1rem;
+      right: 0;
+      z-index: 4;
+      border-bottom-left-radius: 5px;
+      top: 0;
+      backdrop-filter: contrast(0.6); }
   @media only screen and (max-width: 500px) {
     .movieIcon {
       width: 17rem;

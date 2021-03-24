@@ -56,9 +56,12 @@
   }
 }
 
+
+
+
 .movieIcon {
   position: relative;
-  top: -3%;
+  top: 0%;
   user-select: none;
   width: 20rem;
   height: 28rem;
@@ -67,8 +70,19 @@
   flex-direction: column;
   align-self: flex-end;
   overflow: hidden;
-  // margin-top: 30px;
-  // transition: transform 0.3s;
+
+&_container{
+  position: relative; 
+  #addCart{
+    position: absolute;
+    padding: 1rem;
+    right: 0;
+    z-index: 4;
+    border-bottom-left-radius: 5px;
+    top: 0;
+    backdrop-filter: contrast(0.6);
+  }
+}
   
   @media only screen and (max-width: $mobile-breakpoint) {
       width: 17rem;
@@ -84,6 +98,9 @@
     transform: scale(1.1);
   }
   }
+
+
+
 
 
   &__overflow {
