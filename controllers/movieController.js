@@ -1,5 +1,5 @@
 const movieModel = require("../models/movieModel");
-const {validFileType} = require("../utils/Validation");
+const { uploadImages } = require("../utils/utils");
 const imagesForCarousel = [
   {
     large: "/images/banner/theWitcher.jpg",
@@ -179,8 +179,11 @@ module.exports.updateMovieForm = async(req, res) => {
 
   let isFeatured = false;
   if (featured === "Yes") {
+    console.log("featured is ", featured);
     isFeatured = true;
   }
+
+  console.log("isFeatured is ", isFeatured);
 
   let isMovieTrue = false;
   if (isMovie === "true") {
@@ -188,30 +191,25 @@ module.exports.updateMovieForm = async(req, res) => {
   }
 let errors = '';
 
-let sampleFile = req.files.img_l;
-console.log("file 1", sampleFile);
-let sampleFile2 = req.files.img_s;
-let uploadPath = "/images/movies/" + sampleFile.name;
-let uploadPath2 = "/images/movies/" + sampleFile2.name;
-  try {
-  if (validFileType(sampleFile) && validFileType(sampleFile2)) {
-    sampleFile.mv("public" + uploadPath, function (err) {
-      if (err) console.log("error uploading file 1");
-      console.log("File 1 uploaded!");
-    });
 
-    sampleFile2.mv("public" + uploadPath2, function (err) {
-      if (err) console.log("error uploading file 2");
-      console.log("File 2 uploaded!");
-    });
-  }
+
+  try {
+ let bannerImage = req.files.img_l;
+ console.log("file 1", bannerImage);
+ let posterImage = req.files.img_s;
 
   const movie = await movieModel.findById(id);
-  console.log("movie in update form                                   ", movie);
+  const bannerPathImage = "/images/movies/" + bannerImage.name;
+  
+  await uploadImages(bannerImage);
+  const posterPathImage = "/images/movies/" + posterImage.name;
+  await uploadImages(posterImage);
+
+  // console.log(uploadedOrNot);
   if(movie)
   {
-    console.log("uploadPath1", uploadPath);
-    console.log("uploadPath2", uploadPath2);
+    console.log("bannerPathImage", bannerPathImage);
+    console.log("posterPathImage", posterPathImage);
     movie.name = name;
     movie.rating = rating;
     movie.rent = rent;
@@ -219,23 +217,20 @@ let uploadPath2 = "/images/movies/" + sampleFile2.name;
     movie.isMovie = isMovieTrue;
     movie.genre = genre;
     movie.studio = studio;
-    movie.img_s = uploadPath2;
-    movie.img_l = uploadPath;
+    movie.img_s = posterPathImage;
+    movie.img_l = bannerPathImage;
     movie.runtime = runtime;
     movie.rated = rated;
     movie.featured = isFeatured;
     movie.year = year;
     movie.synopsis = synopsis;
-    movie.cast1 = cast1;
-    movie.cast2 = cast2;
-    movie.cast3 = cast3;
+    movie.cast = [
+      {name: cast1},
+      {name: cast2},
+      {name: cast3},
+    ]
   }
 
-  console.log("movie after modiying                                          ", movie);
-  console.log("uploadPath2", uploadPath2);
-
-  movie.img_l = uploadPath;
-  movie.img_s = uploadPath2;
   const updateMovie = await movie.save();
 
 
@@ -251,7 +246,6 @@ let uploadPath2 = "/images/movies/" + sampleFile2.name;
 
      res.render("updateMovie", { values: {...req.body, cast: [{name: cast1}, {name: cast2}, {name: cast3}]}, title: "Mflix | Update Movie", errors: errors });
   }
-
 }
 
 module.exports.addMovie = (req, res) => {
@@ -279,33 +273,16 @@ module.exports.addMovieForm = async(req, res) => {
 
 
   try {
-  let uploadPath;
-  let uploadPath2;
+let bannerImage = req.files.img_l;
+let posterImage = req.files.img_s;
+await uploadImages(bannerImage);
+await uploadImages(posterImage);
 
-let sampleFile = req.files.img_l;
-let sampleFile2 = req.files.img_s;
+console.log("samaple file 1", bannerImage);
+console.log("samaple file 2", posterImage);
 
-console.log("samaple file 1", sampleFile);
-console.log("samaple file 2", sampleFile2);
-
-if (
-  sampleFile.mimetype === "image/jpeg" ||
-  sampleFile2.mimetype === "image/jpeg"
-) {
-  uploadPath = "/images/movies/" + sampleFile.name;
-  uploadPath2 = "/images/movies/" + sampleFile2.name;
-  sampleFile.mv("public" + uploadPath, function (err) {
-    if (err) console.log("error uploading file 1");
-    console.log("File 1 uploaded!");
-  });
-
-  sampleFile2.mv("public" + uploadPath2, function (err) {
-    if (err) console.log("error uploading file 2");
-    console.log("File 2 uploaded!");
-  });
-}
-
-
+const bannerPathImage = "/images/movies/" + bannerImage.name; 
+const posterPathImage = "/images/movies/" + posterImage.name; 
 
       const createdMovie = await new movieModel({
         name,
@@ -313,8 +290,8 @@ if (
         rating,
         rent,
         buy,
-        img_s: uploadPath2,
-        img_l: uploadPath,
+        img_s: posterPathImage,
+        img_l: bannerPathImage,
         isMovie : isMovieTrue,
         genre,
         studio,
@@ -328,7 +305,7 @@ if (
       res.redirect("/user/admin");
   } catch (err) {
     errors = "Please fill all the Details";
-  
+    console.log("eroror", err);
       res.render("addMovie", {
       values: req.body,
       errors: errors,

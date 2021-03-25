@@ -5,6 +5,7 @@ const imagesForLogin = [
 ];
 
 const sgMail = require("@sendgrid/mail");
+const { validFileType } = require("./Validation");
 
 
 module.exports.randomImage = () => {
@@ -40,3 +41,18 @@ module.exports.sendMail = async(user) => {
         }
 }
 
+module.exports.uploadImages = async(image) => {
+  console.log("image in upload image", image);
+    // if(validFileType(image))
+    // {
+        const uploadedImage = await image.mv("public" + "/images/movies/" + image.name);
+
+        if(uploadedImage)
+        {
+          console.log("uploaded image", uploadedImage);
+          // return uploadedImage;
+        }
+    // }
+
+      // return false;
+}
