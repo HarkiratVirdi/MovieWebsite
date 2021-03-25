@@ -5,12 +5,14 @@ const fs = require("fs");
 const compressImage = async(Photo) => {
     try {
         const Ext = Photo.split(".");
+        console.log("in compress", Photo);
+        // path.join(__dirname, "../");
         const newImageName = "\public" + Ext[0] + "_edited." + Ext[1];
         if(!fs.existsSync(newImageName))
         {
-        const addressOfPhoto = "\public" + Photo;
+        const addressOfPhoto = "\public" +  Photo;
         const image = await Jimp.read(addressOfPhoto);
-        image.resize(Jimp.AUTO, 1080);
+        image.resize(Jimp.AUTO, 200);
 
             image.write(newImageName);
             console.log("did not Wrote image again", newImageName);
@@ -19,7 +21,7 @@ const compressImage = async(Photo) => {
         }
         return Ext[0] + "_edited." + Ext[1];
     } catch (err) {
-        console.log("error", err);
+        console.log("error in compress file", err);
     }
 }
 

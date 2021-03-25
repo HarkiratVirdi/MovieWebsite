@@ -172,7 +172,6 @@ const transformNextSlide = (slide) => {
    {
      clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
      duration: 0.8,
-     
      ease: "Expo.easeInOut",
    }
  );

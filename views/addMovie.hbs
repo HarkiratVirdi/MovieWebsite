@@ -3,11 +3,7 @@
 <div class="login_container addMovie_container">
 <div class="h-3">Add Movie</div>
 
-{{!-- {{#if account}} --}}
-    {{!-- <p class="mt-m h-5 heading"></p> --}}
-{{!-- {{/if}} --}}
-
-    <form class="login_form"  method="POST" action="/addMovie">
+    <form class="login_form" encType="multipart/form-data" method="POST" action="/addMovie">
           <div class="login_form_field">
         <label class="h-4" for="Firstname">Name</label>
         <input type="text" name="name" value={{values.name}}>        
@@ -38,14 +34,14 @@
         {{/if}}
         <div class="login_form_field">
         <label class="h-4" for="img_s">Poster Image</label>
-        <input name="img_s" value={{values.img_s}}>        
+       <input type="file" name="img_s" />  
         </div>
           {{#if errors.img_s}}
             <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.img_s}}</p>
         {{/if}}
         <div class="login_form_field">
         <label class="h-4" for="img_l">Banner Image</label>
-        <input type="text" name="img_l" value={{values.img_l}}>        
+       <input type="file" name="img_l" />     
         </div>
           {{#if errors.img_l}}
             <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.img_l}}</p>

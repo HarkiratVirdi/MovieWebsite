@@ -17,7 +17,6 @@ module.exports.loginUser = (req, res) => {
 };
 
 
-
 module.exports.signIn =  async(req, res) => {
   const { Email, Password } = req.body;
  const isEmail = validateEmail(Email);
@@ -67,8 +66,6 @@ module.exports.signIn =  async(req, res) => {
        errors.Password =
          "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
   }
-
-
 
     const image = randomImage();
     res.render("login", {

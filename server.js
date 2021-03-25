@@ -1,11 +1,11 @@
 const express = require("express");
-// if (process.env.NODE_ENV !== "production") {
-//   require("dotenv").config();
-// }
-const dotenv = require("dotenv");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
+const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -16,11 +16,8 @@ const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
 const {userSession, determineMethod} = require("./middleware/userSession");
 
-dotenv.config({ path: "./.env" });
 
 const PORT = process.env.PORT || 8080;
-
-connectDB();
 
 app.engine(
   "hbs",
@@ -37,7 +34,6 @@ app.engine(
 app.set("view engine", "hbs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
@@ -49,14 +45,19 @@ app.use(
   })
 );
 
+app.use(fileUpload());
 app.use(userSession);
 app.use(determineMethod);
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);
 app.use((req, res) => {
   res.render("error404", {
-    title: "MovieNation | 404",
+    title: "Mflix | 404",
   });
 });
 
-app.listen(PORT, console.log("server started at", PORT));
+
+app.listen(PORT, () => {
+  console.log("Server started at", PORT);
+  connectDB();
+})

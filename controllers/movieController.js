@@ -1,5 +1,5 @@
 const movieModel = require("../models/movieModel");
-const axios = require("axios");
+const path = require("path");
 
 const imagesForCarousel = [
   {
@@ -32,6 +32,7 @@ const searchForMovies = {
   img_l: 1,
   img_l_C: 1,
   genre: 1,
+  buy: 1,
   featured: 1,
   isMovie: 1,
   rating: 1,
@@ -72,16 +73,16 @@ module.exports.getMovie = async (req, res) => {
         .lean();
 
 
-          const getReviews = await axios.get(
-            `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie.name}&api-key=${process.env.NYTIMESAPI}`
-          );
+          // const getReviews = await axios.get(
+            // `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${movie.name}&api-key=${process.env.NYTIMESAPI}`
+          // );
 
       let reviews = "";
-      if (getReviews.data.status === "OK") {
-      reviews = getReviews.data.results;
-      } else {
-      reviews = [];
-      }
+      // if (getReviews.data.status === "OK") {
+      // reviews = getReviews.data.results;
+      // } else {
+      // reviews = [];
+      // }
 
       res.render("details", {
         movie: movie,
@@ -101,7 +102,7 @@ module.exports.cart = (req, res) => {
 
 module.exports.getMovieList = async (req, res) => {
   try {
-      const movies = await movieModel
+      let movies = await movieModel
         .find(
           {},
          searchForMovies
@@ -170,6 +171,33 @@ module.exports.addMovieForm = async(req, res) => {
   const {name, featured, rating, rent, buy, img_s, img_l, isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
 
   console.log("req.body in add movie", req.body);
+  console.log(req.files);
+
+  let uploadPath;
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were uploaded.");
+  }
+
+  let sampleFile = req.files.img_l;
+  let sampleFile2 = req.files.img_s;
+  
+  console.log("samaple file 1", sampleFile);
+  console.log("samaple file 2", sampleFile2);
+
+  // uploadPath = path.join(__dirname, "../public", "/images", "/movies", "/", sampleFile.name);
+uploadPath = "/images/movies/" + sampleFile.name;
+uploadPath2 = "/images/movies/" + sampleFile2.name;
+
+  sampleFile.mv("public" + uploadPath, function (err) {
+    if (err) console.log("error uploading file 1");
+    console.log("File 1 uploaded!");
+  });
+
+  sampleFile2.mv("public" + uploadPath2, function (err) {
+    if (err) console.log("error uploading file 2");
+    console.log("File 2 uploaded!");
+  });
 
   let isFeatured = false;
   if(featured === "Yes")
@@ -191,8 +219,8 @@ module.exports.addMovieForm = async(req, res) => {
         rating,
         rent,
         buy,
-        img_s,
-        img_l,
+        img_s: uploadPath2,
+        img_l: uploadPath,
         isMovie : isMovieTrue,
         genre,
         studio,
