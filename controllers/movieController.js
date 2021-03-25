@@ -1,5 +1,4 @@
 const movieModel = require("../models/movieModel");
-const path = require("path");
 
 const imagesForCarousel = [
   {
@@ -159,8 +158,97 @@ module.exports.getMovieList = async (req, res) => {
 };
 
 module.exports.updateMovie = async(req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   console.log("movie ID", id);
+  try {
+    const movie = await movieModel.findOne({ _id: id }).lean();
+    if (movie) {
+      console.log("movie", movie);
+      res.render("updateMovie", { values: movie });
+    }
+  } catch (error) {
+    console.log("error updating", error);
+  }
+}
+
+module.exports.updateMovieForm = async(req, res) => {
+  const {id} = req.params;
+  console.log(req.body);
+  const {name, rating, rent, buy, genre, year, synopsis, cast1, cast2, cast3, isMovie,studio, runtime, rated, featured} = req.body;
+
+
+  let isFeatured = false;
+  if (featured === "Yes") {
+    isFeatured = true;
+  }
+
+  let isMovieTrue = false;
+  if (isMovie === "true") {
+    isMovieTrue = true;
+  }
+let errors = '';
+
+  try {
+  let uploadPath;
+  let uploadPath2;
+
+  let sampleFile = req.files.img_l;
+  let sampleFile2 = req.files.img_s;
+
+  console.log("samaple file 1", sampleFile);
+  console.log("samaple file 2", sampleFile2);
+
+  if (
+   true
+  ) {
+    uploadPath = "/images/movies/" + sampleFile.name;
+    uploadPath2 = "/images/movies/" + sampleFile2.name;
+    sampleFile.mv("public" + uploadPath, function (err) {
+      if (err) console.log("error uploading file 1");
+      console.log("File 1 uploaded!");
+    });
+
+    sampleFile2.mv("public" + uploadPath2, function (err) {
+      if (err) console.log("error uploading file 2");
+      console.log("File 2 uploaded!");
+    });
+  }
+
+
+    const movie = await movieModel.updateOne(
+      { _id: id },
+      {
+        name,
+        featured: isFeatured,
+        rating,
+        rent,
+        buy,
+        img_s: uploadPath2,
+        img_l: uploadPath,
+        isMovie: isMovieTrue,
+        genre,
+        studio,
+        runtime,
+        rated,
+        year,
+        synopsis,
+        cast: [{ name: cast1 }, { name: cast2 }, { name: cast3 }],
+      }
+    );
+
+    if(movie)
+    {
+      res.redirect("/user/admin");
+    }
+    
+console.log("movie updated" , movie);
+  } catch (err) {
+    console.log("error updateing movie", err);
+    errors = "Please fill all the details correctly";
+
+     res.render("updateMovie", { values: {...req.body, cast: [{name: cast1}, {name: cast2}, {name: cast3}]}, title: "Mflix | Update Movie", errors: errors });
+  }
+
 }
 
 module.exports.addMovie = (req, res) => {
