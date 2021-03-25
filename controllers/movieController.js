@@ -1,5 +1,5 @@
 const movieModel = require("../models/movieModel");
-
+const {validFileType} = require("../utils/Validation");
 const imagesForCarousel = [
   {
     large: "/images/banner/theWitcher.jpg",
@@ -188,21 +188,13 @@ module.exports.updateMovieForm = async(req, res) => {
   }
 let errors = '';
 
+let sampleFile = req.files.img_l;
+console.log("file 1", sampleFile);
+let sampleFile2 = req.files.img_s;
+let uploadPath = "/images/movies/" + sampleFile.name;
+let uploadPath2 = "/images/movies/" + sampleFile2.name;
   try {
-  let uploadPath;
-  let uploadPath2;
-
-  let sampleFile = req.files.img_l;
-  let sampleFile2 = req.files.img_s;
-
-  console.log("samaple file 1", sampleFile);
-  console.log("samaple file 2", sampleFile2);
-
-  if (
-   true
-  ) {
-    uploadPath = "/images/movies/" + sampleFile.name;
-    uploadPath2 = "/images/movies/" + sampleFile2.name;
+  if (validFileType(sampleFile) && validFileType(sampleFile2)) {
     sampleFile.mv("public" + uploadPath, function (err) {
       if (err) console.log("error uploading file 1");
       console.log("File 1 uploaded!");
@@ -214,34 +206,45 @@ let errors = '';
     });
   }
 
+  const movie = await movieModel.findById(id);
+  console.log("movie in update form                                   ", movie);
+  if(movie)
+  {
+    console.log("uploadPath1", uploadPath);
+    console.log("uploadPath2", uploadPath2);
+    movie.name = name;
+    movie.rating = rating;
+    movie.rent = rent;
+    movie.buy = buy;
+    movie.isMovie = isMovieTrue;
+    movie.genre = genre;
+    movie.studio = studio;
+    movie.img_s = uploadPath2;
+    movie.img_l = uploadPath;
+    movie.runtime = runtime;
+    movie.rated = rated;
+    movie.featured = isFeatured;
+    movie.year = year;
+    movie.synopsis = synopsis;
+    movie.cast1 = cast1;
+    movie.cast2 = cast2;
+    movie.cast3 = cast3;
+  }
 
-    const movie = await movieModel.updateOne(
-      { _id: id },
-      {
-        name,
-        featured: isFeatured,
-        rating,
-        rent,
-        buy,
-        img_s: uploadPath2,
-        img_l: uploadPath,
-        isMovie: isMovieTrue,
-        genre,
-        studio,
-        runtime,
-        rated,
-        year,
-        synopsis,
-        cast: [{ name: cast1 }, { name: cast2 }, { name: cast3 }],
-      }
-    );
+  console.log("movie after modiying                                          ", movie);
+  console.log("uploadPath2", uploadPath2);
 
-    if(movie)
+  movie.img_l = uploadPath;
+  movie.img_s = uploadPath2;
+  const updateMovie = await movie.save();
+
+
+    if(updateMovie)
     {
+      console.log("movie updated", movie);
       res.redirect("/user/admin");
     }
-    
-console.log("movie updated" , movie);
+
   } catch (err) {
     console.log("error updateing movie", err);
     errors = "Please fill all the details correctly";

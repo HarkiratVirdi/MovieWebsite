@@ -21,3 +21,11 @@ const resPassword = this.validatePassword(password);
 
   return resEmail && resPassword;
 }
+
+module.exports.validFileType = (file) => {
+  // console.log("file", file.mimetype.contains("image"));
+  const filetype = file.mimetype;
+  const regexEx = /image/ig;
+  console.log("file", regexEx.test(filetype));
+  return regexEx.test(filetype);
+}
