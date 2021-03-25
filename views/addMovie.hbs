@@ -4,48 +4,39 @@
 <div class="h-3">Add Movie</div>
 
     <form class="login_form" encType="multipart/form-data" method="POST" action="/addMovie">
+         
           <div class="login_form_field">
+            
+     
         <label class="h-4" for="Firstname">Name</label>
         <input type="text" name="name" value={{values.name}}>        
         </div>
-        {{#if errors.name}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.name}}</p>
-        {{/if}}
+          
           <div class="login_form_field">
         <label class="h-4" for="rating">Rating</label>
         <input type="number" name="rating" value={{values.rating}}>        
         </div>
-        {{#if errors.rating}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.rating}}</p>
-        {{/if}}
+    
         <div class="login_form_field">
         <label class="h-4" for="rent">Rent Price</label>
         <input type="number"  name="rent" value={{values.rent}}>   
         </div>
-          {{#if errors.rent}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.rent}}</p>
-        {{/if}}   
+             
         <div class="login_form_field">
         <label class="h-4" for="buy">Buy Price</label>
         <input type="number" name="buy" value={{values.buy}}>        
         </div>
-          {{#if errors.buy}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.buy}}</p>
-        {{/if}}
+          
         <div class="login_form_field">
         <label class="h-4" for="img_s">Poster Image</label>
        <input type="file" name="img_s" />  
         </div>
-          {{#if errors.img_s}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.img_s}}</p>
-        {{/if}}
+           
         <div class="login_form_field">
         <label class="h-4" for="img_l">Banner Image</label>
        <input type="file" name="img_l" />     
         </div>
-          {{#if errors.img_l}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.img_l}}</p>
-        {{/if}}
+      
         <div class="login_form_field">
         <label class="h-4" for="isMovie">Category</label>
         <div class="h-4">
@@ -56,37 +47,28 @@
         <input type="radio" name="isMovie" value="false">        
         </div>
         </div>
-          {{#if errors.isMovie}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.isMovie}}</p>
-        {{/if}}
+   
     <div class="login_form_field">
         <label class="h-4" for="genre">Genre</label>
         <input type="text" name="genre" value={{values.genre}}>        
         </div>
-          {{#if errors.genre}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.genre}}</p>
-        {{/if}}
+         
         <div class="login_form_field">
         <label class="h-4" for="studio">Studio</label>
         <input type="text" name="studio" value={{values.studio}}>        
         </div>
-          {{#if errors.studio}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.studio}}</p>
-        {{/if}}
+      
+           
         <div class="login_form_field">
         <label class="h-4" for="runtime">Runtime</label>
         <input type="number" name="runtime" value={{values.runtime}}>        
         </div>
-          {{#if errors.runtime}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.runtime}}</p>
-        {{/if}}
+
         <div class="login_form_field">
         <label class="h-4" for="rated">Rated</label>
         <input type="text" name="rated" value={{values.rated}}>        
         </div>
-          {{#if errors.rated}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.rated}}</p>
-        {{/if}}
+             
         <div class="login_form_field">
         <label class="h-4" for="rated">Featured</label>
         <div class="h-4">
@@ -97,46 +79,38 @@
         <input type="radio" name="featured" value="No"> No        
     </div>
         </div>
-          {{#if errors.rated}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.rated}}</p>
-        {{/if}}
+             
         <div class="login_form_field">
         <label class="h-4" for="year">Year</label>
         <input type="number" name="year" value={{values.year}}>        
         </div>
-          {{#if errors.year}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.year}}</p>
-        {{/if}}
+               
         <div class="login_form_field">
         <label class="h-4" for="synopsis">Synopsis</label>
-        {{!-- <input type="text" name="synopsis" value={{values.synopsis}}>      --}}
+       
         <textarea name="synopsis" id="synopsis" cols="100" rows="8">{{values.synopsis}}</textarea>   
         </div>
-          {{#if errors.synopsis}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.synopsis}}</p>
-        {{/if}}
+     
+        
         <div class="login_form_field">
         <label class="h-4" for="cast1">Cast</label>
         <input type="text" name="cast1" value={{values.cast1}}>        
         </div>
-          {{#if errors.cast1}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.cast1}}</p>
-        {{/if}}
+     
         <div class="login_form_field">
         <label class="h-4" for="cast2">Cast</label>
         <input type="text" name="cast2" value={{values.cast2}}>        
         </div>
-          {{#if errors.cast2}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.cast2}}</p>
-        {{/if}}
+          
         <div class="login_form_field">
         <label class="h-4" for="cast3">Cast</label>
         <input type="text" name="cast3" value={{values.cast3}}>        
         </div>
-          {{#if errors.cast3}}
-            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.cast3}}</p>
-        {{/if}}
-        <button type="submit" class="mt-l t-w100 btn btn--white">Add Movie</button>
+       
+         {{#if errors}}
+            <p class="mt-l" style="color: red; font-size: 1.6rem; text-align: left;">{{errors}}</p>
+            {{/if}}
+        <button type="submit" class="mt-l mb-xl t-w100 btn btn--white">Add Movie</button>
     </form>
 
   </div>

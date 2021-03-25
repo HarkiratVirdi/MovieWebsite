@@ -168,36 +168,11 @@ module.exports.addMovie = (req, res) => {
 }
 
 module.exports.addMovieForm = async(req, res) => {
-  const {name, featured, rating, rent, buy, img_s, img_l, isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
+  const {name, featured, rating, rent, buy,isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
 
   console.log("req.body in add movie", req.body);
   console.log(req.files);
-
-  let uploadPath;
-
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send("No files were uploaded.");
-  }
-
-  let sampleFile = req.files.img_l;
-  let sampleFile2 = req.files.img_s;
-  
-  console.log("samaple file 1", sampleFile);
-  console.log("samaple file 2", sampleFile2);
-
-  // uploadPath = path.join(__dirname, "../public", "/images", "/movies", "/", sampleFile.name);
-uploadPath = "/images/movies/" + sampleFile.name;
-uploadPath2 = "/images/movies/" + sampleFile2.name;
-
-  sampleFile.mv("public" + uploadPath, function (err) {
-    if (err) console.log("error uploading file 1");
-    console.log("File 1 uploaded!");
-  });
-
-  sampleFile2.mv("public" + uploadPath2, function (err) {
-    if (err) console.log("error uploading file 2");
-    console.log("File 2 uploaded!");
-  });
+  let errors = "";
 
   let isFeatured = false;
   if(featured === "Yes")
@@ -213,6 +188,34 @@ uploadPath2 = "/images/movies/" + sampleFile2.name;
 
 
   try {
+  let uploadPath;
+  let uploadPath2;
+
+let sampleFile = req.files.img_l;
+let sampleFile2 = req.files.img_s;
+
+console.log("samaple file 1", sampleFile);
+console.log("samaple file 2", sampleFile2);
+
+if (
+  sampleFile.mimetype === "image/jpeg" ||
+  sampleFile2.mimetype === "image/jpeg"
+) {
+  uploadPath = "/images/movies/" + sampleFile.name;
+  uploadPath2 = "/images/movies/" + sampleFile2.name;
+  sampleFile.mv("public" + uploadPath, function (err) {
+    if (err) console.log("error uploading file 1");
+    console.log("File 1 uploaded!");
+  });
+
+  sampleFile2.mv("public" + uploadPath2, function (err) {
+    if (err) console.log("error uploading file 2");
+    console.log("File 2 uploaded!");
+  });
+}
+
+
+
       const createdMovie = await new movieModel({
         name,
         featured: isFeatured,
@@ -233,8 +236,9 @@ uploadPath2 = "/images/movies/" + sampleFile2.name;
       console.log("saved new movie", createdMovie);
       res.redirect("/user/admin");
   } catch (err) {
-
-    res.render("addMovie", {
+    errors = "Please fill all the Details";
+  
+      res.render("addMovie", {
       values: req.body,
       errors: errors,
       title: "MFlix | Add Movie",
