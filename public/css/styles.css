@@ -199,7 +199,7 @@ li {
   overflow: hidden; }
   .movieIcon_container {
     position: relative; }
-    .movieIcon_container #addCart {
+    .movieIcon_container #addCart, .movieIcon_container #removeFromCart {
       position: absolute;
       padding: 1rem;
       right: 0;

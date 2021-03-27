@@ -108,8 +108,26 @@ module.exports.addMovieToCart = (req, res) => {
     cart.push(movieId);
     console.log(cart);
   }
+
   console.log("cart after",cart);
   res.json({CartMovies: cart});
+}
+
+module.exports.removeItemFromCart = (req, res) => {
+  const {cart} = req.session.userInfo;
+  const {movieId} = req.body;
+
+  // const array = [2, 5, 9];
+
+  // console.log(array);
+
+  const index = cart.indexOf(movieId);
+  if (index > -1) {
+    cart.splice(index, 1);
+    res.json({movieId});
+  }
+
+  console.log(cart); 
 }
 
 
