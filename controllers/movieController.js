@@ -96,7 +96,28 @@ module.exports.getMovie = async (req, res) => {
 };
 
 module.exports.cart = (req, res) => {
-  res.render("cart");
+  const {cart} = res.locals.user;
+
+  const moviesInCart = [];
+
+  cart.forEach( movieId => {
+    movieModel.findOne({_id: movieId}, searchForMovies).lean().then((movie) => {
+      moviesInCart.push(movie);  
+         if (cart.length === moviesInCart.length) {
+           console.log("mvodaijodfisa", moviesInCart);
+           res.render("cart", { movie: moviesInCart });
+         } 
+    }).catch((err) => console.log("error ", err)); 
+
+   
+ 
+  });
+
+  // console.log("moviesincart*******", moviesInCart);
+  // res.render("cart", {
+  //   moviesInCart: moviesInCart,
+  //   title: "Mflix | Cart"
+  // });
 };
 
 module.exports.addMovieToCart = (req, res) => {
@@ -116,7 +137,6 @@ if(cart)
   }
   catch(err)
   {
-    // console.log("error in purchase movie", err);
     res.json({CartMovies: null});
   }
 }
@@ -245,7 +265,6 @@ let errors = '';
   const posterPathImage = "/images/movies/" + posterImage.name;
   await uploadImages(posterImage);
 
-  // console.log(uploadedOrNot);
   if(movie)
   {
     console.log("bannerPathImage", bannerPathImage);

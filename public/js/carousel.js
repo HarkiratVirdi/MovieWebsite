@@ -139,7 +139,7 @@ const changeInfo = (idx) => {
   const singleMovie = heroInfo[idx];
   setTimeout(() => {
      hero_title.innerHTML = singleMovie.title;
-     hero_buy.innerHTML = "Buy Now $" + singleMovie.buy;
+    //  hero_buy.innerHTML = "Buy Now $" + singleMovie.buy;
      hero_desc.innerHTML = singleMovie.desc;
      hero_cast.forEach((ca, index) => {
        ca.innerHTML = singleMovie.cast[index].name;
