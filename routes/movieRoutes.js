@@ -9,7 +9,7 @@ const {
   deleteMovie,
   addMovieForm,
   searchMovie,
-  purchaseMovie,
+  addMovieToCart,
   updateMovieForm,
   addMovie
 } = require("../controllers/movieController");
@@ -21,7 +21,7 @@ router.route("/list").get(getMovieList);
 router.route("/list/:id").get(getMovie);
 router.route("/cart").get(authUser,cart);
 router.route("/search").post(searchMovie);
-router.route("/purchase/:id").get(purchaseMovie);
+router.route("/purchaseMovie").post(addMovieToCart);
 router.route("/updateMovie/:id").get(authUser, adminUser, updateMovie).post(authUser, adminUser, updateMovieForm);
 router
   .route("/addMovie")

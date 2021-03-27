@@ -99,20 +99,17 @@ module.exports.cart = (req, res) => {
   res.render("cart");
 };
 
-module.exports.purchaseMovie = (req, res, next) => {
+module.exports.addMovieToCart = (req, res) => {
+  const {movieId} = req.body;
   console.log("cart",req.session.userInfo.cart);
-  // const {user} = res.locals;
- const {cart} = req.session.userInfo;
+  const {cart} = req.session.userInfo;
 
-
-
-if (cart.indexOf(req.params.id) === -1) {
-  cart.push(req.params.id);
-  console.log(cart);
-}
-
+  if (cart.indexOf(movieId) === -1) {
+    cart.push(movieId);
+    console.log(cart);
+  }
   console.log("cart after",cart);
-  next();
+  res.json({CartMovies: cart});
 }
 
 

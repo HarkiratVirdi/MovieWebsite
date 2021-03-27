@@ -56,8 +56,6 @@ module.exports.uploadImages = async(image) => {
     }else{
       throw "Please insert only Images";
     }
-
-      // return false;
 }
 
 
