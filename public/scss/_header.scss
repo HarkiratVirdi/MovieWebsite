@@ -48,10 +48,12 @@
     &::after{
       content: "0";
       position: absolute;
+      font-size: 0.9rem;
+
       top: 50%;
       border-radius: 20rem;
       color: $Lightblack;
-      padding: 0.2rem 0.55rem;
+      padding: 0.2rem 0.4rem;
       background-color:orange;
     }
   }

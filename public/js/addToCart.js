@@ -1,17 +1,17 @@
 
-const addToCart = document.querySelectorAll("#addCart");
+
 const shoppingCart = document.querySelector(".fa-shopping-cart");
 
-console.log(addToCart, "addToCart");
 
 const changeAddToAdded = (movie) => {
   const found = document.querySelector(`[data-id="${movie}"]`);
   if (found) {
-      found.id = "";
-      found.id = "removeFromCart";
+    found.id = "";
+    found.id = "removeFromCart";
     found.children[0].className = "far fa-check-circle";
     found.children[0].style.color = "orange";
   }
+ 
 };
 
 
@@ -26,6 +26,8 @@ const changeIcon = (content) => {
     content.CartMovies.forEach((el) => {
       changeAddToAdded(el);
     });
+     checkForRemoveItem();
+     checkForAddItem();
 }
 
 const findValueFromAttribute = (e) => {
@@ -39,18 +41,20 @@ const findValueFromAttribute = (e) => {
    return movieId;
 }
 
-const addItemToCart = (e) => {
+const addItemToCart = async(e) => {
     console.log("e",e);
+
     let movieId = findValueFromAttribute(e);
  
     console.log("movie id found", movieId);
     
-    if(movieId){
-        fetchFromCart(movieId);
+    if(movieId && e.target.id === "addCart" || e.target.parentElement.id === "addCart"){
+       await fetchFromCart(movieId);
     }
 }
 
 const fetchFromCart = (movieId) => {
+  console.log("fetching from cart to Add*****", movieId);
   (async () => {
     const response = await fetch("/purchaseMovie", {
       method: "POST",
@@ -64,15 +68,20 @@ const fetchFromCart = (movieId) => {
 
     changeIcon(content);
     changeCartNumber(content.CartMovies.length);
-    checkForRemoveItem();
+    // checkForRemoveItem();
   })();
 };
 fetchFromCart();
 
-
-addToCart.forEach((e) => {
+const checkForAddItem = () => {
+const addToCartItems = document.querySelectorAll("#addCart");
+console.log("addToCartItems", addToCartItems);
+addToCartItems.forEach((e) => {
     e.addEventListener('click', addItemToCart);
 })
+}
+checkForAddItem();
+
 
 const changeAddedToRemove = (movie) => {
   const found = document.querySelector(`[data-id="${movie}"]`);
@@ -99,22 +108,28 @@ const fetchRemoveFromCart = async(movieId) => {
     console.log("content", content);
 }
 
-const removeItemFromCartById = (e) => {
-    console.log("e", e);
+const removeItemFromCartById = async(e) => {
+    console.log("removeItem from Cart by Id", e);
    let movieId = findValueFromAttribute(e);
 
-   fetchRemoveFromCart(movieId);
+if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFromCart")
+{
+   await fetchRemoveFromCart(movieId);
+   await fetchFromCart();
+}
 }
 
 
 
 const checkForRemoveItem = () => {
         const removeItem = document.querySelectorAll("#removeFromCart");
-
+      // checkForAddItem();
     if(removeItem)
     {
-        removeItem.forEach((e) => {
+        removeItem.forEach((e, i) => {
+            console.log("index for removing",i, e);
             e.addEventListener('click', removeItemFromCartById);
         })
     }
 }
+
