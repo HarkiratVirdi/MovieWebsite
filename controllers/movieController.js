@@ -104,7 +104,7 @@ module.exports.addMovieToCart = (req, res) => {
   console.log("cart",req.session.userInfo.cart);
   const {cart} = req.session.userInfo;
 
-  if (cart.indexOf(movieId) === -1) {
+  if (cart.indexOf(movieId) === -1 && movieId) {
     cart.push(movieId);
     console.log(cart);
   }
