@@ -100,17 +100,25 @@ module.exports.cart = (req, res) => {
 };
 
 module.exports.addMovieToCart = (req, res) => {
+  try{
   const {movieId} = req.body;
-  console.log("cart",req.session.userInfo.cart);
   const {cart} = req.session.userInfo;
 
+if(cart)
+{
   if (cart.indexOf(movieId) === -1 && movieId) {
     cart.push(movieId);
     console.log(cart);
   }
-
   console.log("cart after",cart);
   res.json({CartMovies: cart});
+}
+  }
+  catch(err)
+  {
+    // console.log("error in purchase movie", err);
+    res.json({CartMovies: null});
+  }
 }
 
 module.exports.removeItemFromCart = (req, res) => {

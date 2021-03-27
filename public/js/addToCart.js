@@ -1,7 +1,4 @@
-
-
 const shoppingCart = document.querySelector(".fa-shopping-cart");
-
 
 const changeAddToAdded = (movie) => {
   const found = document.querySelector(`[data-id="${movie}"]`);
@@ -14,7 +11,18 @@ const changeAddToAdded = (movie) => {
  
 };
 
+const showLoginAndRegister = (movie) => {
+  const found = document.querySelector(`[data-id="${movie}"]`);
 
+  if(found)
+  {
+    console.log("found in show login and register", found);
+    found.nextElementSibling.classList.add('show');
+    setTimeout(() => {
+      found.nextElementSibling.classList.remove("show");
+    }, 3000);
+  }
+}
 
 const changeCartNumber = (number) => {
     let styleElem = document.head.appendChild(document.createElement("style"));
@@ -42,11 +50,9 @@ const findValueFromAttribute = (e) => {
 }
 
 const addItemToCart = async(e) => {
-    console.log("e",e);
 
     let movieId = findValueFromAttribute(e);
  
-    console.log("movie id found", movieId);
     
     if(movieId && e.target.id === "addCart" || e.target.parentElement.id === "addCart"){
        await fetchFromCart(movieId);
@@ -54,7 +60,6 @@ const addItemToCart = async(e) => {
 }
 
 const fetchFromCart = (movieId) => {
-  console.log("fetching from cart to Add*****", movieId);
   (async () => {
     const response = await fetch("/purchaseMovie", {
       method: "POST",
@@ -66,16 +71,20 @@ const fetchFromCart = (movieId) => {
     });
     const content = await response.json();
 
-    changeIcon(content);
-    changeCartNumber(content.CartMovies.length);
-    // checkForRemoveItem();
+    console.log("content from response", content);
+    if(content.CartMovies)
+    {
+      changeIcon(content);
+      changeCartNumber(content.CartMovies.length);
+    }else{
+      showLoginAndRegister(movieId);
+    }
   })();
 };
 fetchFromCart();
 
 const checkForAddItem = () => {
 const addToCartItems = document.querySelectorAll("#addCart");
-console.log("addToCartItems", addToCartItems);
 addToCartItems.forEach((e) => {
     e.addEventListener('click', addItemToCart);
 })
@@ -105,11 +114,9 @@ const fetchRemoveFromCart = async(movieId) => {
     const content = await response.json();
 
     changeAddedToRemove(content.movieId);
-    console.log("content", content);
 }
 
 const removeItemFromCartById = async(e) => {
-    console.log("removeItem from Cart by Id", e);
    let movieId = findValueFromAttribute(e);
 
 if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFromCart")
@@ -123,11 +130,9 @@ if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFrom
 
 const checkForRemoveItem = () => {
         const removeItem = document.querySelectorAll("#removeFromCart");
-      // checkForAddItem();
     if(removeItem)
     {
         removeItem.forEach((e, i) => {
-            console.log("index for removing",i, e);
             e.addEventListener('click', removeItemFromCartById);
         })
     }
