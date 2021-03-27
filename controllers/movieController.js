@@ -99,6 +99,23 @@ module.exports.cart = (req, res) => {
   res.render("cart");
 };
 
+module.exports.purchaseMovie = (req, res, next) => {
+  console.log("cart",req.session.userInfo.cart);
+  // const {user} = res.locals;
+ const {cart} = req.session.userInfo;
+
+
+
+if (cart.indexOf(req.params.id) === -1) {
+  cart.push(req.params.id);
+  console.log(cart);
+}
+
+  console.log("cart after",cart);
+  next();
+}
+
+
 module.exports.getMovieList = async (req, res) => {
   try {
       let movies = await movieModel

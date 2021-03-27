@@ -35,14 +35,16 @@ module.exports.signIn =  async(req, res) => {
          if (!match) {
           throw 1;
         }
-        req.session.userInfo = findUser;
+  
+               req.session.userInfo = findUser;
 
-        if(req.session.userInfo.isAdmin)
-        {
-          res.redirect("/user/admin");
+        if(req.session.userInfo.isAdmin )
+        { res.redirect("/user/admin");
         }else{
-          res.redirect("/user/dashboard");
+       res.redirect("/user/dashboard");
         }
+    
+        
       }else{
         throw 2;
       }
@@ -125,7 +127,10 @@ module.exports.signUp = async (req, res) => {
           const user = await newUser.save();
           const mailSent = await sendMail(user);
           if (user && mailSent) {
+            user.cart = [];
             req.session.userInfo = user;
+            console.log("session after login", user);
+            console.log("session2 after login", req.session.userInfo);
             res.redirect("/user/dashboard");
           } else {
             throw "Unable to Register User";
@@ -152,7 +157,6 @@ module.exports.adminDashboard = async(req, res) => {
     const allMovies = await movieModel.find({}).lean();
     if(allMovies)
     {
-      // console.log(allMovies);
       res.render("Admin", {movies: allMovies});
     }
   } catch (err) {

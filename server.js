@@ -45,9 +45,14 @@ app.use(
   })
 );
 
+
 app.use(fileUpload());
 app.use(userSession);
 app.use(determineMethod);
+app.get("/", (req, res, next) => {
+  console.log("session data", res.locals.user);
+  next();
+});
 app.use("/", movieRoutes);
 app.use("/user", userRoutes);
 app.use((req, res) => {
