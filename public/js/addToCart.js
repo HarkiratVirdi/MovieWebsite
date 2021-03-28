@@ -1,5 +1,12 @@
 const shoppingCart = document.querySelector(".fa-shopping-cart");
 
+
+
+const removeMoviesInCartPage = (e) => {
+
+}
+
+
 const changeAddToAdded = (movie) => {
   const found = document.querySelector(`[data-id="${movie}"]`);
   if (found) {
@@ -116,6 +123,15 @@ const fetchRemoveFromCart = async(movieId) => {
     changeAddedToRemove(content.movieId);
 }
 
+const checkIfOnCartPage = () => {
+  let isCartPage = false;
+  if(window.location.pathname === "/cart")
+  {
+    isCartPage = true;
+  }
+  return isCartPage;
+}
+
 const removeItemFromCartById = async(e) => {
    let movieId = findValueFromAttribute(e);
 
@@ -123,6 +139,21 @@ if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFrom
 {
    await fetchRemoveFromCart(movieId);
    await fetchFromCart();
+
+  if(checkIfOnCartPage())
+  {
+
+  console.log("e",e);
+
+  const find_cart_item = e.path.find((single) => {
+    console.log("each itera", single);
+    console.log("single", single.classList.contains("cart_items"));
+      return single.classList.contains('cart_items');
+  });
+
+  find_cart_item.nextElementSibling.remove();
+  find_cart_item.remove();
+  }
 }
 }
 
@@ -130,9 +161,11 @@ if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFrom
 
 const checkForRemoveItem = () => {
         const removeItem = document.querySelectorAll("#removeFromCart");
+
+        console.log("removeitems", removeItem);
     if(removeItem)
     {
-        removeItem.forEach((e, i) => {
+        removeItem.forEach((e) => {
             e.addEventListener('click', removeItemFromCartById);
         })
     }

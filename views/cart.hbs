@@ -1,17 +1,23 @@
 <div class="container">
     <h4 class="h-4 mb-m heading">Cart</h4>
-    <hr class="mt-m">
+    <hr class="mt-m mb-s">
 
-    {{#if movie}} --}}
-        {{#each movie}}  
-            <h1 class="h-4 mt-m">{{name}}</h1>
+    {{#if moviesInCart}} 
+        {{#each moviesInCart}}  
+         <div class="cart_items">
+            {{>movieIcon this}}
+            {{!-- <div class="cart_items--2"> --}}
+            <h1 class="h-4 mt-m">{{name}}</h1> 
             <h1 class="h-4 mt-m">{{genre}}</h1>
             <h1 class="h-4 mt-m">{{runtime}}</h1>
+            {{!-- </div> --}}
+         </div>
+               <hr class="mt-s mb-s">
         {{/each}}
     {{else}}
             <h1 class="h-4 mt-m">Your Cart is Empty</h1>
     {{/if}}
-    <hr class="mt-m">
+   
     <a href="/list" class="btn btn-white mt-m heading">Shop</a>
 </div>
 

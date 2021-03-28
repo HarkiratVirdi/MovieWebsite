@@ -98,27 +98,22 @@ module.exports.getMovie = async (req, res) => {
 module.exports.cart = (req, res) => {
   const {cart} = res.locals.user;
 
-  const moviesInCart = [];
+   movieModel.find(
+     {
+       _id: {
+         $in: cart,
+       },
+     },
+     function (err, moviesInCart) {
+       console.log(moviesInCart);
+       res.render("cart", {
+         moviesInCart: moviesInCart,
+         title: "Mflix | Cart"
+       });
+     }
+   ).lean(); 
+  };
 
-  cart.forEach( movieId => {
-    movieModel.findOne({_id: movieId}, searchForMovies).lean().then((movie) => {
-      moviesInCart.push(movie);  
-         if (cart.length === moviesInCart.length) {
-           console.log("mvodaijodfisa", moviesInCart);
-           res.render("cart", { movie: moviesInCart });
-         } 
-    }).catch((err) => console.log("error ", err)); 
-
-   
- 
-  });
-
-  // console.log("moviesincart*******", moviesInCart);
-  // res.render("cart", {
-  //   moviesInCart: moviesInCart,
-  //   title: "Mflix | Cart"
-  // });
-};
 
 module.exports.addMovieToCart = (req, res) => {
   try{

@@ -886,6 +886,9 @@ li {
 .slides_images {
   width: 100%; }
 
+.cart_items {
+  display: flex; }
+
 .dashboard__btn {
   display: flex;
   font-size: 1.2rem; }
