@@ -1,10 +1,5 @@
 const shoppingCart = document.querySelector(".fa-shopping-cart");
-
-
-
-const removeMoviesInCartPage = (e) => {
-
-}
+const headingCart = document.querySelector("h4.heading");
 
 
 const changeAddToAdded = (movie) => {
@@ -34,7 +29,9 @@ const showLoginAndRegister = (movie) => {
 const changeCartNumber = (number) => {
     let styleElem = document.head.appendChild(document.createElement("style"));
 
+    
     styleElem.innerHTML = `.fa-shopping-cart:after {content: "${number}" !important;}`;
+
 }
 
 const changeIcon = (content) => {
@@ -142,19 +139,43 @@ if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFrom
 
   if(checkIfOnCartPage())
   {
-
   console.log("e",e);
 
-  const find_cart_item = e.path.find((single) => {
-    console.log("each itera", single);
-    console.log("single", single.classList.contains("cart_items"));
-      return single.classList.contains('cart_items');
-  });
+  // const find_cart_item = e.path.find((single) => {
+  //   console.log("each itera", single);
+  //   console.log("single", single.classList.contains("cart_items"));
+  //     return single.classList.contains('cart_items');
+  // });
 
-  find_cart_item.nextElementSibling.remove();
-  find_cart_item.remove();
+  // find_cart_item.nextElementSibling.remove();
+  // find_cart_item.remove();
+ 
+
+
+
+if(e.target.classList.contains('fa-plus-circle'))
+{
+  console.log("e is cirlce", e.target);
+
+  const parElement = e.target.parentElement.parentElement.parentElement.parentElement;
+
+  parElement.classList.add("hidden");
+
+  setTimeout(() => {
+    parElement.remove();
+  }, 600);
+}else if(e.target.id === "addCart")
+{
+  console.log("e is addCart", e.target);
+  const parElmt = e.target.parentElement.parentElement.parentElement;
+
+  parElmt.classList.add("hidden");
+  setTimeout(() => {
+      parElmt.remove();
+  }, 600);
+}}
+
   }
-}
 }
 
 

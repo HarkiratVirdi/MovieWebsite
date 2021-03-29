@@ -5,17 +5,22 @@
     {{#if moviesInCart}} 
         {{#each moviesInCart}}  
          <div class="cart_items">
+
+        <div class="cart_items_content">
+
             {{>movieIcon this}}
             {{!-- <div class="cart_items--2"> --}}
             <h1 class="h-4 mt-m">{{name}}</h1> 
             <h1 class="h-4 mt-m">{{genre}}</h1>
             <h1 class="h-4 mt-m">{{runtime}}</h1>
-            {{!-- </div> --}}
+        
          </div>
-               <hr class="mt-s mb-s">
+            <hr class="mt-s mb-s">
+         </div>
         {{/each}}
     {{else}}
             <h1 class="h-4 mt-m">Your Cart is Empty</h1>
+            <hr class="mt-m mb-s">
     {{/if}}
    
     <a href="/list" class="btn btn-white mt-m heading">Shop</a>

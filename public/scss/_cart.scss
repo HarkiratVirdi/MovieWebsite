@@ -1,5 +1,14 @@
 .cart{
  &_items{
      display: flex;
- }
+     flex-direction: column;
+     transition: all 0.5s;
+
+    &_content{
+        display: flex;
+
+    }
+    }
+
+
 }

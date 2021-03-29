@@ -208,7 +208,7 @@ li {
       z-index: 4;
       border-bottom-left-radius: 5px;
       top: 0;
-      backdrop-filter: brightness(0.5); }
+      background-color: #424242; }
     .movieIcon_container .loginAndRegister {
       position: absolute;
       padding: 1rem;
@@ -887,7 +887,11 @@ li {
   width: 100%; }
 
 .cart_items {
-  display: flex; }
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s; }
+  .cart_items_content {
+    display: flex; }
 
 .dashboard__btn {
   display: flex;
@@ -984,6 +988,13 @@ li {
   opacity: 0;
   visibility: hidden;
   z-index: 0; }
+
+.line {
+  width: 100%;
+  background-color: white;
+  border: none;
+  outline: none;
+  height: 0.13rem; }
 
 .slide__active {
   position: relative;
