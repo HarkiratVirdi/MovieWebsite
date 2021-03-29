@@ -86,21 +86,7 @@
     background-color: #424242;
   }
 
-  .loginAndRegister{
-    position: absolute;
-    padding: 1rem;
-    right: 0;
-    opacity: 0;
-    z-index: 100;
-    visibility: hidden;
-    text-align: left;
-    border-radius: 0.5rem;
-    top: 0;
-    transition: all 0.3s;
-    display: flex;
-    flex-direction: column;
-    background: white;
-  }
+
 }
   
   @media only screen and (max-width: $mobile-breakpoint) {

@@ -7,23 +7,34 @@
          <div class="cart_items">
 
         <div class="cart_items_content">
-
             {{>movieIcon this}}
-            {{!-- <div class="cart_items--2"> --}}
-            <h1 class="h-4 mt-m">{{name}}</h1> 
-            <h1 class="h-4 mt-m">{{genre}}</h1>
-            <h1 class="h-4 mt-m">{{runtime}}</h1>
-        
+            <div class="cart_items--info ml-m">
+<h1 class="h-4 heading">{{this.name}}</h1>
+<h1 class="h-4">Genre: {{this.genre}}</h1>
+<h1 class="h-4">Rating: {{this.rating}}%</h1>
+<h1 class="h-4">Rated: {{this.rated}}</h1>
+<h1 class="h-4">Year: {{this.year}}</h1>
+{{!-- <h1 class="h-4">Studio: {{this.studio}}</h1> --}}
+<h1 class="h-4">Runtime: {{this.runtime}} Min</h1>
+
+
+               <select name="buyOrRent" id="buyOrRent">
+                   <option value="Buy">Buy For ${{this.buy}}</option>
+                   <option value="Rent">Rent For ${{this.rent}}</option>
+               </select>
+             </div>
          </div>
             <hr class="mt-s mb-s">
          </div>
         {{/each}}
+    <a href="/checkout" class="btn btn-white mt-m heading">Checkout</a>
+
     {{else}}
             <h1 class="h-4 mt-m">Your Cart is Empty</h1>
             <hr class="mt-m mb-s">
+    <a href="/list" class="btn btn-white mt-m heading">Shop</a>
     {{/if}}
    
-    <a href="/list" class="btn btn-white mt-m heading">Shop</a>
 </div>
 
 

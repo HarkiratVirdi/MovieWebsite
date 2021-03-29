@@ -1,22 +1,28 @@
 const shoppingCart = document.querySelector(".fa-shopping-cart");
-const headingCart = document.querySelector("h4.heading");
+const Cartbtn = document.querySelector("a.btn.heading");
+const btnAddToCart = document.querySelector("button#addCart");
 
 
 const changeAddToAdded = (movie) => {
-  const found = document.querySelector(`[data-id="${movie}"]`);
-  if (found) {
-    found.id = "";
-    found.id = "removeFromCart";
-    found.children[0].className = "far fa-check-circle";
-    found.children[0].style.color = "orange";
+
+  try {
+      const found = document.querySelector(`[data-id="${movie}"]`);
+      if (found) {
+        found.id = "";
+        found.id = "removeFromCart";
+
+        found.children[0].className = "far fa-check-circle";
+        found.children[0].style.color = "orange";
+      }
+  } catch (error) {
+      
   }
- 
 };
 
 const showLoginAndRegister = (movie) => {
   const found = document.querySelector(`[data-id="${movie}"]`);
 
-  if(found)
+  if(found && found.nextElementSibling)
   {
     console.log("found in show login and register", found);
     found.nextElementSibling.classList.add('show');
@@ -29,9 +35,13 @@ const showLoginAndRegister = (movie) => {
 const changeCartNumber = (number) => {
     let styleElem = document.head.appendChild(document.createElement("style"));
 
-    
     styleElem.innerHTML = `.fa-shopping-cart:after {content: "${number}" !important;}`;
 
+    if(number === 0 && Cartbtn)
+    {
+      Cartbtn.innerHTML = "Shop";
+      Cartbtn.href = "/list";
+    }
 }
 
 const changeIcon = (content) => {
@@ -83,27 +93,59 @@ const fetchFromCart = (movieId) => {
     }else{
       showLoginAndRegister(movieId);
     }
+
+    try {
+      console.log("location.href", window.location.pathname);
+      console.log("btn link", "/list/", btnAddToCart.getAttribute("data-id"));
+       if (
+         window.location.pathname ===
+         "/list/" + btnAddToCart.getAttribute("data-id")
+       ) {
+         
+         const isItemInCart = content.CartMovies.find(
+           (el) => el === btnAddToCart.getAttribute("data-id")
+         );
+            console.log("is itemt there", isItemInCart);
+         if (isItemInCart) {
+           btnAddToCart.innerHTML = "Added In Cart";
+         } else {
+           btnAddToCart.innerHTML = "Add To Cart";
+         }
+       }
+    } catch (error) {
+      console.log("error", error);
+    }
+   
+
   })();
 };
 fetchFromCart();
 
 const checkForAddItem = () => {
 const addToCartItems = document.querySelectorAll("#addCart");
+
 addToCartItems.forEach((e) => {
-    e.addEventListener('click', addItemToCart);
+  console.log("addCart", e);
+  e.addEventListener('click', addItemToCart);
 })
 }
 checkForAddItem();
 
 
 const changeAddedToRemove = (movie) => {
-  const found = document.querySelector(`[data-id="${movie}"]`);
-  if (found) {
-    found.id = "";
-    found.id = "addCart";
-    found.children[0].className = "fas fa-plus-circle";
-    found.children[0].style.color = "white";
-  }
+ 
+ try {
+     const found = document.querySelector(`[data-id="${movie}"]`);
+     if (found) {
+       found.id = "";
+       found.id = "addCart";
+       found.children[0].className = "fas fa-plus-circle";
+       found.children[0].style.color = "white";
+     }
+ } catch (error) {
+   
+ }
+
 };
 
 const fetchRemoveFromCart = async(movieId) => {
@@ -140,18 +182,6 @@ if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFrom
   if(checkIfOnCartPage())
   {
   console.log("e",e);
-
-  // const find_cart_item = e.path.find((single) => {
-  //   console.log("each itera", single);
-  //   console.log("single", single.classList.contains("cart_items"));
-  //     return single.classList.contains('cart_items');
-  // });
-
-  // find_cart_item.nextElementSibling.remove();
-  // find_cart_item.remove();
- 
-
-
 
 if(e.target.classList.contains('fa-plus-circle'))
 {
@@ -192,3 +222,20 @@ const checkForRemoveItem = () => {
     }
 }
 
+// const changeInnerText = async(e) => {
+//   const findId = findValueFromAttribute(e);
+//   console.log("id", findId);
+
+//   const content = await fetchFromCart();
+//   console.log("content", content);
+//   const isIdInCart = content.CartMovies.forEach(el => el === findId);
+  
+//   if(isIdInCart)
+//   {
+//     btnAddToCart.innerHTML = "Added In Cart";
+//   }else{
+//     btnAddToCart.innerHTML = "Add To Cart";
+//   }
+// }
+
+// btnAddToCart.addEventListener("click", changeInnerText);

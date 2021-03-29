@@ -24,8 +24,16 @@
             </div>
 
             <div class="purchasemovie__buttons">
-                <a class="btn btn-black mt-s" href="#">Buy ${{movie.buy}}</a>
-                <a class="btn btn-black mt-s" href="#">Rent ${{movie.rent}}</a>
+                <button data-id={{movie._id}} class="mt-m btn btn-black" id="addCart">Add To Cart</button>
+
+                
+<div class="loginAndRegister">
+    <div class="h-6 h-6--black">Want to Buy/Rent this Item</div>
+    <a class="h-6--black" href="/user/login">Login <i class="fas fa-angle-right"></i></a>
+    <hr style="opacity: 0.5;" class="mt-s">
+    <div class="h-6 h-6--black mt-s">Not A member Yet</div>
+    <a href="/user/register" class="h-6--black">Register <i class="fas fa-angle-right"></i></a>
+</div>
             </div>
         </div>
 

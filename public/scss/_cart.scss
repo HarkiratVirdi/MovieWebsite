@@ -6,8 +6,23 @@
 
     &_content{
         display: flex;
-
     }
+
+    &--info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        #buyOrRent{
+            padding: 1rem;
+            border: none;
+            background-color: $white;
+            color: $black;
+            outline: none;
+        }
+    }
+
+
     }
 
 

@@ -35,9 +35,10 @@ module.exports.signIn =  async(req, res) => {
          if (!match) {
           throw 1;
         }
-  
-               req.session.userInfo = findUser;
+        
+        req.session.userInfo = findUser;
 
+        
         if(req.session.userInfo.isAdmin )
         { res.redirect("/user/admin");
         }else{
