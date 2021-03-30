@@ -1,4 +1,15 @@
 .cart{
+
+    &_items_all{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+        grid-column-gap: 3rem;
+        
+   @media only screen and (max-width: $tablet-breakpoint) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+};
+
  &_items{
      display: flex;
      flex-direction: column;

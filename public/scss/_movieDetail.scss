@@ -99,6 +99,9 @@
   &__buttons {
     width: 100%;
     position: relative;
+    display: flex;
+
+    justify-content: center;
     top: 0;
 
 
@@ -109,6 +112,7 @@
 
     @media only screen and (max-width: $tablet-breakpoint) {
       width: 40%;
+          margin-left: 1rem;
     }
   }
 
@@ -139,6 +143,11 @@
       width: 18.5rem;
       flex-direction: row;
       margin-right: 0;
+    }
+
+
+      @media only screen and (max-width: 320px) {
+      height: 19rem;
     }
   }
 }

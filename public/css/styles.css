@@ -50,10 +50,107 @@ button {
   border: none;
   cursor: pointer; }
 
+.themeChanger .h1, .themeChanger .h2, .themeChanger .h3, .themeChanger .h4, .themeChanger .h5, .themeChanger .h6, .themeChanger .h-1, .themeChanger .h-2, .themeChanger .h-3, .themeChanger .h-4, .themeChanger .h-5, .themeChanger .h-6 {
+  color: #121212; }
+
+.themeChanger .h-5--cta {
+  color: orange !important; }
+
+.themeChanger .h-3--white {
+  color: #121212; }
+
+.themeChanger p {
+  color: #121212; }
+
+.themeChanger a,
+.themeChanger li {
+  color: #121212; }
+
+.themeChanger .movie_info_section1 {
+  background: #eee !important; }
+
+.themeChanger .movie_text {
+  color: #121212 !important; }
+
+.themeChanger .cast {
+  background: #eee !important; }
+
+.themeChanger .reviews {
+  background-color: #eee !important; }
+
+.themeChanger .movie_char {
+  color: white; }
+
+.themeChanger .footer .h-4 {
+  color: #fff !important; }
+
+.themeChanger .btn-white {
+  background-color: #121212;
+  color: #fff; }
+
+.themeChanger .btn-black {
+  color: #121212;
+  background-color: #fff; }
+
+.themeChanger .cart_items--info #buyOrRent {
+  background-color: #121212;
+  color: #fff; }
+
+.themeChanger .overlay_text {
+  color: #d0d0d0; }
+
+.themeChanger .swiper-slide {
+  background-color: #fff !important; }
+
+.themeChanger .filtermovies {
+  background-color: #d7d7d7;
+  color: #1b1b1b !important; }
+  .themeChanger .filtermovies .active {
+    background-color: #9b9b9b !important; }
+  .themeChanger .filtermovies_filter {
+    background: #d7d7d7; }
+
+.themeChanger .hero_banner .btn-white {
+  background-color: #fff;
+  color: #121212; }
+
+.themeChanger .hero_banner_left #hero_title, .themeChanger .hero_banner_left #hero_desc {
+  color: #fff; }
+
+.themeChanger .hero_banner_right .hero_cast ul li {
+  color: #fff !important; }
+
+.themeChanger .contentsection {
+  background-color: #ddd; }
+
+.themeChanger #searchBox {
+  background-color: #fff; }
+  .themeChanger #searchBox .search_close {
+    color: #121212; }
+  .themeChanger #searchBox .search_overflow {
+    background-color: #fff !important; }
+
+.themeChanger .fa-search {
+  color: white; }
+
+.themeChanger .purchasemovie__buttons button {
+  background-color: #121212;
+  color: #fff; }
+
+.themeChanger .header {
+  mix-blend-mode: difference; }
+
+.themeChanger .login_form_field input {
+  color: #121212;
+  border-color: #121212; }
+
 .h-1, .h-2, .h-3, .h-4, .h-5, .h-6 {
   font-weight: 400;
   font-family: "Lora", serif;
   color: #fff; }
+
+.themeChange .h-1, .themeChange .h-2, .themeChange .h-3, .themeChange .h-4, .themeChange .h-5, .themeChange .h-6 {
+  color: #121212; }
 
 p {
   font-size: 1.8rem;
@@ -334,13 +431,16 @@ li {
   .purchasemovie__buttons {
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
     top: 0; }
     .purchasemovie__buttons .loginAndRegister {
       top: 0;
       right: -15%; }
     @media only screen and (max-width: 870px) {
       .purchasemovie__buttons {
-        width: 40%; } }
+        width: 40%;
+        margin-left: 1rem; } }
   @media only screen and (max-width: 870px) {
     .purchasemovie {
       align-items: center;
@@ -367,6 +467,9 @@ li {
         width: 18.5rem;
         flex-direction: row;
         margin-right: 0; } }
+    @media only screen and (max-width: 320px) {
+      .purchasemovie__image {
+        height: 19rem; } }
 
 .movie_details {
   display: unset;
@@ -461,7 +564,7 @@ li {
 .header {
   height: 20vh;
   position: relative;
-  z-index: 5; }
+  z-index: 996; }
   .header_nav {
     height: 100%;
     display: flex;
@@ -757,6 +860,10 @@ li {
     .hero {
       height: 60vh;
       height: calc(var(--vh, 1vh) * 60); } }
+  @media only screen and (max-width: 500px) {
+    .hero {
+      height: 45vh;
+      height: calc(var(--vh, 1vh) * 45); } }
   .hero_subcontainer {
     max-width: 1200px;
     margin: auto;
@@ -876,6 +983,14 @@ li {
 
 .slides_images {
   width: 100%; }
+
+.cart_items_all {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+  grid-column-gap: 3rem; }
+  @media only screen and (max-width: 870px) {
+    .cart_items_all {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } }
 
 .cart_items {
   display: flex;

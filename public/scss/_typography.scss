@@ -4,6 +4,10 @@
   color: $white;
 }
 
+.themeChange %h{
+  color: $Lightblack;
+}
+
 @mixin color-text {
   &--white {
     color: $white;
@@ -17,6 +21,8 @@
     color: $cta;
   }
 }
+
+
 
 p {
   font-size: 1.8rem;

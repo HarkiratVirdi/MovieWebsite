@@ -4,7 +4,6 @@ const btnAddToCart = document.querySelector("button#addCart");
 
 
 const changeAddToAdded = (movie) => {
-
   try {
       const found = document.querySelector(`[data-id="${movie}"]`);
       if (found) {
@@ -22,9 +21,8 @@ const changeAddToAdded = (movie) => {
 const showLoginAndRegister = (movie) => {
   const found = document.querySelector(`[data-id="${movie}"]`);
 
-  if(found && found.nextElementSibling)
+  if(found)
   {
-    console.log("found in show login and register", found);
     found.nextElementSibling.classList.add('show');
     setTimeout(() => {
       found.nextElementSibling.classList.remove("show");
@@ -37,7 +35,7 @@ const changeCartNumber = (number) => {
 
     styleElem.innerHTML = `.fa-shopping-cart:after {content: "${number}" !important;}`;
 
-    if(number === 0 && Cartbtn)
+    if(number === 0 && checkIfOnCartPage())
     {
       Cartbtn.innerHTML = "Shop";
       Cartbtn.href = "/list";
@@ -95,8 +93,7 @@ const fetchFromCart = (movieId) => {
     }
 
     try {
-      console.log("location.href", window.location.pathname);
-      console.log("btn link", "/list/", btnAddToCart.getAttribute("data-id"));
+    
        if (
          window.location.pathname ===
          "/list/" + btnAddToCart.getAttribute("data-id")
@@ -105,15 +102,15 @@ const fetchFromCart = (movieId) => {
          const isItemInCart = content.CartMovies.find(
            (el) => el === btnAddToCart.getAttribute("data-id")
          );
-            console.log("is itemt there", isItemInCart);
+          
          if (isItemInCart) {
-           btnAddToCart.innerHTML = "Added In Cart";
+           btnAddToCart.innerHTML = "Added";
          } else {
            btnAddToCart.innerHTML = "Add To Cart";
          }
        }
     } catch (error) {
-      console.log("error", error);
+      // console.log("error", error);
     }
    
 
@@ -125,7 +122,6 @@ const checkForAddItem = () => {
 const addToCartItems = document.querySelectorAll("#addCart");
 
 addToCartItems.forEach((e) => {
-  console.log("addCart", e);
   e.addEventListener('click', addItemToCart);
 })
 }
@@ -181,12 +177,10 @@ if(e.target.id === "removeFromCart" || e.target.parentElement.id === "removeFrom
 
   if(checkIfOnCartPage())
   {
-  console.log("e",e);
-
+  
 if(e.target.classList.contains('fa-plus-circle'))
 {
-  console.log("e is cirlce", e.target);
-
+  
   const parElement = e.target.parentElement.parentElement.parentElement.parentElement;
 
   parElement.classList.add("hidden");
@@ -196,7 +190,7 @@ if(e.target.classList.contains('fa-plus-circle'))
   }, 600);
 }else if(e.target.id === "addCart")
 {
-  console.log("e is addCart", e.target);
+  
   const parElmt = e.target.parentElement.parentElement.parentElement;
 
   parElmt.classList.add("hidden");
@@ -209,11 +203,10 @@ if(e.target.classList.contains('fa-plus-circle'))
 }
 
 
-
 const checkForRemoveItem = () => {
         const removeItem = document.querySelectorAll("#removeFromCart");
 
-        console.log("removeitems", removeItem);
+    
     if(removeItem)
     {
         removeItem.forEach((e) => {
@@ -221,21 +214,3 @@ const checkForRemoveItem = () => {
         })
     }
 }
-
-// const changeInnerText = async(e) => {
-//   const findId = findValueFromAttribute(e);
-//   console.log("id", findId);
-
-//   const content = await fetchFromCart();
-//   console.log("content", content);
-//   const isIdInCart = content.CartMovies.forEach(el => el === findId);
-  
-//   if(isIdInCart)
-//   {
-//     btnAddToCart.innerHTML = "Added In Cart";
-//   }else{
-//     btnAddToCart.innerHTML = "Add To Cart";
-//   }
-// }
-
-// btnAddToCart.addEventListener("click", changeInnerText);
