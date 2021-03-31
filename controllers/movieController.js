@@ -18,8 +18,8 @@ const imagesForCarousel = [
     comp: "/images/banner/wonderWoman_edited.jpg",
   },
   {
-    large: "/images/banner/arrival_l.jpg",
-    comp: "/images/banner/arrival_l_edited.jpg",
+    large: "/images/banner/Arrival_l.jpg",
+    comp: "/images/banner/Arrival_l_edited.jpg",
   },
 ];
 
@@ -265,7 +265,7 @@ const movie = await movieModel.findById(id);
   if (isMovie === "true") {
     isMovieTrue = true;
   }
-  
+
 let errors = '';
 
  const castDetails = [
