@@ -11,8 +11,8 @@ const compressImage = async(Photo) => {
         {
         const addressOfPhoto = "public" +  Photo;
         const image = await Jimp.read(addressOfPhoto);
-        image.resize(Jimp.AUTO, 200);
-
+        // image.resize(Jimp.AUTO, 200);
+            image.quality(25);
             image.write(newImageName);
             console.log("did not Wrote image again", newImageName);
         }else{
@@ -23,5 +23,6 @@ const compressImage = async(Photo) => {
         console.log("error in compress file", err);
     }
 }
+
 
 module.exports = compressImage;

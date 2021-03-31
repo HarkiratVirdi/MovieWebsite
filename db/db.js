@@ -445,6 +445,174 @@ exports.movies = [
       },
     ],
   },
+  {
+    id: 16,
+    name: "Wonder Woman 1984",
+    featured: true,
+    rated: "PG-13",
+    runtime: "126",
+    rating: 58,
+    rent: 5,
+    buy: 25,
+    genre: "Action, Fantasy",
+    studio: "Warner Bros.",
+    year: 2020,
+    isMovie: true,
+    synopsis: "Fantastic Movie",
+    img_s: "/images/movies/Wonder_Woman_1984_s.jpg",
+    img_l: "/images/movies/Wonder_Woman_1984_l.jpg",
+    cast: [
+      {
+        name: "Gal Gadot",
+      },
+      {
+        name: "Chris Pine",
+      },
+      {
+        name: "Patty Jenkins",
+      },
+    ],
+  },
+  {
+    id: 17,
+    name: "Wanda Vision",
+    featured: true,
+    rated: "PG-13",
+    runtime: "55",
+    rating: 91,
+    rent: 6,
+    buy: 18,
+    genre: "Action, Fantasy",
+    studio: "Disney",
+    year: 2021,
+    isMovie: false,
+    synopsis: "The Witch And Vision together",
+    img_s: "/images/movies/wandavision-poster-1600668936.jpg",
+    img_l: "/images/movies/wandavision-banner.jpg",
+    cast: [
+      {
+        name: "Elizabeth Olsen",
+      },
+      {
+        name: "Paul Bettany",
+      },
+      {
+        name: "Teyonah Parris",
+      },
+    ],
+  },
+  {
+    id: 18,
+    name: "Zack Snyder's Justice League",
+    featured: true,
+    rated: "PG-13",
+    runtime: "240",
+    rating: 73,
+    rent: 6,
+    buy: 20,
+    genre: "Action, Fantasy",
+    studio: "Warner Bros.",
+    year: 2021,
+    isMovie: true,
+    synopsis: "Better than 2017 Justice League",
+    img_s: "/images/movies/justice_league_s.png",
+    img_l: "/images/movies/cropped-1920-1080-890451.jpg",
+    cast: [
+      {
+        name: "Henry Cavill",
+      },
+      {
+        name: "Ben Affleck",
+      },
+      {
+        name: "Gal Gadot",
+      },
+    ],
+  },
+  {
+    id: 19,
+    name: "Black Widow",
+    featured: true,
+    rated: "PG-13",
+    runtime: "150",
+    rating: 81,
+    rent: 16,
+    buy: 50,
+    genre: "Action, Fantasy",
+    studio: "Disney",
+    year: 2021,
+    isMovie: true,
+    synopsis: "Black Widow Original Story",
+    img_s: "/images/movies/blackwidow.jpg",
+    img_l: "/images/movies/blackwindowbanner.jpg",
+    cast: [
+      {
+        name: "Scarlett Johansson",
+      },
+      {
+        name: "Rachel Weisz",
+      },
+      {
+        name: "David Harbour",
+      },
+    ],
+  },
+  {
+    id: 20,
+    name: "Arrow",
+    featured: false,
+    rated: "PG-13",
+    runtime: "40",
+    rating: 79,
+    rent: 4,
+    buy: 10,
+    genre: "Action, Fantasy",
+    studio: "Warner Bros.",
+    year: 2013,
+    isMovie: false,
+    synopsis: "Arrow Series",
+    img_s: "/images/movies/arrowposter.jpg",
+    img_l: "/images/movies/arrowbanner.jpg",
+    cast: [
+      {
+        name: "David Ramsey",
+      },
+      {
+        name: "Stephen Amell",
+      },
+      {
+        name: "Katie Cassidy",
+      },
+    ],
+  },
+  {
+    id: 21,
+    name: "Winter Soldier and Falcon",
+    featured: true,
+    rated: "PG-13",
+    runtime: "65",
+    rating: 91,
+    rent: 5,
+    buy: 10,
+    genre: "Action, Fantasy",
+    studio: "Disney",
+    year: 2021,
+    isMovie: false,
+    synopsis: "Mini Series",
+    img_s: "/images/movies/wintersold.jpg",
+    img_l: "/images/movies/falcon-winter-soldier-trailer-date-1607715694.png",
+    cast: [
+      {
+        name: "Anthony Mackie",
+      },
+      {
+        name: "Sebastian Stan",
+      },
+      {
+        name: "Wyatt Russell",
+      },
+    ],
+  },
 ];
 
 // // exports.filterMovie = (id) => {
@@ -452,3 +620,5 @@ exports.movies = [
 // //     return singleMovie.id === parseInt(id);
 // //   });
 // // };
+
+

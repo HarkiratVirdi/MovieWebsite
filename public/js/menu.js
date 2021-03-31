@@ -174,7 +174,7 @@ const searchMovies = async (e) => {
             // rated.append(document.createTextNode("Rated: " + d.rated));
                   
           let buy = document.createElement("a");
-          buy.classList.add("btn", "btn-white", "mt-m");
+          buy.classList.add("btn", "btn-white");
           buy.href = "/user/login";
           buy.append(document.createTextNode("Buy: $" + d.buy));
 
@@ -184,7 +184,7 @@ const searchMovies = async (e) => {
           movieInfo.style.width = "unset";
 
           let line = document.createElement("hr");
-          line.classList.add("w100", "mt-s");
+          line.classList.add("w100");
 
           movieInfo.append(title, rating, genre, year, buy, line);
           newAnchorTag.append(movieImg, movieInfo);

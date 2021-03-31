@@ -6,19 +6,19 @@ const hero_cast = document.querySelectorAll("#hero_cast_li");
 
 const heroInfo = [
   {
-    title: "The Witcher",
+    title: "Zack's Justice League",
     desc:
-      "The Witcher is an American fantasy drama web television series created by Lauren Schmidt Hissrich for Netflix. It is based on the book series of the same name by Polish writer Andrzej Sapkowski.",
+      "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
     buy: "30",
     cast: [
       {
         name: "Henry Cavill",
       },
       {
-        name: "Freya Allan",
+        name: "Ben Affleck",
       },
       {
-        name: "Yasen Atour",
+        name: "Gal Gadot",
       },
     ],
   },

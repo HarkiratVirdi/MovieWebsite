@@ -2,8 +2,8 @@ const movieModel = require("../models/movieModel");
 const { uploadImages } = require("../utils/utils");
 const imagesForCarousel = [
   {
-    large: "/images/banner/theWitcher.jpg",
-    comp: "/images/banner/theWitcher_edited.jpg",
+    large: "/images/banner/justiceLeagueBanner.jpg",
+    comp: "/images/banner/justiceLeagueBanner_edited.jpg",
   },
   {
     large: "/images/banner/got8.jpg",
@@ -18,8 +18,8 @@ const imagesForCarousel = [
     comp: "/images/banner/wonderWoman_edited.jpg",
   },
   {
-    large: "/images/banner/arrival.jpg",
-    comp: "/images/banner/arrival_edited.jpg",
+    large: "/images/banner/arrival_l.jpg",
+    comp: "/images/banner/arrival_l_edited.jpg",
   },
 ];
 
@@ -214,7 +214,7 @@ module.exports.getMovieList = async (req, res) => {
 
 module.exports.updateMovie = async(req, res) => {
   const { id } = req.params;
-  console.log("movie ID", id);
+  // console.log("movie ID", id);
   try {
     const movie = await movieModel.findOne({ _id: id }).lean();
     if (movie) {
@@ -231,6 +231,27 @@ module.exports.updateMovieForm = async(req, res) => {
   console.log(req.body);
   const {name, rating, rent, buy, genre, year, synopsis, cast1, cast2, cast3, isMovie,studio, runtime, rated, featured} = req.body;
 
+  
+const movie = await movieModel.findById(id);
+
+
+  let imagePoster = movie.img_s;
+  let imageBanner = movie.img_l;
+
+
+  if(req.files)
+  {
+    if(req.files.img_l)
+    {
+      imageBanner = "/images/movies/" + req.files.img_l.name;
+        await uploadImages(req.files.img_l);
+      }
+      if(req.files.img_s)
+      {
+        imagePoster = "/images/movies/" + req.files.img_s.name;
+        await uploadImages(req.files.img_s);
+    }
+  }
 
   let isFeatured = false;
   if (featured === "Yes") {
@@ -244,26 +265,21 @@ module.exports.updateMovieForm = async(req, res) => {
   if (isMovie === "true") {
     isMovieTrue = true;
   }
+  
 let errors = '';
 
-
+ const castDetails = [
+      {name: cast1},
+      {name: cast2},
+      {name: cast3},
+    ]
 
   try {
- let bannerImage = req.files.img_l;
- console.log("file 1", bannerImage);
- let posterImage = req.files.img_s;
-
-  const movie = await movieModel.findById(id);
-  const bannerPathImage = "/images/movies/" + bannerImage.name;
   
-  await uploadImages(bannerImage);
-  const posterPathImage = "/images/movies/" + posterImage.name;
-  await uploadImages(posterImage);
-
+console.log("poster image", imagePoster);
+console.log("banner image", imageBanner);
   if(movie)
   {
-    console.log("bannerPathImage", bannerPathImage);
-    console.log("posterPathImage", posterPathImage);
     movie.name = name;
     movie.rating = rating;
     movie.rent = rent;
@@ -271,18 +287,14 @@ let errors = '';
     movie.isMovie = isMovieTrue;
     movie.genre = genre;
     movie.studio = studio;
-    movie.img_s = posterPathImage;
-    movie.img_l = bannerPathImage;
+    movie.img_s = imagePoster;
+    movie.img_l = imageBanner;
     movie.runtime = runtime;
     movie.rated = rated;
     movie.featured = isFeatured;
     movie.year = year;
     movie.synopsis = synopsis;
-    movie.cast = [
-      {name: cast1},
-      {name: cast2},
-      {name: cast3},
-    ]
+    movie.cast = castDetails;
   }
 
   const updateMovie = await movie.save();
@@ -298,7 +310,8 @@ let errors = '';
     console.log("error updateing movie", err);
     errors = "Please fill all the details correctly";
 
-     res.render("updateMovie", { values: {...req.body, cast: [{name: cast1}, {name: cast2}, {name: cast3}]}, title: "Mflix | Update Movie", errors: errors });
+    res.redirect("/user/admin");
+    //  res.render("updateMovie", { values: {...req.body, cast: castDetails}, title: "Mflix | Update Movie", errors: errors });
   }
 }
 

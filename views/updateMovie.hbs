@@ -24,24 +24,47 @@
         <input type="number" name="buy" value="{{values.buy}}">        
         </div>
           
+
+
         <div class="login_form_field">
-        <label class="h-4" for="img_s">Poster Image</label>
-       <input type="file" name="img_s" value="{{values.img_s}}"/>  
+        <label class="h-4" for="img_s">New Poster Image</label>
+       <input type="file" name="img_s"/>  
+        </div>
+
+        
+          <div class="login_form_field poster_image">
+        <label class="h-4">Poster Image</label>
+        <img src="{{values.img_s_C}}" alt="{{values.name}}">
         </div>
            
         <div class="login_form_field">
-        <label class="h-4" for="img_l">Banner Image</label>
-       <input type="file" name="img_l" value="{{values.img_l}}"/>     
+        <label class="h-4" for="img_l">New Banner Image</label>
+        <input type="file" name="img_l" value="{{values.img_l}}"/>     
         </div>
+
+                  
+  <div class="login_form_field banner_image">
+        <label class="h-4" for="buy">Banner Image</label>
+        <img src="{{values.img_l_C}}" alt="{{values.name}}">
+    </div>
+          
+
       
         <div class="login_form_field">
         <label class="h-4" for="isMovie">Category</label>
+        <div class="radio_inputs">
+
         <div class="h-4">
             Movie
-        <input type="radio" name="isMovie" value="true"></div>        
+        <input type="radio" name="isMovie" value="true" checked={{values.isMovie}}></div>        
         <div class="h-4 ml-l">
             TV
-        <input type="radio" name="isMovie" value="false">        
+        <input type="radio" name="isMovie" value="false" 
+        {{#unless isMovie}}
+            checked="true"
+        {{/unless}}
+        >        
+        </div>
         </div>
         </div>
    
@@ -68,13 +91,20 @@
              
         <div class="login_form_field">
         <label class="h-4" for="rated">Featured</label>
+        <div class="radio_inputs">
+
         <div class="h-4">
-        <input type="radio" name="featured" value="Yes">        
+        <input type="radio" name="featured" value="Yes"  checked={{values.featured}}>        
             Yes
         </div>
-    <div class="h-4">
-        <input type="radio" name="featured" value="No"> No        
+    <div class="h-4 ml-l">
+        <input type="radio" name="featured" value="No"  
+           {{#unless values.featured}}
+            checked="true"
+            {{/unless}}
+        > No        
     </div>
+        </div>
         </div>
              
         <div class="login_form_field">

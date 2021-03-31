@@ -4,6 +4,10 @@
   z-index: 996;
 
 
+  .theme{
+    display: flex;
+  }
+
 
   &_nav {
     height: 100%;
@@ -54,14 +58,14 @@
       border-radius: 20rem;
       color: $Lightblack;
       padding: 0.2rem 0.4rem;
-      background-color:orange;
+      background-color:rgb(255, 255, 255);
     }
   }
 
   &_list {
     display: flex;
     justify-content: space-between;
-    width: 35%;
+    width: 38%;
     align-items: center;
     &_links {
       color: $white;

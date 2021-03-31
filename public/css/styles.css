@@ -125,10 +125,12 @@ button {
 
 .themeChanger #searchBox {
   background-color: #fff; }
-  .themeChanger #searchBox .search_close {
-    color: #121212; }
-  .themeChanger #searchBox .search_overflow {
-    background-color: #fff !important; }
+
+.themeChanger .search_close {
+  color: #121212; }
+
+.themeChanger .search_overflow {
+  background-color: #fff !important; }
 
 .themeChanger .fa-search {
   color: white; }
@@ -565,6 +567,8 @@ li {
   height: 20vh;
   position: relative;
   z-index: 996; }
+  .header .theme {
+    display: flex; }
   .header_nav {
     height: 100%;
     display: flex;
@@ -596,11 +600,11 @@ li {
     border-radius: 20rem;
     color: #121212;
     padding: 0.2rem 0.4rem;
-    background-color: orange; }
+    background-color: white; }
   .header_list {
     display: flex;
     justify-content: space-between;
-    width: 35%;
+    width: 38%;
     align-items: center; }
     .header_list_links {
       color: #fff; }
@@ -824,6 +828,7 @@ li {
     display: flex; }
   .search__movieInfo {
     display: flex;
+    justify-content: space-between;
     flex-direction: column; }
   .search__term {
     visibility: hidden;
@@ -1588,7 +1593,7 @@ li {
   height: 80vh;
   width: 100%; }
   .login_image {
-    width: 60%;
+    width: 57%;
     position: absolute;
     z-index: -1;
     height: 100vh;
@@ -1624,6 +1629,27 @@ li {
   .login_form {
     display: flex;
     flex-direction: column; }
+    .login_form .poster_image {
+      width: 15rem;
+      display: -webkit-inline-box; }
+      @media only screen and (max-width: 870px) {
+        .login_form .poster_image {
+          display: block; }
+          .login_form .poster_image img {
+            margin-top: 1rem; } }
+    .login_form .banner_image {
+      width: 50%;
+      height: 24rem;
+      display: -webkit-inline-box; }
+      @media only screen and (max-width: 870px) {
+        .login_form .banner_image {
+          width: 100%;
+          height: auto;
+          display: block; }
+          .login_form .banner_image img {
+            margin-top: 1rem; } }
+    .login_form .radio_inputs {
+      display: flex; }
     .login_form button {
       width: 15rem; }
     .login_form_field {
@@ -1633,7 +1659,7 @@ li {
         .login_form_field {
           flex-direction: column; } }
       .login_form_field label {
-        width: 15rem;
+        width: 18rem;
         display: flex; }
       .login_form_field input {
         flex: 2;
