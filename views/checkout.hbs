@@ -1,0 +1,118 @@
+<div class="container">
+<div class="h-3 h-3--white mb-l heading">Checkout</div>
+
+<div class="checkout">
+<div class="checkout_payment">
+    <div class="h-4 h-4--white heading">Payment Details</div>
+    <hr class="mt-s">
+     <form class="login_form" method="POST" action="/user/checkout">
+      <div class="login_form_field">
+        <label class="h-4 h-5--white" for="Name">
+          Name on Card
+        </label>
+        <input name="Name" value={{values.name}}>
+      </div>
+      {{#if errors.name}}
+           <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.name}}</p>
+      {{/if}}
+      <div class="login_form_field">
+        <label class="h-4" for="Card">
+          Card Number
+        </label>
+        <input type="number" name="Card" value={{values.card}} >
+      </div>
+             {{#if errors.card}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.card}}</p>
+        {{/if}}
+
+        
+      <div class="login_form_field">
+        <label class="h-4" for="valid">
+         Valid through
+        </label>
+       <span>
+     <select name="month">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+     </select> 
+    </span>
+     
+             {{#if errors.card}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.card}}</p>
+        {{/if}}
+        
+     
+     <span class="ml-l">
+     <select name="year">
+          <option value="2030">2030</option>
+          <option value="2029">2029</option>
+          <option value="2028">2028</option>
+          <option value="2027">2027</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          </select>
+          </span>
+             {{#if errors.card}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.card}}</p>
+        {{/if}}
+        </div>
+
+      <div class="login_form_field">
+        <label class="h-4" for="CVV">
+            CVV
+        </label>
+        <input type="number" name="CVV" value={{values.cvv}} >
+      </div>
+             {{#if errors.cvv}}
+            <p style="color: red; text-align:left;" class="h-6 mt-s">{{errors.cvv}}</p>
+        {{/if}}
+
+
+
+      <button type="submit" class="mt-l t-w100 btn btn--white">
+        Pay
+      </button>
+    </form>
+</div>
+<div class="checkout_order">
+    <div class="h-4 h-4--white heading">Order Details</div>
+    <hr class="mt-s">
+    {{#each cartMovie}}
+        
+    {{/each}}
+
+
+    <div class="checkout_order_Total">
+        <div class="col">
+        <div class="h-4">Subtotal</div>
+        <div class="h-4 order_subtotal">$</div>
+        </div>
+        <div class="col">
+        <div class="h-4">Taxes</div>
+        <div class="h-4 order_taxes">$</div>
+        </div>
+        <div class="col">
+        <div class="h-4">Total</div>
+        <div class="h-4 order_total">$</div>
+        </div>
+    </div>
+
+    <hr class="mt-s">
+
+</div>
+</div>
+</div>

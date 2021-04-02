@@ -408,3 +408,7 @@ module.exports.searchMovie = async (req, res) => {
   console.log("error", e);
  }
 };
+
+module.exports.checkout = (req, res) => {
+
+}

@@ -76,7 +76,7 @@ li {
   background-color: $white;
 }
 
-.cart_items--info #buyOrRent{
+select{
   background-color: $Lightblack;
   color: $white;
 }
@@ -151,10 +151,15 @@ li {
   }
 }
 
+#header_container{
+  mix-blend-mode: difference;
+  // position: relative;
+  z-index: 998;
+}
+
 .header{
   mix-blend-mode: difference;
 }
-
 
 
 .login_form_field{

@@ -284,3 +284,8 @@ module.exports.registerUser = (req, res) => {
 
   res.render("register", { image: image, title: "MovieNation | Register", account: account });
 };
+
+
+module.exports.checkout = (req, res) => {
+  res.render("checkout");
+};

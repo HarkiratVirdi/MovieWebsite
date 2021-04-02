@@ -6,7 +6,6 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const app = express();
 const fileUpload = require("express-fileupload");
-const bodyParser = require("body-parser");
 const movieRoutes = require("./routes/movieRoutes");
 const userRoutes = require("./routes/userRoutes");
 const { connectDB } = require("./db/connectDB");
@@ -34,8 +33,8 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(

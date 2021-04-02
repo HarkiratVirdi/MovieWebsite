@@ -9,6 +9,7 @@ const {
   deleteUser,
   adminDashboard,
   deleteUserPage,
+  checkout,
   updateUserPage,
   updateUser
 } = require("../controllers/userController");
@@ -24,3 +25,5 @@ router.route("/delete").get(authUser, deleteUserPage).delete(authUser, deleteUse
 router.route("/update").get(authUser, updateUserPage).post(authUser, updateUser);
 router.route("/admin").get(authUser, adminUser, adminDashboard);
 module.exports = router;
+router.route("/checkout").get(authUser, checkout);
+

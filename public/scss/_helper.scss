@@ -9,6 +9,14 @@
 }
 
 
+select{
+    padding: 1rem;
+            border: none;
+            background-color: $white;
+            color: $black;
+            outline: none;
+}
+
 .line{
   width: 100%;
   background-color: white;

@@ -9,6 +9,10 @@ progressively.init({
   smBreakpoint: 600,
 });
 
+
+
+
+
 const changeColors = ['.header_search_mobile', ".fa-bars", '.header_search'];
 
 const getThemeColor = () => {
@@ -61,3 +65,14 @@ const changeTheme = (e) => {
 }
 
 theme.addEventListener("click", changeTheme);
+
+
+
+//important for bug fix in google chrome. Otherwise works fine in mozilla.
+const headerContainer = document.getElementById("header_container");
+
+console.log("location", window.location.pathname);
+if(window.location.pathname === '/')
+{
+  headerContainer.style.position = "relative";
+}

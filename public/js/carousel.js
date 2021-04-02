@@ -3,6 +3,7 @@ const hero_title = document.getElementById('hero_title');
 const hero_desc = document.getElementById("hero_desc");
 const hero_buy = document.getElementById("hero_buy");
 const hero_cast = document.querySelectorAll("#hero_cast_li");
+const hero = document.querySelector(".hero");
 
 const heroInfo = [
   {
@@ -139,12 +140,11 @@ const changeInfo = (idx) => {
   const singleMovie = heroInfo[idx];
   setTimeout(() => {
      hero_title.innerHTML = singleMovie.title;
-    //  hero_buy.innerHTML = "Buy Now $" + singleMovie.buy;
      hero_desc.innerHTML = singleMovie.desc;
      hero_cast.forEach((ca, index) => {
        ca.innerHTML = singleMovie.cast[index].name;
      });
-    }, 500);
+    }, 300);
     removeColorManully(idx);
 }
 
@@ -210,14 +210,12 @@ const findIndex = (direction) => {
   {
    Array.from(slides).find((el, i) => {
      if (el.classList.contains("slide__active")) {
-      //  console.log("index matched left!", i);
        idx = i - 1;
      }
    });
   }else{
     Array.from(slides).find((el, i) => {
       if (el.classList.contains("slide__active")) {
-        // console.log("index matched in right", i);
         idx = i + 1;
       }
     });
@@ -260,7 +258,7 @@ setPaginationColor(index);
     activeAutoTransform();
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, prevSlide);
-    }, 1000);
+    }, 800);
   }
 };
 
@@ -299,7 +297,7 @@ const transformToRight = () => {
     activeAutoTransform();
     setTimeout(() => {
       removeEffectsAndClass(activeSlide, nextSlide);
-    }, 1000);
+    }, 800);
     
 };
 
@@ -332,7 +330,7 @@ const checkTransform = (e) => {
           pagination.style.userSelect = "all";
         })
         removeEffectsAndClass(activeSlide, slides[index]);
-      }, 1000);
+      }, 800);
 }
 }
 
@@ -340,3 +338,5 @@ const checkTransform = (e) => {
 paginationButtons.forEach((paginationButton) => {
   paginationButton.addEventListener("click", checkTransform);
 });
+
+

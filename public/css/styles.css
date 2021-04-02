@@ -92,7 +92,7 @@ button {
   color: #121212;
   background-color: #fff; }
 
-.themeChanger .cart_items--info #buyOrRent {
+.themeChanger select {
   background-color: #121212;
   color: #fff; }
 
@@ -138,6 +138,10 @@ button {
 .themeChanger .purchasemovie__buttons button {
   background-color: #121212;
   color: #fff; }
+
+.themeChanger #header_container {
+  mix-blend-mode: difference;
+  z-index: 998; }
 
 .themeChanger .header {
   mix-blend-mode: difference; }
@@ -295,7 +299,8 @@ li {
   border-radius: 4px;
   flex-direction: column;
   align-self: flex-end;
-  overflow: hidden; }
+  overflow: hidden;
+  will-change: transform; }
   .movieIcon_container {
     position: relative; }
     .movieIcon_container #addCart, .movieIcon_container #removeFromCart {
@@ -353,7 +358,8 @@ li {
   overflow: hidden;
   position: relative;
   top: -20vh;
-  height: calc(var(--vh, 1vh) * 100); }
+  height: calc(var(--vh, 1vh) * 100);
+  z-index: -1; }
   @media only screen and (max-width: 870px) {
     .movie_hero {
       height: 80vh;
@@ -1007,12 +1013,6 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between; }
-    .cart_items--info #buyOrRent {
-      padding: 1rem;
-      border: none;
-      background-color: #fff;
-      color: #1b1b1b;
-      outline: none; }
 
 .dashboard__btn {
   display: flex;
@@ -1109,6 +1109,13 @@ li {
   opacity: 0;
   visibility: hidden;
   z-index: 0; }
+
+select {
+  padding: 1rem;
+  border: none;
+  background-color: #fff;
+  color: #1b1b1b;
+  outline: none; }
 
 .line {
   width: 100%;
@@ -1670,3 +1677,18 @@ li {
         color: #fff;
         border-bottom: 1px solid #fff;
         background: transparent; }
+
+.checkout {
+  display: flex;
+  justify-content: space-between; }
+  .checkout_payment {
+    flex: 1;
+    flex-direction: column;
+    padding-right: 5rem; }
+  .checkout_order {
+    flex: 1;
+    flex-direction: column;
+    padding-left: 5rem; }
+    .checkout_order_Total .col {
+      display: flex;
+      justify-content: space-between; }
