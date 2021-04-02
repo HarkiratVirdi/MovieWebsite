@@ -87,7 +87,7 @@ const fetchFromCart = (movieId) => {
     if(content.CartMovies)
     {
       changeIcon(content);
-      changeCartNumber(content.CartMovies.length);
+      changeCartNumber(Math.ceil(content.CartMovies.length / 2));
     }else{
       showLoginAndRegister(movieId);
     }

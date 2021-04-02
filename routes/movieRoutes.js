@@ -12,7 +12,8 @@ const {
   addMovieToCart,
   updateMovieForm,
   addMovie,
-  removeItemFromCart
+  removeItemFromCart,
+  updateBuyOrRentInCart
 } = require("../controllers/movieController");
 const adminUser = require("../middleware/adminUser");
 const authUser = require("../middleware/authUser");
@@ -24,6 +25,7 @@ router.route("/cart").get(authUser,cart);
 router.route("/search").post(searchMovie);
 router.route("/purchaseMovie").post(addMovieToCart);
 router.route("/removeItemFromCart").post(removeItemFromCart);
+router.route("/updateBuyOrRentInCart").post(updateBuyOrRentInCart);
 router.route("/updateMovie/:id").get(authUser, adminUser, updateMovie).post(authUser, adminUser, updateMovieForm);
 router
   .route("/addMovie")

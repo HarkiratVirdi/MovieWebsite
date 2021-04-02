@@ -286,6 +286,26 @@ module.exports.registerUser = (req, res) => {
 };
 
 
-module.exports.checkout = (req, res) => {
-  res.render("checkout");
+module.exports.checkout = async (req, res) => {
+  const {cart} = res.locals.user;
+
+   const movieIds = cart.filter(function (el, ind) {
+     return ind % 2 === 0;
+   });
+
+
+  const movieInCart = await movieModel.find(
+    {
+      _id:{
+        $in: movieIds,
+      }
+    }
+  ).lean();
+
+  if(movieInCart){
+      res.render("checkout", {
+        moviesInCart: moviesInCart,
+        title: "Mflix | Checkout",
+      });
+  }
 };

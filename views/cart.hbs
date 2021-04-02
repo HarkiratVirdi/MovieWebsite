@@ -16,7 +16,7 @@
                     <h1 class="h-4">Rated: {{this.rated}}</h1>
                     <h1 class="h-4">Year: {{this.year}}</h1>
                     <h1 class="h-4">Runtime: {{this.runtime}} Min</h1>
-                    <select name="buyOrRent" id="buyOrRent">
+                    <select data-id="{{this._id}}" name="buyOrRent" id="buyOrRent">
                         <option value="Buy">Buy For ${{this.buy}}</option>
                         <option value="Rent">Rent For ${{this.rent}}</option>
                     </select>
@@ -39,3 +39,5 @@
 
 
 {{>footer}}
+
+<script src="/js/cart.js"></script>

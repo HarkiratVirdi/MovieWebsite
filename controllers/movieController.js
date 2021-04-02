@@ -98,10 +98,14 @@ module.exports.getMovie = async (req, res) => {
 module.exports.cart = (req, res) => {
   const {cart} = res.locals.user;
 
+   const movieIds = cart.filter(function (el, ind) {
+      return ind % 2 === 0;
+    })
+
    movieModel.find(
      {
        _id: {
-         $in: cart,
+         $in: movieIds,
        },
      },
      function (err, moviesInCart) {
@@ -124,6 +128,7 @@ if(cart)
 {
   if (cart.indexOf(movieId) === -1 && movieId) {
     cart.push(movieId);
+    cart.push("Buy");
     console.log(cart);
   }
   console.log("cart after",cart);
@@ -136,17 +141,30 @@ if(cart)
   }
 }
 
+module.exports.updateBuyOrRentInCart = (req, res) => {
+  const { cart } = req.session.userInfo;
+  const { id, buyOrRent } = req.body;
+ 
+  console.log("cart", cart);
+  console.log("movieId in update buy*********", id);
+  const index = cart.findIndex((el) => {
+    el == id;
+  });
+
+  console.log("index at update function", index);
+
+  cart[index + 1] = buyOrRent;
+
+  res.json({updatedCart : cart});
+};
+
 module.exports.removeItemFromCart = (req, res) => {
   const {cart} = req.session.userInfo;
   const {movieId} = req.body;
 
-  // const array = [2, 5, 9];
-
-  // console.log(array);
-
   const index = cart.indexOf(movieId);
   if (index > -1) {
-    cart.splice(index, 1);
+    cart.splice(index, 2);
     res.json({movieId});
   }
 
@@ -409,6 +427,3 @@ module.exports.searchMovie = async (req, res) => {
  }
 };
 
-module.exports.checkout = (req, res) => {
-
-}
