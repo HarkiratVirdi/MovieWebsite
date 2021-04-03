@@ -1691,4 +1691,5 @@ select {
     padding-left: 5rem; }
     .checkout_order_Total .col {
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      padding-right: 1.5rem; }

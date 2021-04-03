@@ -7,6 +7,13 @@ const {
 } = require("../utils/Validation");
 const {randomImage, sendMail} = require("../utils/utils");
 const movieModel = require("../models/movieModel");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+let YOUR_DOMAIN = "http://localhost:5000";
+if(process.env.NODE_ENV === "production")
+{
+  YOUR_DOMAIN = "https://mflixharkirat.herokuapp.com";
+}
 
 
 module.exports.loginUser = (req, res) => {
@@ -302,33 +309,70 @@ module.exports.checkout = async (req, res) => {
   ).lean();
 
   
-  
   if(moviesInCart){
+    res.locals.moviesInCart = moviesInCart
     const findBuyingOrRentInArray = (movieId) => {
-      console.log("movieid*****", movieId);
         const index = cart.indexOf(`${movieId}`);
-
-        console.log("Index in findbuying", index);
-        console.log("find Returns", cart[index+1]);
         const isBuying = cart[index + 1];
-
-        if(isBuying === "Buy")
-        {
-          return true;
-        }
-        return false;
+        return isBuying === "Buy" ? true : false;
       }
+    
+      let subtotal = 0;
 
-
-    const addBuyorRentProp = moviesInCart.forEach((el) => {
+      moviesInCart.forEach((el) => {
         el.isBuying = findBuyingOrRentInArray(el._id);
-    })
+        if(el.isBuying)
+        {
+          subtotal += el.buy;
+        }else{
+          subtotal += el.rent;
+        }
+      })
 
-    console.log("addBuyorrent", moviesInCart);
+      const tax = (subtotal * (13/100)).toFixed(2);
+      const total = parseFloat(subtotal) + parseFloat(tax);
+      
+      res.locals.total = total;
 
       res.render("checkout", {
         moviesInCart,
+        subtotal: subtotal.toFixed(2),
+        tax,
+        total: total.toFixed(2),
         title: "Mflix | Checkout",
       });
   }
 };
+
+module.exports.payment = async(req, res) => {
+  const {cart} = res.locals.user;
+
+     const product_data = res.locals.moviesInCart.map((el) => {
+        return {
+          name: el.name,
+          images: el.img_s_C
+        }
+     })
+
+console.log("product_data", product_data);
+
+
+  const session = await stripe.checkout.sessions.create({
+
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price_data: {
+          currency: "cad",
+          product_data: product_data,
+          unit_amount: res.locals.total,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: res.redirect("/user/dashboard"),
+    cancel_url: res.redirect("/user/orders"),
+  });
+  res.json({ id: session.id });
+}
