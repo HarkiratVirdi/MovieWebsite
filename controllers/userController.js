@@ -293,8 +293,7 @@ module.exports.checkout = async (req, res) => {
      return ind % 2 === 0;
    });
 
-
-  const movieInCart = await movieModel.find(
+  const moviesInCart = await movieModel.find(
     {
       _id:{
         $in: movieIds,
@@ -302,9 +301,33 @@ module.exports.checkout = async (req, res) => {
     }
   ).lean();
 
-  if(movieInCart){
+  
+  
+  if(moviesInCart){
+    const findBuyingOrRentInArray = (movieId) => {
+      console.log("movieid*****", movieId);
+        const index = cart.indexOf(`${movieId}`);
+
+        console.log("Index in findbuying", index);
+        console.log("find Returns", cart[index+1]);
+        const isBuying = cart[index + 1];
+
+        if(isBuying === "Buy")
+        {
+          return true;
+        }
+        return false;
+      }
+
+
+    const addBuyorRentProp = moviesInCart.forEach((el) => {
+        el.isBuying = findBuyingOrRentInArray(el._id);
+    })
+
+    console.log("addBuyorrent", moviesInCart);
+
       res.render("checkout", {
-        moviesInCart: moviesInCart,
+        moviesInCart,
         title: "Mflix | Checkout",
       });
   }

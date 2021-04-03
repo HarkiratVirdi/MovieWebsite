@@ -97,6 +97,22 @@
 
 
     <div class="checkout_order_Total">
+      
+      <div class="checkout_order_container">
+      {{#each moviesInCart}}
+            <div class="col">
+            <img style="width: 6rem;" src="{{this.img_s_C}}" alt="{{this.name}}">
+            
+            {{#if this.isBuying}}
+            <div class="h-5">Buy ${{this.buy}}</div>
+            {{else}}
+            <div class="h-5">Rent ${{this.rent}}</div>
+            {{/if}}
+            </div>
+      {{/each}}
+      </div>
+
+
         <div class="col">
         <div class="h-4">Subtotal</div>
         <div class="h-4 order_subtotal">$</div>

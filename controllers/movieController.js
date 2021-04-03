@@ -148,7 +148,7 @@ module.exports.updateBuyOrRentInCart = (req, res) => {
   console.log("cart", cart);
   console.log("movieId in update buy*********", id);
   const index = cart.findIndex((el) => {
-    el == id;
+    return el === id;
   });
 
   console.log("index at update function", index);
