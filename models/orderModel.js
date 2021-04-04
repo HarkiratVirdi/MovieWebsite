@@ -6,30 +6,22 @@ const orderSchema = mongoose.Schema({
     required: true,
     ref: "User",
   },
-  orderItems: [
+  orderItems:[ 
     {
       movieId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: "Movie",
       },
-      name: {
-        type: String,
+      isBuying: {
+        type: Boolean,
         required: true,
       },
-        img_s: {
-          type: String,
-          required: true,
-        },
-        price: {
-            type: Number,
-            required: true,
-        },
-        genre: {
-            type: String,
-            required: true,
-        },
-      },
+      price: {
+        type: Number,
+        required: true,
+      }
+    }
   ],
   paid: {
       type: Boolean,
