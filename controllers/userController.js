@@ -7,6 +7,7 @@ const {
 } = require("../utils/Validation");
 const {randomImage, sendMail} = require("../utils/utils");
 const movieModel = require("../models/movieModel");
+const orderModel = require("../models/orderModel");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 let YOUR_DOMAIN = "http://localhost:5000";
@@ -294,85 +295,76 @@ module.exports.registerUser = (req, res) => {
 
 
 module.exports.checkout = async (req, res) => {
-  const {cart} = res.locals.user;
+   
+  const {moviesInCart, tax, subtotal, total} = res.locals.cartDetails;
 
-   const movieIds = cart.filter(function (el, ind) {
-     return ind % 2 === 0;
-   });
-
-  const moviesInCart = await movieModel.find(
-    {
-      _id:{
-        $in: movieIds,
-      }
-    }
-  ).lean();
-
-  
-  if(moviesInCart){
-    res.locals.moviesInCart = moviesInCart
-    const findBuyingOrRentInArray = (movieId) => {
-        const index = cart.indexOf(`${movieId}`);
-        const isBuying = cart[index + 1];
-        return isBuying === "Buy" ? true : false;
-      }
-    
-      let subtotal = 0;
-
-      moviesInCart.forEach((el) => {
-        el.isBuying = findBuyingOrRentInArray(el._id);
-        if(el.isBuying)
-        {
-          subtotal += el.buy;
-        }else{
-          subtotal += el.rent;
-        }
-      })
-
-      const tax = (subtotal * (13/100)).toFixed(2);
-      const total = parseFloat(subtotal) + parseFloat(tax);
-      
-      res.locals.total = total;
-
-      res.render("checkout", {
+  res.render("checkout", {
         moviesInCart,
-        subtotal: subtotal.toFixed(2),
-        tax,
-        total: total.toFixed(2),
+        subtotal,
+        tax: parseFloat(tax).toFixed(2),
+        total,
         title: "Mflix | Checkout",
       });
   }
-};
 
 module.exports.payment = async(req, res) => {
-  const {cart} = res.locals.user;
+ const { moviesInCart, tax, subtotal,total } = res.locals.cartDetails;
 
-     const product_data = res.locals.moviesInCart.map((el) => {
-        return {
-          name: el.name,
-          images: el.img_s_C
-        }
-     })
-
-console.log("product_data", product_data);
-
-
-  const session = await stripe.checkout.sessions.create({
-
-    payment_method_types: ["card"],
-    line_items: [
+  try {
+    const product_data = moviesInCart.map((el) => {
+      let price = el.buy;
+      if(!el.isBuying) 
       {
-        price_data: {
-          currency: "cad",
-          product_data: product_data,
-          unit_amount: res.locals.total,
-        },
-        quantity: 1,
-      },
-    ],
-    mode: "payment",
-    success_url: res.redirect("/user/dashboard"),
-    cancel_url: res.redirect("/user/orders"),
-  });
-  res.json({ id: session.id });
+        price = el.rent; 
+      }
+    
+      return {
+        movieId: el._id,
+        isBuying: el.isBuying,
+        price,
+      };
+    });
+
+    
+console.log("product_data", product_data);
+    
+    const newOrder = {
+      user: res.locals.user._id,
+      orderItems: product_data,
+      paid: true,
+      taxPrice: tax,
+      totalPrice: total
+    }
+    console.log("new order", newOrder);
+
+    const order = await new orderModel(newOrder).save();
+    if(order)
+    {
+      console.log("order", order);
+      res.redirect("/user/orders");
+    }
+  } 
+catch (error) {
+      console.log("error inserting order to model", error);
+  }
+
+
+  // const session = await stripe.checkout.sessions.create({
+
+  //   payment_method_types: ["card"],
+  //   line_items: [
+  //     {
+  //       price_data: {
+  //         currency: "cad",
+  //         product_data: product_data,
+  //         unit_amount: res.locals.total,
+  //       },
+  //       quantity: 1,
+  //     },
+  //   ],
+  //   mode: "payment",
+  //   success_url: res.redirect("/user/dashboard"),
+  //   cancel_url: res.redirect("/user/orders"),
+  // });
+  // res.json({ id: session.id });
 }

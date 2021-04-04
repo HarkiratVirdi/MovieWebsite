@@ -437,11 +437,13 @@ li {
   height: 45rem;
   z-index: 4; }
   .purchasemovie__buttons {
-    width: 100%;
+    width: 20rem;
     position: relative;
     display: flex;
     justify-content: center;
     top: 0; }
+    .purchasemovie__buttons button {
+      width: 100%; }
     .purchasemovie__buttons .loginAndRegister {
       top: 0;
       right: -15%; }
@@ -691,12 +693,13 @@ li {
   justify-content: center;
   border-radius: 3px;
   cursor: pointer;
-  width: 20rem;
+  width: 18rem;
   user-select: none;
   transition: 0.2s all; }
   @media only screen and (max-width: 870px) {
     .btn {
-      padding: 2rem 2rem; } }
+      padding: 2rem 2rem;
+      width: 100%; } }
   .btn-white {
     background-color: #fff;
     color: #1b1b1b; }

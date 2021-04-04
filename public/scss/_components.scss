@@ -28,12 +28,13 @@
   justify-content: center;
   border-radius: 3px;
   cursor: pointer;
-  width: 20rem;
+  width: 18rem;
   user-select: none;
   transition: 0.2s all;
 
 @media only screen and (max-width: $tablet-breakpoint) {
     padding: 2rem 2rem;
+    width: 100%;
   }
 
   &-white {
