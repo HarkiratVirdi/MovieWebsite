@@ -307,6 +307,42 @@ module.exports.checkout = async (req, res) => {
       });
   }
 
+module.exports.getOrders = async(req, res) => {
+  try {
+    const orders = await orderModel.find({user: res.locals.user._id}).lean();
+
+    if(orders)
+    {
+       console.log("orders **", orders);
+
+      const orderItemsMovies = []; 
+
+       await orders.forEach(async(order) => { 
+       const orderMovies = await order.orderItems.map(async(el) => {
+        const movieDetails = await movieModel.findById(el.movieId, {img_s_C, name});
+        
+        return {
+          isBuying: el.isBuying,
+          price: el.price,
+          movieDetails,
+        }
+      })
+
+      orderItemsMovies.push(orderMovies);
+      })
+
+      console.log("orderMovies********************", orderItemsMovies);
+      res.render("orders", {
+        orders,
+        orderItemsMovies,
+      })
+    }
+  } catch (err) {
+    console.log("error fetching orders",err);
+  }
+}
+
+
 module.exports.payment = async(req, res) => {
  const { moviesInCart, tax, subtotal,total } = res.locals.cartDetails;
 

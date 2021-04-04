@@ -1,0 +1,22 @@
+
+<div class="container">
+<h1 class="h-3 h-3--white heading">Orders</h1>
+
+<hr class="mt-s mb-s">
+
+{{#each orders}}
+    <div class="order">
+    {{moment this.dateCreated}}
+    {{#each orderItemsMovies}}
+          <div class="col">
+            <img style="width: 7rem; height: 9rem;" src="{{this.movieDetails.img_s_C}}" alt="{{this.movieDetails.name}}">
+            <div class="h-5">{{this.movieDetails.name}}</div>
+            <div class="h-5">{{this.isBuying}}</div>
+            </div>
+            <hr class="mt-s mb-s">
+    {{/each}}
+    </div>
+{{/each}}
+
+<hr class="mt-s mb-s">
+</div>

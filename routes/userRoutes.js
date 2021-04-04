@@ -12,7 +12,8 @@ const {
   checkout,
   updateUserPage,
   updateUser,
-  payment
+  payment,
+  getOrders
 } = require("../controllers/userController");
 const authUser = require("../middleware/authUser");
 const adminUser = require("../middleware/adminUser");
@@ -27,6 +28,8 @@ router.route("/delete").get(authUser, deleteUserPage).delete(authUser, deleteUse
 router.route("/update").get(authUser, updateUserPage).post(authUser, updateUser);
 router.route("/admin").get(authUser, adminUser, adminDashboard);
 module.exports = router;
+
+router.route("/orders").get(authUser,getOrders);
 router.route("/checkout").get(authUser, cartDetails, checkout);
 router.route("/payment").post(authUser,cartDetails, payment);
 
