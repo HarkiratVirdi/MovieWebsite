@@ -13,6 +13,7 @@ const session = require("express-session");
 const splittingBySpace = require("./views/helpers/splittingBySpace");
 const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
+const moment = require("./views/helpers/moment");
 const iterateThroughArray = require("./views/helpers/iterateThroughArray");
 const {userSession, determineMethod} = require("./middleware/userSession");
 
@@ -28,7 +29,8 @@ app.engine(
       splittingBySpace: splittingBySpace,
       splitting: splitting,
       convertToMin: convertToMin,
-      iterateThroughArray: iterateThroughArray
+      iterateThroughArray: iterateThroughArray,
+      moment: moment,
     },
   })
 );

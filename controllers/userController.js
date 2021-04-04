@@ -317,25 +317,42 @@ module.exports.getOrders = async(req, res) => {
 
       const orderItemsMovies = []; 
 
-       await orders.forEach(async(order) => { 
-       const orderMovies = await order.orderItems.map(async(el) => {
-        const movieDetails = await movieModel.findById(el.movieId, {img_s_C, name});
+        orders.forEach(async(order) => { 
+          console.log("each order outest", order);
+        let orderMovies = await order.orderItems.map(async(el) => {
+          let movieDetails = await movieModel.find({_id: el.movieId});
+          
+          if(orderMovies)
+          {
+            if(movieDetails)
+            {
+           orderItemsMovies.push({
+            isBuying: el.isBuying,
+            price: el.price,
+            movieDetails,
+          });
+
+               console.log(
+                 "orderItemsMovies********************",
+                 orderItemsMovies
+               );
+                
+               if(orders.length === orderItemsMovies.length)
+               {
+                      res.render("orders", {
+                        orders,
+                        orderItemsMovies,
+                      });
+
+               }
         
-        return {
-          isBuying: el.isBuying,
-          price: el.price,
-          movieDetails,
         }
-      })
+      }  
+    })
+    })
 
-      orderItemsMovies.push(orderMovies);
-      })
-
-      console.log("orderMovies********************", orderItemsMovies);
-      res.render("orders", {
-        orders,
-        orderItemsMovies,
-      })
+ 
+ 
     }
   } catch (err) {
     console.log("error fetching orders",err);
