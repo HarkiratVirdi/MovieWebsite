@@ -336,7 +336,8 @@ module.exports.checkout = async (req, res) => {
 module.exports.getOrders = async (req, res) => {
   try {
     const orders = await orderModel.find({
-      user: res.locals.user._id
+      // user: res.locals.user._id
+      user: '60567def49866375285459a0'
     }).lean();
 
     if(orders)
@@ -355,18 +356,16 @@ module.exports.getOrders = async (req, res) => {
 
                 if (movieInOrder) {
                   orderItem = {...orderItem, ...movieInOrder};
-
                   // console.log("order item", orderItem, indexOuter);
                   singleOrder.push(orderItem);
-                  allOrders[indexOuter] = singleOrder;
+                  el = {...el, singleOrder};
+                  allOrders[indexOuter] = el;
                   // console.log("all orders **********", allOrders, indexOuter);
 
                   if(i === arrOrderItem.length - 1 && indexOuter === arrOrder.length - 1)
                   {
-                    console.log("all Order", allOrders[0]);
-                    res.render("orders", {
-                      allOrders: allOrders[0]
-                    })
+                    console.log("all Order", allOrders[0].singleOrder, i);
+                   res.json({order: allOrders});
                   }
                 }
         })
