@@ -4,13 +4,13 @@
 
 <hr class="mt-s mb-s">
 
-{{#each orders}}
+{{#each allOrders}}
     <div class="order">
-    {{moment this.dateCreated}}
-    {{#each orderItemsMovies}}
+   <div class="h-4 h-4--white">{{moment this.dateCreated}}</div> 
+    {{#each this}}
           <div class="col">
-            <img style="width: 7rem; height: 9rem;" src="{{this.movieDetails.img_s_C}}" alt="{{this.movieDetails.name}}">
-            <div class="h-5">{{this.movieDetails.name}}</div>
+            <img style="width: 7rem; height: 9rem;" src="{{this.img_s_C}}" alt="{{this.name}}">
+            <div class="h-5">{{this.name}}</div>
             <div class="h-5">{{this.isBuying}}</div>
             </div>
             <hr class="mt-s mb-s">
