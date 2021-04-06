@@ -29,7 +29,7 @@ router.route("/update").get(authUser, updateUserPage).post(authUser, updateUser)
 router.route("/admin").get(authUser, adminUser, adminDashboard);
 module.exports = router;
 
-router.route("/orders").get(getOrders);
+router.route("/orders").get(authUser,getOrders);
 router.route("/checkout").get(authUser, cartDetails, checkout);
 router.route("/payment").post(authUser,cartDetails, payment);
 

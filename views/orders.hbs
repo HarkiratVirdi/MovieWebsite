@@ -6,8 +6,10 @@
 
 {{#each allOrders}}
     <div class="order">
-   <div class="h-4 h-4--white">{{moment this.dateCreated}}</div> 
-    {{#each this}}
+   <div class="h-4 h-4--white mt-l">{{moment this.dateCreated}}
+     <hr class="mt-s mb-s">
+   </div> 
+    {{#each singleOrder}}
           <div class="col">
             <img style="width: 7rem; height: 9rem;" src="{{this.img_s_C}}" alt="{{this.name}}">
             <div class="h-5">{{this.name}}</div>
@@ -17,6 +19,4 @@
     {{/each}}
     </div>
 {{/each}}
-
-<hr class="mt-s mb-s">
 </div>

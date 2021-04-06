@@ -336,15 +336,13 @@ module.exports.checkout = async (req, res) => {
 module.exports.getOrders = async (req, res) => {
   try {
     const orders = await orderModel.find({
-      // user: res.locals.user._id
-      user: '60567def49866375285459a0'
+      user: res.locals.user._id
     }).lean();
 
     if(orders)
     {
       const allOrders = [];
       orders.forEach(async(el, indexOuter, arrOrder) => {
-        // console.log("orderItems", el.orderItems, indexOuter);
         let singleOrder = [];
         el.orderItems.forEach(async(orderItem, i, arrOrderItem) => {
             const movieInOrder = await movieModel
@@ -356,26 +354,22 @@ module.exports.getOrders = async (req, res) => {
 
                 if (movieInOrder) {
                   orderItem = {...orderItem, ...movieInOrder};
-                  // console.log("order item", orderItem, indexOuter);
                   singleOrder.push(orderItem);
                   el = {...el, singleOrder};
                   allOrders[indexOuter] = el;
-                  // console.log("all orders **********", allOrders, indexOuter);
-
+           
                   if(i === arrOrderItem.length - 1 && indexOuter === arrOrder.length - 1)
                   {
-                    console.log("all Order", allOrders[0].singleOrder, i);
-                   res.json({order: allOrders});
+                   res.render("orders", {
+                     allOrders
+                   })
                   }
                 }
         })
         })
-        // console.log("all orders ", allOrders);
     }
-
-
   } catch (err) {
-
+    console.log("error getting orders");
   }
 }
 
