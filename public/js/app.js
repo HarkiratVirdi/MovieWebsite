@@ -42,7 +42,7 @@ const getThemeColor = () => {
 
 getThemeColor();
 
-const theme = document.querySelector(".theme");
+const theme = document.querySelectorAll(".theme");
 
 let isThemeBlack = true;
 
@@ -64,7 +64,9 @@ const changeTheme = (e) => {
   getThemeColor();
 }
 
-theme.addEventListener("click", changeTheme);
+theme.forEach((el) => {
+  el.addEventListener("click", changeTheme);
+})
 
 
 

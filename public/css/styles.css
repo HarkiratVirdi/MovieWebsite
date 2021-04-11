@@ -69,8 +69,27 @@ button {
 .themeChanger .movie_info_section1 {
   background: #eee !important; }
 
+.themeChanger .contentsection_banner .h-3-vw {
+  color: white !important; }
+
+.themeChanger .overlay__menu_link_a svg path {
+  color: black !important; }
+
+.themeChanger .purchasemovie {
+  background-color: #eeeeee; }
+
+.themeChanger .overlay__menu_cross {
+  color: black; }
+
+.themeChanger .fa-bars {
+  color: white !important; }
+
 .themeChanger .movie_text {
   color: #121212 !important; }
+
+.themeChanger .overlay__menu {
+  background-color: #fff;
+  color: #1b1b1b; }
 
 .themeChanger .cast {
   background: #eee !important; }
@@ -557,8 +576,7 @@ li {
     justify-content: space-around;
     height: auto;
     width: 100%;
-    margin-right: 0;
-    box-shadow: 0px 1px 5px #121212; }
+    margin-right: 0; }
     .shrink .purchasemovie__image {
       width: 8rem;
       height: 10rem; }
@@ -698,8 +716,7 @@ li {
   transition: 0.2s all; }
   @media only screen and (max-width: 870px) {
     .btn {
-      padding: 2rem 2rem;
-      width: 100%; } }
+      padding: 2rem 2rem; } }
   .btn-white {
     background-color: #fff;
     color: #1b1b1b; }
@@ -1052,9 +1069,8 @@ li {
   bottom: 0;
   left: 0;
   right: 0;
-  text-align: center;
   display: flex;
-  justify-content: center;
+  padding: 4rem;
   align-items: center;
   background-color: #1b1b1b;
   transform-origin: center;
@@ -1071,6 +1087,9 @@ li {
   .overlay__menu_link_a {
     color: #fff;
     font-size: 4rem; }
+  .overlay__menu svg {
+    position: absolute;
+    bottom: 5rem; }
   .overlay__menu_link {
     margin: 2rem 0; }
 

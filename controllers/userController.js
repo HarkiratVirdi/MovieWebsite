@@ -342,14 +342,13 @@ module.exports.getOrders = async (req, res) => {
     if(orders)
     {
       const allOrders = [];
-      orders.forEach(async(el, indexOuter, arrOrder) => {
+      orders.forEach((el, indexOuter, arrOrder) => {
         let singleOrder = [];
         el.orderItems.forEach(async(orderItem, i, arrOrderItem) => {
             const movieInOrder = await movieModel
               .findOne({
-                _id:
-                  orderItem.movieId,
-              })
+                _id: orderItem.movieId,
+              }, {img_s_C: 1, name: 1})
               .lean();
 
                 if (movieInOrder) {

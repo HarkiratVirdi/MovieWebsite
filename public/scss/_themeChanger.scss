@@ -27,9 +27,41 @@ li {
   background: #eee !important;
 }
 
+.contentsection_banner
+{
+  .h-3-vw{
+    color: white !important;
+  }
+}
+
+.overlay__menu_link_a{
+  svg path{
+    color: black !important;
+  }
+}
+
+.purchasemovie{
+  background-color: #eeeeee;
+}
+
+.overlay__menu_cross{
+  color: black;
+}
+
+
+.fa-bars{
+  color: white !important;
+}
+
 .movie_text{
   color: $Lightblack !important;
 }
+
+.overlay__menu{
+  background-color: #fff;
+  color: $black;
+}
+
 
 .cast{
   background: #eee !important;
