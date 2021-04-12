@@ -11,12 +11,11 @@ const {
 } = require("../utils/utils");
 const movieModel = require("../models/movieModel");
 const orderModel = require("../models/orderModel");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripePayment = require("../utils/stripePayment");
 
-let YOUR_DOMAIN = "http://localhost:5000";
-if (process.env.NODE_ENV === "production") {
-  YOUR_DOMAIN = "https://mflixharkirat.herokuapp.com";
-}
+// if (process.env.NODE_ENV === "production") {
+  // YOUR_DOMAIN = "https://mflixharkirat.herokuapp.com";
+// }
 
 
 module.exports.loginUser = (req, res) => {
@@ -329,6 +328,7 @@ module.exports.checkout = async (req, res) => {
     subtotal,
     tax: parseFloat(tax).toFixed(2),
     total,
+    key: process.env.STRIPE_PROD_KEY,
     title: "Mflix | Checkout",
   });
 }
@@ -381,8 +381,10 @@ module.exports.payment = async (req, res) => {
     total
   } = res.locals.cartDetails;
 
-  try {
-    const product_data = moviesInCart.map((el) => {
+  console.log("body", req.body);
+
+   stripePayment(res.locals.user, res.locals.cartDetails).then(async() => {
+ const product_data = moviesInCart.map((el) => {
       let price = el.buy;
       if (!el.isBuying) {
         price = el.rent;
@@ -396,8 +398,6 @@ module.exports.payment = async (req, res) => {
     });
 
 
-    console.log("product_data", product_data);
-
     const newOrder = {
       user: res.locals.user._id,
       orderItems: product_data,
@@ -405,34 +405,21 @@ module.exports.payment = async (req, res) => {
       taxPrice: tax,
       totalPrice: total
     }
-    console.log("new order", newOrder);
+      const order = await new orderModel(newOrder).save();
+      if (order) {
+        console.log("order", order);
+        req.session.userInfo.cart = null;
+        res.redirect("/user/orders");
+      }
+    }).catch((err) => {
+     console.log("error inserting order to model", err);
+   });
 
-    const order = await new orderModel(newOrder).save();
-    if (order) {
-      console.log("order", order);
-      res.redirect("/user/orders");
-    }
-  } catch (error) {
-    console.log("error inserting order to model", error);
-  }
+  // console.log("is Paid", isPaid);
 
-
-  // const session = await stripe.checkout.sessions.create({
-
-  //   payment_method_types: ["card"],
-  //   line_items: [
-  //     {
-  //       price_data: {
-  //         currency: "cad",
-  //         product_data: product_data,
-  //         unit_amount: res.locals.total,
-  //       },
-  //       quantity: 1,
-  //     },
-  //   ],
-  //   mode: "payment",
-  //   success_url: res.redirect("/user/dashboard"),
-  //   cancel_url: res.redirect("/user/orders"),
-  // });
-  // res.json({ id: session.id });
+  // try {
+   
+  // } catch (error) {
+  //   console.log("error inserting order to model", error);
+  // }
 }

@@ -109,7 +109,6 @@ module.exports.cart = (req, res) => {
        },
      },
      function (err, moviesInCart) {
-       console.log(moviesInCart);
        res.render("cart", {
          moviesInCart: moviesInCart,
          title: "Mflix | Cart"
@@ -129,9 +128,7 @@ if(cart)
   if (cart.indexOf(movieId) === -1 && movieId) {
     cart.push(movieId);
     cart.push("Buy");
-    console.log(cart);
   }
-  console.log("cart after",cart);
   res.json({CartMovies: cart});
 }
   }
@@ -145,13 +142,11 @@ module.exports.updateBuyOrRentInCart = (req, res) => {
   const { cart } = req.session.userInfo;
   const { id, buyOrRent } = req.body;
  
-  console.log("cart", cart);
-  console.log("movieId in update buy*********", id);
+
   const index = cart.findIndex((el) => {
     return el === id;
   });
 
-  console.log("index at update function", index);
 
   cart[index + 1] = buyOrRent;
 
@@ -168,7 +163,6 @@ module.exports.removeItemFromCart = (req, res) => {
     res.json({movieId});
   }
 
-  console.log(cart); 
 }
 
 
@@ -232,11 +226,11 @@ module.exports.getMovieList = async (req, res) => {
 
 module.exports.updateMovie = async(req, res) => {
   const { id } = req.params;
-  // console.log("movie ID", id);
+
   try {
     const movie = await movieModel.findOne({ _id: id }).lean();
     if (movie) {
-      console.log("movie", movie);
+
       res.render("updateMovie", { values: movie });
     }
   } catch (error) {
@@ -246,7 +240,7 @@ module.exports.updateMovie = async(req, res) => {
 
 module.exports.updateMovieForm = async(req, res) => {
   const {id} = req.params;
-  console.log(req.body);
+
   const {name, rating, rent, buy, genre, year, synopsis, cast1, cast2, cast3, isMovie,studio, runtime, rated, featured} = req.body;
 
   
@@ -273,11 +267,8 @@ const movie = await movieModel.findById(id);
 
   let isFeatured = false;
   if (featured === "Yes") {
-    console.log("featured is ", featured);
     isFeatured = true;
   }
-
-  console.log("isFeatured is ", isFeatured);
 
   let isMovieTrue = false;
   if (isMovie === "true") {
@@ -293,9 +284,6 @@ let errors = '';
     ]
 
   try {
-  
-console.log("poster image", imagePoster);
-console.log("banner image", imageBanner);
   if(movie)
   {
     movie.name = name;
@@ -320,7 +308,6 @@ console.log("banner image", imageBanner);
 
     if(updateMovie)
     {
-      console.log("movie updated", movie);
       res.redirect("/user/admin");
     }
 
@@ -329,7 +316,6 @@ console.log("banner image", imageBanner);
     errors = "Please fill all the details correctly";
 
     res.redirect("/user/admin");
-    //  res.render("updateMovie", { values: {...req.body, cast: castDetails}, title: "Mflix | Update Movie", errors: errors });
   }
 }
 
@@ -340,8 +326,6 @@ module.exports.addMovie = (req, res) => {
 module.exports.addMovieForm = async(req, res) => {
   const {name, featured, rating, rent, buy,isMovie, genre, studio, runtime, rated, year, synopsis, cast1, cast2, cast3} = req.body;
 
-  console.log("req.body in add movie", req.body);
-  console.log(req.files);
   let errors = "";
 
   let isFeatured = false;
@@ -363,9 +347,6 @@ let posterImage = req.files.img_s;
 await uploadImages(bannerImage);
 await uploadImages(posterImage);
 
-console.log("samaple file 1", bannerImage);
-console.log("samaple file 2", posterImage);
-
 const bannerPathImage = "/images/movies/" + bannerImage.name; 
 const posterPathImage = "/images/movies/" + posterImage.name; 
 
@@ -386,11 +367,10 @@ const posterPathImage = "/images/movies/" + posterImage.name;
         synopsis,
         cast: [{ name: cast1 }, { name: cast2 }, { name: cast3 }],
       }).save();
-      console.log("saved new movie", createdMovie);
       res.redirect("/user/admin");
   } catch (err) {
     errors = "Please fill all the Details";
-    console.log("eroror", err);
+    console.log("error", err);
       res.render("addMovie", {
       values: req.body,
       errors: errors,

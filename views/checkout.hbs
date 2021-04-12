@@ -13,7 +13,7 @@
     <hr class="mt-s mb-s">
     <div class="checkout_order_Total">
       
-      <div class="checkout_order_container" style="overflow-y: scroll; height: 40vh;">
+      <div class="checkout_order_container" style="overflow-y: scroll; max-height: 40vh;">
       {{#each moviesInCart}}
             <div class="col">
             <img style="width: 7rem; height: 9rem;" src="{{this.img_s_C}}" alt="{{this.name}}">
@@ -45,9 +45,18 @@
 
     <hr class="mt-s">
 
-      <a href="/user/payment?method=POST" id="checkout-button" class="mt-l t-w100 btn btn-white mb-l">
-        Pay ${{total}}
-      </a>
+   <form action="payment" method="POST"> 
+    <script
+        src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="{{key}}" 
+        data-amount="{{multiply total 100}}" 
+        data-currency="cad" 
+        data-name="{{user.name}}" 
+        data-description="Buy Movies" 
+        data-locale="auto" > 
+        </script> 
+    </form> 
 </div>
 </div></div>
 

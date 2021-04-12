@@ -11,7 +11,6 @@ const userSession = (req, res, next) => {
 };
 
 const determineMethod = (req, res, next) => {
-  console.log("determine Method*************", req.query.method);
   if(req.query.method === "DELETE")
   {
     req.method = "DELETE";

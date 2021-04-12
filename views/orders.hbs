@@ -12,11 +12,25 @@
     {{#each singleOrder}}
           <div class="col">
             <img style="width: 7rem; height: 9rem;" src="{{this.img_s_C}}" alt="{{this.name}}">
+            <div class="order__info ml-s" style="display: flex; flex-direction: column; justify-content: space-evenly;">
             <div class="h-5">{{this.name}}</div>
-            <div class="h-5">{{this.isBuying}}</div>
+            {{#if this.isBuying}}
+            <div class="h-5">Bought</div>
+            {{else}}
+            <div class="h-5">Rented</div>
+            {{/if}}
+            <div class="h-5">${{this.price}}</div>
+            </div>
             </div>
             <hr class="mt-s mb-s">
+
     {{/each}}
+          
+            <div class="h-5">Tax:   ${{this.taxPrice}}</div>
+            <div class="h-5">SubTotal:   ${{subtract this.totalPrice  this.taxPrice}}</div>
+            <div class="h-5">Total:   ${{this.totalPrice}}</div>
+
+            <hr class="mt-s mb-s">
     </div>
 {{/each}}
 </div>

@@ -38,8 +38,6 @@ const cartDetails = async(req, res, next) => {
       const tax = parseFloat((subtotal * (13/100)).toFixed(2));
       const total = parseFloat(subtotal) + parseFloat(tax);
       
-    //   res.locals.subtotal = subtotal;
-    //   res.locals.tax = tax;
       res.locals.cartDetails = {
         moviesInCart,
         tax,

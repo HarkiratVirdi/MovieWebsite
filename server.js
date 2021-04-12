@@ -15,6 +15,8 @@ const splitting = require("./views/helpers/splitting");
 const convertToMin = require("./views/helpers/convertToMin");
 const moment = require("./views/helpers/moment");
 const iterateThroughArray = require("./views/helpers/iterateThroughArray");
+const subtract = require("./views/helpers/subtract");
+const multiply = require("./views/helpers/multiply");
 const {userSession, determineMethod} = require("./middleware/userSession");
 
 
@@ -31,6 +33,8 @@ app.engine(
       convertToMin: convertToMin,
       iterateThroughArray: iterateThroughArray,
       moment: moment,
+      subtract: subtract,
+      multiply: multiply
     },
   })
 );
