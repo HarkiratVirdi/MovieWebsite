@@ -45,7 +45,7 @@
 
     <hr class="mt-s">
 
-   <form action="payment" method="POST"> 
+   <form class="mt-m" action="payment" method="POST"> 
     <script
         src="//checkout.stripe.com/v2/checkout.js"
         class="stripe-button"
@@ -59,28 +59,3 @@
     </form> 
 </div>
 </div></div>
-
-{{!-- 
-  <script type="text/javascript">
-    var stripe = Stripe("pk_test_51IN9I3GirNS3b2DLPMbOmRuijT0iW8KWXpSqBH2FM38H5jWA9OEKiDgjb2JcDcNAXVyJsL0QtybT8g20zWqhsy0600ygnd8bG7");
-    var checkoutButton = document.getElementById("checkout-button");
-    checkoutButton.addEventListener("click", function () {
-      fetch("/create-checkout-session", {
-        method: "POST",
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (session) {
-          return stripe.redirectToCheckout({ sessionId: session.id });
-        })
-        .then(function (result) {
-          if (result.error) {
-            alert(result.error.message);
-          }
-        })
-        .catch(function (error) {
-          console.error("Error:", error);
-        });
-    });
-  </script> --}}

@@ -414,12 +414,4 @@ module.exports.payment = async (req, res) => {
     }).catch((err) => {
      console.log("error inserting order to model", err);
    });
-
-  // console.log("is Paid", isPaid);
-
-  // try {
-   
-  // } catch (error) {
-  //   console.log("error inserting order to model", error);
-  // }
 }

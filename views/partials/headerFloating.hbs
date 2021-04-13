@@ -6,7 +6,7 @@
             <i class="fas fa-bars fa-2x" style="color: white; cursor: pointer"></i>
               </div>
             <li><a href="/" class="header_logo"> <img src="/images/movies/mFlixLogo.png" alt="Logo Mflix"> </a></li>
-            <ul class="header_list">
+             <ul class="header_list">
                 <li class="header_list_links heading"><a href="/">Home</a></li>
                 <li class="header_list_links heading"><a href="/list">Movies & TV</a></li>
                {{#if user}}
@@ -14,6 +14,9 @@
                        <li class="header_list_links heading"><a href="/user/dashboard">{{user.firstname}} 
                       <i class="fas fa-angle-down"></i>
                        </a></li>
+                       {{#if user.isAdmin}}
+                        <li class="header_list_links"><a href="/user/admin">Admin Dashboard</a></li>
+                       {{/if}}
                        <li class="header_list_links"><a href="/user/dashboard">Dashboard</a></li>
                        <li class="header_list_links"><a href="/user/orders">Orders</a></li>
                        <li class="header_list_links"><a href="/user/logout">Logout</a></li>
@@ -26,6 +29,21 @@
                 <li class="header_list_links"><a href="/cart" style="font-size: 1.4rem;"> <i class="fas fa-shopping-cart"></i></a></li>
          
                 <li class="header_list_links"><div class="header_floating_search" style="font-size: 1.4rem;"> <i class="fas fa-search"></i></div></li>
+
+ <li class="header_list_links"><a href="#" class="header_search theme" style="font-size: 1.4rem;"> <svg   style="width: 1.6rem; color: white;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 496 496"
+        id="theme"
+      >
+        <path
+          fill="#fff"
+            
+          d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+          transform="translate(-8 -8)"
+        />
+      </svg></a></li>
+
+
 
                 <div class="t-show">
                     <a href="/movies/search">

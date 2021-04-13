@@ -4,6 +4,7 @@
 
 <hr class="mt-s mb-s">
 
+{{#if allOrders}}
 {{#each allOrders}}
     <div class="order">
    <div class="h-4 h-4--white mt-l">{{moment this.dateCreated}}
@@ -33,4 +34,14 @@
             <hr class="mt-s mb-s">
     </div>
 {{/each}}
+
+{{else}}
+
+<div class="h-4">No Orders purchased</div>
+<a href="/list" class="mt-s mb-s btn btn-white">Shop</a>
+<hr class="mt-s">
+{{/if}}
+
+
+
 </div>
