@@ -37,18 +37,45 @@ If You wish to test this app as admin user, You can use the Following credential
 * Google Fonts
 
 ### Screenshots
+
+Hero Section
 <img src="https://i.imgur.com/0wG1i28.jpg" alt="MflixHero">
 
+Featured Movie and Featured TV Section
 <img src="https://i.imgur.com/6qGaQDC.jpg" alt="featured Movie">
+
+Movie Section
 <img src="https://i.imgur.com/uw3wwgA.jpg" alt="singleMovieupper">
 <img src="https://i.imgur.com/70cwed5.jpg" alt="singleMovieAnimate">
-
 <img src="https://i.imgur.com/KEaEbD2.jpg" alt="singleMovie Lower">
+
+Movie List
 <img src="https://i.imgur.com/31r4iae.jpg" alt="list Movies">
+
+Search Movie
 <img src="https://i.imgur.com/i4FiM6f.jpg" alt="search Movies">
+
+Cart 
 <img src='https://i.imgur.com/1zte8IE.jpg' alt="Cart">
+
+Stripe Payment
 <img src="https://i.imgur.com/imneQ4c.jpg" alt="Stripe">
+
+All Orders
+<img src="https://i.imgur.com/i6fEerq.jpg" alt="orders">
+
+Admin Dashboard
+<img src='https://i.imgur.com/4RFmHe5.jpg' alt="admin Dashboard">
+
+Update Movie
 <img src="https://i.imgur.com/iP0tXPD.jpg" alt="Update Movie">
 
-<img src="https://i.imgur.com/i6fEerq.jpg" alt="orders">
-<img src='https://i.imgur.com/4RFmHe5.jpg' alt="admin Dashboard">
+
+Hero Section
+https://user-images.githubusercontent.com/57691094/114630646-0dbee900-9c89-11eb-983d-cd471458fa2a.mp4
+
+<video src="https://i.imgur.com/HEhAfLi.mp4" alt="movieList">
+
+
+
+
