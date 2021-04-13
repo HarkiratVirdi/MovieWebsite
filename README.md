@@ -69,13 +69,3 @@ Admin Dashboard
 
 Update Movie
 <img src="https://i.imgur.com/iP0tXPD.jpg" alt="Update Movie">
-
-
-Hero Section
-https://user-images.githubusercontent.com/57691094/114630646-0dbee900-9c89-11eb-983d-cd471458fa2a.mp4
-
-<video src="https://i.imgur.com/HEhAfLi.mp4" alt="movieList">
-
-
-
-
