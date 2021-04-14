@@ -72,7 +72,7 @@ Update Movie
 
 
 <img src="https://i.imgur.com/pu1YakK.gif" alt="hero video">
-<img src="https://i.imgur.com/TbmL2Zz.gif" alt="movieList">
+<img src="https://i.imgur.com/vwJgbKo.gif" alt="movieList">
 <img src="https://i.imgur.com/vc4ynDp.gif" alt="singleMovie">
 <img src="https://i.imgur.com/ScHHMmn.gifv" alt="singleMovieWhiteTheme">
 <img src="https://i.imgur.com/UZq4ASz.gif" alt="filter movies">
