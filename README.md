@@ -72,10 +72,4 @@ Update Movie
 
 
 <img src="https://i.imgur.com/pu1YakK.gif" alt="hero video">
-<img src="https://i.imgur.com/vwJgbKo.gif" alt="movieList">
-<img src="https://i.imgur.com/vc4ynDp.gif" alt="singleMovie">
-<img src="https://i.imgur.com/ScHHMmn.gifv" alt="singleMovieWhiteTheme">
-<img src="https://i.imgur.com/UZq4ASz.gif" alt="filter movies">
-<img src="https://i.imgur.com/DHm9rnJ.gif" alt="register user">
-<img src="https://i.imgur.com/3y5VGW4.gif" alt="buying movies">
 <img src="https://i.imgur.com/9saRRsY.gif" alt="stripe payment">
