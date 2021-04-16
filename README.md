@@ -38,6 +38,9 @@ If You wish to test this app as admin user, You can use the Following credential
 
 ### Screenshots
 
+Performance Stats
+<img src="https://i.imgur.com/JFRHdef.jpg" alt="performance score">
+
 Hero Section
 <img src="https://i.imgur.com/0wG1i28.jpg" alt="MflixHero">
 
