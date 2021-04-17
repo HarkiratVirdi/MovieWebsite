@@ -4,7 +4,7 @@ MFlix is a movie e-commerce for renting and buying movies. Admin can add, update
 
 **Work Environment:** Individual Project
 
-You can Launch the Website on [mflixHarkirat.herokuapp.com]mflixHarkirat.herokuapp.com or find the [repository](https://github.com/HarkiratVirdi/MovieWebsite).
+You can Launch the Website on [Heroku]mflixHarkirat.herokuapp.com or find the [repository](https://github.com/HarkiratVirdi/MovieWebsite).
 
 If You wish to test this app as admin user, You can use the Following credentials for testing all the functionality.<br/>
 **EMAIL:** mflixadmin@gmail.com <br/>
@@ -38,6 +38,9 @@ If You wish to test this app as admin user, You can use the Following credential
 
 ### Screenshots
 
+Performance Stats
+<img src="https://i.imgur.com/JFRHdef.jpg" alt="performance score">
+
 Hero Section
 <img src="https://i.imgur.com/0wG1i28.jpg" alt="MflixHero">
 
@@ -69,3 +72,7 @@ Admin Dashboard
 
 Update Movie
 <img src="https://i.imgur.com/iP0tXPD.jpg" alt="Update Movie">
+
+
+<img src="https://i.imgur.com/pu1YakK.gif" alt="hero video">
+<img src="https://i.imgur.com/9saRRsY.gif" alt="stripe payment">
