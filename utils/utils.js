@@ -59,3 +59,47 @@ module.exports.uploadImages = async(image) => {
 }
 
 
+module.exports.sendOrderMail = async(user, order) => {
+  console.log("send Order Mail", order);
+ 
+  let movieDetails = ""
+
+   order.forEach((el) => {
+    let price = el.buy;
+    let boughtOrRent = "bought";
+
+    if(!el.isBuying)
+    {
+      price = el.rent;
+      boughtOrRent = "rented";
+    }  
+    
+    movieDetails += el.name + " " + boughtOrRent + " " + "$" + price + "<br/>";
+  })
+
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        const msg = {
+          to: user.email,
+          from: "harkiratsinghvirdi3@gmail.com",
+          subject: "Orders Purchased",
+          text: "We hope You enjoy this app.",
+          html: `<h3>Hi ${user.firstname}, ${user.lastname}</h3>
+            <p>Thanks for purchasing the Movies</p>
+            <p>${movieDetails}</p>
+            <br>
+            <h3 style="#000">MFlix</h3>
+      `,
+        };
+
+        
+          const msgSend = await sgMail.send(msg);
+
+          if (msgSend) {
+            console.log("Email Sent");
+              return true;
+          
+        } else{
+          console.log("error sending mail", error);
+          throw `Error Sending Mail ${error}`
+        }
+}

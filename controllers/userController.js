@@ -7,7 +7,8 @@ const {
 } = require("../utils/Validation");
 const {
   randomImage,
-  sendMail
+  sendMail,
+  sendOrderMail
 } = require("../utils/utils");
 const movieModel = require("../models/movieModel");
 const orderModel = require("../models/orderModel");
@@ -407,8 +408,10 @@ module.exports.payment = async (req, res) => {
     }
       const order = await new orderModel(newOrder).save();
       if (order) {
-        console.log("order", order);
+        // console.log("order", order);
         req.session.userInfo.cart = null;
+        console.log("product_data",product_data);
+        await sendOrderMail(req.session.userInfo, moviesInCart);
         res.redirect("/user/orders");
       }
     }).catch((err) => {
