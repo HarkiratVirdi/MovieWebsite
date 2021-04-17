@@ -295,8 +295,43 @@ module.exports.deleteUser = async (req, res) => {
   }
 }
 
-module.exports.dashboard = (req, res) => {
-  res.render("dashboard");
+module.exports.dashboard = async(req, res) => {
+    try {
+    const orders = await orderModel.find({
+      user: res.locals.user._id
+    }).lean();
+
+    if(orders)
+    {
+      const allOrders = [];
+      orders.forEach((el, indexOuter, arrOrder) => {
+        let singleOrder = [];
+        el.orderItems.forEach(async(orderItem, i, arrOrderItem) => {
+            const movieInOrder = await movieModel
+              .findOne({
+                _id: orderItem.movieId,
+              }, {img_s_C: 1, name: 1})
+              .lean();
+
+                if (movieInOrder) {
+                  orderItem = {...orderItem, ...movieInOrder};
+                  singleOrder.push(orderItem);
+                  el = {...el, singleOrder};
+                  allOrders[indexOuter] = el;
+           
+                  if(i === arrOrderItem.length - 1 && indexOuter === arrOrder.length - 1)
+                  {
+                   res.render("dashboard", {
+                     allOrders
+                   })
+                  }
+                }
+        })
+        })
+    }
+  } catch (err) {
+    console.log("error getting orders");
+  }
 };
 
 module.exports.registerUser = (req, res) => {
