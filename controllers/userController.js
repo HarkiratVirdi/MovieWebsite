@@ -97,80 +97,70 @@ module.exports.signIn = async (req, res) => {
 };
 
 module.exports.signUp = async (req, res) => {
-  const {
-    Email,
-    Password,
-    Firstname,
-    Lastname
-  } = req.body;
-  const isEmail = validateEmail(Email);
-  const isPassword = validatePassword(Password);
-  const isFirstName = validateName(Firstname);
-  const isLastName = validateName(Lastname);
-  let errors = {
-    Firstname: "",
-    Lastname: "",
-    Email: "",
-    Password: "",
-  };
-
-  let valid = true;
-  if (!isEmail || Email === "") {
-    errors.Email = "Email must be valid";
-    valid = false;
-  }
-  if (!isLastName || Lastname === "") {
-    errors.Lastname = "Last Name should only contain Alphabets";
-    valid = false;
-
-  }
-  if (!isFirstName || Firstname === "") {
-    errors.Firstname = "First Name should only contain Alphabets";
-    valid = false;
-
-  }
-  if (!isPassword || Password === "") {
-    errors.Password =
-      "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
-    valid = false;
-  }
-
-  try {
-    const newUser = new userModel({
-      firstname: Firstname,
-      lastname: Lastname,
-      email: Email,
-      password: Password,
-    });
-
-    if (!valid || !newUser) {
-      throw "Incorrect Credentials Entered";
-    } else {
-      const user = await newUser.save();
-      const mailSent = await sendMail(user);
-      if (user && mailSent) {
-        user.cart = [];
-        req.session.userInfo = user;
-        console.log("session after login", user);
-        console.log("session2 after login", req.session.userInfo);
-        res.redirect("/user/dashboard");
-      } else {
-        throw "Unable to Register User";
-      }
-    }
-  } catch (err) {
-    if (err.code === 11000) {
-      errors.Email = "Email is Already Registered. Please Login Instead";
-    }
-
-    const image = randomImage();
-    res.render("register", {
-      image: image,
-      title: "MovieNation | Register",
-      errors: errors,
-      values: req.body,
-    });
-  }
+   console.log("req.body", req.body);
+   const { Email, Password, Firstname, Lastname } = req.body;
+   const isEmail = validateEmail(Email);
+   const isPassword = validatePassword(Password);
+   const isFirstName = validateName(Firstname);
+   const isLastName = validateName(Lastname);
+   let errors = {
+     Firstname: "",
+     Lastname: "",
+     Email: "",
+     Password: "",
+   };
+   let valid = true;
+   if (!isEmail || Email === "") {
+     errors.Email = "Email must be valid";
+     valid = false;
+   }
+   if (!isLastName || Lastname === "") {
+     errors.Lastname = "Last Name should only contain Alphabets";
+     valid = false;
+   }
+   if (!isFirstName || Firstname === "") {
+     errors.Firstname = "First Name should only contain Alphabets";
+     valid = false;
+   }
+   if (!isPassword || Password === "") {
+     errors.Password =
+       "Password must have length of 8 characters including 1 letter, 1 number, 1 special character";
+     valid = false;
+   }
+   try {
+     const newUser = new userModel({
+       firstname: Firstname,
+       lastname: Lastname,
+       email: Email,
+       password: Password,
+     });
+     if (!valid || !newUser) {
+       throw "Incorrect Credentials Entered";
+     } else {
+       const user = await newUser.save();
+       await sendMail(user);
+       if (user) {
+         user.cart = [];
+         req.session.userInfo = user;
+         console.log("session after login", user);
+         console.log("session2 after login", req.session.userInfo);
+         res.redirect("/user/dashboard");
+       } else {
+         throw "Unable to Register User";
+       }
+     }
+   } catch (err) {
+     if (err.code === 11000) {
+       errors.Email = "Email is Already Registered. Please Login Instead";
+     }
+     const image = randomImage();
+     res.render("register", {
+       image: image,
+       title: "MovieNation | Register",
+       errors: errors,
+       values: req.body,
+     });
+   }
 };
 
 module.exports.adminDashboard = async (req, res) => {
@@ -301,9 +291,11 @@ module.exports.dashboard = async(req, res) => {
       user: res.locals.user._id
     }).lean();
 
-    if(orders)
-    {
+    console.log("orders", orders);
+
       const allOrders = [];
+      if(orders.length > 0)
+      {
       orders.forEach((el, indexOuter, arrOrder) => {
         let singleOrder = [];
         el.orderItems.forEach(async(orderItem, i, arrOrderItem) => {
@@ -326,9 +318,12 @@ module.exports.dashboard = async(req, res) => {
                    })
                   }
                 }
-        })
-        })
-    }
+                
+              })
+            })
+          }else{
+            res.render("dashboard",{ allOrders: []});
+          }
   } catch (err) {
     console.log("error getting orders");
   }
@@ -336,6 +331,8 @@ module.exports.dashboard = async(req, res) => {
 
 module.exports.registerUser = (req, res) => {
   const image = randomImage();
+
+  console.log("REGISTER PAGE LOADED");
 
   let account = false;
   if (req.query.account) {
@@ -370,42 +367,50 @@ module.exports.checkout = async (req, res) => {
 }
 
 module.exports.getOrders = async (req, res) => {
-  try {
-    const orders = await orderModel.find({
-      user: res.locals.user._id
-    }).lean();
+ try {
+   const orders = await orderModel
+     .find({
+       user: res.locals.user._id,
+     })
+     .lean();
 
-    if(orders)
-    {
-      const allOrders = [];
-      orders.forEach((el, indexOuter, arrOrder) => {
-        let singleOrder = [];
-        el.orderItems.forEach(async(orderItem, i, arrOrderItem) => {
-            const movieInOrder = await movieModel
-              .findOne({
-                _id: orderItem.movieId,
-              }, {img_s_C: 1, name: 1})
-              .lean();
+   const allOrders = [];
+   if (orders.length > 0) {
+     orders.forEach((el, indexOuter, arrOrder) => {
+       let singleOrder = [];
+       el.orderItems.forEach(async (orderItem, i, arrOrderItem) => {
+         const movieInOrder = await movieModel
+           .findOne(
+             {
+               _id: orderItem.movieId,
+             },
+             { img_s_C: 1, name: 1 }
+           )
+           .lean();
 
-                if (movieInOrder) {
-                  orderItem = {...orderItem, ...movieInOrder};
-                  singleOrder.push(orderItem);
-                  el = {...el, singleOrder};
-                  allOrders[indexOuter] = el;
-           
-                  if(i === arrOrderItem.length - 1 && indexOuter === arrOrder.length - 1)
-                  {
-                   res.render("orders", {
-                     allOrders
-                   })
-                  }
-                }
-        })
-        })
-    }
-  } catch (err) {
-    console.log("error getting orders");
-  }
+         if (movieInOrder) {
+           orderItem = { ...orderItem, ...movieInOrder };
+           singleOrder.push(orderItem);
+           el = { ...el, singleOrder };
+           allOrders[indexOuter] = el;
+
+           if (
+             i === arrOrderItem.length - 1 &&
+             indexOuter === arrOrder.length - 1
+           ) {
+             res.render("orders", {
+               allOrders,
+             });
+           }
+         }
+       });
+     });
+   } else {
+     res.render("orders", { allOrders: [] });
+   }
+ } catch (err) {
+   console.log("error getting orders");
+ }
 }
 
 
@@ -453,3 +458,5 @@ module.exports.payment = async (req, res) => {
      console.log("error inserting order to model", err);
    });
 }
+
+

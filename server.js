@@ -18,6 +18,7 @@ const iterateThroughArray = require("./views/helpers/iterateThroughArray");
 const subtract = require("./views/helpers/subtract");
 const multiply = require("./views/helpers/multiply");
 const {userSession, determineMethod} = require("./middleware/userSession");
+const { ConnectionStates } = require("mongoose");
 
 
 const PORT = process.env.PORT || 8080;
@@ -60,7 +61,11 @@ app.get("/", (req, res, next) => {
   console.log("session data", res.locals.user);
   next();
 });
+
+console.log("user find");
+
 app.use("/", movieRoutes);
+console.log("user find 2");
 app.use("/user", userRoutes);
 app.use((req, res) => {
   res.render("error404", {
