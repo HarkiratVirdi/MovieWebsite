@@ -62,10 +62,7 @@ app.get("/", (req, res, next) => {
   next();
 });
 
-console.log("user find");
-
 app.use("/", movieRoutes);
-console.log("user find 2");
 app.use("/user", userRoutes);
 app.use((req, res) => {
   res.render("error404", {

@@ -332,8 +332,6 @@ module.exports.dashboard = async(req, res) => {
 module.exports.registerUser = (req, res) => {
   const image = randomImage();
 
-  console.log("REGISTER PAGE LOADED");
-
   let account = false;
   if (req.query.account) {
     account = true;
@@ -341,7 +339,7 @@ module.exports.registerUser = (req, res) => {
 
   res.render("register", {
     image: image,
-    title: "MovieNation | Register",
+    title: "MFlix | Register",
     account: account
   });
 };
