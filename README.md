@@ -1,13 +1,13 @@
 # MFlix
 ### Overview
-MFlix is a movie e-commerce for renting and buying movies. Admin can add, update, delete movies in list. 
+MFlix is a movie e-commerce for renting and buying movies. Admin can add, update, delete movies in list. Stripe Payment API is added for payment. 
 
 **Work Environment:** Individual Project
 
 You can Launch the Website on [Heroku]mflixHarkirat.herokuapp.com or find the [repository](https://github.com/HarkiratVirdi/MovieWebsite).
 
 If You wish to test this app as admin user, You can use the Following credentials for testing all the functionality.<br/>
-**EMAIL:** mflixadmin@gmail.com <br/>
+**EMAIL:** mflix.admin@gmail.com <br/>
 **PASSWORD:** Iamadmin@1
 #### Technologies Used:
 * Express.js
