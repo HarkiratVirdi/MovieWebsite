@@ -8,7 +8,7 @@ You can Launch the Website on [Heroku]mflixHarkirat.herokuapp.com or find the [r
 
 If You wish to test this app as admin user, You can use the Following credentials for testing all the functionality.<br/>
 **EMAIL:** mflix.admin@gmail.com <br/>
-**PASSWORD:** Iamadmin@1
+**PASSWORD:** *********
 #### Technologies Used:
 * Express.js
 * Express-Handlebars
